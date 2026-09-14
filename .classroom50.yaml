@@ -1,0 +1,7 @@
+schema: "classroom50/repo-config/v1"
+classroom: "software-development"
+assignment: "semester-project"
+owner:
+  username: "Cloxeer"
+  id: 62780923
+  accepted_at: "2026-09-14T16:39:50Z"
