@@ -1,0 +1,13 @@
+/*
+  This file & what it does: makes the map fill the screen under the top bar.
+  Why we have it: the map would sit behind the bar if it started at the top of the screen.
+  The top is pushed down by the bar height so you can see the whole map.
+*/
+
+#map {
+  position: absolute;
+  top: calc(var(--navbar-height) + env(safe-area-inset-top, 0px));
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

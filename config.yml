@@ -1,0 +1,104 @@
+# All the values you can change live in this file.
+# CSS values need a unit, like "40px". Map and badge numbers are just numbers.
+# Change a value here, save, and refresh.
+
+app:
+  name: "Better NMSU Maps"
+  startupErrorText: "Could not start the app. Check your internet connection and refresh."
+
+theme:
+  crimson: "#8C0B42"
+  crimsonShade: "#6f0834"
+  white: "#ffffff"
+  textStrong: "#1b1b1d"
+  textBody: "#3b3b40"
+  textCaption: "#6b6b70"
+  textMuted: "#8a8690"
+  lineStrong: "#e6e6ea"
+  lineSoft: "#f0f0f3"
+  focus: "#1a73e8"
+  shadowSoft: "rgba(0, 0, 0, 0.12)"
+  shadowStrong: "rgba(0, 0, 0, 0.22)"
+  font: '-apple-system, "SF Pro Text", system-ui, sans-serif'
+  spacingUnit: "4px"
+  smooth: "cubic-bezier(0.32, 0.72, 0, 1)" # starts fast, slows down at the end
+  focusRingWidth: "3px"
+  focusRingOffset: "2px"
+
+navbar:
+  title: "Campus"
+  height: "48px"
+  titleSize: "17px"
+
+map:
+  center: [-106.7512196, 32.2824753]
+  zoom: 16.2
+  minZoom: 14
+  maxZoom: 18
+  styleUrl: "https://tiles.openfreemap.org/styles/liberty"
+  hiddenBasemapLayer: "poi" # hide the map's extra business labels
+  fencePadding: 0.01 # extra space around the buildings so you can't drag too far
+  selectZoom: 16.8
+  flyDuration: 320 # how long the fly takes, in milliseconds
+  flyCurve: 1.2 # how much the map zooms out during the fly
+  maxPixelRatio: 2 # don't draw sharper than 2x
+  maxTileCache: 60 # how many map tiles to keep in memory
+  namesMinZoom: 15.5 # names show up starting at this zoom
+  nameSizeSmall: 11 # name size at the smallest zoom
+  nameSizeLarge: 14 # name size at the biggest zoom
+  nameMaxWidth: 7 # how wide a name can get before it wraps
+  nameOffset: -1.9 # how far above the badge the name sits
+  namePadding: 2 # space around a name so names don't overlap
+  nameColor: "#1b1b1d"
+  nameHalo: "#ffffff"
+  nameHaloWidth: 1.5
+  labelFont: "Noto Sans Bold"
+  sheetPauseAfterTap: 0 # wait this many ms before the info box opens
+
+badge:
+  size: 28
+  pixelRatio: 2
+  ringRadius: 13
+  centerRadius: 11
+  selectedCenterRadius: 10
+  ring: "#ffffff"
+  selectedRing: "#0a84ff" # blue ring for the picked building
+  letterFont: 'italic 700 15px Georgia, "Times New Roman", serif'
+  letterOffset: 1
+  letter: "i"
+
+sheet:
+  aboutTitle: "About this building"
+  noDescriptionText: "A full description for this building is coming soon."
+  unknownText: "Unknown"
+  addressLabel: "Address"
+  buildingLabel: "Building"
+  numberText: "No."
+  builtLabel: "Built"
+  floorsLabel: "Floors"
+  linkText: "See it on NMSU's official map"
+  codeSourceText: "Building code"
+  factsSourceText: "Other facts: NMSU Office of Space Planning"
+  floorCountText: "floor count"
+  builtYearText: "year built"
+  plansNoteText: "Floor plans are coming in a later sprint."
+  slideTime: "0.3s"
+  titleSize: "16px"
+  sideWidth: "40px" # equal space each side of the title, so it stays centred
+  closeSize: "28px"
+  bottomSpace: "48px"
+  headingSize: "15px"
+  bodySize: "14px"
+  bodyLineHeight: 1.55
+  labelWidth: "80px"
+  labelSize: "13px"
+  linkSize: "14px"
+  linkWeight: 600
+  sourceSize: "12px"
+  dividerWidth: "1px"
+  bodyMaxWidthDesktop: "720px"
+
+categories: # kinds of places on the map; the colours mean the same thing everywhere
+  # Sprint 1 has only one kind. Housing, parks, food and parking come back in Sprint 2,
+  # and each one only needs a line here plus buildings with that category.
+  study: { label: "Study", color: "#8C0B42" } # NMSU crimson: classes and learning

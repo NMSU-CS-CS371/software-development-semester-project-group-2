@@ -1,0 +1,124 @@
+/*
+  This file & what it does: styles the building info box that slides up from the bottom.
+  Why we have it: the box has to look separate from the map and move smoothly.
+  It moves with transform only. The phone can slide a layer without redrawing the whole page, so the animation stays smooth.
+*/
+
+/* the box starts off the bottom of the screen */
+#building-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: var(--theme-white);
+  /* pushed down until a building is picked */
+  transform: translateY(100%);
+  transition: transform var(--sheet-slide-time) var(--theme-smooth);
+  /* taps go to the map while the box is hidden */
+  visibility: hidden;
+}
+#building-sheet.is-open {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* crimson header */
+.bs-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: calc(var(--s3) + env(safe-area-inset-top, 0px)) var(--s3) var(--s3);
+  background: var(--theme-crimson);
+  color: var(--theme-white);
+}
+.bs-side { width: var(--sheet-side-width); flex: none; display: flex; align-items: center; } /* same width on both sides so the title stays centered */
+.bs-name {
+  flex: 1;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--sheet-title-size);
+  /* long names wrap to 2 lines, then get cut off with ... */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.bs-x {
+  border: none;
+  background: none;
+  color: var(--theme-white);
+  font-size: var(--sheet-close-size);
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  justify-content: flex-end;
+}
+
+/* space for a floor-plan SVG. hidden until a file in data/floors loads */
+#bs-plan {
+  display: block;
+  min-height: 220px;
+  margin: 0 0 var(--s5);
+}
+
+#bs-plan[hidden] {
+  display: block !important;
+}
+
+#bs-plan-slot {
+  min-height: 180px;
+  background: var(--theme-white);
+  border: var(--sheet-divider-width) solid var(--theme-line-soft);
+  border-radius: var(--s2);
+}
+.bs-plan-label { margin: var(--s3) 0 var(--s2); font-size: var(--sheet-label-size); color: var(--theme-text-muted); }
+.bs-plan-svg {
+  overflow: auto;
+  background: var(--theme-white);
+  border: var(--sheet-divider-width) solid var(--theme-line-soft);
+  border-radius: var(--s2);
+  min-height: 180px;
+}
+.bs-plan-svg svg { display: block; width: 100%; height: auto; }
+
+/* the text inside the box */
+.bs-body {
+  flex: 1;
+  overflow: auto;
+  padding: var(--s5) var(--s4) var(--sheet-bottom-space);
+  -webkit-overflow-scrolling: touch;
+}
+.bs-h3 { font-size: var(--sheet-heading-size); margin: 0 0 var(--s3); color: var(--theme-crimson); }
+.bs-body p { font-size: var(--sheet-body-size); line-height: var(--sheet-body-line-height); color: var(--theme-text-body); margin: 0 0 var(--s3); }
+.bs-description.muted p { color: var(--theme-text-muted); } /* gray text for "coming soon" */
+
+/* one fact per row, label on the left */
+.bs-facts { margin: var(--s4) 0; padding: 0; }
+.bs-row { display: flex; gap: var(--s3); padding: var(--s2) 0; border-bottom: var(--sheet-divider-width) solid var(--theme-line-soft); }
+.bs-row dt { flex: 0 0 var(--sheet-label-width); font-size: var(--sheet-label-size); color: var(--theme-text-muted); margin: 0; }
+.bs-row dd { flex: 1; font-size: var(--sheet-body-size); color: var(--theme-text-strong); margin: 0; }
+
+.bs-link { display: inline-block; margin-top: var(--s2); font-size: var(--sheet-link-size); font-weight: var(--sheet-link-weight); color: var(--theme-crimson); }
+.bs-link[hidden] { display: none; }
+
+/* small text that says where the facts came from */
+.bs-source {
+  margin-top: var(--s5);
+  padding-top: var(--s4);
+  border-top: var(--sheet-divider-width) solid var(--theme-line-strong);
+  font-size: var(--sheet-source-size);
+  color: var(--theme-text-muted);
+  line-height: var(--sheet-body-line-height);
+}
+
+/* on a big screen, don't let the text stretch all the way across */
+@media (min-width: 768px) {
+  .bs-body > * { max-width: var(--sheet-body-max-width-desktop); margin-left: auto; margin-right: auto; }
+}
+
+/* if the phone has reduce motion on, skip the slide */
+@media (prefers-reduced-motion: reduce) {
+  #building-sheet { transition: none; }
+}

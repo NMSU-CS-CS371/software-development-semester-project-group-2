@@ -1,0 +1,119 @@
+{
+ "type": "Buildings",
+ "//": [
+  "The buildings on the map: Hardman and Jacobs, Jett Hall, and Corbett Center.",
+  "Facts come from the NMSU Office of Space Planning. Building codes come from the NMSU Registrar.",
+  "To add a building, copy the example below into the buildings list and fill in real info.",
+  "Also add a matching description in data/descriptions.json using the same id.",
+  "The example itself is not on the map. Only objects inside buildings are."
+ ],
+ "example": {
+  "type": "Building",
+  "properties": {
+   "id": "000",
+   "code": "XX",
+   "name": "Building Name",
+   "address": "Street, Las Cruces, NM 88003",
+   "propertyNumber": "000",
+   "built": "2000",
+   "builtSource": "Where the year came from",
+   "floors": [1, 2],
+   "floorsSource": "Where the floor count came from",
+   "category": "study",
+   "nmsuUrl": "https://map.nmsu.edu/",
+   "source": "Where the facts came from",
+   "codeSource": "Where the building code came from"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-106.75, 32.28]
+  }
+ },
+ "buildings": [
+  {
+   "type": "Building",
+   "properties": {
+    "id": "323",
+    "code": "HJLC",
+    "name": "Hardman and Jacobs Undergraduate Learning Center",
+    "address": "2902 McFie Cir., Las Cruces, NM 88003",
+    "propertyNumber": "323",
+    "built": "2015",
+    "builtSource": "NMSU Space Planning",
+    "floors": [
+     1,
+     2
+    ],
+    "floorsSource": "NMSU Space Planning",
+    "category": "study",
+    "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525521",
+    "source": "NMSU Office of Space Planning, Buildings layer (property 323)",
+    "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.7511869,
+     32.2824849
+    ]
+   }
+  },
+  {
+   "type": "Building",
+   "properties": {
+    "id": "189",
+    "code": "JH",
+    "name": "Jett Hall",
+    "address": "1040 S. Horseshoe, Las Cruces, NM 88001",
+    "propertyNumber": "189",
+    "built": "1957",
+    "builtSource": "NMSU's campus map description",
+    "floors": [
+     1,
+     2
+    ],
+    "floorsSource": "NMSU Space Planning",
+    "category": "study",
+    "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525525",
+    "source": "NMSU Office of Space Planning, Buildings layer (property 189)",
+    "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.7549622,
+     32.281122
+    ]
+   }
+  },
+  {
+   "type": "Building",
+   "properties": {
+    "id": "285",
+    "code": "CC",
+    "name": "Corbett Center Student Union",
+    "address": "1600 International Mall, Las Cruces, NM 88003",
+    "propertyNumber": "285",
+    "built": "1968",
+    "builtSource": "NMSU Space Planning",
+    "floors": [
+     1,
+     2,
+     3
+    ],
+    "floorsSource": "OpenStreetMap building:levels",
+    "category": "study",
+    "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/526646",
+    "source": "NMSU Office of Space Planning, Buildings layer (property 285)",
+    "codeSource": "NMSU Space Planning (not on the Registrar list)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.7477095,
+     32.2828941
+    ]
+   }
+  }
+ ]
+}

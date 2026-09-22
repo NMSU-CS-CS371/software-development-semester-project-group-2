@@ -1,0 +1,67 @@
+<!doctype html>
+<!--
+  This file & what it does: lays out the screen. That is the top bar, the map, and the building info box.
+  Why we have it: the browser needs one HTML page to start from. Words and numbers stay in config.yml
+  and the data files so this file does not change every time a building name does.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- phone address bar color. JS updates this from config.yml -->
+  <meta name="theme-color" content="#8C0B42" />
+  <title>Better NMSU Maps</title>
+
+  <!-- connect early so the libraries and map tiles load faster -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
+  <!-- start these downloads now so they happen at the same time -->
+  <link rel="modulepreload" href="js/main.js" />
+  <link rel="preload" href="config.yml" as="fetch" crossorigin />
+  <link rel="preload" href="data/buildings.geojson" as="fetch" crossorigin />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <!-- our css. base.css has to come first -->
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/map.css" />
+  <link rel="stylesheet" href="styles/sheet.css" />
+
+  <!-- libraries. defer lets the page show before these run -->
+  <script defer src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+
+  <!-- top bar. the title text comes from config.yml -->
+  <div class="navbar">
+    <span class="navbar-title" id="navbar-title"></span>
+  </div>
+
+  <!-- the map goes in this div -->
+  <div id="map"></div>
+
+  <!-- building info box. buildingSheet.js fills in the text -->
+  <div id="building-sheet" role="dialog" aria-label="Building information" aria-hidden="true">
+    <div class="bs-head">
+      <!-- empty space so the name stays in the middle -->
+      <span class="bs-side"></span>
+      <span id="bs-name" class="bs-name"></span>
+      <button id="bs-close" class="bs-side bs-x" type="button" aria-label="Close">&times;</button>
+    </div>
+    <div class="bs-body">
+      <!-- floor plan slot. drop data/floors/hjlc-1.svg in and it shows up here -->
+      <section id="bs-plan" class="bs-plan" hidden>
+        <h3 class="bs-h3">Floor plan</h3>
+        <div id="bs-plan-slot"></div>
+      </section>
+      <h3 id="bs-about-title" class="bs-h3"></h3>
+      <div id="bs-description" class="bs-description"></div>
+      <dl id="bs-facts" class="bs-facts"></dl>
+      <a id="bs-link" class="bs-link" href="#" target="_blank" rel="noopener"></a>
+      <p id="bs-source" class="bs-source"></p>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

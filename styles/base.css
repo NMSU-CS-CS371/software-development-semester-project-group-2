@@ -1,0 +1,75 @@
+/*
+  This file & what it does: sets up the page, the spacing steps, and the top bar.
+  Why we have it: colors and sizes come from config.yml so the same pixel value is not typed in more than one rule.
+  This file loads first because the other stylesheets use the spacing steps defined here.
+*/
+
+/* spacing steps. --s1 is the smallest, --s16 is the biggest */
+:root {
+  --s1: calc(var(--theme-spacing-unit) * 1);
+  --s2: calc(var(--theme-spacing-unit) * 2);
+  --s3: calc(var(--theme-spacing-unit) * 3);
+  --s4: calc(var(--theme-spacing-unit) * 4);
+  --s5: calc(var(--theme-spacing-unit) * 5);
+  --s6: calc(var(--theme-spacing-unit) * 6);
+  --s8: calc(var(--theme-spacing-unit) * 8);
+  --s12: calc(var(--theme-spacing-unit) * 12);
+  --s16: calc(var(--theme-spacing-unit) * 16);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--theme-font);
+  color: var(--theme-text-strong);
+  background: var(--theme-white);
+  /* stops a double tap from zooming the page */
+  touch-action: manipulation;
+}
+
+/* hide the page until config.yml is loaded */
+html:not(.config-ready) body { visibility: hidden; }
+
+/* hidden things should really be hidden */
+[hidden] { display: none !important; }
+
+/* blue outline when you tab to something */
+:focus-visible { outline: var(--theme-focus-ring-width) solid var(--theme-focus); outline-offset: var(--theme-focus-ring-offset); }
+
+/* the crimson bar at the top */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--navbar-height) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px); /* extra space for the iPhone notch */
+  background: var(--theme-crimson);
+  color: var(--theme-white);
+}
+.navbar-title { font-size: var(--navbar-title-size); font-weight: 600; }
+
+/*
+  error message if the app can't start.
+  the colors are written here because config.yml might be the thing that failed.
+*/
+.startup-error {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  font-family: sans-serif;
+  color: #8c0b42;
+  background: #fff;
+  visibility: visible;
+}
