@@ -17,7 +17,7 @@
    "propertyNumber": "000",
    "built": "2000",
    "builtSource": "Where the year came from",
-   "floors": [1, 2],
+   "floors": [0, 1, 2, 3],
    "floorsSource": "Where the floor count came from",
    "category": "study",
    "nmsuUrl": "https://map.nmsu.edu/",
@@ -69,6 +69,7 @@
     "built": "1957",
     "builtSource": "NMSU's campus map description",
     "floors": [
+     0,
      1,
      2
     ],
