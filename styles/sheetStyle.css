@@ -113,9 +113,20 @@
   line-height: var(--sheet-body-line-height);
 }
 
-/* on a big screen, don't let the text stretch all the way across */
+/* Center and cap sheet content width on large screens */
 @media (min-width: 768px) {
-  .bs-body > * { max-width: var(--sheet-body-max-width-desktop); margin-left: auto; margin-right: auto; }
+  .bs-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bs-body > * {
+    width: 100%;
+    max-width: var(--sheet-body-max-width-desktop);
+  }
+  .bs-body > * { 
+    max-width: var(--sheet-body-max-width-desktop); margin-left: auto; margin-right: auto; 
+  }
 }
 
 /* if the phone has reduce motion on, skip the slide */

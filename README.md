@@ -1,5 +1,7 @@
 # Welcome to BetterNMSUMaps readme by The Brainy Bunch
  **Project file:** `software-development-semester-project-group-2`
+
+ **Project link** `https://nmsu-cs-cs371.github.io/software-development-semester-project-group-2/`
  
  **Suggested Project file:** `software-development-semester-project-BetterNMSUMaps`
 
@@ -46,30 +48,38 @@
 **Root Path:** `/software-development-semester-project-group-2`
 
 ```If you notice this text isnt on the read me its because this line is hidden in the read me. so Chicken butt. 
+├── .github
+│   └── workflows
+│       └── autograde.yaml
 ├── data
 │   ├── floors
 │   ├── buildings.geojson
 │   └── descriptions.json
 ├── js
 │   ├── core
-│   │   ├── afterPaint.js
 │   │   ├── config.js
 │   │   ├── html.js
-│   │   └── store.js
+│   │   ├── store.js
+│   │   └── waitOneFrame.js
 │   ├── logic
-│   │   └── box.js
+│   │   └── mapBounds.js
 │   ├── map
 │   │   ├── badges.js
 │   │   └── campusMap.js
 │   ├── sheet
-│   │   └── buildingSheet.js
+│   │   └── infoSheet.js
 │   └── main.js
 ├── styles
-│   ├── base.css
-│   ├── map.css
-│   └── sheet.css
+│   ├── baseStyle.css
+│   ├── mapStyle.css
+│   └── sheetStyle.css
+├── .classroom50.yaml
 ├── README.md
 ├── config.yml
 └── index.html
+```
 
+## Use by NMSU
+This project is coursework for CS 371. The course and the instructor may use it for class.
 
+If New Mexico State University wants to adopt Better NMSU Maps as an official campus service, The Brainy Bunch asks for a written agreement first. That agreement should include compensation for the team, such as a stipend or scholarship. Viewing the public GitHub Pages site is not that agreement.
