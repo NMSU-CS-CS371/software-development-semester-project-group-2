@@ -124,9 +124,7 @@
     width: 100%;
     max-width: var(--sheet-body-max-width-desktop);
   }
-  .bs-body > * { 
-    max-width: var(--sheet-body-max-width-desktop); margin-left: auto; margin-right: auto; 
-  }
+  
 }
 
 /* if the phone has reduce motion on, skip the slide */
