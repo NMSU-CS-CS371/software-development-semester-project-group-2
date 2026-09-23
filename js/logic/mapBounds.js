@@ -10,7 +10,7 @@
  * @param {number} padding
  * @returns {number[][]} [[west, south], [east, north]]
  */
-export function boxAround(points, padding) {
+export function boundsAround(points, padding) {
   let west = Infinity;
   let south = Infinity;
   let east = -Infinity;

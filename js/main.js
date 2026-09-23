@@ -7,9 +7,9 @@
 
 import { CONFIG, loadConfig } from './core/config.js';
 import { store } from './core/store.js';
-import { boxAround } from './logic/box.js';
+import { boundsAround } from './logic/mapBounds.js';
 import { CampusMap } from './map/campusMap.js';
-import { BuildingSheet } from './sheet/buildingSheet.js';
+import { InfoSheet } from './sheet/infoSheet.js';
 
 /**
  * Get the map style and take out the extra label layer we don't want.
@@ -60,7 +60,7 @@ function recordsFrom(file) {
 /**
  * Load descriptions after the map is already up.
  * @param {object[]} buildings
- * @param {BuildingSheet} sheet
+ * @param {InfoSheet} sheet
  * @returns {Promise<void>}
  */
 async function loadDescriptions(buildings, sheet) {
@@ -116,12 +116,12 @@ async function startApp() {
     buildingsById[building.id] = building;
     centers.push(building.center);
   }
-  /* box around the buildings so you can't drag off campus */
-  const fence = boxAround(centers, CONFIG.map.fencePadding);
+  /* create bounds around the buildings so you can't drag off campus */
+  const fence = boundsAround(centers, CONFIG.map.fencePadding);
 
   /* make the map first, then the info box */
   new CampusMap(buildingsById, fence, files[1]);
-  const sheet = new BuildingSheet(buildingsById);
+  const sheet = new InfoSheet(buildingsById);
 
   /* so we can type store.get() in the console */
   window.store = store;

@@ -5,7 +5,7 @@
  * A tap on empty space clears the pick.
  */
 
-import { afterNextPaint } from '../core/afterPaint.js';
+import { waitOneFrame } from '../core/waitOneFrame.js';
 import { CONFIG } from '../core/config.js';
 import { store } from '../core/store.js';
 import { addBadges, badgePictureRule, nameColorRule } from './badges.js';
@@ -133,7 +133,7 @@ export class CampusMap {
       }
       lastSelectedId = state.selectedId;
       /* wait one frame so the tap feels instant, then move the map */
-      afterNextPaint(() => this.showSelection());
+      waitOneFrame(() => this.showSelection());
     });
   }
 

@@ -7,9 +7,9 @@
 import { CONFIG } from '../core/config.js';
 import { store } from '../core/store.js';
 import { escapeHtml, safeUrl } from '../core/html.js';
-import { afterNextPaint } from '../core/afterPaint.js';
+import { waitOneFrame } from '../core/waitOneFrame.js';
 
-export class BuildingSheet {
+export class InfoSheet {
   /**
    * @param {Object.<string, object>} buildingsById
    */
@@ -155,7 +155,7 @@ export class BuildingSheet {
       return;
     }
     this.contentWaiting = true;
-    afterNextPaint(() => {
+    waitOneFrame(() => {
       this.contentWaiting = false;
       this.showContent(store.get()); /* use whatever is picked by then */
     });

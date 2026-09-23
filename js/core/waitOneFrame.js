@@ -8,6 +8,6 @@
  * Run work right after the next frame is drawn.
  * @param {() => void} work
  */
-export function afterNextPaint(work) {
+export function waitOneFrame(work) {
   requestAnimationFrame(() => setTimeout(work, 0));
 }

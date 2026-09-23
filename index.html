@@ -21,10 +21,10 @@
   <link rel="preload" href="data/buildings.geojson" as="fetch" crossorigin />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-  <!-- our css. base.css has to come first -->
-  <link rel="stylesheet" href="styles/base.css" />
-  <link rel="stylesheet" href="styles/map.css" />
-  <link rel="stylesheet" href="styles/sheet.css" />
+  <!-- our css. baseStyle.css has to come first -->
+  <link rel="stylesheet" href="styles/baseStyle.css" />
+  <link rel="stylesheet" href="styles/mapStyle.css" />
+  <link rel="stylesheet" href="styles/sheetStyle.css" />
 
   <!-- libraries. defer lets the page show before these run -->
   <script defer src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
@@ -40,7 +40,7 @@
   <!-- the map goes in this div -->
   <div id="map"></div>
 
-  <!-- building info box. buildingSheet.js fills in the text -->
+  <!-- building info box. infoSheet.js fills in the text -->
   <div id="building-sheet" role="dialog" aria-label="Building information" aria-hidden="true">
     <div class="bs-head">
       <!-- empty space so the name stays in the middle -->
