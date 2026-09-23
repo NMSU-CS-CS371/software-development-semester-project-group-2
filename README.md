@@ -1,7 +1,7 @@
 # Welcome to BetterNMSUMaps readme by The Brainy Bunch
  **Project file:** `software-development-semester-project-group-2`
 
- **Project link** `https://nmsu-cs-cs371.github.io/software-development-semester-project-group-2/`
+ **Project link:** https://nmsu-cs-cs371.github.io/software-development-semester-project-group-2/
  
  **Suggested Project file:** `software-development-semester-project-BetterNMSUMaps`
 
