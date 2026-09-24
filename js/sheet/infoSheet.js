@@ -22,6 +22,7 @@ export class InfoSheet {
     this.title = document.querySelector('#bs-name');
     this.aboutTitle = document.querySelector('#bs-about-title');
     this.description = document.querySelector('#bs-description');
+    this.links = document.querySelector('#bs-links');
     this.planSection = document.querySelector('#bs-plan');
     this.planSlot = document.querySelector('#bs-plan-slot');
     this.facts = document.querySelector('#bs-facts');
@@ -95,6 +96,12 @@ export class InfoSheet {
     this.description.innerHTML = descriptionHtml;
     this.description.classList.toggle('muted', !hasDescription);
 
+    let linksHtml = '';
+    for (const link of building.links || []) {
+      linksHtml += '<p><a href="' + safeUrl(link.url) + '" target="_blank" rel="noopener">' + escapeHtml(link.label) + '</a></p>';
+    }
+    this.links.innerHTML = linksHtml;
+
     let factsHtml = '';
     for (const fact of this.factsFor(building)) {
       const value = fact[1] || this.words.unknownText; /* missing facts say "Unknown" */
@@ -142,9 +149,8 @@ export class InfoSheet {
       const label = document.createElement('p');
       label.className = 'bs-plan-label';
       label.textContent = 'Floor ' + floor;
-      const wrap = document.createElement('div');
-      wrap.append(label, picture);
-      this.planSlot.append(wrap);
+      picture.append(label);
+      this.planSlot.append(picture);
     }
     this.planSection.hidden = this.planSlot.childElementCount === 0;
   }

@@ -52,6 +52,7 @@ function recordsFrom(file) {
     const record = Object.assign({}, building.properties);
     record.center = building.geometry.coordinates;
     record.description = []; /* filled in later */
+    record.links = [];
     records.push(record);
   }
   return records;
@@ -66,7 +67,9 @@ function recordsFrom(file) {
 async function loadDescriptions(buildings, sheet) {
   const file = await loadData('descriptions.json');
   for (const building of buildings) {
-    building.description = file.descriptions[building.id] || [];
+    const entry = file.descriptions[building.id];
+    building.description = (entry && entry.paragraphs) || [];
+    building.links = (entry && entry.links) || [];
   }
   sheet.redraw(); /* update the box if it is already open */
 }

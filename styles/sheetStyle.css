@@ -68,18 +68,30 @@
 }
 
 #bs-plan-slot {
-  min-height: 180px;
-  background: var(--theme-white);
-  border: var(--sheet-divider-width) solid var(--theme-line-soft);
-  border-radius: var(--s2);
+  background: transparent;
 }
-.bs-plan-label { margin: var(--s3) 0 var(--s2); font-size: var(--sheet-label-size); color: var(--theme-text-muted); }
 .bs-plan-svg {
+  position: relative;
   overflow: auto;
   background: var(--theme-white);
   border: var(--sheet-divider-width) solid var(--theme-line-soft);
   border-radius: var(--s2);
   min-height: 180px;
+}
+.bs-body .bs-plan-label {
+  position: absolute;
+  top: var(--s2);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  margin: 0;
+  padding: 0 var(--s2);
+  text-align: center;
+  font-size: var(--sheet-label-size);
+  color: var(--theme-text-muted);
+  background: var(--theme-white);
+  border-radius: var(--s2);
+  pointer-events: none;
 }
 .bs-plan-svg svg { display: block; width: 100%; height: auto; }
 
@@ -93,21 +105,20 @@
 .bs-h3 { font-size: var(--sheet-heading-size); margin: 0 0 var(--s3); color: var(--theme-crimson); }
 .bs-body p { font-size: var(--sheet-body-size); line-height: var(--sheet-body-line-height); color: var(--theme-text-body); margin: 0 0 var(--s3); }
 .bs-description.muted p { color: var(--theme-text-muted); } /* gray text for "coming soon" */
+.bs-links a { color: var(--theme-crimson); font-weight: var(--sheet-link-weight); }
 
 /* one fact per row, label on the left */
-.bs-facts { margin: var(--s4) 0; padding: 0; }
+.bs-facts { margin: var(--s4) 0 0; padding: 0; }
 .bs-row { display: flex; gap: var(--s3); padding: var(--s2) 0; border-bottom: var(--sheet-divider-width) solid var(--theme-line-soft); }
 .bs-row dt { flex: 0 0 var(--sheet-label-width); font-size: var(--sheet-label-size); color: var(--theme-text-muted); margin: 0; }
 .bs-row dd { flex: 1; font-size: var(--sheet-body-size); color: var(--theme-text-strong); margin: 0; }
 
-.bs-link { display: inline-block; margin-top: var(--s2); font-size: var(--sheet-link-size); font-weight: var(--sheet-link-weight); color: var(--theme-crimson); }
-.bs-link[hidden] { display: none; }
+.bs-link { display: inline-block; margin: var(--s4) 0 0; font-size: var(--sheet-link-size); font-weight: var(--sheet-link-weight); color: var(--theme-crimson); }.bs-link[hidden] { display: none; }
 
 /* small text that says where the facts came from */
 .bs-source {
   margin-top: var(--s5);
   padding-top: var(--s4);
-  border-top: var(--sheet-divider-width) solid var(--theme-line-strong);
   font-size: var(--sheet-source-size);
   color: var(--theme-text-muted);
   line-height: var(--sheet-body-line-height);

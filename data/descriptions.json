@@ -1,25 +1,37 @@
 {
  "//": [
-  "One entry per building, by property number: a list of paragraphs.",
+  "One entry per building, by property number.",
+  "paragraphs is the about text. links is optional and shows under that text.",
   "Loaded just after the map, because the map does not need it and it is the longest text we have.",
   "Where each description came from is named in that building entry in buildings.geojson."
  ],
  "descriptions": {
-  "323": [
+  "323": {
+   "paragraphs": [
    "This building was built in 2015 and was named for Carl F. Jacobs (who started the NMSU music department) and Marion Hardmen (retired English Professor and Dean of Women).",
    "Hardman and Jacobs Undergraduate Learning Center houses classrooms of various sizes that are centrally scheduled and used for many of the university's core curriculum classes and larger classes. Most undergraduates will take at least some courses in the undergraduate learning center during their student careers. The center also houses the Student Success Center, which includes TRiO Student Support Services and TRiO Upward Bound, and Information & Communications Technology, which includes a Help Desk, computer labs, a drop-in computer center, computer rentals and computer offices and workshops.",
    "This building is a LEED Gold certified building. LEED, or Leadership in Energy and Environmental Design, is a program that strives to create a more sustainable world. This building has been specifically designed to use fewer resources and decrease waste."
-  ],
-  "189": [
-   "The bidding for the construction of the Chemistry Building, Gardiner Hell, and Jett Hall all opened the same day in 1955. Jett Hall occupies the southern side of the Horseshoe. This building was constructed with Jett Annex in 1957, and in 1965 the northeast, east, and West wings were added along with improvements to the entrance. After more than 60 years, Jett Hall is still home to the chemical, mechanical, and aerospace engineering departments. The hall was named after Daniel Boone Jett, a beloved former dean of the College of Engineering and a professor of civil engineering for 30 years.",
-   "College of Engineering,",
-   "Chemical & Materials Engineering,",
-   "Mechanical Engineering"
-  ],
-  "285": [
+   ]
+  },
+  "189": {
+   "paragraphs": [
+   "The bidding for the construction of the Chemistry Building, Gardiner Hell, and Jett Hall all opened the same day in 1955. Jett Hall occupies the southern side of the Horseshoe. This building was constructed with Jett Annex in 1957, and in 1965 the northeast, east, and West wings were added along with improvements to the entrance. After more than 60 years, Jett Hall is still home to the chemical, mechanical, and aerospace engineering departments. The hall was named after Daniel Boone Jett, a beloved former dean of the College of Engineering and a professor of civil engineering for 30 years."
+   ],
+   "links": [
+    { "label": "College of Engineering", "url": "https://engr.nmsu.edu/" },
+    { "label": "Chemical & Materials Engineering", "url": "https://chme.nmsu.edu/" },
+    { "label": "Mechanical Engineering", "url": "https://mae.nmsu.edu/" }
+   ]
+  },
+  "285": {
+   "paragraphs": [
    "This building was constructed in 1968 and named after Roger B. Corbett, the President of NMSU from 1955-1970. The original plan for the building was much different from what you see today. The original location for the building was to be approximately where Educational Services building is today behind Garcia Hall. Also the original plan was only two stories but featured a planetarium, bowling lanes, billiard and table tennis, a bookstore, administrative offices, and room for games, hobbies, a dark room, etc.",
-   "Corbett Center, the university's student union, is a bustling center of activity on campus. It is home to the several dining establishments and many student organizations and programs. Corbett Center also offers attractive conference facilities.",
-   "Dining"
-  ]
+   "Corbett Center, the university's student union, is a bustling center of activity on campus. It is home to the several dining establishments and many student organizations and programs. Corbett Center also offers attractive conference facilities."
+   ],
+   "links": [
+    { "label": "Dining", "url": "https://dining.nmsu.edu/" },
+    { "label": "ASNMSU", "url": "https://asnmsu.nmsu.edu/" }
+   ]
+  }
  }
 }
