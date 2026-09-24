@@ -11,6 +11,7 @@
   z-index: 100;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background: var(--theme-white);
   /* pushed down until a building is picked */
   transform: translateY(100%);
@@ -59,12 +60,7 @@
 /* space for a floor-plan SVG. hidden until a file in data/floors loads */
 #bs-plan {
   display: block;
-  min-height: 220px;
   margin: 0 0 var(--s5);
-}
-
-#bs-plan[hidden] {
-  display: block !important;
 }
 
 #bs-plan-slot {
@@ -98,6 +94,7 @@
 /* the text inside the box */
 .bs-body {
   flex: 1;
+  min-height: 0;
   overflow: auto;
   padding: var(--s5) var(--s4) var(--sheet-bottom-space);
   -webkit-overflow-scrolling: touch;
