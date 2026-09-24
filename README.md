@@ -47,7 +47,7 @@
 
 **Root Path:** `/software-development-semester-project-group-2`
 
-```If you notice this text isnt on the read me its because this line is hidden in the read me. so Chicken butt. 
+```If you notice this text isnt on the read me its because this line is hidden in the read me. so Chicken butt. :D
 ├── .github
 │   └── workflows
 │       └── autograde.yaml
