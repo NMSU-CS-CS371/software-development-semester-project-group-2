@@ -68,11 +68,15 @@
 }
 .bs-plan-svg {
   position: relative;
-  overflow: auto;
+  overflow: visible;
   background: var(--theme-white);
   border: var(--sheet-divider-width) solid var(--theme-line-soft);
   border-radius: var(--s2);
-  min-height: 180px;
+}
+.bs-plan-svg svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .bs-body .bs-plan-label {
   position: absolute;
@@ -89,7 +93,6 @@
   border-radius: var(--s2);
   pointer-events: none;
 }
-.bs-plan-svg svg { display: block; width: 100%; height: auto; }
 
 /* the text inside the box */
 .bs-body {
