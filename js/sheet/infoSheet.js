@@ -152,7 +152,12 @@ export class InfoSheet {
       picture.append(label);
       this.planSlot.append(picture);
     }
-    this.planSection.hidden = this.planSlot.childElementCount === 0;
+    if (this.planSlot.childElementCount === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'bs-plan-empty';
+      this.planSlot.append(empty);
+    }
+    this.planSection.hidden = false;
   }
 
   /** Fill the box after the next frame, and only once. */

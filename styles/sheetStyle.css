@@ -78,6 +78,14 @@
   width: 100%;
   height: auto;
 }
+
+.bs-plan-empty {
+  min-height: 180px;
+  background: var(--theme-white);
+  border: var(--sheet-divider-width) solid var(--theme-line-soft);
+  border-radius: var(--s2);
+}
+
 .bs-body .bs-plan-label {
   position: absolute;
   top: var(--s2);
