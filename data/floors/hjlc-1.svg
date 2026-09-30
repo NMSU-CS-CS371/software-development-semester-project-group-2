@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 204 808 532" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif">
+  <!--
+    12 (bldg 12) - FLOOR 12
+    Traced from the posted "Emergency Evacuation Plan" photo. Coordinates use the
+    photo's own pixel positions, so any shape can be checked against the photo.
+    One wall weight for outside walls, one for inside walls; nothing in between.
+  -->
+  <style>
+    .floor { fill: #ffffff; stroke: #3a3d42; stroke-width: 6; stroke-linejoin: round; }
+    .room  { fill: #eef1f4; stroke: #8f959c; stroke-width: 2; }
+    .ours  { fill: #f5e3ea; stroke: #8f959c; stroke-width: 2; }
+    .core  { fill: #dfe3e8; stroke: #8f959c; stroke-width: 2; }
+    .void  { fill: #eceef1; stroke: #b9bec6; stroke-width: 2; }
+    .void-hatch { stroke: #b9bec6; stroke-width: 1.5; }
+    .stair { stroke: #8f959c; stroke-width: 2; }
+    .hall  { fill: #d7dbe0; stroke: none; }
+    .hall-lbl { fill: #6b7280; font-size: 18px; text-anchor: middle; dominant-baseline: middle; }
+    .authwall { stroke: #7c3aed; stroke-width: 6; stroke-dasharray: 10 8; }
+    .door  { stroke: #ffffff; stroke-width: 10; }
+    .lbl   { fill: #2b2e33; font-size: 24px; text-anchor: middle; dominant-baseline: middle; }
+    .lblS  { fill: #2b2e33; font-size: 19px; text-anchor: middle; dominant-baseline: middle; }
+    .name  { fill: #1d1f23; font-size: 30px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .exit  { fill: #1a7f37; font-size: 20px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .compass-letter { font-size: 22px; font-weight: 600; fill: #8a8690; text-anchor: middle; }
+    .compass-north  { fill: #8C0B42; }
+    .floor-edge { fill:none; stroke:#3a3d42; stroke-width:6; stroke-linejoin:round; }
+  </style>
+
+  <!-- OUTSIDE WALLS -->
+  <polygon class="floor" points="50,240 595,230 530,710 -20,625"/>
+
+  <!-- HALLWAYS -->
+  <rect class="hall" x="70" y="370" width="450" height="125"/>
+  <text class="hall-lbl" x="295" y="433">Hallway</text>
+
+  <!-- ROOMS -->
+  <rect class="room" x="245" y="265" width="105" height="105"/><text class="lbl" x="298" y="318">102</text>
+
+  <rect class="core" x="115" y="260" width="65" height="45"/>
+  <g class="stair"><line x1="115" y1="269" x2="180" y2="269"/><line x1="115" y1="287" x2="180" y2="287"/></g>
+  <polygon class="floor-edge" points="50,240 595,230 530,710 -20,625"/>
+  <line class="door" x1="14" y1="438" x2="20" y2="403"/><text class="exit" x="71" y="430">EXIT</text>
+  <!-- Which way the building really faces; matches the compass on the posted evacuation map. -->
+  <g class="compass" transform="translate(657,544) rotate(-135)">
+    <circle r="80" fill="#ffffff" stroke="#1d1f23" stroke-width="3"/>
+    <circle r="49" fill="none" stroke="#f0f0f3" stroke-width="2"/>
+    <path d="M0,-38 L11,0 L-11,0 Z" fill="#8C0B42"/>
+    <path d="M0,38 L11,0 L-11,0 Z" fill="#c7c7cc"/>
+    <circle r="4.5" fill="#ffffff" stroke="#8a8690" stroke-width="2"/>
+    <text class="compass-letter compass-north" x="0" y="-52">N</text>
+    <text class="compass-letter" x="0" y="62">S</text>
+    <text class="compass-letter" x="57" y="6">E</text>
+    <text class="compass-letter" x="-57" y="6">W</text>
+  </g>
+</svg>
