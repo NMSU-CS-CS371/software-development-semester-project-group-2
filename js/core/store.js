@@ -36,6 +36,7 @@ class Store {
       selectedVia: saved ? 'reload' : null, /* how it was picked, like 'map' */
       sheetWaiting: false, /* true means open the box after the map flies there */
       sheetOpen: saved ? Boolean(saved.sheetOpen) : false, /* is the info box showing */
+      activeFloor: null, /* which floor the sheet is showing */
     };
     this.listeners = []; /* functions to call after a change */
   }
@@ -98,7 +99,27 @@ class Store {
       this.update({ sheetOpen: true, sheetWaiting: false });
       return;
     }
-    this.update({ selectedId: building.id, selectedVia: via, sheetOpen: false, sheetWaiting: true });
+    const floor = building.floors && building.floors.length ? building.floors[0] : null;
+    this.update({
+      selectedId: building.id,
+      selectedVia: via,
+      sheetOpen: false,
+      sheetWaiting: true,
+      activeFloor: floor,
+    });
+  }
+
+  /** Open the sheet for the building that is already picked. */
+  openSheet() {
+    this.update({ sheetOpen: true, sheetWaiting: false });
+  }
+
+  /**
+   * Show one floor of the open sheet.
+   * @param {number} floor
+   */
+  showFloor(floor) {
+    this.update({ activeFloor: floor });
   }
 
   /**
@@ -113,7 +134,7 @@ class Store {
 
   /** Unpick the building and close the box. */
   clearSelection() {
-    this.update({ selectedId: null, selectedVia: null, sheetOpen: false, sheetWaiting: false });
+    this.update({ selectedId: null, selectedVia: null, sheetOpen: false, sheetWaiting: false, activeFloor: null });
   }
 
   /** Close the box but keep the building picked. */

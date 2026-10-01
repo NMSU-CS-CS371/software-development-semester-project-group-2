@@ -82,11 +82,13 @@ sheet:
   floorCountText: "floor count"
   builtYearText: "year built"
   plansNoteText: "Floor plans are coming in a later sprint."
+  photosTitle: "Photos"
+  noPlanText: "If you don't see it here, we haven't drawn this floor plan yet."
   slideTime: "0.3s"
   titleSize: "16px"
   sideWidth: "40px" # equal space each side of the title, so it stays centred
   closeSize: "28px"
-  bottomSpace: "48px"
+  bottomSpace: "88px"
   headingSize: "15px"
   bodySize: "14px"
   bodyLineHeight: 1.55
@@ -97,6 +99,28 @@ sheet:
   sourceSize: "12px"
   dividerWidth: "1px"
   bodyMaxWidthDesktop: "720px"
+
+pill:
+  idleText: "Tap a building"
+  infoText: "Info"
+  floorText: "Floor"
+  height: "36px"
+  radius: "999px"
+  fontSize: "14px"
+  fontWeight: 700
+  minWidth: "96px"
+  bottomOffset: "48px"
+  layer: 120
+  floorGap: "8px"
+  shadowY: "4px"
+  shadowBlur: "16px"
+  pressScale: 0.96
+  pressTime: "0.12s"
+  floorMoveTime: "0.32s"
+  floorFadeTime: "0.2s"
+  floorStagger: "0.04s"
+  floorStartScale: 0.92
+  disabledOpacity: 0.55
 
 categories: # kinds of places on the map; the colours mean the same thing everywhere
   # Sprint 1 has only one kind. Housing, parks, food and parking come back in Sprint 2,

@@ -11,6 +11,7 @@ import { watchUrl } from './core/urlPaths.js';
 import { boundsAround } from './logic/mapBounds.js';
 import { CampusMap } from './map/campusMap.js';
 import { InfoSheet } from './sheet/infoSheet.js';
+import { ActionPill } from './actionButtons/actionPill.js';
 
 /**
  * Get the map style and take out the extra label layer we don't want.
@@ -54,6 +55,7 @@ function recordsFrom(file) {
     record.center = building.geometry.coordinates;
     record.description = []; /* filled in later */
     record.links = [];
+    record.photos = [];
     records.push(record);
   }
   return records;
@@ -71,6 +73,7 @@ async function loadDescriptions(buildings, sheet) {
     const entry = file.descriptions[building.id];
     building.description = (entry && entry.paragraphs) || [];
     building.links = (entry && entry.links) || [];
+    building.photos = (entry && entry.photos) || [];
   }
   sheet.redraw(); /* update the box if it is already open */
 }
@@ -132,6 +135,7 @@ async function startApp() {
   /* make the map first, then the info box */
   new CampusMap(buildingsById, fence, files[1]);
   const sheet = new InfoSheet(buildingsById);
+  new ActionPill(buildingsById);
 
   /* so we can type store.get() in the console */
   window.store = store;

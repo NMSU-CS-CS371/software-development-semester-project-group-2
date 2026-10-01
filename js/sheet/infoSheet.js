@@ -8,6 +8,7 @@ import { CONFIG } from '../core/config.js';
 import { store } from '../core/store.js';
 import { escapeHtml, safeUrl } from '../core/html.js';
 import { waitOneFrame } from '../core/waitOneFrame.js';
+import { openPlanFullView } from './infoSheetFullView.js';
 
 export class InfoSheet {
   /**
@@ -25,11 +26,15 @@ export class InfoSheet {
     this.links = document.querySelector('#bs-links');
     this.planSection = document.querySelector('#bs-plan');
     this.planSlot = document.querySelector('#bs-plan-slot');
+    this.photoSection = document.querySelector('#bs-photos');
+    this.photoTitle = document.querySelector('#bs-photos-title');
+    this.photoRow = document.querySelector('#bs-photo-row');
     this.facts = document.querySelector('#bs-facts');
     this.link = document.querySelector('#bs-link');
     this.source = document.querySelector('#bs-source');
 
     this.aboutTitle.textContent = this.words.aboutTitle;
+    this.photoTitle.textContent = this.words.photosTitle;
     this.link.textContent = this.words.linkText;
 
     this.shownId = ''; /* which building is showing right now */
@@ -102,6 +107,16 @@ export class InfoSheet {
     }
     this.links.innerHTML = linksHtml;
 
+    const photos = building.photos || [];
+    this.photoRow.replaceChildren();
+    for (const photo of photos) {
+      const image = document.createElement('img');
+      image.src = photo.thumbUrl || photo.url;
+      image.alt = photo.title || building.name;
+      this.photoRow.append(image);
+    }
+    this.photoSection.hidden = photos.length === 0;
+
     let factsHtml = '';
     for (const fact of this.factsFor(building)) {
       const value = fact[1] || this.words.unknownText; /* missing facts say "Unknown" */
@@ -124,42 +139,86 @@ export class InfoSheet {
    */
   async loadFloorPlans(building) {
     const loadedFor = building.id;
+    const pass = (this.planPass = (this.planPass || 0) + 1);
     this.planSlot.replaceChildren();
     this.planSection.hidden = true;
     const code = String(building.code || '').toLowerCase();
     if (!code) {
       return;
     }
+    const floors = [];
+    const seen = new Set();
     for (const floor of building.floors) {
-      const response = await fetch('data/floors/' + code + '-' + floor + '.svg');
-      if (this.shownId !== loadedFor) {
-        return; /* a different building was opened while this was loading */
+      if (!seen.has(floor)) {
+        seen.add(floor);
+        floors.push(floor);
       }
-      if (!response.ok) {
-        continue;
-      }
-      const picture = document.createElement('div');
-      picture.className = 'bs-plan-svg';
-      picture.innerHTML = await response.text();
-      for (const oldScript of picture.querySelectorAll('script')) {
-        const script = document.createElement('script');
-        script.textContent = oldScript.textContent;
-        oldScript.replaceWith(script);
-      }
+    }
+    const responses = await Promise.all(floors.map((floor) => fetch('data/floors/' + code + '-' + floor + '.svg')));
+    const texts = await Promise.all(responses.map((response) => response.ok ? response.text() : ''));
+    if (this.shownId !== loadedFor || this.planPass !== pass) {
+      return; /* a newer load started, so this one must not add another plan */
+    }
+    for (let index = 0; index < floors.length; index += 1) {
+      const floor = floors[index];
+      const text = texts[index];
       const plan = document.createElement('div');
       plan.className = 'bs-plan';
+      plan.dataset.floor = String(floor);
       const label = document.createElement('p');
       label.className = 'bs-plan-label';
       label.textContent = 'Floor ' + floor;
-      plan.append(label, picture);
+      plan.append(label);
+      if (text) {
+        const picture = document.createElement('div');
+        picture.className = 'bs-plan-svg';
+        picture.innerHTML = text;
+        for (const oldScript of picture.querySelectorAll('script')) {
+          const script = document.createElement('script');
+          script.textContent = oldScript.textContent;
+          oldScript.replaceWith(script);
+        }
+        const drawn = picture.querySelector('svg');
+        if (drawn) {
+          picture.addEventListener('click', () => openPlanFullView(drawn));
+        }
+        plan.append(picture);
+      } else {
+        const note = document.createElement('p');
+        note.className = 'bs-plan-empty';
+        note.textContent = this.words.noPlanText;
+        plan.append(note);
+      }
+      if (this.planPass !== pass) {
+        return;
+      }
       this.planSlot.append(plan);
     }
-    if (this.planSlot.childElementCount === 0) {
-      const empty = document.createElement('div');
-      empty.className = 'bs-plan-empty';
-      this.planSlot.append(empty);
+    if (this.planPass !== pass) {
+      return;
     }
     this.planSection.hidden = false;
+    this.showActiveFloor(store.get());
+  }
+
+  /**
+   * Show the picked floor. If that SVG never loaded, show the missing-plan note.
+   * @param {object} state
+   */
+  showActiveFloor(state) {
+    const building = this.buildingsById[state.selectedId];
+    const floor = state.activeFloor != null ? state.activeFloor : (building && building.floors && building.floors[0]);
+    const key = String(floor);
+    for (const plan of this.planSlot.querySelectorAll('.bs-plan')) {
+      const on = plan.dataset.floor === key;
+      plan.hidden = !on;
+      if (on && key !== this.shownFloor) {
+        plan.classList.add('is-in');
+      } else if (!on) {
+        plan.classList.remove('is-in');
+      }
+    }
+    this.shownFloor = key;
   }
 
   /** Fill the box after the next frame, and only once. */
@@ -203,6 +262,8 @@ export class InfoSheet {
     }
 
     /* only open or close when it actually changes, so the slide doesn't replay */
+    this.showActiveFloor(state);
+
     if (state.sheetOpen !== this.sheetIsOpen) {
       this.sheetIsOpen = state.sheetOpen;
       this.sheetElement.classList.toggle('is-open', this.sheetIsOpen);

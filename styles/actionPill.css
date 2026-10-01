@@ -1,0 +1,74 @@
+/*
+  This file & what it does: the pill at the bottom, and the floors that open above it.
+  Why we have it: the pill stays in one spot. The other floors glide out of it.
+  Sizes come from config.yml (pill.height becomes --pill-height).
+*/
+
+#pill-bar {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--pill-bottom-offset) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--pill-layer);
+  transform: translateX(-50%);
+}
+
+.pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s1);
+  height: var(--pill-height);
+  padding: 0 var(--s4);
+  border: none;
+  border-radius: var(--pill-radius);
+  background: var(--theme-crimson);
+  color: var(--theme-white);
+  font: var(--pill-font-weight) var(--pill-font-size)/1 var(--theme-font);
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 var(--pill-shadow-y) var(--pill-shadow-blur) var(--theme-shadow-strong);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--pill-press-time) ease;
+}
+.pill:active { transform: scale(var(--pill-press-scale)); }
+.pill:focus-visible { outline: var(--theme-focus-ring-width) solid var(--theme-focus); outline-offset: var(--theme-focus-ring-offset); }
+.pill--main { min-width: var(--pill-min-width); z-index: 1; }
+.pill--main:disabled { opacity: var(--pill-disabled-opacity); cursor: default; }
+
+.pill-chev { display: none; font-weight: 700; transition: transform var(--pill-floor-move-time) var(--theme-smooth); }
+.pill.has-chev .pill-chev { display: inline-block; }
+.pill.is-stack-open .pill-chev { transform: rotate(180deg); }
+
+/* closed floors sit behind the main pill, then glide up. --i is the slot, 0 closest to the pill */
+#pill-stack {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + var(--pill-floor-gap));
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  gap: var(--pill-floor-gap);
+  min-width: var(--pill-min-width);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+#pill-stack.is-open { pointer-events: auto; }
+.pill--floor {
+  background: var(--theme-white);
+  color: var(--theme-crimson);
+  box-shadow: inset 0 0 0 1.5px var(--theme-crimson), 0 var(--pill-shadow-y) var(--pill-shadow-blur) var(--theme-shadow-strong);
+  opacity: 0;
+  transform: translateY(calc((var(--i) + 1) * (var(--pill-height) + var(--pill-floor-gap)))) scale(var(--pill-floor-start-scale));
+  transition: opacity var(--pill-floor-fade-time) ease-in, transform var(--pill-floor-move-time) var(--theme-smooth);
+}
+#pill-stack.is-open .pill--floor {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--pill-floor-fade-time) ease-out calc(var(--i) * var(--pill-floor-stagger)),
+    transform var(--pill-floor-move-time) var(--theme-smooth) calc(var(--i) * var(--pill-floor-stagger));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill, .pill-chev, .pill--floor { transition: none; }
+}

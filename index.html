@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="styles/baseStyle.css" />
   <link rel="stylesheet" href="styles/mapStyle.css" />
   <link rel="stylesheet" href="styles/sheetStyle.css" />
+  <link rel="stylesheet" href="styles/actionPill.css" />
 
   <!-- libraries. defer lets the page show before these run -->
   <script defer src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
@@ -58,6 +59,10 @@
         <h3 class="bs-h3">Floor plan</h3>
         <div id="bs-plan-slot"></div>
       </section>
+      <section id="bs-photos" hidden>
+        <h3 id="bs-photos-title" class="bs-h3"></h3>
+        <div id="bs-photo-row" class="bs-photo-row"></div>
+      </section>
       <h3 id="bs-about-title" class="bs-h3"></h3>
       <div id="bs-description" class="bs-description"></div>
       <div id="bs-links" class="bs-links"></div>
@@ -65,6 +70,14 @@
       <a id="bs-link" class="bs-link" href="#" target="_blank" rel="noopener"></a>
       <p id="bs-source" class="bs-source"></p>
     </div>
+  </div>
+
+  <div id="pill-bar">
+    <div id="pill-stack"></div>
+    <button id="pill" class="pill pill--main" type="button">
+      <span id="pill-label"></span>
+      <span class="pill-chev" aria-hidden="true">⌃</span>
+    </button>
   </div>
 
   <script type="module" src="js/main.js"></script>

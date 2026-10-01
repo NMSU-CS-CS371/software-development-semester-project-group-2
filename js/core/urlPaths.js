@@ -1,7 +1,7 @@
 /**
  * This file & what it does: puts the open info sheet in the page address.
  * Why we have it: copying #/infosheet=Milton%20Hall opens that same building for someone else.
- * The address changes only when the open building changes, so opening and closing stays cheap.
+ * The address stays while that building is picked. It clears when the pick is cleared.
  */
 
 import { store } from './store.js';
@@ -50,17 +50,25 @@ export function watchUrl(buildingsById) {
   const pasted = buildingNamed(buildingsById, nameInUrl());
   if (pasted) {
     shown = pasted.name;
-    store.update({
-      selectedId: pasted.id,
-      selectedVia: 'url',
-      sheetOpen: true,
-      sheetWaiting: false,
-    });
+    const state = store.get();
+    /* this tab already closed the sheet but kept the building, so don't open it again */
+    const keptClosed = state.selectedId === pasted.id && !state.sheetOpen && !state.sheetWaiting;
+    if (!keptClosed) {
+      const floor = pasted.floors && pasted.floors.length ? pasted.floors[0] : null;
+      store.update({
+        selectedId: pasted.id,
+        selectedVia: 'url',
+        sheetOpen: true,
+        sheetWaiting: false,
+        activeFloor: floor,
+      });
+    }
   }
 
   store.subscribe((state) => {
     const building = buildingsById[state.selectedId];
-    const next = (state.sheetOpen || state.sheetWaiting) && building ? building.name : '';
+    /* the address stays while the building is picked, even if the sheet is closed */
+    const next = building ? building.name : '';
     if (next === shown) {
       return;
     }
