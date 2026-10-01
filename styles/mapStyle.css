@@ -11,3 +11,37 @@
   bottom: 0;
   left: 0;
 }
+
+/* compass, Home, and zoom. white circles, stacked under the top bar */
+#map .maplibregl-ctrl-top-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  top: var(--s3);
+  left: var(--s3);
+}
+#map .maplibregl-ctrl-top-left .maplibregl-ctrl { margin: 0; }
+#map .maplibregl-ctrl-top-left .maplibregl-ctrl-group {
+  border: none;
+  border-radius: var(--pill-radius);
+  overflow: hidden;
+  background: var(--theme-white);
+  box-shadow: 0 var(--pill-shadow-y) var(--pill-shadow-blur) var(--theme-shadow-strong);
+}
+#map .maplibregl-ctrl-top-left .maplibregl-ctrl-group button {
+  width: var(--pill-height);
+  height: var(--pill-height);
+}
+#map .maplibregl-ctrl-compass,
+#map .campus-home {
+  border-radius: 50%;
+}
+#map .campus-home button {
+  font-family: "Framework7 Icons";
+  font-size: var(--map-settings-icon-size);
+  font-weight: normal;
+  color: var(--theme-crimson);
+  background: var(--theme-white);
+}
+#map .maplibregl-ctrl-zoom-in { border-radius: var(--pill-radius) var(--pill-radius) 0 0; }
+#map .maplibregl-ctrl-zoom-out { border-radius: 0 0 var(--pill-radius) var(--pill-radius); }

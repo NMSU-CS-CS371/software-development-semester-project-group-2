@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="styles/baseStyle.css" />
   <link rel="stylesheet" href="styles/mapStyle.css" />
   <link rel="stylesheet" href="styles/sheetStyle.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/framework7-icons@5.0.5/css/framework7-icons.min.css" />
   <link rel="stylesheet" href="styles/actionPill.css" />
 
   <!-- libraries. defer lets the page show before these run -->
@@ -73,6 +74,10 @@
   </div>
 
   <div id="pill-bar">
+    <div id="map-settings">
+      <div id="map-options"></div>
+      <button id="map-settings-btn" class="pill pill--side f7-icons" type="button" aria-label="Map settings" aria-expanded="false">map</button>
+    </div>
     <div id="pill-stack"></div>
     <button id="pill" class="pill pill--main" type="button">
       <span id="pill-label"></span>

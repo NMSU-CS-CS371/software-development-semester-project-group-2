@@ -67,6 +67,7 @@ export class CampusMap {
     foldCredits();
     addBadges(this.map, this.buildingsById);
     this.markSelected(store.get().selectedId);
+    this.applyNames(store.get().showNames);
     this.listenForTaps();
   }
 
@@ -89,6 +90,30 @@ export class CampusMap {
     }
     this.map.setLayoutProperty('building-pins', 'icon-image', badgePictureRule(buildingId));
     this.map.setPaintProperty('building-names', 'text-color', nameColorRule(buildingId));
+  }
+
+  /**
+   * Show or hide the building names.
+   * @param {boolean} on
+   */
+  applyNames(on) {
+    if (!this.map.getLayer('building-names')) {
+      return;
+    }
+    this.map.setLayoutProperty('building-names', 'visibility', on ? 'visible' : 'none');
+  }
+
+  /** Fly back over Corbett Center, facing north. */
+  goHome() {
+    const settings = CONFIG.map;
+    this.map.flyTo({
+      center: settings.center,
+      zoom: settings.zoom,
+      bearing: 0,
+      pitch: 0,
+      duration: settings.flyDuration,
+      essential: true,
+    });
   }
 
   /** Tap a badge to pick it. Tap somewhere else to unpick it. */
@@ -128,6 +153,7 @@ export class CampusMap {
 
     let lastSelectedId = null;
     store.subscribe((state) => {
+      this.applyNames(state.showNames);
       if (state.selectedId === lastSelectedId) {
         return;
       }

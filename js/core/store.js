@@ -37,6 +37,8 @@ class Store {
       sheetWaiting: false, /* true means open the box after the map flies there */
       sheetOpen: saved ? Boolean(saved.sheetOpen) : false, /* is the info box showing */
       activeFloor: null, /* which floor the sheet is showing */
+      showNames: true, /* building labels on the map */
+      showTools: false, /* compass, Home, and zoom stay off until Map tools is on */
     };
     this.listeners = []; /* functions to call after a change */
     this.photos = {}; /* building id -> photo list, so the sheet does not rebuild them */
@@ -145,6 +147,22 @@ class Store {
   /** Unpick the building and close the box. */
   clearSelection() {
     this.update({ selectedId: null, selectedVia: null, sheetOpen: false, sheetWaiting: false, activeFloor: null });
+  }
+
+  /**
+   * Show or hide the building names on the map.
+   * @param {boolean} on
+   */
+  setShowNames(on) {
+    this.update({ showNames: on });
+  }
+
+  /**
+   * Show or hide the compass, Home, and zoom buttons.
+   * @param {boolean} on
+   */
+  setShowTools(on) {
+    this.update({ showTools: on });
   }
 
   /** Close the box but keep the building picked. */

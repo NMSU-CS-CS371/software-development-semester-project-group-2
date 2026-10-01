@@ -10,8 +10,10 @@ import { store } from './core/store.js';
 import { watchUrl } from './core/urlPaths.js';
 import { boundsAround } from './logic/mapBounds.js';
 import { CampusMap } from './map/campusMap.js';
+import { CampusMapSettings } from './map/campusMapSettings.js';
 import { InfoSheet } from './sheet/infoSheet.js';
 import { ActionPill } from './actionButtons/actionPill.js';
+import { MapSettingPill } from './actionButtons/mapSettingPill.js';
 
 /**
  * Get the map style and take out the extra label layer we don't want.
@@ -135,9 +137,11 @@ async function startApp() {
   watchUrl(buildingsById);
 
   /* make the map first, then the info box */
-  new CampusMap(buildingsById, fence, files[1]);
+  const campusMap = new CampusMap(buildingsById, fence, files[1]);
+  new CampusMapSettings(campusMap);
   const sheet = new InfoSheet(buildingsById);
   new ActionPill(buildingsById);
+  new MapSettingPill(campusMap);
 
   /* so we can type store.get() in the console */
   window.store = store;

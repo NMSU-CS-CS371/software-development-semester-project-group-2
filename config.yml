@@ -122,6 +122,18 @@ pill:
   floorStartScale: 0.92
   disabledOpacity: 0.55
 
+mapSettings: # the round button left of the pill
+  icon: "map"
+  closeIcon: "xmark"
+  options: # top to bottom. the last row sits closest to the button
+    tools: { label: "Map tools", icon: "line_horizontal_3_decrease" }
+    names: { label: "Building names", icon: "textformat" }
+    home: { label: "Home (Corbett Center)", icon: "house_fill" }
+  rowHeight: "44px"
+  iconCircle: "36px"
+  iconSize: "20px"
+  labelSize: "15px"
+
 categories: # kinds of places on the map; the colours mean the same thing everywhere
   # Sprint 1 has only one kind. Housing, parks, food and parking come back in Sprint 2,
   # and each one only needs a line here plus buildings with that category.

@@ -36,7 +36,7 @@ export function openPlanFullView(picture) {
   dialog.addEventListener('close', () => dialog.remove());
   document.body.append(dialog);
   dialog.showModal();
-  watchPlan(dialog, stage, copy);
+  watchPlan(dialog, stage, copy, picture);
 }
 
 /** New scale and position so one spot on the plan stays under the fingers or the cursor. */
@@ -69,7 +69,7 @@ function pinchPoint(fingers) {
 }
 
 /** Pinch, drag, double-tap, and Control plus the scroll wheel. */
-function watchPlan(dialog, stage, svg) {
+function watchPlan(dialog, stage, svg, picture) {
   let view = { scale: MIN_SCALE, x: 0, y: 0 };
   let lastTap = 0;
   const fingers = new Map();
@@ -199,7 +199,10 @@ function watchPlan(dialog, stage, svg) {
     if (room && svg.contains(room)) {
       markRoom(svg, room);
       if (picture instanceof SVGElement) {
-        markRoom(picture, picture.querySelector('[data-room="' + room.dataset.room + '"]'));
+        const index = [...svg.querySelectorAll('path, rect, .room')].indexOf(room);
+        if (index >= 0) {
+          markRoom(picture, picture.querySelectorAll('path, rect, .room')[index]);
+        }
       }
       return;
     }

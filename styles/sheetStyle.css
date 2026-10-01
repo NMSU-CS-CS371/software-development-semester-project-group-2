@@ -15,7 +15,7 @@
   background: var(--theme-white);
   /* pushed down until a building is picked */
   transform: translateY(100%);
-  transition: transform var(--sheet-slide-time) var(--theme-smooth);
+  transition: transform var(--sheet-slide-time) var(--theme-smooth), visibility var(--sheet-slide-time);
   /* taps go to the map while the box is hidden */
   visibility: hidden;
 }
