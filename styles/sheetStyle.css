@@ -80,7 +80,9 @@
 }
 .bs-plan-svg .room,
 .plan-full-stage .room { cursor: pointer; }
-.room.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
+.room.is-picked,
+path.is-picked,
+rect.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
 .bs-plan-zoom {
   position: absolute;
   top: var(--s2);
@@ -100,15 +102,15 @@
 
 /* full-screen plan. black page, plan in the middle, close in the corner */
 .plan-full {
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
+  width: 100vw;
+  height: 100dvh;
+  max-width: 100vw;
+  max-height: 100dvh;
   margin: 0;
   padding: 0;
   border: none;
   background: #000;
-  color: var(--theme-white);
+  color: #fff;
 }
 .plan-full::backdrop { background: #000; }
 .plan-full-stage {
@@ -119,13 +121,14 @@
   justify-content: center;
   overflow: hidden;
   touch-action: none;
+  background: #000;
 }
 .plan-full-stage svg,
 .plan-full-stage img {
   width: 100%;
   height: auto;
   max-height: 100%;
-  background: var(--theme-white);
+  background: transparent;
   transform-origin: center center;
   will-change: transform;
 }

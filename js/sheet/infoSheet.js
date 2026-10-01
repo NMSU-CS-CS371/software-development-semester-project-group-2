@@ -171,7 +171,7 @@ export class InfoSheet {
         floors.push(floor);
       }
     }
-    const responses = await Promise.all(floors.map((floor) => fetch('data/floors/' + code + '-' + floor + '.svg')));
+    const responses = await Promise.all(floors.map((floor) => fetch('data/floors/' + code + '-' + floor + '.svg', { cache: 'reload' })));
     const texts = await Promise.all(responses.map((response) => response.ok ? response.text() : ''));
     if (this.shownId !== loadedFor || this.planPass !== pass) {
       return; /* a newer load started, so this one must not add another plan */
@@ -233,6 +233,19 @@ export class InfoSheet {
         plan.classList.add('is-in');
       } else if (!on) {
         plan.classList.remove('is-in');
+      }
+      const drawn = on ? plan.querySelector('svg') : null;
+      if (drawn && !drawn.dataset.fit) {
+        const box = drawn.getBBox();
+        const view = drawn.viewBox.baseVal;
+        if (box.width > 0 && view.width > 0) {
+          const left = Math.min(view.x, box.x);
+          const top = Math.min(view.y, box.y);
+          const right = Math.max(view.x + view.width, box.x + box.width);
+          const bottom = Math.max(view.y + view.height, box.y + box.height);
+          drawn.setAttribute('viewBox', left + ' ' + top + ' ' + (right - left) + ' ' + (bottom - top));
+          drawn.dataset.fit = '1';
+        }
       }
     }
     this.shownFloor = key;

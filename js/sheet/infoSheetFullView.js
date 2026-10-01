@@ -1,11 +1,13 @@
 /**
  * This file & what it does: opens one floor plan full screen.
  * Why we have it: a tap should make the plan bigger, like the Photos app.
- * Two fingers pinch to zoom, Control and the scroll wheel do the same, and a drag pans when it is bigger.
+ * Two fingers pinch to zoom. Two fingers sliding together pan when it is bigger, and so does a press-and-drag.
+ * Control and the scroll wheel zoom too.
  * The view is thrown away when it closes, so the next one starts fresh.
  */
 
 import { markRoom, roomFrom } from './infoSheetFloorPlan.js';
+const MIN_SCALE = 1;
 const MAX_SCALE = 4;
 const TAP_ZOOM = 2;
 
@@ -29,24 +31,6 @@ export function openPlanFullView(picture) {
   stage.className = 'plan-full-stage';
   const copy = picture.cloneNode(true);
   stage.append(copy);
-  if (copy instanceof SVGElement && picture instanceof SVGElement) {
-    copy.addEventListener('click', (event) => {
-      const room = roomFrom(event.target);
-      if (!room) {
-        return;
-      }
-      const rooms = copy.querySelectorAll('.room');
-      let index = 0;
-      for (const item of rooms) {
-        if (item === room) {
-          break;
-        }
-        index += 1;
-      }
-      markRoom(copy, room);
-      markRoom(picture, picture.querySelectorAll('.room')[index]);
-    });
-  }
   dialog.append(close, stage);
   close.addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => dialog.remove());
@@ -112,7 +96,7 @@ function watchPlan(dialog, stage, svg) {
       return;
     }
     box = stage.getBoundingClientRect();
-    stage.setPointerCapture(event.pointerId);
+    svg.dataset.moved = '';
     fingers.set(event.pointerId, { x: event.clientX, y: event.clientY, downY: event.clientY, moved: false });
     const point = pinchPoint(fingers);
     if (point) {
@@ -131,7 +115,9 @@ function watchPlan(dialog, stage, svg) {
     }
     if (Math.hypot(event.clientX - finger.x, event.clientY - finger.y) > 8) {
       finger.moved = true;
+      svg.dataset.moved = '1';
       lastTap = 0;
+      stage.setPointerCapture(event.pointerId);
     }
     finger.x = event.clientX;
     finger.y = event.clientY;
@@ -180,16 +166,43 @@ function watchPlan(dialog, stage, svg) {
   stage.addEventListener('pointerup', lift);
   stage.addEventListener('pointercancel', lift);
   stage.addEventListener('wheel', (event) => {
-    if (!event.ctrlKey && !event.metaKey) {
+    if (event.ctrlKey || event.metaKey) {
+      event.preventDefault();
+      draw(zoomAround(
+        view.scale * Math.exp(-event.deltaY * 0.01),
+        event.clientX, event.clientY, event.clientX, event.clientY, view, box
+      ), false);
+      return;
+    }
+    /* a trackpad two-finger swipe. a mouse wheel still only zooms with Control held */
+    if (view.scale === MIN_SCALE || event.deltaMode !== 0) {
       return;
     }
     event.preventDefault();
-    draw(zoomAround(
-      view.scale * Math.exp(-event.deltaY * 0.01),
-      event.clientX, event.clientY, event.clientX, event.clientY, view, box
-    ), false);
+    draw({ scale: view.scale, x: view.x - event.deltaX, y: view.y - event.deltaY }, false);
   }, { passive: false });
   stage.addEventListener('click', (event) => {
+    if (svg.dataset.moved === '1') {
+      svg.dataset.moved = '';
+      return;
+    }
+    let room = svg instanceof SVGElement ? roomFrom(event.target) : null;
+    if (!room && svg instanceof SVGElement) {
+      for (const hit of document.elementsFromPoint(event.clientX, event.clientY)) {
+        room = roomFrom(hit);
+        if (room && svg.contains(room)) {
+          break;
+        }
+        room = null;
+      }
+    }
+    if (room && svg.contains(room)) {
+      markRoom(svg, room);
+      if (picture instanceof SVGElement) {
+        markRoom(picture, picture.querySelector('[data-room="' + room.dataset.room + '"]'));
+      }
+      return;
+    }
     if (event.target === stage && view.scale === MIN_SCALE) {
       dialog.close();
     }
