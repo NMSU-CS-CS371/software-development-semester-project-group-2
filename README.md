@@ -48,18 +48,25 @@
 **Root Path:** `/software-development-semester-project-group-2`
 
 ```If you notice this text isnt on the read me its because this line is hidden in the read me. so Chicken butt. |:D|
+```
 ├── .github
 │   └── workflows
 │       └── autograde.yaml
 ├── data
 │   ├── floors
+│   │   ├── SVGFLOOPMAPNAMEING.md
+│   │   ├── hjlc-1.svg
+│   │   └── jh-0.svg
 │   ├── buildings.geojson
 │   └── descriptions.json
 ├── js
+│   ├── actionButtons
+│   │   └── actionPill.js
 │   ├── core
 │   │   ├── config.js
 │   │   ├── html.js
 │   │   ├── store.js
+│   │   ├── urlPaths.js
 │   │   └── waitOneFrame.js
 │   ├── logic
 │   │   └── mapBounds.js
@@ -67,15 +74,25 @@
 │   │   ├── badges.js
 │   │   └── campusMap.js
 │   ├── sheet
-│   │   └── infoSheet.js
+│   │   ├── infoSheet.js
+│   │   └── infoSheetFullView.js
 │   └── main.js
 ├── styles
+│   ├── actionPill.css
 │   ├── baseStyle.css
 │   ├── mapStyle.css
 │   └── sheetStyle.css
+├── tools
+│   ├── NMSUMapScraper.java
+│   ├── README.md
+│   └── gson-2.11.0.jar
 ├── .classroom50.yaml
+├── .gitignore
 ├── README.md
+├── apple-touch-icon.png
 ├── config.yml
+├── favicon-32.png
+├── favicon.svg
 └── index.html
 ```
 
