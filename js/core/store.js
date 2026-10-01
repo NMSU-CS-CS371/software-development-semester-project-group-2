@@ -4,15 +4,38 @@
  * copy, they could disagree. One store means they always see the same thing.
  */
 
+const SHEET_KEY = 'nmsu-info-sheet';
+
+/**
+ * Read the sheet saved for this tab, or null.
+ * @returns {{ selectedId: string, sheetOpen: boolean }|null}
+ */
+function readSavedSheet() {
+  try {
+    const raw = sessionStorage.getItem(SHEET_KEY);
+    if (!raw) {
+      return null;
+    }
+    const saved = JSON.parse(raw);
+    if (!saved || !saved.selectedId) {
+      return null;
+    }
+    return saved;
+  } catch {
+    return null;
+  }
+}
+
 /** Holds the state and tells listeners when it changes. */
 class Store {
-  /** Start with nothing picked. */
+  /** Start from the last sheet in this tab, or nothing. */
   constructor() {
+    const saved = readSavedSheet();
     this.state = {
-      selectedId: null, /* building id, or null */
-      selectedVia: null, /* how it was picked, like 'map' */
+      selectedId: saved ? saved.selectedId : null, /* building id, or null */
+      selectedVia: saved ? 'reload' : null, /* how it was picked, like 'map' */
       sheetWaiting: false, /* true means open the box after the map flies there */
-      sheetOpen: false, /* is the info box showing */
+      sheetOpen: saved ? Boolean(saved.sheetOpen) : false, /* is the info box showing */
     };
     this.listeners = []; /* functions to call after a change */
   }
@@ -44,6 +67,23 @@ class Store {
     }
     for (const listener of this.listeners) {
       listener(this.state);
+    }
+    this.rememberSheet();
+  }
+
+  /** Keep this tab's open sheet so a reload can show it again. */
+  rememberSheet() {
+    try {
+      if (!this.state.selectedId) {
+        sessionStorage.removeItem(SHEET_KEY);
+        return;
+      }
+      sessionStorage.setItem(SHEET_KEY, JSON.stringify({
+        selectedId: this.state.selectedId,
+        sheetOpen: this.state.sheetOpen || this.state.sheetWaiting,
+      }));
+    } catch {
+      /* private browsing can block storage; the app still works */
     }
   }
 

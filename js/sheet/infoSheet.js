@@ -146,11 +146,13 @@ export class InfoSheet {
         script.textContent = oldScript.textContent;
         oldScript.replaceWith(script);
       }
+      const plan = document.createElement('div');
+      plan.className = 'bs-plan';
       const label = document.createElement('p');
       label.className = 'bs-plan-label';
       label.textContent = 'Floor ' + floor;
-      picture.append(label);
-      this.planSlot.append(picture);
+      plan.append(label, picture);
+      this.planSlot.append(plan);
     }
     if (this.planSlot.childElementCount === 0) {
       const empty = document.createElement('div');

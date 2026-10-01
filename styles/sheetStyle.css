@@ -86,20 +86,14 @@
   border-radius: var(--s2);
 }
 
+.bs-plan + .bs-plan {
+  margin-top: var(--s4);
+}
 .bs-body .bs-plan-label {
-  position: absolute;
-  top: var(--s2);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  margin: 0;
-  padding: 0 var(--s2);
+  margin: 0 0 var(--s2);
   text-align: center;
   font-size: var(--sheet-label-size);
   color: var(--theme-text-muted);
-  background: var(--theme-white);
-  border-radius: var(--s2);
-  pointer-events: none;
 }
 
 /* the text inside the box */

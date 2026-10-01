@@ -7,6 +7,7 @@
 
 import { CONFIG, loadConfig } from './core/config.js';
 import { store } from './core/store.js';
+import { watchUrl } from './core/urlPaths.js';
 import { boundsAround } from './logic/mapBounds.js';
 import { CampusMap } from './map/campusMap.js';
 import { InfoSheet } from './sheet/infoSheet.js';
@@ -121,6 +122,12 @@ async function startApp() {
   }
   /* create bounds around the buildings so you can't drag off campus */
   const fence = boundsAround(centers, CONFIG.map.fencePadding);
+
+  /* drop a saved pick if that building is gone */
+  if (store.get().selectedId && !buildingsById[store.get().selectedId]) {
+    store.clearSelection();
+  }
+  watchUrl(buildingsById);
 
   /* make the map first, then the info box */
   new CampusMap(buildingsById, fence, files[1]);
