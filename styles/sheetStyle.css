@@ -78,8 +78,9 @@
   width: 100%;
   height: auto;
 }
-.bs-plan-svg .room { cursor: pointer; }
-.bs-plan-svg .room.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
+.bs-plan-svg .room,
+.plan-full-stage .room { cursor: pointer; }
+.room.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
 .bs-plan-zoom {
   position: absolute;
   top: var(--s2);

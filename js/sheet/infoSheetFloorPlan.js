@@ -16,11 +16,7 @@ export function wireFloorPlan(picture, svg) {
     if (!room) {
       return;
     }
-    const picked = svg.querySelector('.room.is-picked');
-    if (picked) {
-      picked.classList.remove('is-picked');
-    }
-    room.classList.add('is-picked');
+    markRoom(svg, room);
   });
 
   const button = document.createElement('button');
@@ -33,11 +29,26 @@ export function wireFloorPlan(picture, svg) {
 }
 
 /**
+ * Mark one room and clear the previous mark on this plan.
+ * @param {SVGElement} svg
+ * @param {Element|undefined} room
+ */
+export function markRoom(svg, room) {
+  const picked = svg.querySelector('.room.is-picked');
+  if (picked) {
+    picked.classList.remove('is-picked');
+  }
+  if (room) {
+    room.classList.add('is-picked');
+  }
+}
+
+/**
  * The room shape under the tap, or null. The number sits beside the shape.
  * @param {EventTarget} target
  * @returns {Element|null}
  */
-function roomFrom(target) {
+export function roomFrom(target) {
   if (!(target instanceof Element)) {
     return null;
   }

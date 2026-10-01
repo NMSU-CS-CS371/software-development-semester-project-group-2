@@ -5,7 +5,7 @@
  * The view is thrown away when it closes, so the next one starts fresh.
  */
 
-const MIN_SCALE = 1;
+import { markRoom, roomFrom } from './infoSheetFloorPlan.js';
 const MAX_SCALE = 4;
 const TAP_ZOOM = 2;
 
@@ -29,6 +29,24 @@ export function openPlanFullView(picture) {
   stage.className = 'plan-full-stage';
   const copy = picture.cloneNode(true);
   stage.append(copy);
+  if (copy instanceof SVGElement && picture instanceof SVGElement) {
+    copy.addEventListener('click', (event) => {
+      const room = roomFrom(event.target);
+      if (!room) {
+        return;
+      }
+      const rooms = copy.querySelectorAll('.room');
+      let index = 0;
+      for (const item of rooms) {
+        if (item === room) {
+          break;
+        }
+        index += 1;
+      }
+      markRoom(copy, room);
+      markRoom(picture, picture.querySelectorAll('.room')[index]);
+    });
+  }
   dialog.append(close, stage);
   close.addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => dialog.remove());
@@ -95,7 +113,7 @@ function watchPlan(dialog, stage, svg) {
     }
     box = stage.getBoundingClientRect();
     stage.setPointerCapture(event.pointerId);
-    fingers.set(event.pointerId, { x: event.clientX, y: event.clientY, moved: false });
+    fingers.set(event.pointerId, { x: event.clientX, y: event.clientY, downY: event.clientY, moved: false });
     const point = pinchPoint(fingers);
     if (point) {
       pinch = { distance: point.distance, x: point.x, y: point.y, view: view };
@@ -137,6 +155,10 @@ function watchPlan(dialog, stage, svg) {
       return;
     }
     fingers.delete(event.pointerId);
+    if (fingers.size === 0 && view.scale === MIN_SCALE && event.clientY - finger.downY > 90) {
+      dialog.close(); /* slide the plan down to leave */
+      return;
+    }
     const left = [...fingers.values()][0];
     if (left) {
       grabX = left.x - view.x;
