@@ -66,6 +66,48 @@
         }
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "391": {
+      "paragraphs": [
+        "Science Hall was built in 1987. There is a dedication plaque on this building from the Board of Regents. The Science Hall is home to the departments of Computer Science, Mathematical Sciences, Women's Studies, Sociology, and Psychology. Science Hall contains 119,295 square feet of laboratories, classroom space, and faculty offices."
+      ],
+      "links": [
+        {
+          "label": "Psychology",
+          "url": "https://psychology.nmsu.edu/"
+        },
+        {
+          "label": "Computer Science",
+          "url": "https://www.cs.nmsu.edu/"
+        },
+        {
+          "label": "Mathematical Sciences",
+          "url": "https://math.nmsu.edu/"
+        },
+        {
+          "label": "Gender and Sexuality Studies",
+          "url": "https://genders.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Science Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525545"
+        },
+        {
+          "title": "Science Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525545"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
     }
   }
 }

@@ -143,6 +143,39 @@
           32.2828941
         ]
       }
+    },
+    {
+      "dateAdded": "2026-10-01",
+      "dateUpdated": "2026-10-01",
+      "lastInputSource": "scraper",
+      "scraperStamp": "c6bc0436",
+      "type": "Building",
+      "properties": {
+        "id": "391",
+        "code": "SH",
+        "name": "Science Hall",
+        "address": "1290 Frenger Mall, Las Cruces, NM 88001",
+        "propertyNumber": "391",
+        "built": "1987",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2,
+          3
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525545",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 391)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75213192,
+          32.28049007
+        ]
+      }
     }
   ]
 }
