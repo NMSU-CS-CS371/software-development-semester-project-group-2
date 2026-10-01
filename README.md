@@ -74,6 +74,7 @@
 │   │   └── campusMap.js
 │   ├── sheet
 │   │   ├── infoSheet.js
+│   │   ├── infoSheetFloorPlan.js
 │   │   └── infoSheetFullView.js
 │   └── main.js
 ├── styles
