@@ -11,9 +11,9 @@ const TAP_ZOOM = 2;
 
 /**
  * Open a copy of this floor plan full screen.
- * @param {SVGElement} svg
+ * @param {SVGElement|HTMLImageElement} picture
  */
-export function openPlanFullView(svg) {
+export function openPlanFullView(picture) {
   const already = document.querySelector('dialog.plan-full');
   if (already) {
     already.remove(); /* a second tap replaces the open plan instead of stacking one */
@@ -27,7 +27,7 @@ export function openPlanFullView(svg) {
   close.textContent = '×';
   const stage = document.createElement('div');
   stage.className = 'plan-full-stage';
-  const copy = svg.cloneNode(true);
+  const copy = picture.cloneNode(true);
   stage.append(copy);
   dialog.append(close, stage);
   close.addEventListener('click', () => dialog.close());

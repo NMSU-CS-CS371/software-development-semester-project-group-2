@@ -73,7 +73,9 @@ async function loadDescriptions(buildings, sheet) {
     const entry = file.descriptions[building.id];
     building.description = (entry && entry.paragraphs) || [];
     building.links = (entry && entry.links) || [];
-    building.photos = (entry && entry.photos) || [];
+    const photos = (entry && entry.photos) || [];
+    building.photos = photos;
+    store.rememberPhotos(building.id, photos);
   }
   sheet.redraw(); /* update the box if it is already open */
 }

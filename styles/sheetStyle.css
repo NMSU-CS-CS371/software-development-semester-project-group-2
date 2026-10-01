@@ -78,7 +78,24 @@
   width: 100%;
   height: auto;
 }
-.bs-plan-svg:has(svg) { cursor: pointer; }
+.bs-plan-svg .room { cursor: pointer; }
+.bs-plan-svg .room.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
+.bs-plan-zoom {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s2);
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--theme-white);
+  color: var(--theme-crimson);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--theme-shadow-strong);
+}
 
 /* full-screen plan. black page, plan in the middle, close in the corner */
 .plan-full {
@@ -102,7 +119,8 @@
   overflow: hidden;
   touch-action: none;
 }
-.plan-full-stage svg {
+.plan-full-stage svg,
+.plan-full-stage img {
   width: 100%;
   height: auto;
   max-height: 100%;
@@ -144,16 +162,18 @@
   border-radius: var(--s2);
 }
 
+#bs-photos { margin: 0 0 var(--s5); }
 .bs-photo-row {
   display: flex;
-  gap: var(--s2);
+  gap: var(--s3);
   overflow-x: auto;
 }
 .bs-photo-row img {
-  height: 120px;
+  height: 148px;
   width: auto;
   border-radius: var(--s2);
   object-fit: cover;
+  cursor: pointer;
 }
 
 .bs-plan.is-in {

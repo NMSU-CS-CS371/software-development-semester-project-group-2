@@ -9,6 +9,7 @@ import { store } from '../core/store.js';
 import { escapeHtml, safeUrl } from '../core/html.js';
 import { waitOneFrame } from '../core/waitOneFrame.js';
 import { openPlanFullView } from './infoSheetFullView.js';
+import { wireFloorPlan } from './infoSheetFloorPlan.js';
 
 export class InfoSheet {
   /**
@@ -107,15 +108,7 @@ export class InfoSheet {
     }
     this.links.innerHTML = linksHtml;
 
-    const photos = building.photos || [];
-    this.photoRow.replaceChildren();
-    for (const photo of photos) {
-      const image = document.createElement('img');
-      image.src = photo.thumbUrl || photo.url;
-      image.alt = photo.title || building.name;
-      this.photoRow.append(image);
-    }
-    this.photoSection.hidden = photos.length === 0;
+    this.showPhotos(building);
 
     let factsHtml = '';
     for (const fact of this.factsFor(building)) {
@@ -129,6 +122,30 @@ export class InfoSheet {
 
     this.source.textContent = this.sourceTextFor(building);
     this.loadFloorPlans(building);
+  }
+
+  /**
+   * Show the photos kept on the store. Built once per building.
+   * @param {object} building
+   */
+  showPhotos(building) {
+    const photos = store.photos[building.id];
+    if (!photos) {
+      return; /* descriptions have not loaded yet */
+    }
+    if (this.photoFor === building.id && this.photoRow.childElementCount === photos.length) {
+      return; /* already on the page, so a redraw does not build them again */
+    }
+    this.photoFor = building.id;
+    this.photoRow.replaceChildren();
+    for (const photo of photos) {
+      const image = document.createElement('img');
+      image.src = photo.thumbUrl || photo.url;
+      image.alt = photo.title || building.name;
+      image.addEventListener('click', () => openPlanFullView(image));
+      this.photoRow.append(image);
+    }
+    this.photoSection.hidden = photos.length === 0;
   }
 
   /**
@@ -180,7 +197,7 @@ export class InfoSheet {
         }
         const drawn = picture.querySelector('svg');
         if (drawn) {
-          picture.addEventListener('click', () => openPlanFullView(drawn));
+          wireFloorPlan(picture, drawn);
         }
         plan.append(picture);
       } else {

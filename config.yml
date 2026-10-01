@@ -31,8 +31,8 @@ navbar:
   titleSize: "17px"
 
 map:
-  center: [-106.7512196, 32.2824753]
-  zoom: 16.2
+  center: [-106.74770949, 32.2828941] # Corbett Center; the start view rests here
+  zoom: 15.1 # wide enough that Jett Hall and Hardman and Jacobs stay on screen
   minZoom: 14
   maxZoom: 18
   styleUrl: "https://tiles.openfreemap.org/styles/liberty"

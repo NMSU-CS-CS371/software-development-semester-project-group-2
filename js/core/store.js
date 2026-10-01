@@ -39,6 +39,16 @@ class Store {
       activeFloor: null, /* which floor the sheet is showing */
     };
     this.listeners = []; /* functions to call after a change */
+    this.photos = {}; /* building id -> photo list, so the sheet does not rebuild them */
+  }
+
+  /**
+   * Keep a building's photos. Does not redraw the sheet.
+   * @param {string} buildingId
+   * @param {object[]} photos
+   */
+  rememberPhotos(buildingId, photos) {
+    this.photos[buildingId] = photos;
   }
 
   /**

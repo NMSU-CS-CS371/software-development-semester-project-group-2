@@ -114,34 +114,32 @@
       }
     },
     {
-      "dateAdded": "2026-09-30",
-      "dateUpdated": "2026-09-30",
-      "lastInputSource": "human",
-      "scraperStamp": "480431dc",
+      "dateAdded": "2026-10-01",
+      "dateUpdated": "2026-10-01",
+      "lastInputSource": "scraper",
+      "scraperStamp": "6514b425",
       "type": "Building",
       "properties": {
         "id": "285",
         "code": "CC",
-        "name": "Corbett Center Student Union",
+        "name": "Corbett Center",
         "address": "1600 International Mall, Las Cruces, NM 88003",
         "propertyNumber": "285",
         "built": "1968",
         "builtSource": "NMSU Space Planning",
         "floors": [
-          1,
-          2,
-          3
+          1
         ],
-        "floorsSource": "OpenStreetMap building:levels",
+        "floorsSource": "Not published by NMSU (ground floor assumed)",
         "category": "study",
         "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/526646",
         "source": "NMSU Office of Space Planning, Buildings layer (property 285)",
-        "codeSource": "NMSU Space Planning (not on the Registrar list)"
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.7477095,
+          -106.74770949,
           32.2828941
         ]
       }
