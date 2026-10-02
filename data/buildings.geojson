@@ -50,13 +50,13 @@
   "buildings": [
     {
       "dateAdded": "2026-09-30",
-      "dateUpdated": "2026-09-30",
+      "dateUpdated": "2026-10-01",
       "lastInputSource": "scraper",
-      "scraperStamp": "6b1f97ab",
+      "scraperStamp": "cfa6859a",
       "type": "Building",
       "properties": {
         "id": "323",
-        "code": "HJLC",
+        "code": "HA",
         "name": "Hardman and Jacobs Undergraduate Learning Center",
         "address": "2902 McFie Cir., Las Cruces, NM 88003",
         "propertyNumber": "323",
@@ -75,8 +75,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.7511869,
-          32.2824849
+          -106.75118694,
+          32.28248487
         ]
       }
     },

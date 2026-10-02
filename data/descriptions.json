@@ -10,8 +10,33 @@
       "paragraphs": [
         "This building was built in 2015 and was named for Carl F. Jacobs (who started the NMSU music department) and Marion Hardmen (retired English Professor and Dean of Women).",
         "Hardman and Jacobs Undergraduate Learning Center houses classrooms of various sizes that are centrally scheduled and used for many of the university's core curriculum classes and larger classes. Most undergraduates will take at least some courses in the undergraduate learning center during their student careers. The center also houses the Student Success Center, which includes TRiO Student Support Services and TRiO Upward Bound, and Information & Communications Technology, which includes a Help Desk, computer labs, a drop-in computer center, computer rentals and computer offices and workshops.",
-        "This building is a LEED Gold certified building. LEED, or Leadership in Energy and Environmental Design, is a program that strives to create a more sustainable world. This building has been specifically designed to use fewer resources and decrease waste."
-      ]
+        "This building is a LEED Gold certified building. LEED, or Leadership in Energy and Environmental Design, is a program that strives to create a more sustainable world. This building has been specifically designed to use fewer resources and decrease waste. You can find more information about this program here."
+      ],
+      "links": [
+        {
+          "label": "www.usgbc.org",
+          "url": "https://www.usgbc.org/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Hardman And Jacobs Undergraduate Learning Center",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525521"
+        },
+        {
+          "title": "Hardman And Jacobs Undergraduate Learning Center",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525521"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
     },
     "189": {
       "paragraphs": [
