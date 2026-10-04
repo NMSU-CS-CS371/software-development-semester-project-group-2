@@ -153,6 +153,7 @@ rect.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
 @media (prefers-reduced-motion: reduce) {
   .plan-full-stage svg { transition: none !important; }
   .bs-plan.is-in { animation: none; }
+  .bs-floor-swap button { transition: none; }
 }
 
 .bs-plan-empty {
@@ -187,11 +188,39 @@ rect.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
   from { opacity: 0; transform: translateY(var(--s3)); }
   to { opacity: 1; transform: none; }
 }
+.bs-floor-swap {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto var(--s3);
+  padding: 2px;
+  background: var(--theme-line-soft);
+  border-radius: 10px;
+}
+.bs-floor-swap:not(:has(button)) {
+  background: none;
+  padding: 0;
+}
 .bs-body .bs-plan-label {
-  margin: 0 0 var(--s2);
+  margin: 0;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 8px;
+  background: none;
   text-align: center;
-  font-size: var(--sheet-label-size);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--theme-text-muted);
+}
+.bs-floor-swap button {
+  cursor: pointer;
+  transition: background 0.2s var(--theme-smooth), color 0.2s var(--theme-smooth), box-shadow 0.2s var(--theme-smooth);
+}
+.bs-floor-swap button.is-on {
+  background: var(--theme-white);
+  color: var(--theme-text-strong);
+  font-weight: 600;
+  box-shadow: 0 1px 3px var(--theme-shadow-strong);
 }
 
 /* the text inside the box */

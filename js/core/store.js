@@ -38,7 +38,7 @@ class Store {
       sheetOpen: saved ? Boolean(saved.sheetOpen) : false, /* is the info box showing */
       activeFloor: null, /* which floor the sheet is showing */
       showNames: true, /* building labels on the map */
-      showTools: false, /* compass, Home, and zoom stay off until Map tools is on */
+      showTools: true, /* compass, Home, and zoom start on */
     };
     this.listeners = []; /* functions to call after a change */
     this.photos = {}; /* building id -> photo list, so the sheet does not rebuild them */

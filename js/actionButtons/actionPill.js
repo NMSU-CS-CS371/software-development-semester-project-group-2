@@ -106,6 +106,10 @@ export class ActionPill {
     } else if (building) {
       text = this.words.infoText;
     }
+    if (this.shownFloor !== floor) {
+      this.shownFloor = floor;
+      this.setStackOpen(false); /* the sheet picked a floor, so the list above the pill closes */
+    }
     this.label.textContent = text;
     this.pill.classList.toggle('has-chev', showArrow);
     this.pill.disabled = !building;

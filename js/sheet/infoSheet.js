@@ -176,16 +176,15 @@ export class InfoSheet {
     if (this.shownId !== loadedFor || this.planPass !== pass) {
       return; /* a newer load started, so this one must not add another plan */
     }
+    if (floors.length > 0) {
+      this.planSlot.append(this.floorSwap(floors));
+    }
     for (let index = 0; index < floors.length; index += 1) {
       const floor = floors[index];
       const text = texts[index];
       const plan = document.createElement('div');
       plan.className = 'bs-plan';
       plan.dataset.floor = String(floor);
-      const label = document.createElement('p');
-      label.className = 'bs-plan-label';
-      label.textContent = 'Floor ' + floor;
-      plan.append(label);
       if (text) {
         const picture = document.createElement('div');
         picture.className = 'bs-plan-svg';
@@ -219,6 +218,37 @@ export class InfoSheet {
   }
 
   /**
+   * One control for the floors. One floor is just the words. Two or more can be tapped.
+   * @param {number[]} floors
+   * @returns {HTMLElement}
+   */
+  floorSwap(floors) {
+    const swap = document.createElement('div');
+    swap.className = 'bs-floor-swap';
+    if (floors.length < 2) {
+      const label = document.createElement('p');
+      label.className = 'bs-plan-label';
+      label.textContent = 'Floor ' + floors[0];
+      swap.append(label);
+      return swap;
+    }
+    for (const floor of floors) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'bs-plan-label';
+      button.dataset.floor = String(floor);
+      button.textContent = 'Floor ' + floor;
+      button.addEventListener('click', () => {
+        if (store.get().activeFloor !== floor) {
+          store.showFloor(floor);
+        }
+      });
+      swap.append(button);
+    }
+    return swap;
+  }
+
+  /**
    * Show the picked floor. If that SVG never loaded, show the missing-plan note.
    * @param {object} state
    */
@@ -226,6 +256,11 @@ export class InfoSheet {
     const building = this.buildingsById[state.selectedId];
     const floor = state.activeFloor != null ? state.activeFloor : (building && building.floors && building.floors[0]);
     const key = String(floor);
+    for (const button of this.planSlot.querySelectorAll('.bs-floor-swap button')) {
+      const on = button.dataset.floor === key;
+      button.classList.toggle('is-on', on);
+      button.setAttribute('aria-pressed', String(on));
+    }
     for (const plan of this.planSlot.querySelectorAll('.bs-plan')) {
       const on = plan.dataset.floor === key;
       plan.hidden = !on;
