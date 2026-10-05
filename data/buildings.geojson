@@ -176,6 +176,70 @@
           32.28049007
         ]
       }
+    },
+    {
+      "dateAdded": "2026-10-05",
+      "dateUpdated": "2026-10-05",
+      "lastInputSource": "scraper",
+      "scraperStamp": "f45bdaa6",
+      "type": "Building",
+      "properties": {
+        "id": "34",
+        "code": "FH",
+        "name": "Foster Hall",
+        "address": "1200 S. Horseshoe, Las Cruces, NM 88003",
+        "propertyNumber": "34",
+        "built": "1930",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525509",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 34)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75301603,
+          32.28133233
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-05",
+      "dateUpdated": "2026-10-05",
+      "lastInputSource": "scraper",
+      "scraperStamp": "63d96556",
+      "type": "Building",
+      "properties": {
+        "id": "225",
+        "code": "AY",
+        "name": "Astronomy Building",
+        "address": "1320 Frenger Mall, Las Cruces, NM 88001",
+        "propertyNumber": "225",
+        "built": "1959",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525366",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 225)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75144452,
+          32.28103337
+        ]
+      }
     }
   ]
 }
