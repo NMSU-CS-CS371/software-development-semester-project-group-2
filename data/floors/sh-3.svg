@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -50 2548 1510" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif">
+  <!--
+    Science Hall (bldg 391) - FLOOR 3
+    Traced from the posted "Emergency Evacuation Plan" photo. Coordinates use the
+    photo's own pixel positions, so any shape can be checked against the photo.
+    One wall weight for outside walls, one for inside walls; nothing in between.
+  -->
+  <style>
+    .floor { fill: #ffffff; stroke: #3a3d42; stroke-width: 6; stroke-linejoin: round; }
+    .room  { fill: #eef1f4; stroke: #8f959c; stroke-width: 2; }
+    .ours  { fill: #f5e3ea; stroke: #8f959c; stroke-width: 2; }
+    .core  { fill: #dfe3e8; stroke: #8f959c; stroke-width: 2; }
+    .void  { fill: #f7f7f8; stroke: #b5bac0; stroke-width: 2; stroke-dasharray: 10 8; }
+    .dim   { fill: #8a8f96; text-anchor: middle; dominant-baseline: middle; }
+    .stair { stroke: #8f959c; stroke-width: 2; }
+    .hall  { fill: #d7dbe0; stroke: none; }
+    .hall-lbl { fill: #6b7280; font-size: 18px; text-anchor: middle; dominant-baseline: middle; }
+    .authwall { stroke: #7c3aed; stroke-width: 6; stroke-dasharray: 10 8; }
+    .door  { stroke: #ffffff; stroke-width: 10; }
+    .lbl   { fill: #2b2e33; font-size: 24px; text-anchor: middle; dominant-baseline: middle; }
+    .lblS  { fill: #2b2e33; font-size: 19px; text-anchor: middle; dominant-baseline: middle; }
+    .name  { fill: #1d1f23; font-size: 30px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .exit  { fill: #1a7f37; font-size: 20px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .compass-letter { font-size: 22px; font-weight: 600; fill: #8a8690; text-anchor: middle; }
+    .compass-north  { fill: #8C0B42; }
+    .floor-edge { fill:none; stroke:#3a3d42; stroke-width:6; stroke-linejoin:round; }
+  </style>
+
+  <!-- OUTSIDE WALLS -->
+  <polygon class="floor" points="40,70 40,1215 1135,1215 1135,1385 1280,1385 1280,1290 1700,1290 1700,1245 2045,1245 2045,1115 1960,1115 1960,80 1745,80 1745,25 1315,25 1315,70"/>
+
+  <!-- HALLWAYS -->
+  <rect class="hall" x="235" y="70" width="100" height="1045"/>
+  <rect class="hall" x="555" y="970" width="1190" height="75"/>
+  <rect class="hall" x="1075" y="1045" width="670" height="70"/>
+  <rect class="hall" x="1650" y="205" width="50" height="765"/>
+  <rect class="hall" x="1450" y="285" width="80" height="685"/>
+  <rect class="hall" x="850" y="205" width="285" height="80"/>
+  <rect class="hall" x="40" y="150" width="195" height="15"/>
+  <rect class="hall" x="40" y="305" width="195" height="15"/>
+  <rect class="hall" x="40" y="545" width="195" height="30"/>
+  <rect class="hall" x="40" y="840" width="195" height="15"/>
+  <rect class="hall" x="45" y="1095" width="90" height="20"/>
+  <rect class="hall" x="335" y="970" width="115" height="75"/>
+  <rect class="hall" x="450" y="970" width="105" height="75"/>
+  <rect class="hall" x="135" y="1095" width="120" height="10"/>
+  <rect class="hall" x="1700" y="205" width="45" height="765"/>
+  <rect class="hall" x="620" y="875" width="40" height="95"/>
+  <rect class="hall" x="960" y="875" width="55" height="95"/>
+  <rect class="hall" x="1220" y="895" width="60" height="75"/>
+  <rect class="hall" x="765" y="520" width="735" height="25"/>
+  <rect class="hall" x="1135" y="205" width="70" height="100"/>
+  <rect class="hall" x="1205" y="205" width="75" height="80"/>
+  <rect class="hall" x="1280" y="205" width="90" height="100"/>
+  <rect class="hall" x="1370" y="205" width="330" height="80"/>
+  <rect class="hall" x="335" y="205" width="190" height="80"/>
+  <rect class="hall" x="525" y="205" width="75" height="100"/>
+  <rect class="hall" x="600" y="205" width="75" height="80"/>
+  <rect class="hall" x="675" y="205" width="175" height="100"/>
+  <rect class="hall" x="335" y="840" width="95" height="35"/>
+  <rect class="hall" x="415" y="285" width="10" height="595"/>
+  <rect class="hall" x="425" y="485" width="340" height="10"/>
+  <rect class="hall" x="570" y="425" width="50" height="335"/>
+  <rect class="hall" x="425" y="500" width="175" height="20"/>
+  <rect class="hall" x="430" y="690" width="170" height="50"/>
+  <rect class="hall" x="450" y="500" width="120" height="240"/>
+  <rect class="hall" x="475" y="740" width="50" height="155"/>
+  <rect class="hall" x="765" y="610" width="165" height="40"/>
+  <rect class="hall" x="600" y="610" width="165" height="20"/>
+  <rect class="hall" x="555" y="425" width="15" height="70"/>
+  <rect class="hall" x="525" y="840" width="135" height="55"/>
+  <rect class="hall" x="330" y="610" width="100" height="25"/>
+  <rect class="hall" x="1135" y="620" width="330" height="35"/>
+  <text class="hall-lbl" x="993" y="1008">Hallway</text>
+  <text class="hall-lbl" x="1428" y="1043">Hallway</text>
+  <text class="hall-lbl" x="988" y="253">Hallway</text>
+
+  <!-- ROOMS -->
+  <rect class="room" x="40" y="80" width="95" height="70"/><text class="lbl" x="88" y="115">322C</text>
+  <rect class="room" x="135" y="80" width="100" height="70"/><text class="lbl" x="185" y="115">322D</text>
+  <rect class="room" x="40" y="165" width="195" height="140"/><text class="lbl" x="138" y="235">322</text>
+  <rect class="room" x="40" y="320" width="95" height="85"/><text class="lbl" x="88" y="363">322A</text>
+  <rect class="room" x="135" y="320" width="100" height="85"/><text class="lbl" x="185" y="363">322B</text>
+  <rect class="room" x="40" y="405" width="195" height="140"/><text class="lbl" x="138" y="475">319</text>
+  <rect class="room" x="40" y="575" width="95" height="115"/><text class="lbl" x="88" y="633">319A</text>
+  <rect class="room" x="135" y="575" width="100" height="115"/><text class="lbl" x="185" y="633">319B</text>
+  <rect class="room" x="40" y="690" width="195" height="150"/><text class="lbl" x="138" y="765">315</text>
+  <rect class="room" x="40" y="855" width="95" height="85"/><text class="lbl" x="88" y="898">315A</text>
+  <rect class="room" x="135" y="855" width="100" height="85"/><text class="lbl" x="185" y="898">315B</text>
+  <rect class="room" x="55" y="945" width="190" height="150"/><text class="lbl" x="150" y="1020">313</text>
+  <rect class="room" x="135" y="1115" width="100" height="100"/><text class="lbl" x="185" y="1165">313B</text>
+  <rect class="room" x="40" y="1115" width="95" height="100"/><text class="lbl" x="88" y="1165">313A</text>
+  <rect class="room" x="255" y="1045" width="195" height="170"/><text class="lbl" x="353" y="1130">312</text>
+  <rect class="room" x="450" y="1045" width="105" height="170"/><text class="lbl" x="503" y="1130">311</text>
+  <rect class="room" x="555" y="1045" width="105" height="170"/><text class="lbl" x="608" y="1130">309</text>
+  <rect class="room" x="660" y="1045" width="105" height="170"/><text class="lbl" x="713" y="1130">308</text>
+  <rect class="room" x="765" y="1045" width="105" height="170"/><text class="lbl" x="818" y="1130">307</text>
+  <rect class="room" x="870" y="1045" width="205" height="170"/><text class="lbl" x="973" y="1130">306</text>
+  <rect class="room" x="1075" y="1115" width="60" height="100"/><text class="lblS" x="1105" y="1165">302</text>
+  <rect class="room" x="1315" y="1115" width="185" height="175"/><text class="lbl" x="1408" y="1203">350</text>
+  <rect class="room" x="1500" y="1115" width="200" height="175"/><text class="lbl" x="1600" y="1203">349</text>
+  <rect class="room" x="1700" y="1115" width="345" height="130"/><text class="lbl" x="1873" y="1180">348</text>
+  <rect class="room" x="1745" y="970" width="215" height="145"/><text class="lbl" x="1853" y="1043">347</text>
+  <rect class="room" x="1745" y="855" width="215" height="115"/><text class="lbl" x="1853" y="913">346</text>
+  <rect class="room" x="1530" y="875" width="120" height="95"/><text class="lbl" x="1590" y="923">345</text>
+  <rect class="room" x="1530" y="760" width="120" height="115"/><text class="lbl" x="1590" y="818">344</text>
+  <rect class="room" x="1745" y="710" width="215" height="145"/><text class="lbl" x="1853" y="783">343</text>
+  <rect class="room" x="1530" y="650" width="120" height="110"/><text class="lbl" x="1590" y="705">341</text>
+  <rect class="room" x="1745" y="575" width="215" height="115"/><text class="lbl" x="1853" y="633">342</text>
+  <rect class="room" x="1745" y="425" width="215" height="150"/><text class="lbl" x="1853" y="500">339</text>
+  <rect class="room" x="1500" y="545" width="150" height="105"/><text class="lbl" x="1575" y="598">340</text>
+  <rect class="room" x="1745" y="320" width="175" height="105"/><text class="lbl" x="1833" y="373">337</text>
+  <rect class="room" x="1500" y="425" width="150" height="95"/><text class="lbl" x="1575" y="473">338</text>
+  <rect class="room" x="1500" y="320" width="150" height="105"/><text class="lbl" x="1575" y="373">336</text>
+  <rect class="room" x="1745" y="80" width="215" height="240"/><text class="lbl" x="1853" y="200">335</text>
+  <rect class="room" x="1135" y="80" width="180" height="125"/><text class="lbl" x="1225" y="143">331</text>
+  <rect class="room" x="995" y="80" width="140" height="145"/><text class="lbl" x="1065" y="153">330</text>
+  <rect class="room" x="820" y="80" width="175" height="125"/><text class="lbl" x="908" y="143">328</text>
+  <rect class="room" x="660" y="80" width="160" height="125"/><text class="lbl" x="740" y="143">326</text>
+  <rect class="room" x="475" y="80" width="185" height="125"/><text class="lbl" x="568" y="143">325</text>
+  <rect class="room" x="255" y="80" width="220" height="125"/><text class="lbl" x="365" y="143">323</text>
+  <rect class="room" x="335" y="285" width="90" height="120"/><text class="lbl" x="380" y="345">321</text>
+  <rect class="room" x="335" y="405" width="90" height="115"/><text class="lbl" x="380" y="463">320</text>
+  <rect class="room" x="335" y="520" width="90" height="90"/><text class="lbl" x="380" y="565">318</text>
+  <rect class="room" x="335" y="630" width="90" height="110"/><text class="lbl" x="380" y="685">317</text>
+  <rect class="room" x="335" y="740" width="90" height="115"/><text class="lbl" x="380" y="798">316</text>
+  <rect class="room" x="335" y="875" width="90" height="95"/><text class="lbl" x="380" y="923">314</text>
+  <rect class="room" x="425" y="875" width="100" height="95"/><text class="lbl" x="475" y="923">310A</text>
+  <rect class="room" x="525" y="875" width="95" height="95"/><text class="lbl" x="573" y="923">310B</text>
+  <rect class="room" x="675" y="875" width="90" height="95"/><text class="lbl" x="720" y="923">310C</text>
+  <rect class="room" x="425" y="740" width="340" height="135"/><text class="lbl" x="595" y="808">310</text>
+  <rect class="room" x="765" y="740" width="370" height="135"/><text class="lbl" x="950" y="808">305</text>
+  <rect class="room" x="765" y="875" width="105" height="95"/><text class="lbl" x="818" y="923">305A</text>
+  <rect class="room" x="870" y="875" width="90" height="95"/><text class="lbl" x="915" y="923">305B</text>
+  <rect class="room" x="1015" y="875" width="120" height="95"/><text class="lbl" x="1075" y="923">305C</text>
+  <rect class="room" x="1135" y="895" width="70" height="75"/><text class="lbl" x="1170" y="933">301A</text>
+  <rect class="room" x="1280" y="895" width="90" height="75"/><text class="lbl" x="1325" y="933">301B</text>
+  <rect class="room" x="1370" y="895" width="80" height="75"/><text class="lbl" x="1410" y="933">301C</text>
+  <rect class="room" x="1135" y="740" width="315" height="155"/><text class="lbl" x="1293" y="818">301</text>
+  <rect class="room" x="1315" y="650" width="135" height="90"/><text class="lbl" x="1383" y="695">301D</text>
+  <rect class="room" x="1280" y="545" width="170" height="80"/><text class="lbl" x="1365" y="585">332D</text>
+  <rect class="room" x="1135" y="545" width="145" height="85"/><text class="lbl" x="1208" y="588">332E</text>
+  <rect class="room" x="1135" y="405" width="315" height="140"/><text class="lbl" x="1293" y="475">332</text>
+  <rect class="room" x="1370" y="305" width="80" height="100"/><text class="lbl" x="1410" y="355">332C</text>
+  <rect class="room" x="1280" y="305" width="90" height="100"/><text class="lbl" x="1325" y="355">332B</text>
+  <rect class="room" x="1135" y="305" width="70" height="100"/><text class="lbl" x="1170" y="355">332A</text>
+  <rect class="room" x="995" y="285" width="100" height="100"/><text class="lbl" x="1045" y="335">329C</text>
+  <rect class="room" x="850" y="285" width="110" height="100"/><text class="lbl" x="905" y="335">329B</text>
+  <rect class="room" x="765" y="305" width="85" height="80"/><text class="lbl" x="808" y="345">329A</text>
+  <rect class="room" x="525" y="305" width="75" height="60"/><text class="lblS" x="563" y="335">324A</text>
+  <rect class="room" x="600" y="285" width="75" height="80"/><text class="lbl" x="638" y="325">327A</text>
+  <rect class="room" x="675" y="305" width="90" height="120"/><text class="lbl" x="720" y="365">327</text>
+  <polygon class="room" points="425,285 525,285 525,365 660,365 660,425 555,425 555,495 425,495"/><text class="lbl" x="510" y="396">324</text>
+  <rect class="room" x="600" y="425" width="165" height="70"/><text class="lbl" x="683" y="460">327B</text>
+  <rect class="room" x="425" y="495" width="145" height="115"/><text class="lbl" x="498" y="553">324C</text>
+  <rect class="room" x="600" y="495" width="165" height="115"/><text class="lbl" x="683" y="553">327C</text>
+  <rect class="room" x="425" y="630" width="175" height="110"/><text class="lbl" x="513" y="685">310E</text>
+  <rect class="room" x="605" y="630" width="160" height="110"/><text class="lbl" x="685" y="685">310D</text>
+  <rect class="room" x="765" y="545" width="165" height="65"/><text class="lblS" x="848" y="578">329E</text>
+  <rect class="room" x="765" y="385" width="370" height="160"/><text class="lbl" x="950" y="465">329</text>
+  <rect class="room" x="930" y="545" width="205" height="85"/><text class="lbl" x="1033" y="588">329D</text>
+  <rect class="room" x="765" y="650" width="165" height="90"/><text class="lbl" x="848" y="695">305E</text>
+  <rect class="room" x="930" y="630" width="205" height="110"/><text class="lbl" x="1033" y="685">305D</text>
+
+  <rect class="core" x="1315" y="25" width="280" height="125"/>
+  <g class="stair"><line x1="1315" y1="34" x2="1595" y2="34"/><line x1="1315" y1="52" x2="1595" y2="52"/><line x1="1315" y1="70" x2="1595" y2="70"/><line x1="1315" y1="88" x2="1595" y2="88"/><line x1="1315" y1="106" x2="1595" y2="106"/><line x1="1315" y1="124" x2="1595" y2="124"/><line x1="1315" y1="142" x2="1595" y2="142"/></g>
+  <rect class="core" x="1135" y="1215" width="145" height="170"/>
+  <g class="stair"><line x1="1135" y1="1224" x2="1280" y2="1224"/><line x1="1135" y1="1242" x2="1280" y2="1242"/><line x1="1135" y1="1260" x2="1280" y2="1260"/><line x1="1135" y1="1278" x2="1280" y2="1278"/><line x1="1135" y1="1296" x2="1280" y2="1296"/><line x1="1135" y1="1314" x2="1280" y2="1314"/><line x1="1135" y1="1332" x2="1280" y2="1332"/><line x1="1135" y1="1350" x2="1280" y2="1350"/><line x1="1135" y1="1368" x2="1280" y2="1368"/></g>
+  <polygon class="floor-edge" points="40,70 40,1215 1135,1215 1135,1385 1280,1385 1280,1290 1700,1290 1700,1245 2045,1245 2045,1115 1960,1115 1960,80 1745,80 1745,25 1315,25 1315,70"/>
+  <!-- Which way the building really faces; matches the compass on the posted evacuation map. -->
+  <g class="compass" transform="translate(2187,1127) rotate(12)">
+    <circle r="80" fill="#ffffff" stroke="#1d1f23" stroke-width="3"/>
+    <circle r="49" fill="none" stroke="#f0f0f3" stroke-width="2"/>
+    <path d="M0,-38 L11,0 L-11,0 Z" fill="#8C0B42"/>
+    <path d="M0,38 L11,0 L-11,0 Z" fill="#c7c7cc"/>
+    <circle r="4.5" fill="#ffffff" stroke="#8a8690" stroke-width="2"/>
+    <text class="compass-letter compass-north" x="0" y="-52">N</text>
+    <text class="compass-letter" x="0" y="62">S</text>
+    <text class="compass-letter" x="57" y="6">E</text>
+    <text class="compass-letter" x="-57" y="6">W</text>
+  </g>
+  <g class="legend" transform="translate(2015,336) scale(2.24)"><rect x="0" y="0" width="190" height="280" fill="#ffffff" fill-opacity="0.92" stroke="#c7cad0" stroke-width="1"/><g transform="translate(4,12)"><rect x="0" y="0" width="20" height="14" fill="#eef1f4" stroke="#8f959c" stroke-width="1.5"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Room</text></g><g transform="translate(4,36)"><rect x="0" y="0" width="20" height="14" fill="#cfe0ff" stroke="#2f6feb" stroke-width="1.5"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Selected room</text></g><g transform="translate(4,60)"><rect x="0" y="0" width="20" height="14" fill="#dfe3e8" stroke="#8f959c" stroke-width="1.5"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Core</text></g><g transform="translate(4,84)"><rect x="0" y="0" width="20" height="14" fill="#dfe3e8" stroke="#8f959c" stroke-width="1.5"/><g class="icon" transform="translate(4,1) scale(0.496)"><path d="m21 16-3-3h6zm0-8-3 3h6zm-12-8h-6c-1.654 0-3 1.346-3 3v21h9zm11 6.171v-3.171c0-1.654-1.346-3-3-3h-6v24h9v-6.171l-4-4v-3.657l4-4z" fill="#5f6368"/></g><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Elevator</text></g><g transform="translate(4,108)"><rect x="0" y="0" width="20" height="14" fill="#f7f7f8" stroke="#b5bac0" stroke-width="1.5" stroke-dasharray="3 2"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Void (open to below)</text></g><g transform="translate(4,132)"><rect x="0" y="0" width="20" height="14" fill="#dfe3e8" stroke="#8f959c" stroke-width="1.5"/><line x1="3" y1="4" x2="17" y2="4" stroke="#8f959c" stroke-width="1.5"/><line x1="3" y1="7" x2="17" y2="7" stroke="#8f959c" stroke-width="1.5"/><line x1="3" y1="10" x2="17" y2="10" stroke="#8f959c" stroke-width="1.5"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Stairs</text></g><g transform="translate(4,156)"><line x1="0" y1="4" x2="7" y2="4" stroke="#3a3d42" stroke-width="2.5"/><line x1="13" y1="4" x2="20" y2="4" stroke="#3a3d42" stroke-width="2.5"/><text x="10" y="13" fill="#1a7f37" font-size="7" font-weight="700" text-anchor="middle">EXIT</text><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Doors</text></g><g transform="translate(4,180)"><rect x="0" y="0" width="20" height="14" fill="#d7dbe0" stroke="#d7dbe0" stroke-width="1.5"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Hallway</text></g><g transform="translate(4,204)"><line x1="0" y1="8" x2="20" y2="8" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M8,7 V5 A2,2 0 0 1 12,5 V7" fill="none" stroke="#7c3aed" stroke-width="1.2"/><rect x="7" y="7" width="6" height="5" rx="1" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Staff only (no public access)</text></g><g transform="translate(4,228)"><circle cx="10" cy="7" r="6" fill="#ffffff" stroke="#e6e6ea" stroke-width="1.5"/><path d="M10,2 L12,7 L8,7 Z" fill="#8C0B42"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Compass</text></g><g transform="translate(4,252)"><rect x="0" y="0" width="20" height="14" fill="#ffffff" stroke="#3a3d42" stroke-width="1.5"/><text x="28" y="11" font-size="11" fill="#1d1f23" font-family="sans-serif">Outline</text></g></g>
+</svg>
