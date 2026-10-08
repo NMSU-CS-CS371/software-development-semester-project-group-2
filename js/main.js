@@ -6,7 +6,7 @@
  */
 
 import { CONFIG, loadConfig } from './core/config.js';
-import { store } from './core/store.js';
+import { photoSrc, store } from './core/store.js';
 import { watchUrl } from './core/urlPaths.js';
 import { boundsAround } from './logic/mapBounds.js';
 import { CampusMap } from './map/campusMap.js';
@@ -64,6 +64,25 @@ function recordsFrom(file) {
 }
 
 /**
+ * One copy of each picture. The same file is listed more than once for some buildings.
+ * @param {object[]} photos
+ * @returns {object[]}
+ */
+function uniquePhotos(photos) {
+  const seen = new Set();
+  const unique = [];
+  for (const photo of photos) {
+    const src = photoSrc(photo);
+    if (!src || seen.has(src)) {
+      continue;
+    }
+    seen.add(src);
+    unique.push(photo);
+  }
+  return unique;
+}
+
+/**
  * Load descriptions after the map is already up.
  * @param {object[]} buildings
  * @param {InfoSheet} sheet
@@ -75,7 +94,7 @@ async function loadDescriptions(buildings, sheet) {
     const entry = file.descriptions[building.id];
     building.description = (entry && entry.paragraphs) || [];
     building.links = (entry && entry.links) || [];
-    const photos = (entry && entry.photos) || [];
+    const photos = uniquePhotos((entry && entry.photos) || []);
     building.photos = photos;
     store.rememberPhotos(building.id, photos);
   }

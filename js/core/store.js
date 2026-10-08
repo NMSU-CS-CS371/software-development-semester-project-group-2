@@ -111,7 +111,7 @@ class Store {
       this.update({ sheetOpen: true, sheetWaiting: false });
       return;
     }
-    const floor = building.floors && building.floors.length ? building.floors[0] : null;
+    const floor = building.floors && building.floors.includes(1) ? 1 : (building.floors && building.floors.length ? building.floors[0] : null);
     this.update({
       selectedId: building.id,
       selectedVia: via,
@@ -169,6 +169,16 @@ class Store {
   closeSheet() {
     this.update({ sheetOpen: false, sheetWaiting: false });
   }
+}
+
+/**
+ * The picture address. The row and the full-screen view must use this same
+ * address, or the browser stores one file and then downloads another.
+ * @param {object} photo
+ * @returns {string}
+ */
+export function photoSrc(photo) {
+  return (photo && (photo.url || photo.thumbUrl)) || '';
 }
 
 /** The one store the whole app uses. */

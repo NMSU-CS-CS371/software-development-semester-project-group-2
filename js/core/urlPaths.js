@@ -54,7 +54,7 @@ export function watchUrl(buildingsById) {
     /* this tab already closed the sheet but kept the building, so don't open it again */
     const keptClosed = state.selectedId === pasted.id && !state.sheetOpen && !state.sheetWaiting;
     if (!keptClosed) {
-      const floor = pasted.floors && pasted.floors.length ? pasted.floors[0] : null;
+      const floor = pasted.floors && pasted.floors.includes(1) ? 1 : (pasted.floors && pasted.floors.length ? pasted.floors[0] : null);
       store.update({
         selectedId: pasted.id,
         selectedVia: 'url',

@@ -84,7 +84,7 @@ export class ActionPill {
     }
     const open = !this.stack.classList.contains('is-open');
     if (open) {
-      const floor = state.activeFloor != null ? state.activeFloor : building.floors[0];
+      const floor = state.activeFloor != null ? state.activeFloor : (building.floors.includes(1) ? 1 : building.floors[0]);
       this.fillStack(building, floor);
       this.stack.getBoundingClientRect(); /* lay them out closed before they glide open */
     }
@@ -98,7 +98,7 @@ export class ActionPill {
   update(state) {
     const building = this.buildingsById[state.selectedId];
     let text = this.words.idleText;
-    const floor = state.activeFloor != null ? state.activeFloor : (building && building.floors && building.floors[0]);
+    const floor = state.activeFloor != null ? state.activeFloor : (building && building.floors && (building.floors.includes(1) ? 1 : building.floors[0]));
     let showArrow = false;
     if (building && state.sheetOpen && floor != null) {
       text = this.floorName(floor);

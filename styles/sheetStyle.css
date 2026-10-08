@@ -124,13 +124,51 @@ rect.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
   background: #000;
 }
 .plan-full-stage svg,
-.plan-full-stage img {
+.plan-full-stage img:not(.plan-full-photo) {
   width: 100%;
   height: auto;
   max-height: 100%;
   background: transparent;
   transform-origin: center center;
   will-change: transform;
+}
+.plan-full-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.plan-full-nav {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+.plan-full-prev { left: var(--s3); }
+.plan-full-next { right: var(--s3); }
+.plan-full-spin {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 3px solid rgba(255, 255, 255, 0.28);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: plan-full-spin 0.7s linear infinite;
+}
+@keyframes plan-full-spin {
+  to { transform: rotate(360deg); }
 }
 .plan-full-stage svg.is-anim {
   transition: transform 0.28s ease-out;
@@ -151,6 +189,7 @@ rect.is-picked { fill: #c5dff8; stroke: #0a84ff; stroke-width: 4; }
   cursor: pointer;
 }
 @media (prefers-reduced-motion: reduce) {
+  .plan-full-spin { animation: none; }
   .plan-full-stage svg { transition: none !important; }
   .bs-plan.is-in { animation: none; }
   .bs-floor-swap button { transition: none; }

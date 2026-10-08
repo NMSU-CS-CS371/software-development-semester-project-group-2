@@ -6,10 +6,104 @@
  * The view is thrown away when it closes, so the next one starts fresh.
  */
 
+import { photoSrc } from '../core/store.js';
 import { markRoom, roomFrom } from './infoSheetFloorPlan.js';
 const MIN_SCALE = 1;
 const MAX_SCALE = 4;
 const TAP_ZOOM = 2;
+
+/**
+ * Open building photos full screen. The picture keeps its own shape.
+ * When there is more than one, < and > step through them and stop at each end.
+ * @param {object[]} photos
+ * @param {number} start
+ */
+export function openPhotoView(photos, start) {
+  const already = document.querySelector('dialog.plan-full');
+  if (already) {
+    already.remove();
+  }
+  let index = start;
+  const dialog = document.createElement('dialog');
+  dialog.className = 'plan-full';
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'plan-full-x';
+  close.setAttribute('aria-label', 'Close');
+  close.textContent = '×';
+  const stage = document.createElement('div');
+  stage.className = 'plan-full-stage';
+  const image = document.createElement('img');
+  image.className = 'plan-full-photo';
+  const prev = document.createElement('button');
+  prev.type = 'button';
+  prev.className = 'plan-full-nav plan-full-prev';
+  prev.setAttribute('aria-label', 'Previous photo');
+  prev.textContent = '<';
+  const next = document.createElement('button');
+  next.type = 'button';
+  next.className = 'plan-full-nav plan-full-next';
+  next.setAttribute('aria-label', 'Next photo');
+  next.textContent = '>';
+  const spin = document.createElement('div');
+  spin.className = 'plan-full-spin';
+  spin.setAttribute('role', 'status');
+  spin.setAttribute('aria-label', 'Loading photo');
+  let shown = '';
+
+  function ready() {
+    return image.complete && image.naturalWidth > 0 && image.currentSrc === shown;
+  }
+
+  function show() {
+    const photo = photos[index];
+    shown = photoSrc(photo);
+    image.alt = photo.title || '';
+    prev.hidden = index === 0;
+    next.hidden = index === photos.length - 1;
+    if (image.getAttribute('src') !== shown) {
+      image.hidden = true; /* the last slide stays hidden until this address is the one on screen */
+      image.src = shown;
+    }
+    image.hidden = !ready();
+    spin.hidden = ready();
+  }
+
+  image.addEventListener('load', () => {
+    if (!ready()) {
+      return;
+    }
+    spin.hidden = true;
+    image.hidden = false;
+  });
+  image.addEventListener('error', () => {
+    if (image.getAttribute('src') !== shown) {
+      return;
+    }
+    spin.hidden = true;
+  });
+
+  prev.addEventListener('click', () => {
+    if (index > 0) {
+      index -= 1;
+      show();
+    }
+  });
+  next.addEventListener('click', () => {
+    if (index < photos.length - 1) {
+      index += 1;
+      show();
+    }
+  });
+
+  show();
+  stage.append(image);
+  dialog.append(close, prev, next, spin, stage);
+  close.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => dialog.remove());
+  document.body.append(dialog);
+  dialog.showModal();
+}
 
 /**
  * Open a copy of this floor plan full screen.
