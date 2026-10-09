@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1060" height="670" viewBox="0 0 1060 670" role="img" aria-labelledby="title desc"><title id="title">Branson Library — Floor 2</title><desc id="desc">Editable grayscale vector recreation of the supplied second-floor plan. Shelves, walls, elevators, stairs, and restrooms are separate vector elements. Visual trace, not a measured architectural plan.</desc><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.wall{fill:none;stroke:#303030;stroke-width:3.8;stroke-linecap:square;stroke-linejoin:miter}.shelf{fill:#bcbcbc;stroke:#e8e8e8;stroke-width:1}</style>
+<defs>
+<g id="book"><path d="M-7 -5 Q-3 -7 0 -4 Q3 -7 7 -5 V6 Q3 4 0 6 Q-3 4 -7 6Z M0 -4V6" fill="none" stroke="white" stroke-width="1.3"/></g>
+<g id="stairs"><path d="M-7 6H-3V2H1V-2H5V-6H8" fill="none" stroke="white" stroke-width="1.8"/></g>
+<g id="elevator"><rect x="-6" y="-7" width="12" height="14" fill="none" stroke="white"/><path d="M-2 -4V4 M2 -4V4 M-4 -2l2 -2 2 2 M0 2l2 2 2 -2" fill="none" stroke="white"/></g>
+<g id="person"><circle cy="-5" r="2" fill="white"/><path d="M-3 -1H3V4H1V8H-1V4H-3Z" fill="white"/></g>
+<g id="restroom"><use xlink:href="#person" transform="translate(-4) scale(.8)"/><use xlink:href="#person" transform="translate(4) scale(.8)"/></g>
+<g id="charge"><path d="M1 -8L-5 1H0L-1 8 6 -2H1Z" fill="white"/></g>
+<g id="mic"><rect x="-2.5" y="-7" width="5" height="9" rx="2.5" fill="none" stroke="white"/><path d="M-5 -2V0Q-5 5 0 5Q5 5 5 0V-2 M0 5V8 M-3 8H3" fill="none" stroke="white"/></g>
+<g id="news"><path d="M-5 -7L7 -3 3 8 -8 4Z M-3 -3L4 -1 M-4 0L3 2 M-5 3L2 5" fill="none" stroke="white" stroke-width="1.1"/></g>
+<g id="map"><path d="M-8 0L-3 -3 2 0 7 -2V7L2 9 -3 6 -8 8Z" fill="none" stroke="white"/><path d="M0 -7C-5 -7 -5 -3 0 2C5 -3 5 -7 0 -7Z" fill="none" stroke="white"/><circle cy="-4" r="1" fill="white"/></g>
+<g id="phone"><path d="M-6 -7L-3 -8 0 -3 -2 -1 2 3 4 1 8 4 6 7C1 10 -10 -2 -6 -7Z" fill="none" stroke="white" stroke-width="1.2"/></g>
+<g id="vending"><rect x="-6" y="-8" width="12" height="16" fill="none" stroke="white"/><path d="M-4 -5H2V2H-4Z M4 -4V0 M-3 5H3 M-1 -5V2 M-4 -2H2" fill="none" stroke="white"/></g>
+<g id="video"><rect x="-8" y="-3" width="16" height="9" rx="1" fill="none" stroke="white"/><circle cx="-3" cy="1" r="2" fill="none" stroke="white"/><circle cx="3" cy="1" r="2" fill="none" stroke="white"/><path d="M-4 -5H4" stroke="white"/></g>
+</defs>
+<rect width="1060" height="670" fill="white"/>
+<g id="header"><text x="49" y="48" font-size="29" font-weight="bold">NM STATE</text><text x="49" y="76" font-size="13">NEW MEXICO STATE UNIVERSITY</text><text x="49" y="104" font-size="13">LIBRARY FLOOR PLAN</text><text x="400" y="46" font-size="32" font-weight="bold">BRANSON LIBRARY</text><text x="400" y="74" font-size="20">Floor 2</text></g>
+<g id="legend"><rect x="795" y="122" width="118" height="108" rx="5" fill="#fafafa" stroke="#555" stroke-width="2.5"/>
+<g transform="translate(817 142)"><title>Elevators</title><circle r="11" fill="#565656"/><use xlink:href="#elevator"/></g>
+<text x="833" y="147" font-size="13">Elevators</text>
+<g transform="translate(817 176)"><title>Restrooms</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+<text x="833" y="181" font-size="13">Restrooms</text>
+<g transform="translate(817 209)"><title>Stairs</title><circle r="11" fill="#565656"/><use xlink:href="#stairs"/></g>
+<text x="833" y="214" font-size="13">Stairs</text>
+</g>
+<g id="floor"><path d="M174 124H774V312H825V368H975V523H831V551H824V618H674V563H165V287H53V234H174Z" fill="#d4d4d4"/>
+<g id="room-fills" fill="#e6e6e6"><path id="open-stacks" d="M323 164H774V312H825V551H824V618H781V542H750V561H702V502H781V465H702V418H781V361H598V462H674V563H165V287H53V234H174V250H323Z"/><path id="northwest-room" d="M174 124H323V250H174Z"/><path id="east-room" d="M825 368H975V523H825Z"/><path id="south-restroom" d="M674 574H750V592H781V618H674Z"/></g>
+<g id="service-fills" fill="#bcbcbc"><path id="service-room" d="M598 361H674V462H598Z"/><path id="service-corridor" d="M674 361H702V418H781V433H702V561H750V574H674Z"/><path id="south-service-room" d="M750 542H781V592H750Z"/></g>
+<g id="shelving">
+<rect id="shelf-174-1" x="497" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-2" x="522" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-3" x="547" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-4" x="571" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-5" x="595" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-6" x="619" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-7" x="643" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-8" x="667" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-9" x="692" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-174-10" x="716" y="174" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-1" x="206" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-2" x="231" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-3" x="256" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-4" x="281" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-5" x="307" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-6" x="328" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-7" x="353" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-8" x="378" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-9" x="404" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-10" x="424" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-11" x="449" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-12" x="475" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-13" x="501" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-14" x="522" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-15" x="547" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-16" x="573" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-17" x="597" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-18" x="619" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-19" x="643" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-20" x="669" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-21" x="695" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-274-22" x="715" y="274" width="8" height="64" class="shelf"/>
+<rect id="shelf-378-1" x="206" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-2" x="231" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-3" x="256" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-4" x="277" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-5" x="303" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-6" x="329" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-7" x="350" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-8" x="375" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-9" x="401" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-10" x="424" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-11" x="449" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-12" x="474" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-13" x="497" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-14" x="522" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-15" x="547" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-378-16" x="568" y="378" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-1" x="206" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-2" x="231" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-3" x="256" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-4" x="277" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-5" x="303" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-6" x="329" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-7" x="350" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-8" x="375" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-9" x="401" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-10" x="427" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-11" x="450" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-12" x="474" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-13" x="496" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-14" x="522" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-15" x="547" y="482" width="8" height="63" class="shelf"/>
+<rect id="shelf-482-16" x="568" y="482" width="8" height="63" class="shelf"/>
+<rect x="167" y="303" width="6" height="44" class="shelf"/>
+<rect x="167" y="388" width="6" height="44" class="shelf"/>
+<rect x="167" y="491" width="6" height="44" class="shelf"/>
+</g><g id="walls">
+<path class="wall" d="M174 124H774V312H825V368H975V523H831V551H824V618H674V563H165V287H53V234H174Z"/>
+<path class="wall" d="M174 234V250H323V209 M323 186V164H734 M758 164H774"/>
+<path class="wall" d="M598 462V361H779 M598 462H674 M674 361V618 M702 361V418H781V465H702V502H781V508"/>
+<path class="wall" d="M702 433H781 M743 433V465 M702 433V465"/>
+<path class="wall" d="M781 525V546 M781 542H750V592H781 M781 559V598 M781 612V618"/>
+<path class="wall" d="M674 568H702V561H750 M674 574H750 M769 559H781"/>
+<path class="wall" d="M825 368V523H831 M817 551H831"/>
+</g><g id="amenities">
+<g transform="translate(745 390)"><title>Stairs</title><circle r="11" fill="#565656"/><use xlink:href="#stairs"/></g>
+<g transform="translate(724 449)"><title>West elevator</title><circle r="11" fill="#565656"/><use xlink:href="#elevator"/></g>
+<g transform="translate(763 449)"><title>East elevator</title><circle r="11" fill="#565656"/><use xlink:href="#elevator"/></g>
+<g transform="translate(728 533)"><title>North restroom</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+<g transform="translate(728 598)"><title>South restroom</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+</g></g><text x="49" y="653" font-size="10" fill="#777">Branson Library · New Mexico State University</text><text x="1000" y="653" text-anchor="end" font-size="10" fill="#777">Floor 2 · Visual trace — not to scale</text></svg>
