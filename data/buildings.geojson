@@ -176,6 +176,37 @@
           32.28049007
         ]
       }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "1909141a",
+      "type": "Building",
+      "properties": {
+        "id": "82",
+        "code": "BX",
+        "name": "Biology Annex",
+        "address": "3080 Williams Ave., Las Cruces, NM 88001",
+        "propertyNumber": "82",
+        "built": "1941",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525487",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 82)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75132256,
+          32.28037777
+        ]
+      }
     }
   ]
 }

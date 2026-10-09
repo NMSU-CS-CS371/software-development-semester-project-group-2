@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 31 859 599" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif">
+  <!--
+    Biology Annex (bldg 82) - FLOOR 1
+    Traced from the posted "Emergency Evacuation Plan" photo. Coordinates use the
+    photo's own pixel positions, so any shape can be checked against the photo.
+    One wall weight for outside walls, one for inside walls; nothing in between.
+  -->
+  <style>
+    .floor { fill: #ffffff; stroke: #3a3d42; stroke-width: 6; stroke-linejoin: round; }
+    .room  { fill: #eef1f4; stroke: #8f959c; stroke-width: 2; }
+    .ours  { fill: #f5e3ea; stroke: #8f959c; stroke-width: 2; }
+    .core  { fill: #dfe3e8; stroke: #8f959c; stroke-width: 2; }
+    .void  { fill: #f7f7f8; stroke: #b5bac0; stroke-width: 2; stroke-dasharray: 10 8; }
+    .dim   { fill: #8a8f96; text-anchor: middle; dominant-baseline: middle; }
+    .stair { stroke: #8f959c; stroke-width: 2; }
+    .hall  { fill: #d7dbe0; stroke: none; }
+    .hall-lbl { fill: #6b7280; font-size: 18px; text-anchor: middle; dominant-baseline: middle; }
+    .authwall { stroke: #7c3aed; stroke-width: 6; stroke-dasharray: 10 8; }
+    .door  { stroke: #ffffff; stroke-width: 10; }
+    .lbl   { fill: #2b2e33; font-size: 24px; text-anchor: middle; dominant-baseline: middle; }
+    .lblS  { fill: #2b2e33; font-size: 19px; text-anchor: middle; dominant-baseline: middle; }
+    .name  { fill: #1d1f23; font-size: 30px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .exit  { fill: #1a7f37; font-size: 20px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .compass-letter { font-size: 22px; font-weight: 600; fill: #8a8690; text-anchor: middle; }
+    .compass-north  { fill: #8C0B42; }
+    .floor-edge { fill:none; stroke:#3a3d42; stroke-width:6; stroke-linejoin:round; }
+  </style>
+
+  <!-- OUTSIDE WALLS -->
+  <polygon class="floor" points="25,60 30,550 385,550 830,550 830,60"/>
+
+  <!-- HALLWAYS -->
+  <rect class="hall" x="30" y="260" width="430" height="58"/>
+  <rect class="hall" x="400" y="300" width="110" height="250"/>
+  <text class="hall-lbl" x="288" y="278">Hallway</text>
+  <text class="hall-lbl" transform="rotate(-90 433 368)" x="433" y="368">Hallway</text>
+
+  <!-- ROOMS -->
+  <rect class="room" x="295" y="460" width="119" height="90"/><text class="lbl" x="355" y="505">101</text>
+  <rect class="room" x="451" y="345" width="59" height="30"/><text class="lblS" x="481" y="360">J100</text>
+  <rect class="core" x="451" y="375" width="59" height="135"/>
+  <g class="icon" transform="translate(463,425) scale(1.475)"><path d="m16 18c0 1.608-2.065 4-5 4-.774 0-1.446.44-1.778 1.084-.277.536-.779.916-1.381.916h-3.34c-.828 0-1.5-.672-1.5-1.5v-13c0-.829.672-1.5 1.5-1.5s1.5.671 1.5 1.5v7.5h8.999c1 0 1 1 1 1zm.5-13c1.381 0 2.5-1.119 2.5-2.5s-1.119-2.5-2.5-2.5-2.5 1.119-2.5 2.5 1.119 2.5 2.5 2.5zm3.162 8.514c-.514-.357-1.143-.514-1.769-.514h-3.727s1.256-3.232 1.256-3.232l2.567 2.34c.611.557 1.559.516 2.119-.098.559-.612.515-1.561-.098-2.119l-4.641-4.231s-.011-.005-.016-.009c-.512-.475-1.23-.742-2.044-.623-.884.129-1.608.779-1.932 1.611l-2.122 5.457c-.453.976-.303 2.12.417 2.959.546.636 1.385.945 2.223.945.137-.001 6.102 0 6.102 0l-1.281 6.121c-.235.937.497 1.912 1.455 1.879.693 0 1.317-.485 1.466-1.191l1.296-6.148c.25-1.185-.218-2.416-1.273-3.148z" fill="#5f6368"/></g>
+  <rect class="room" x="510" y="305" width="170" height="245"/><text class="lbl" x="595" y="428">102</text>
+  <rect class="room" x="560" y="260" width="120" height="45"/><text class="lblS" x="620" y="283">102A</text>
+  <rect class="room" x="680" y="405" width="150" height="145"/><text class="lbl" x="755" y="478">106</text>
+  <rect class="room" x="720" y="300" width="110" height="105"/><text class="lbl" x="775" y="353">106A</text>
+  <rect class="room" x="720" y="60" width="110" height="185"/><text class="lbl" x="775" y="153">109</text>
+  <rect class="room" x="158" y="420" width="72" height="61"/><text class="lblS" x="194" y="451">103C</text>
+  <rect class="room" x="158" y="483" width="72" height="67"/><text class="lblS" x="194" y="517">103B</text>
+  <polygon class="room" points="158,320 175,320 175,300 290,300 290,320 320,320 320,420 159,420"/><text class="lbl" x="238" y="362">113</text>
+  <rect class="room" x="320" y="300" width="56" height="77"/><text class="lblS" x="348" y="339">103F</text>
+  <rect class="room" x="325" y="60" width="215" height="95"/><text class="lbl" x="433" y="108">111A</text>
+  <rect class="room" x="376" y="337" width="41" height="83"/><text class="lblS" x="397" y="379">112</text>
+  <rect class="room" x="320" y="379" width="56" height="41"/><text class="lblS" x="348" y="400">103A</text>
+  <rect class="room" x="720" y="245" width="40" height="55"/><text class="lblS" x="740" y="273">109B</text>
+  <rect class="room" x="760" y="245" width="70" height="55"/><text class="lblS" x="795" y="273">109A</text>
+  <rect class="room" x="30" y="300" width="127" height="250"/><text class="lbl" x="94" y="425">114</text>
+  <polygon class="room" points="110,175 120,175 120,260 25,260 25,60 110,60"/><text class="lbl" x="70" y="163">110</text>
+  <polygon class="room" points="230,420 400,420 400,460 293,460 295,550 230,547 230,455"/><text class="lbl" x="291" y="469">103</text>
+  <polygon class="room" points="110,60 325,60 325,155 460,155 460,260 120,260 120,175 110,175"/><text class="lbl" x="263" y="171">105</text>
+  <polygon class="room" points="460,305 460,157 540,155 540,60 720,60 720,405 680,405 680,260 560,260 560,305"/><text class="lbl" x="608" y="196">104</text>
+  <rect class="room" x="376" y="300" width="41" height="37"/><text class="lblS" x="397" y="319">M100</text>
+
+  <rect class="core" x="385" y="550" width="100" height="55"/>
+  <g class="stair"><line x1="385" y1="559" x2="485" y2="559"/><line x1="385" y1="577" x2="485" y2="577"/><line x1="385" y1="595" x2="485" y2="595"/></g>
+  <polygon class="floor-edge" points="25,60 30,550 385,550 830,550 830,60"/>
+  <line class="door" x1="805" y1="60" x2="760" y2="60"/><text class="exit" x="783" y="125">EXIT</text>
+  <g class="door-swing" fill="none" stroke="#3a3d42" stroke-width="3" stroke-linecap="round"><line x1="805" y1="60" x2="805" y2="105"/><path d="M805,105 A45,45 0 0 1 760,60" stroke-width="2"/></g>
+  <line class="door" x1="27" y1="260" x2="27" y2="300"/><text class="exit" x="87" y="280">EXIT</text>
+  <g class="door-swing" fill="none" stroke="#3a3d42" stroke-width="3" stroke-linecap="round"><line x1="27" y1="260" x2="67" y2="260"/><path d="M67,260 A40,40 0 0 1 27,300" stroke-width="2"/></g>
+  <line class="door" x1="420" y1="550" x2="460" y2="550"/><text class="exit" x="440" y="490">EXIT</text>
+  <g class="door-swing" fill="none" stroke="#3a3d42" stroke-width="3" stroke-linecap="round"><line x1="420" y1="550" x2="420" y2="510"/><path d="M420,510 A40,40 0 0 1 460,550" stroke-width="2"/></g>
+</svg>
