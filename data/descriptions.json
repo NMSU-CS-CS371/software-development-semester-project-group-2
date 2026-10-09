@@ -220,6 +220,31 @@
         }
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "278": {
+      "paragraphs": [
+        "Branson Library got its name from John W Branson, who served as acting president from October 1938 to September 1949. Since its construction in 1951, the Library has undergone numerous renovations. It has a variety of academic texts, as well as a general collection of literature. There are study spaces within Branson Library, making it a great place to work on coursework.",
+        "Drop Box Location: In front of the Branson Library next to the entrance doors."
+      ],
+      "links": [
+        {
+          "label": "Library",
+          "url": "https://library.nmsu.edu"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Branson Library",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Branson_Library.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Branson_Library.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/526015"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
     }
   }
 }
