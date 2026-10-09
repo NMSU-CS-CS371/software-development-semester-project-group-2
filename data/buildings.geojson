@@ -308,6 +308,165 @@
           32.28155388
         ]
       }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "3e5c8aa8",
+      "type": "Building",
+      "properties": {
+        "id": "363",
+        "code": "EC1",
+        "name": "Engineering Complex I",
+        "address": "1025 Stewart St., Las Cruces, NM 88001",
+        "propertyNumber": "363",
+        "built": "1980",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525507",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 363)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75461299,
+          32.27965648
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "acaa99ea",
+      "type": "Building",
+      "properties": {
+        "id": "551",
+        "code": "SKH",
+        "name": "Skeen Hall",
+        "address": "945 College Dr., Las Cruces, NM 88001",
+        "propertyNumber": "551",
+        "built": "1999",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2,
+          3
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525547",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 551)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75716764,
+          32.28238528
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "342352fe",
+      "type": "Building",
+      "properties": {
+        "id": "632",
+        "code": "N/A",
+        "name": "NMSU Bookstore",
+        "address": "1400 E. University Ave., Las Cruces, NM 88005",
+        "propertyNumber": "632",
+        "built": "2011",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1
+        ],
+        "floorsSource": "Not published by NMSU (ground floor assumed)",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/526637",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 632)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75030619,
+          32.28479161
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "ca259425",
+      "type": "Building",
+      "properties": {
+        "id": "657",
+        "code": "DEV",
+        "name": "Devasthali Hall",
+        "address": "1308 E. University Ave., Las Cruces, NM 88003",
+        "propertyNumber": "657",
+        "built": "2019",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1
+        ],
+        "floorsSource": "Not published by NMSU (ground floor assumed)",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525386",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 657)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75212712,
+          32.28432851
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "b8813c2f",
+      "type": "Building",
+      "properties": {
+        "id": "389",
+        "code": "MC",
+        "name": "Music Building",
+        "address": "1075 N. Horseshoe, Las Cruces, NM 88001",
+        "propertyNumber": "389",
+        "built": "1983",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525535",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 389)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75499877,
+          32.28315226
+        ]
+      }
     }
   ]
 }
