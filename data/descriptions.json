@@ -187,6 +187,36 @@
         }
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "10": {
+      "paragraphs": [
+        "Goddard Hall, with its distinctive bell tower and Spanish Renaissance style, was completed in 1913. The building was dedicated in 1934 to the late dean of engineering, Ralph Willis Goddard. Goddard Hall is home to the College of Engineering. The oldest engineering college in New Mexico, NMSU's College of Engineering emphasizes hands-on learning through internships, cooperative education opportunities, research and teams that compete in national engineering competitions such as the Mini Baja and the Concrete Canoe Competition."
+      ],
+      "links": [
+        {
+          "label": "Engineering",
+          "url": "https://engr.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Goddard Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525515"
+        },
+        {
+          "title": "Goddard Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525515"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
     }
   }
 }
