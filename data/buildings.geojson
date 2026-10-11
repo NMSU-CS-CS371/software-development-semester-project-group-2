@@ -180,6 +180,18 @@
       }
     },
     {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "1909141a",
+      "type": "Building",
+      "properties": {
+        "id": "82",
+        "code": "BX",
+        "name": "Biology Annex",
+        "address": "3080 Williams Ave., Las Cruces, NM 88001",
+        "propertyNumber": "82",
+        "built": "1941",
       "dateAdded": "2026-10-06",
       "dateUpdated": "2026-10-06",
       "lastInputSource": "scraper",
@@ -228,6 +240,10 @@
         "floors": [
           1
         ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525487",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 82)",
         "floorsSource": "Not published by NMSU (ground floor assumed)",
         "category": "study",
         "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525543",
@@ -270,6 +286,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.75132256,
+          32.28037777
           -106.75307937,
           32.28343252
         ]
@@ -279,6 +297,15 @@
       "dateAdded": "2026-10-09",
       "dateUpdated": "2026-10-09",
       "lastInputSource": "scraper",
+      "scraperStamp": "35364e83",
+      "type": "Building",
+      "properties": {
+        "id": "386",
+        "code": "BC",
+        "name": "Business Complex Building",
+        "address": "1320 University Ave., Las Cruces, NM 88003",
+        "propertyNumber": "386",
+        "built": "1983",
       "scraperStamp": "359d2f7b",
       "type": "Building",
       "properties": {
@@ -297,6 +324,8 @@
         ],
         "floorsSource": "NMSU Space Planning",
         "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525491",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 386)",
         "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/526015",
         "source": "NMSU Office of Space Planning, Buildings layer (property 278)",
         "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
@@ -463,6 +492,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.75214014,
+          32.28358167
           -106.75499877,
           32.28315226
         ]

@@ -134,6 +134,14 @@
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
     },
+    "82": {
+      "paragraphs": [
+        "The Biology Annex was first introduced as the Air Mechanics Building. The building is now used to teach biology and science."
+      ],
+      "links": [
+        {
+          "label": "Department of Biology",
+          "url": "https://bio.nmsu.edu/"
     "172": {
       "paragraphs": [
         "Hadley Hall is home to several administrative units including the President's Office and Human Resources. It was built in 1953 and named after Hiram Hadley, the university's first President."
@@ -314,6 +322,16 @@
       ],
       "photos": [
         {
+          "title": "Biology Annex",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
+        },
+        {
+          "title": "Biology Annex",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
           "title": "Skeen Hall",
           "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_1.jpg&w=800&h=533&r=1",
           "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_1.jpg&w=320&h=213&r=1",
@@ -328,6 +346,38 @@
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
     },
+    "386": {
+      "paragraphs": [
+        "The Business Complex houses the College of Business, faculty offices, and classrooms. It was built in 1983. The bronze statue in the courtyard, created by NMSU alumnus Duke Sundt, is titled \"The Traders.\" It depicts the birth of trade among the cultures of this region."
+      ],
+      "links": [
+        {
+          "label": "University Student Records",
+          "url": "https://records.nmsu.edu/"
+        },
+        {
+          "label": "College of Business",
+          "url": "https://business.nmsu.edu/"
+        },
+        {
+          "label": "Finance",
+          "url": "https://business.nmsu.edu/departments/finance/"
+        },
+        {
+          "label": "Management",
+          "url": "https://business.nmsu.edu/departments/mgt/"
+        },
+        {
+          "label": "Marketing",
+          "url": "https://business.nmsu.edu/departments/marketing/"
+        },
+        {
+          "label": "Accounting & Information Systems",
+          "url": "https://business.nmsu.edu/departments/accounting/"
+        },
+        {
+          "label": "Economics",
+          "url": "https://business.nmsu.edu/departments/economics/"
     "632": {
       "paragraphs": [
         "The NMSU Bookstore is a great place to study. This space is stocked with textbooks for purchase or rental, tables, and has a charming caf&eacute;-like atmosphere.",
@@ -427,6 +477,16 @@
       ],
       "photos": [
         {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
+        },
+        {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
           "title": "Music Building",
           "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_1.jpg&w=800&h=533&r=1",
           "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_1.jpg&w=320&h=213&r=1",
