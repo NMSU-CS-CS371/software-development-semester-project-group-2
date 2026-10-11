@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" id="ha-2-plan" viewBox="153 11 470 713" width="940" height="1426" role="img" aria-labelledby="ha-2-title ha-2-desc" data-building-code="HA" data-floor="2">
+<title id="ha-2-title">Hardman and Jacobs Undergraduate Learning Center — Floor 2</title>
+<desc id="ha-2-desc">Editable vector redraw of the supplied second-floor evacuation-plan photograph. Room numbers, corridors, stairs, elevator, and open-to-below areas are retained. Geometry is schematic and not a measured architectural survey. Poster frame, reflections, evacuation arrows, and the source-location pin are omitted. Building code HA, property number 323. Restyled to match the supplied gray campus-map reference: light rooms, darker corridors, bold perimeter, dashed voids, stair symbols, green stair-exit labels, legend, and compass. Staff-access status is not assigned to any room because the source does not identify it.</desc>
+<defs>
+ <style>
+ #ha-2-plan text {font-family:Arial,Helvetica,sans-serif;}
+ #ha-2-plan .room {cursor:pointer;}
+ #ha-2-plan .room:hover {fill:#e1eaff;}
+ #ha-2-plan .room.is-picked {fill:#c9deff;stroke:#3e73ff;stroke-width:.9;}
+ #ha-2-plan .lbl,#ha-2-plan .diagram-key,#ha-2-plan .compass {pointer-events:none;}
+</style>
+</defs>
+<rect x="153" y="11" width="470" height="713" fill="#fff" id="ha-2-background"/><g id="ha-2-floor" aria-label="Second floor layout">
+<path d="M208 27H284V47H358V27H528V210H452V335H579V541H608V710H262V538H286V380H171V335H251V300H258V210H212V202H249V125H208Z" fill="#d5dae0" stroke="#3e4145" stroke-width="2.1" stroke-linejoin="miter"/>
+<g id="ha-2-group-R206" data-room-number="R206">
+<path id="ha-2-room-R206" class="room" data-room-number="R206" aria-label="Room R206" d="M212 31H247V72H234V94H212Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room R206</title></path>
+<text x="226" y="61" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="500" fill="#25282c">R206</text>
+</g>
+<g id="ha-2-group-R208" data-room-number="R208">
+<path id="ha-2-room-R208" class="room" data-room-number="R208" aria-label="Room R208" d="M251 31H280V94H238V72H251Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room R208</title></path>
+<text x="264" y="62" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="500" fill="#25282c">R208</text>
+</g>
+<g id="ha-2-group-R207" data-room-number="R207">
+<path id="ha-2-room-R207" class="room" data-room-number="R207" aria-label="Room R207" d="M212 98h22v25h-22Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room R207</title></path>
+<text x="223" y="110" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.8" font-weight="500" fill="#25282c">R207</text>
+</g>
+<g id="ha-2-void-north">
+<path d="M286 51h28v43h-28Z" fill="#fafbfc" stroke="#aeb7c2" stroke-width=".65" stroke-linejoin="miter" stroke-dasharray="1.8 1.4"/>
+<text x="300" y="69" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.9" font-weight="400" fill="#6b7280">Open to</text>
+<text x="300" y="78" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.9" font-weight="400" fill="#6b7280">below</text>
+</g>
+<g id="ha-2-stair-north">
+<path d="M317 51H358V94H317Z" fill="#dfe3e8" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M317 75H338" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M317 79H338" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M317 83H338" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M317 87H338" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M317 91H338" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<text x="336" y="62" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.5" font-weight="500" fill="#25282c">Stairs</text>
+<text x="336" y="71" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6" font-weight="500" fill="#25282c">DOWN</text>
+</g>
+<g id="ha-2-group-M214" data-room-number="M214">
+<path id="ha-2-room-M214" class="room" data-room-number="M214" aria-label="Room M214" d="M362 31H381V89H374V94H362Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room M214</title></path>
+<text x="371" y="62" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.2" font-weight="500" fill="#25282c">M214</text>
+</g>
+<g id="ha-2-group-216" data-room-number="216">
+<path id="ha-2-room-216" class="room" data-room-number="216" aria-label="Room 216" d="M385 31H411V94H401V90H385Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room 216</title></path>
+<text x="398" y="62" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.5" font-weight="500" fill="#25282c">216</text>
+</g>
+<g id="ha-2-group-S218" data-room-number="S218">
+<path id="ha-2-room-S218" class="room" data-room-number="S218" aria-label="Room S218" d="M415 31H440V94H415Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room S218</title></path>
+<text x="427.5" y="62" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="500" fill="#25282c">S218</text>
+</g>
+<g id="ha-2-group-220" data-room-number="220">
+<path id="ha-2-room-220" class="room" data-room-number="220" aria-label="Room 220" d="M444 31H494V94H444Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room 220</title></path>
+<text x="469" y="62" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="500" fill="#25282c">220</text>
+</g>
+<g id="ha-2-group-222" data-room-number="222">
+<path id="ha-2-room-222" class="room" data-room-number="222" aria-label="Room 222" d="M498 31H524V94H498Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room 222</title></path>
+<text x="511" y="62" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.6" font-weight="500" fill="#25282c">222</text>
+</g>
+<path d="M234 94H528M234 123H528M234 94V72H251" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M421 94V123" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<g id="ha-2-group-206" data-room-number="206">
+<path id="ha-2-room-206" class="room" data-room-number="206" aria-label="ICT TRAINING LAB 206" d="M316 123H405V204H316Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>ICT TRAINING LAB 206</title></path>
+<text x="360.5" y="155" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="400" fill="#25282c">ICT TRAINING LAB</text>
+<text x="360.5" y="167" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="500" fill="#25282c">206</text>
+</g>
+<g id="ha-2-stair-ST4">
+<path d="M409 123h11v85h-11Z" fill="#dfe3e8" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M409 143H420" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M409 147H420" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M409 151H420" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M409 155H420" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M409 159H420" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M409 163H420" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M409 167H420" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<text x="414.5" y="131" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.5" font-weight="500" fill="#25282c">ST4</text>
+</g>
+<g id="ha-2-group-219" data-room-number="219">
+<path id="ha-2-room-219" class="room" data-room-number="219" aria-label="Room 219" d="M424 123H494V207H424Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room 219</title></path>
+<text x="459" y="164" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="500" fill="#25282c">219</text>
+</g>
+<g id="ha-2-group-219A" data-room-number="219A">
+<path id="ha-2-room-219A" class="room" data-room-number="219A" aria-label="Room 219A" d="M498 123h26v31h-26Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room 219A</title></path>
+<text x="511" y="139" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.4" font-weight="500" fill="#25282c">219A</text>
+</g>
+<g id="ha-2-group-219B" data-room-number="219B">
+<path id="ha-2-room-219B" class="room" data-room-number="219B" aria-label="Room 219B" d="M498 158h26v49h-26Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room 219B</title></path>
+<text x="511" y="183" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.4" font-weight="500" fill="#25282c">219B</text>
+</g>
+<path d="M285 123V303M316 204V225H431V210H452" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<text x="272" y="216" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="500" fill="#25282c">200</text>
+<g id="ha-2-void-central">
+<path d="M320 225H431V210H450V326H443V339H431V334H358V326H349V339H320Z" fill="#fafbfc" stroke="#aeb7c2" stroke-width=".65" stroke-linejoin="miter" stroke-dasharray="1.8 1.4"/>
+<text x="383" y="279" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.6" font-weight="400" fill="#6b7280">Open to below</text>
+</g>
+<path d="M258 211V302H251V321M316 225V335" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<g id="ha-2-elevator" aria-label="Elevator">
+<path d="M253 304h32v32h-32Z" fill="#dfe3e8" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M259 311h20v21h-20Z" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M264 308V302M261 305L264 302L267 305M274 302V308M271 305L274 308L277 305" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<circle cx="264" cy="316" r="1.7" fill="#707781"/>
+<path d="M264 319V326M261.5 323H266.5M264 326L262 330M264 326L266 330" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<circle cx="274" cy="316" r="1.7" fill="#707781"/>
+<path d="M274 319V326M271.5 323H276.5M274 326L272 330M274 326L276 330" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<text x="269" y="342" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6" font-weight="500" fill="#25282c">Elevator</text>
+</g>
+<g id="ha-2-stair-west">
+<path d="M175 339H215V365H175Z" fill="#dfe3e8" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M199 340V364" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M202 340V364" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M205 340V364" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M208 340V364" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M211 340V364" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M214 340V364" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<text x="190" y="347" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.5" font-weight="500" fill="#25282c">Stairs</text>
+<text x="190" y="356" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6" font-weight="500" fill="#25282c">DOWN</text>
+</g>
+<path d="M172 337V323H203V337M177 337V327H200V337M182 337V331H196V337" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M215 338H319M215 370H283V382H315V362H329V374H362V338H452" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M452 338H576V372H558V536M452 372H467V365H478V372H539V366H550V372" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M362 374H409V361H427V375H452" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<g id="ha-2-group-210" data-room-number="210">
+<path id="ha-2-room-210" class="room" data-room-number="210" aria-label="Classroom 210" d="M321 383H411V518H321Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Classroom 210</title></path>
+<text x="366" y="448" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="9.4" font-weight="400" fill="#25282c">Classroom</text>
+<text x="366" y="460" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="500" fill="#25282c">210</text>
+</g>
+<g id="ha-2-group-225" data-room-number="225">
+<path id="ha-2-room-225" class="room" data-room-number="225" aria-label="Classroom 225" d="M415 378H426V369H449V374H542V536H415Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Classroom 225</title></path>
+<text x="480" y="448" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="9.4" font-weight="400" fill="#25282c">Classroom</text>
+<text x="480" y="460" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="500" fill="#25282c">225</text>
+</g>
+<g id="ha-2-unnumbered-spaces">
+<path d="M321 522H372V537H321Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M376 522H411V537H376Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M342 529V537M398 529V537" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+</g>
+<path d="M286 383V526H280V538M316 382V541H550" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<g id="ha-2-void-south-west">
+<path d="M263 545H292V581H263Z" fill="#fafbfc" stroke="#aeb7c2" stroke-width=".65" stroke-linejoin="miter" stroke-dasharray="1.8 1.4"/>
+<text x="277.5" y="558" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.9" font-weight="400" fill="#6b7280">Open to</text>
+<text x="277.5" y="567" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.9" font-weight="400" fill="#6b7280">below</text>
+</g>
+<g id="ha-2-void-south">
+<path d="M341 544h193v17h-193Z" fill="#fafbfc" stroke="#aeb7c2" stroke-width=".65" stroke-linejoin="miter" stroke-dasharray="1.8 1.4"/>
+<text x="437.5" y="552.5" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.6" font-weight="400" fill="#6b7280">Open to below</text>
+</g>
+<path d="M292 541V599M534 561H570V540H605V570H570V582" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<g id="ha-2-group-J218" data-room-number="J218">
+<path id="ha-2-room-J218" class="room" data-room-number="J218" aria-label="Room J218" d="M267 603H292V644H267Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room J218</title></path>
+<text x="279.5" y="623" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="500" fill="#25282c">J218</text>
+</g>
+<g id="ha-2-group-T232" data-room-number="T232">
+<path id="ha-2-room-T232" class="room" data-room-number="T232" aria-label="Room T232" d="M311 584h22v30h-22Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room T232</title></path>
+<text x="322" y="606" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.4" font-weight="500" fill="#25282c">T232</text>
+</g>
+<g id="ha-2-group-M234" data-room-number="M234">
+<path id="ha-2-room-M234" class="room" data-room-number="M234" aria-label="Room M234" d="M311 618h22v30h-22Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room M234</title></path>
+<text x="322" y="640" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.4" font-weight="500" fill="#25282c">M234</text>
+</g>
+<g id="ha-2-group-R217" data-room-number="R217">
+<path id="ha-2-room-R217" class="room" data-room-number="R217" aria-label="Room R217" d="M267 648H280V660H297V706H267Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room R217</title></path>
+<text x="281" y="685" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.4" font-weight="500" fill="#25282c">R217</text>
+</g>
+<g id="ha-2-group-R216" data-room-number="R216">
+<path id="ha-2-room-R216" class="room" data-room-number="R216" aria-label="Room R216" d="M301 660H317V650H333V706H301Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Room R216</title></path>
+<text x="317" y="685" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="7.4" font-weight="500" fill="#25282c">R216</text>
+</g>
+<g id="ha-2-group-230" data-room-number="230">
+<path id="ha-2-room-230" class="room" data-room-number="230" aria-label="Classroom 230" d="M337 597H350V582H433V597H449V706H337Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Classroom 230</title></path>
+<text x="393" y="638" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="9.4" font-weight="400" fill="#25282c">Classroom</text>
+<text x="393" y="650" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="500" fill="#25282c">230</text>
+</g>
+<g id="ha-2-group-228" data-room-number="228">
+<path id="ha-2-room-228" class="room" data-room-number="228" aria-label="Classroom 228" d="M453 597H465V582H563V605H600V706H453Z" fill="#edf0f4" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"><title>Classroom 228</title></path>
+<text x="526.5" y="638" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="9.4" font-weight="400" fill="#25282c">Classroom</text>
+<text x="526.5" y="650" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="8.2" font-weight="500" fill="#25282c">228</text>
+</g>
+<path d="M292 644V660H317V649M333 583V595H349M433 583V595H465" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<g id="ha-2-stair-south-east">
+<path d="M568 574H604V602H568Z" fill="#dfe3e8" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M568 577H585" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M568 580H585" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M568 583H585" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M568 586H585" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<path d="M568 589H585" fill="none" stroke="#9199a3" stroke-width="0.65" stroke-linejoin="miter"/>
+<text x="591" y="584" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6.5" font-weight="500" fill="#25282c">Stairs</text>
+<text x="591" y="593" class="lbl" text-anchor="middle" dominant-baseline="middle" font-size="6" font-weight="500" fill="#25282c">DOWN</text>
+</g>
+<g id="ha-2-stair-doors" aria-label="Doors to stairs"><path d="M343 94H353" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M215 346V358" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M580 574H593" fill="none" stroke="#fff" stroke-width="2.5"/><text x="348" y="100" font-size="6.1" fill="#198b39" text-anchor="middle" font-weight="600" dominant-baseline="middle">EXIT</text><text x="227" y="351" font-size="6.1" fill="#198b39" text-anchor="middle" font-weight="600" dominant-baseline="middle">EXIT</text><text x="587" y="568" font-size="6.1" fill="#198b39" text-anchor="middle" font-weight="600" dominant-baseline="middle">EXIT</text></g><g id="ha-2-hallway-labels" aria-label="Hallway labels"><text x="459" y="109" font-size="5.7" fill="#6b7280" text-anchor="middle" font-weight="400" dominant-baseline="middle" class="lbl">Hallway</text><text x="300" y="278" font-size="5.7" fill="#6b7280" text-anchor="middle" font-weight="400" dominant-baseline="middle" class="lbl">Hallway</text><text x="484" y="354" font-size="5.7" fill="#6b7280" text-anchor="middle" font-weight="400" dominant-baseline="middle" class="lbl">Hallway</text><text x="452" y="574" font-size="5.7" fill="#6b7280" text-anchor="middle" font-weight="400" dominant-baseline="middle" class="lbl">Hallway</text><text x="566" y="459" font-size="5.7" fill="#6b7280" text-anchor="middle" font-weight="400" dominant-baseline="middle" transform="rotate(-90 566 459)" class="lbl">Hallway</text></g></g>
+<g id="ha-2-legend" aria-label="Floor plan legend" class="diagram-key"><rect x="164" y="402" width="111" height="129" fill="#fff" stroke="#c2c7ce" stroke-width=".55"/><rect x="168" y="408.0" width="10.5" height="8" fill="#edf0f4" stroke="#9199a3" stroke-width=".8"/><text x="183.5" y="412.0" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Room</text><rect x="168" y="419.7" width="10.5" height="8" fill="#c9deff" stroke="#3e73ff" stroke-width=".9"/><text x="183.5" y="423.7" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Selected room</text><rect x="168" y="431.4" width="10.5" height="8" fill="#dfe3e8" stroke="#9199a3" stroke-width=".8"/><text x="183.5" y="435.4" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Core</text><rect x="168" y="443.1" width="10.5" height="8" fill="#fafbfc" stroke="#aeb7c2" stroke-width=".8" stroke-dasharray="1.5 1.1"/><text x="183.5" y="447.1" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Void (open to below)</text><rect x="168" y="454.8" width="10.5" height="8" fill="#dfe3e8" stroke="#9199a3" stroke-width=".8"/><path d="M169.3 456.8H177.2" fill="none" stroke="#9199a3" stroke-width=".6"/><path d="M169.3 458.8H177.2" fill="none" stroke="#9199a3" stroke-width=".6"/><path d="M169.3 460.8H177.2" fill="none" stroke="#9199a3" stroke-width=".6"/><text x="183.5" y="458.8" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Stairs</text><path d="M168 468.5H171.4M175.4 468.5H179" fill="none" stroke="#3e4145" stroke-width=".8"/><text x="168.1" y="474.3" font-size="3.9" fill="#198b39" text-anchor="start" font-weight="600" dominant-baseline="middle">EXIT</text><text x="183.5" y="470.5" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Doors</text><rect x="168" y="478.2" width="10.5" height="8" fill="#d5dae0" stroke="none" stroke-width=".8"/><text x="183.5" y="482.2" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Hallway</text><path d="M168 493.9H170.2M176.5 493.9H179" fill="none" stroke="#a14aff" stroke-width="1.2"/><rect x="171.4" y="492.5" width="3.8" height="4.7" rx=".6" fill="#fff" stroke="#a14aff" stroke-width=".8"/><path d="M172 492.4V490.79999999999995Q173.3 488.9 174.6 490.79999999999995V492.4" fill="none" stroke="#a14aff" stroke-width=".8"/><text x="183.5" y="493.9" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Staff only (no public access)</text><circle cx="173.3" cy="505.6" r="3.5" fill="#fff" stroke="#d9dde2" stroke-width=".5"/><path d="M173.3 503.0L171.8 506.1H174.8Z" fill="#8c0b42" stroke="none"/><text x="183.5" y="505.6" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Compass</text><rect x="168" y="513.3" width="10.5" height="8" fill="#fff" stroke="#3e4145" stroke-width=".95"/><text x="183.5" y="517.3" font-size="5.55" fill="#25282c" text-anchor="start" font-weight="400" dominant-baseline="middle">Outline</text></g><g id="ha-2-compass" aria-label="Compass, north points southwest" class="compass"><circle cx="216" cy="619" r="25" fill="#fff" stroke="#26282c" stroke-width="1"/><circle cx="216" cy="619" r="16" fill="#fff" stroke="#eef0f3" stroke-width=".55"/><g transform="translate(216 619) rotate(205)"><path d="M0 -14L-3.6 1L0 0L3.6 1Z" fill="#8c0b42" stroke="none"/><path d="M0 14L-3.6 1L0 0L3.6 1Z" fill="#c4c6cd" stroke="none"/></g><circle cx="216" cy="619" r="1.8" fill="#fff" stroke="#494a50" stroke-width=".8"/><text x="207.51" y="637.22" font-size="7" fill="#8c0b42" text-anchor="middle" font-weight="600" dominant-baseline="middle">N</text><text x="197.78" y="610.51" font-size="7" fill="#8c8996" text-anchor="middle" font-weight="600" dominant-baseline="middle">E</text><text x="224.49" y="600.78" font-size="7" fill="#8c8996" text-anchor="middle" font-weight="600" dominant-baseline="middle">S</text><text x="234.22" y="627.49" font-size="7" fill="#8c8996" text-anchor="middle" font-weight="600" dominant-baseline="middle">W</text></g></svg>
