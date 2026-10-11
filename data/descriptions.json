@@ -163,6 +163,60 @@
         }
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "386": {
+      "paragraphs": [
+        "The Business Complex houses the College of Business, faculty offices, and classrooms. It was built in 1983. The bronze statue in the courtyard, created by NMSU alumnus Duke Sundt, is titled \"The Traders.\" It depicts the birth of trade among the cultures of this region."
+      ],
+      "links": [
+        {
+          "label": "University Student Records",
+          "url": "https://records.nmsu.edu/"
+        },
+        {
+          "label": "College of Business",
+          "url": "https://business.nmsu.edu/"
+        },
+        {
+          "label": "Finance",
+          "url": "https://business.nmsu.edu/departments/finance/"
+        },
+        {
+          "label": "Management",
+          "url": "https://business.nmsu.edu/departments/mgt/"
+        },
+        {
+          "label": "Marketing",
+          "url": "https://business.nmsu.edu/departments/marketing/"
+        },
+        {
+          "label": "Accounting & Information Systems",
+          "url": "https://business.nmsu.edu/departments/accounting/"
+        },
+        {
+          "label": "Economics",
+          "url": "https://business.nmsu.edu/departments/economics/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
+        },
+        {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
     }
   }
 }

@@ -207,6 +207,40 @@
           32.28037777
         ]
       }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "35364e83",
+      "type": "Building",
+      "properties": {
+        "id": "386",
+        "code": "BC",
+        "name": "Business Complex Building",
+        "address": "1320 University Ave., Las Cruces, NM 88003",
+        "propertyNumber": "386",
+        "built": "1983",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525491",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 386)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75214014,
+          32.28358167
+        ]
+      }
     }
   ]
 }
