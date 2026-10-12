@@ -257,7 +257,8 @@
         "builtSource": "NMSU Space Planning",
         "floors": [
           1,
-          2
+          2,
+          3
         ],
         "floorsSource": "NMSU Space Planning",
         "category": "study",
