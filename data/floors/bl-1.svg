@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1069" height="730" viewBox="0 0 1069 730" role="img" aria-labelledby="title desc">
+<title id="title">Branson Library — Floor 1</title><desc id="desc">Editable grayscale vector recreation of the supplied New Mexico State University first-floor map. Visual trace; not a measured architectural plan.</desc>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.wall{fill:none;stroke:#303030;stroke-width:3.8;stroke-linejoin:miter;stroke-linecap:square}.room{fill:#e6e6e6}.service{fill:#bcbcbc}.shelf{fill:#c3c3c3;stroke:#eeeeee;stroke-width:1}.symbol{fill:#fff;font-size:11px;font-weight:bold;text-anchor:middle;dominant-baseline:central}</style>
+<defs>
+<g id="book"><path d="M-7 -5 Q-3 -7 0 -4 Q3 -7 7 -5 V6 Q3 4 0 6 Q-3 4 -7 6Z M0 -4V6" fill="none" stroke="white" stroke-width="1.3"/></g>
+<g id="stairs"><path d="M-7 6H-3V2H1V-2H5V-6H8" fill="none" stroke="white" stroke-width="1.8"/></g>
+<g id="elevator"><rect x="-6" y="-7" width="12" height="14" fill="none" stroke="white"/><path d="M-2 -4V4 M2 -4V4 M-4 -2l2 -2 2 2 M0 2l2 2 2 -2" fill="none" stroke="white"/></g>
+<g id="person"><circle cy="-5" r="2" fill="white"/><path d="M-3 -1H3V4H1V8H-1V4H-3Z" fill="white"/></g>
+<g id="restroom"><use xlink:href="#person" transform="translate(-4) scale(.8)"/><use xlink:href="#person" transform="translate(4) scale(.8)"/></g>
+<g id="charge"><path d="M1 -8L-5 1H0L-1 8 6 -2H1Z" fill="white"/></g>
+<g id="mic"><rect x="-2.5" y="-7" width="5" height="9" rx="2.5" fill="none" stroke="white"/><path d="M-5 -2V0Q-5 5 0 5Q5 5 5 0V-2 M0 5V8 M-3 8H3" fill="none" stroke="white"/></g>
+<g id="news"><path d="M-5 -7L7 -3 3 8 -8 4Z M-3 -3L4 -1 M-4 0L3 2 M-5 3L2 5" fill="none" stroke="white" stroke-width="1.1"/></g>
+<g id="map"><path d="M-8 0L-3 -3 2 0 7 -2V7L2 9 -3 6 -8 8Z" fill="none" stroke="white"/><path d="M0 -7C-5 -7 -5 -3 0 2C5 -3 5 -7 0 -7Z" fill="none" stroke="white"/><circle cy="-4" r="1" fill="white"/></g>
+<g id="phone"><path d="M-6 -7L-3 -8 0 -3 -2 -1 2 3 4 1 8 4 6 7C1 10 -10 -2 -6 -7Z" fill="none" stroke="white" stroke-width="1.2"/></g>
+<g id="vending"><rect x="-6" y="-8" width="12" height="16" fill="none" stroke="white"/><path d="M-4 -5H2V2H-4Z M4 -4V0 M-3 5H3 M-1 -5V2 M-4 -2H2" fill="none" stroke="white"/></g>
+<g id="video"><rect x="-8" y="-3" width="16" height="9" rx="1" fill="none" stroke="white"/><circle cx="-3" cy="1" r="2" fill="none" stroke="white"/><circle cx="3" cy="1" r="2" fill="none" stroke="white"/><path d="M-4 -5H4" stroke="white"/></g>
+</defs>
+<rect width="1069" height="730" fill="white"/>
+<g id="header"><text x="84" y="47" font-size="29" font-weight="bold">NM STATE</text><text x="84" y="75" font-size="13">NEW MEXICO STATE UNIVERSITY</text><text x="84" y="108" font-size="13" fill="#666">LIBRARY FLOOR PLAN</text><text x="400" y="45" font-size="32" font-weight="bold">BRANSON LIBRARY</text><text x="400" y="72" font-size="20">Floor 1</text></g>
+
+<g id="legend"><rect x="491" y="84" width="507" height="165" rx="12" fill="#fafafa" stroke="#555" stroke-width="2.5"/>
+<g transform="translate(529 108)"><title>Book Drop</title><circle r="11" fill="#565656"/><use xlink:href="#book"/></g>
+<text x="551" y="112" font-size="13">Book Drop</text>
+<g transform="translate(529 141)"><title>Charging Table</title><circle r="11" fill="#565656"/><use xlink:href="#charge"/></g>
+<text x="551" y="145" font-size="13">Charging Table</text>
+<g transform="translate(529 180)"><title>Documents</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+<text x="551" y="184" font-size="13">Documents</text>
+<g transform="translate(529 225)"><title>Elevators</title><circle r="11" fill="#565656"/><use xlink:href="#elevator"/></g>
+<text x="551" y="229" font-size="13">Elevators</text>
+<g transform="translate(685 108)"><title>Maps</title><circle r="11" fill="#565656"/><use xlink:href="#map"/></g>
+<text x="707" y="112" font-size="13">Maps</text>
+<g transform="translate(685 141)"><title>Newspapers</title><circle r="11" fill="#565656"/><use xlink:href="#news"/></g>
+<text x="707" y="145" font-size="13">Newspapers</text>
+<g transform="translate(685 174)"><title>Podcast Studio</title><circle r="11" fill="#565656"/><use xlink:href="#mic"/></g>
+<text x="707" y="178" font-size="13">Podcast Studio</text>
+<g transform="translate(685 207)"><title>Restroom</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+<text x="707" y="211" font-size="13">Restroom</text>
+<g transform="translate(835 108)"><title>Stairs</title><circle r="11" fill="#565656"/><use xlink:href="#stairs"/></g>
+<text x="857" y="112" font-size="13">Stairs</text>
+<g transform="translate(835 141)"><title>Talkboxes</title><circle r="11" fill="#565656"/><use xlink:href="#phone"/></g>
+<text x="857" y="145" font-size="13">Talkboxes</text>
+<g transform="translate(835 174)"><title>Vending Machines</title><circle r="11" fill="#565656"/><use xlink:href="#vending"/></g>
+<text x="857" y="178" font-size="13">Vending Machines</text>
+<g transform="translate(835 207)"><title>VHS / DVD Players</title><circle r="11" fill="#565656"/><use xlink:href="#video"/></g>
+<text x="857" y="211" font-size="13">VHS / DVD Players</text>
+<text x="551" y="196" font-size="13">Reference Desk</text></g>
+<g id="floor"><path d="M210 132H315V137H337V319H663V263H722V327H852V478H875V474H885V497H875V521H848V689H659V658H336V476H260V442H210Z" fill="#d4d4d4"/>
+<path class="room" d="M210 132H315V137H337V390H336V406H355V412H368V457H598V418H618V457H791V478H875V497H875V521H848V523H789V665H750V531H727V523H659V609H600V658H411V539H336V442H210Z"/>
+<path id="north-service" class="service" d="M598 319H663V263H699V325H697V378H679V390H615V380H598Z"/>
+<path id="north-annex" class="service" d="M699 263H722V326H699Z"/>
+<path id="reference-desk" class="service" d="M339 319H373V412H355V406H336V390H339Z"/>
+<path id="podcast-studio" class="service" d="M618 418H637V435H659V457H618Z"/>
+<path id="east-service-a" class="service" d="M768 326H814V412H791V362H768Z"/>
+<path id="east-service-b" class="service" d="M814 326H852V386H814Z"/>
+<path id="east-service-c" class="service" d="M814 386H852V412H814Z"/>
+<path id="east-service-d" class="service" d="M791 412H852V478H791Z"/>
+<path id="island" class="service" d="M697 408H727V434H697Z"/>
+<path id="southwest-service" class="service" d="M600 609H659V658H600Z"/>
+<rect x="368" y="431" width="186" height="26" fill="#b0b0b0"/>
+<path id="emerging-technologies-lab" class="room" d="M336 539H411V658H336Z"/><path id="study-area" class="room" d="M750 523H848V665H750Z"/>
+<path class="room" d="M678 523H727V531H750V558H727V566H678Z M678 593H727V623H678Z M678 623H727V650H678Z M659 665H727V689H659Z M750 665H848V689H750Z"/>
+<rect x="678" y="572" width="49" height="21" class="service"/>
+<g id="shelving">
+<rect class="shelf" x="234" y="164" width="74" height="6"/>
+<rect class="shelf" x="234" y="177" width="74" height="6"/>
+<rect class="shelf" x="234" y="190" width="74" height="6"/>
+<rect class="shelf" x="234" y="203" width="74" height="6"/>
+<rect class="shelf" x="234" y="216" width="74" height="6"/>
+<rect class="shelf" x="234" y="229" width="74" height="6"/>
+<rect class="shelf" x="234" y="242" width="74" height="6"/>
+<rect class="shelf" x="234" y="255" width="74" height="6"/>
+<rect class="shelf" x="234" y="268" width="74" height="6"/>
+<rect class="shelf" x="234" y="281" width="74" height="6"/>
+<rect class="shelf" x="234" y="294" width="74" height="6"/>
+<rect class="shelf" x="234" y="307" width="74" height="6"/>
+<rect class="shelf" x="234" y="320" width="74" height="6"/>
+<rect class="shelf" x="234" y="333" width="74" height="6"/>
+<rect class="shelf" x="234" y="346" width="74" height="6"/>
+<rect class="shelf" x="234" y="359" width="74" height="6"/>
+<rect class="shelf" x="234" y="372" width="74" height="6"/>
+<rect class="shelf" x="234" y="385" width="74" height="6"/>
+<rect class="shelf" x="234" y="398" width="74" height="6"/>
+<rect class="shelf" x="234" y="423" width="74" height="7"/>
+<rect class="shelf" x="394" y="333" width="6" height="75"/>
+<rect class="shelf" x="412" y="333" width="6" height="75"/>
+<rect class="shelf" x="430" y="333" width="6" height="75"/>
+<rect class="shelf" x="448" y="333" width="6" height="75"/>
+<rect class="shelf" x="466" y="333" width="6" height="75"/>
+<rect class="shelf" x="484" y="333" width="6" height="75"/>
+<rect class="shelf" x="502" y="333" width="6" height="75"/>
+<rect class="shelf" x="520" y="333" width="6" height="75"/>
+<rect class="shelf" x="538" y="333" width="6" height="75"/>
+<path d="M339 486V534H401 M368 476V523" stroke="#bcbcbc" stroke-width="5" fill="none"/></g>
+<path class="wall" d="M210 132H315V137H337V319H663V263H722V327H852V478H875V474H885V497H875V521H848V689H659V658H336V476H260V442H210Z"/>
+<path class="wall" d="M337 319H663 M339 359H373 M373 319V412H359 M337 390V406H354V412H368V457H598V418H618V457H791"/>
+<path class="wall" d="M598 319V380H615V390H679V378H697 M663 263V325H668 M699 263V324H678 M699 324H710 M697 325V389"/>
+<path class="wall" d="M722 327H768V362H790V386 M814 327V412 M814 386H852 M791 386V478 M791 412H852"/>
+<path class="wall" d="M618 418H637V435H659V457 M697 408H727V434H697Z"/>
+<path class="wall" d="M260 442H210 M272 442H336V476H260 M336 539H411 M411 557V658 M600 658V609H659"/>
+<path class="wall" d="M659 689V523H727V531H750 M750 523V689 M789 537V523H848 M750 665H848"/>
+<path class="wall" d="M678 523V659 M678 566H727V558H750 M678 572H727V593H678 M727 593V558"/>
+<path class="wall" d="M678 623H727V689 M678 650H709 M721 650H727 M659 665H710V675 M710 686V689"/>
+<path class="wall" d="M789 665V689 M817 665V689"/>
+<g id="charging-tables" stroke="#606060" fill="#eeeeee" stroke-width="1.2">
+<g transform="translate(493 525) rotate(0)">
+<g transform="rotate(0)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(120)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(240)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+</g>
+<g transform="translate(550 535) rotate(20)">
+<g transform="rotate(0)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(120)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(240)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+</g>
+<g transform="translate(475 578) rotate(0)">
+<g transform="rotate(0)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(120)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(240)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+</g>
+<g transform="translate(570 579) rotate(20)">
+<g transform="rotate(0)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(120)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+<g transform="rotate(240)"><path d="M-3 1L-3 -12 -10 -18 -7 -21 2 -14 2 -3Z"/><path d="M-8 -5L-8 -11 -14 -16 -16 -13 -11 -8 -11 -4Z M4 -6L4 -14 0 -20 3 -22 7 -15 7 -5Z"/></g>
+</g>
+</g><path d="M632 514L637 509 655 524 650 529Z" fill="#fafafa" stroke="#555" stroke-width="1.4"/>
+<g id="labels" text-anchor="middle" font-size="9.5" font-weight="bold"><text x="374" y="590"><tspan x="374">Emerging</tspan><tspan x="374" dy="12">Technologies</tspan><tspan x="374" dy="12">Lab</tspan></text><text x="799" y="592">Study Area</text></g>
+<g id="amenities">
+<g transform="translate(387 376)"><title>Documents Reference Desk</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+<g transform="translate(583 347)"><title>Maps</title><circle r="11" fill="#565656"/><use xlink:href="#map"/></g>
+<g transform="translate(583 437)"><title>Maps</title><circle r="11" fill="#565656"/><use xlink:href="#map"/></g>
+<g transform="translate(635 436)"><title>Podcast Studio</title><circle r="11" fill="#565656"/><use xlink:href="#mic"/></g>
+<g transform="translate(454 475)"><title>VHS / DVD Players</title><circle r="11" fill="#565656"/><use xlink:href="#video"/></g>
+<g transform="translate(695 474)"><title>Talkboxes</title><circle r="11" fill="#565656"/><use xlink:href="#phone"/></g>
+<g transform="translate(703 505)"><title>Newspapers</title><circle r="11" fill="#565656"/><use xlink:href="#news"/></g>
+<g transform="translate(524 529)"><title>Charging Table</title><circle r="11" fill="#565656"/><use xlink:href="#charge"/></g>
+<g transform="translate(703 543)"><title>Stairs</title><circle r="11" fill="#565656"/><use xlink:href="#stairs"/></g>
+<g transform="translate(703 582)"><title>Elevators</title><circle r="11" fill="#565656"/><use xlink:href="#elevator"/></g>
+<g transform="translate(737 606)"><title>Vending Machines</title><circle r="11" fill="#565656"/><use xlink:href="#vending"/></g>
+<g transform="translate(694 638)"><title>Restroom</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+<g transform="translate(695 677)"><title>Restroom</title><circle r="11" fill="#565656"/><use xlink:href="#restroom"/></g>
+<g transform="translate(803 677)"><title>Book Drop</title><circle r="11" fill="#565656"/><use xlink:href="#book"/></g>
+</g></g><text x="84" y="716" font-size="10" fill="#777">Branson Library · New Mexico State University</text><text x="997" y="716" text-anchor="end" font-size="10" fill="#777">Floor 1 · Visual trace — not to scale</text></svg>

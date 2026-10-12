@@ -6,7 +6,8 @@
  */
 
 import { CONFIG, loadConfig } from './core/config.js';
-import { store } from './core/store.js';
+import { loadJson, parseJsonText } from './core/jsonErrorLocator.js';
+import { photoSrc, store } from './core/store.js';
 import { watchUrl } from './core/urlPaths.js';
 import { boundsAround } from './logic/mapBounds.js';
 import { CampusMap } from './map/campusMap.js';
@@ -21,7 +22,10 @@ import { MapSettingPill } from './actionButtons/mapSettingPill.js';
  */
 async function loadMapStyle() {
   const response = await fetch(CONFIG.map.styleUrl);
-  const style = await response.json();
+  if (!response.ok) {
+    throw new Error('Could not load the map style at ' + CONFIG.map.styleUrl + '. The server answered ' + response.status + '.');
+  }
+  const style = parseJsonText(CONFIG.map.styleUrl, await response.text());
   const layers = [];
   for (const layer of style.layers) {
     if (layer['source-layer'] !== CONFIG.map.hiddenBasemapLayer) {
@@ -33,16 +37,28 @@ async function loadMapStyle() {
 }
 
 /**
- * Download a file from the data folder.
- * @param {string} fileName
- * @returns {Promise<object>}
+ * Every corner of the campus outline.
+ * @param {object} file
+ * @returns {number[][]}
  */
-async function loadData(fileName) {
-  const response = await fetch('data/' + fileName);
-  if (!response.ok) {
-    throw new Error('Could not load data/' + fileName);
+function outlinePoints(file) {
+  const points = [];
+  for (const feature of file.features) {
+    const geometry = feature.geometry;
+    if (geometry.type !== 'Polygon' && geometry.type !== 'MultiPolygon') {
+      continue;
+    }
+    /* a Polygon is one shape; a MultiPolygon is several */
+    const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+    for (const polygon of polygons) {
+      for (const ring of polygon) {
+        for (const point of ring) {
+          points.push(point);
+        }
+      }
+    }
   }
-  return response.json();
+  return points;
 }
 
 /**
@@ -64,18 +80,37 @@ function recordsFrom(file) {
 }
 
 /**
+ * One copy of each picture. The same file is listed more than once for some buildings.
+ * @param {object[]} photos
+ * @returns {object[]}
+ */
+function uniquePhotos(photos) {
+  const seen = new Set();
+  const unique = [];
+  for (const photo of photos) {
+    const src = photoSrc(photo);
+    if (!src || seen.has(src)) {
+      continue;
+    }
+    seen.add(src);
+    unique.push(photo);
+  }
+  return unique;
+}
+
+/**
  * Load descriptions after the map is already up.
  * @param {object[]} buildings
  * @param {InfoSheet} sheet
  * @returns {Promise<void>}
  */
 async function loadDescriptions(buildings, sheet) {
-  const file = await loadData('descriptions.json');
+  const file = await loadJson('descriptions.json');
   for (const building of buildings) {
     const entry = file.descriptions[building.id];
     building.description = (entry && entry.paragraphs) || [];
     building.links = (entry && entry.links) || [];
-    const photos = (entry && entry.photos) || [];
+    const photos = uniquePhotos((entry && entry.photos) || []);
     building.photos = photos;
     store.rememberPhotos(building.id, photos);
   }
@@ -90,19 +125,27 @@ function showStartupError(error) {
   console.error(error);
   const box = document.createElement('div');
   box.className = 'startup-error';
+  const message = document.createElement('p');
   if (error.name === 'YAMLException') {
     /* yaml tells us the line it noticed, which can be a little after the typo */
-    box.textContent = 'config.yml has a mistake near line ' + (error.mark.line + 1) + ': ' + error.reason + '.';
-  } else if (error.name === 'TypeError' && /fetch/i.test(error.message)) {
+    message.textContent = 'YAML syntax error in config.yml.\n'
+      + 'Look near line ' + (error.mark.line + 1) + '.\n'
+      + error.reason + '.\n'
+      + 'Fix that line, save, and refresh.';
+  } else if (error.name === 'JsonSyntaxError') {
+    /* jsonErrorLocator.js already names the file, the line, and the usual fix */
+    message.textContent = error.message;
+  } else if (error.name === 'TypeError' && /fetch|network|load failed/i.test(error.message)) {
     /* couldn't reach the server */
     if (CONFIG.app) {
-      box.textContent = CONFIG.app.startupErrorText;
+      message.textContent = CONFIG.app.startupErrorText;
     } else {
-      box.textContent = 'Could not start the app. Check your internet connection and refresh.';
+      message.textContent = 'Network error.\nCould not start the app. Check your internet connection and refresh.';
     }
   } else {
-    box.textContent = 'Could not start the app: ' + error.message;
+    message.textContent = (error.name || 'Error') + '.\n' + error.message;
   }
+  box.appendChild(message);
   document.body.appendChild(box);
 }
 
@@ -114,21 +157,25 @@ async function startApp() {
   await loadConfig();
   document.querySelector('#navbar-title').textContent = CONFIG.navbar.title;
 
-  /* download both files at the same time */
+  /* download the files at the same time */
   const files = await Promise.all([
-    loadData('buildings.geojson'), /* building data */
+    loadJson('buildings.geojson'), /* building data */
+    loadJson('campuses.geojson'), /* campus outline */
     loadMapStyle(), /* map background */
   ]);
 
   const buildings = recordsFrom(files[0]);
+  const campuses = files[1];
   const buildingsById = {};
-  const centers = [];
   for (const building of buildings) {
     buildingsById[building.id] = building;
-    centers.push(building.center);
   }
-  /* create bounds around the buildings so you can't drag off campus */
-  const fence = boundsAround(centers, CONFIG.map.fencePadding);
+  /* fence around the campus outline so you can't drag off campus */
+  const corners = outlinePoints(campuses);
+  if (corners.length === 0) {
+    throw new Error('data/campuses.geojson has no outline');
+  }
+  const fence = boundsAround(corners, CONFIG.map.fencePadding);
 
   /* drop a saved pick if that building is gone */
   if (store.get().selectedId && !buildingsById[store.get().selectedId]) {
@@ -137,7 +184,7 @@ async function startApp() {
   watchUrl(buildingsById);
 
   /* make the map first, then the info box */
-  const campusMap = new CampusMap(buildingsById, fence, files[1]);
+  const campusMap = new CampusMap(buildingsById, fence, campuses, files[2]);
   new CampusMapSettings(campusMap);
   const sheet = new InfoSheet(buildingsById);
   new ActionPill(buildingsById);
@@ -147,7 +194,7 @@ async function startApp() {
   window.store = store;
   window.CONFIG = CONFIG;
 
-  loadDescriptions(buildings, sheet); /* this can finish later */
+  loadDescriptions(buildings, sheet).catch(showStartupError); /* this can finish later */
 }
 
 startApp().catch(showStartupError);

@@ -903,7 +903,14 @@ public class NMSUMapScraper {
   /** Read one of our data files, or start an empty one with the same shape. */
   static JsonObject readOrStart(Path path, String listName) throws Exception {
     if (Files.exists(path)) {
-      return JsonParser.parseString(Files.readString(path, StandardCharsets.UTF_8)).getAsJsonObject();
+      try {
+        return JsonParser.parseString(Files.readString(path, StandardCharsets.UTF_8)).getAsJsonObject();
+      } catch (JsonSyntaxException broken) {
+        // A hand edit pasted one building inside another. Say which file, and do not write over it.
+        throw new IllegalStateException(path + " is not valid JSON, so nothing was changed. "
+            + broken.getMessage()
+            + " Close the previous entry with } before the next one starts, then run this again.", broken);
+      }
     }
     JsonObject file = new JsonObject();
     if (listName.equals("buildings")) { file.addProperty("type", "Buildings"); file.add("buildings", new JsonArray()); }
