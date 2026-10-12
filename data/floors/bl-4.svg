@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1034" height="680" viewBox="0 0 1034 680" role="img" aria-labelledby="title desc"><title id="title">Branson Library — Floor 4</title><desc id="desc">Editable grayscale vector recreation of the supplied fourth-floor map, preserving shelving, study areas, Archives and Special Collections, exhibition area, elevators, stairs, and restrooms. Visual trace; not a measured architectural plan.</desc><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.wall{fill:none;stroke:#303030;stroke-width:3.8;stroke-linejoin:miter;stroke-linecap:square}.shelf{fill:#bcbcbc;stroke:#e8e8e8;stroke-width:1}</style>
+<defs>
+<g id="book"><path d="M-7 -5 Q-3 -7 0 -4 Q3 -7 7 -5 V6 Q3 4 0 6 Q-3 4 -7 6Z M0 -4V6" fill="none" stroke="white" stroke-width="1.3"/></g>
+<g id="stairs"><path d="M-7 6H-3V2H1V-2H5V-6H8" fill="none" stroke="white" stroke-width="1.8"/></g>
+<g id="elevator"><rect x="-6" y="-7" width="12" height="14" fill="none" stroke="white"/><path d="M-2 -4V4 M2 -4V4 M-4 -2l2 -2 2 2 M0 2l2 2 2 -2" fill="none" stroke="white"/></g>
+<g id="person"><circle cy="-5" r="2" fill="white"/><path d="M-3 -1H3V4H1V8H-1V4H-3Z" fill="white"/></g>
+<g id="restroom"><use xlink:href="#person" transform="translate(-4) scale(.8)"/><use xlink:href="#person" transform="translate(4) scale(.8)"/></g>
+<g id="charge"><path d="M1 -8L-5 1H0L-1 8 6 -2H1Z" fill="white"/></g>
+<g id="mic"><rect x="-2.5" y="-7" width="5" height="9" rx="2.5" fill="none" stroke="white"/><path d="M-5 -2V0Q-5 5 0 5Q5 5 5 0V-2 M0 5V8 M-3 8H3" fill="none" stroke="white"/></g>
+<g id="news"><path d="M-5 -7L7 -3 3 8 -8 4Z M-3 -3L4 -1 M-4 0L3 2 M-5 3L2 5" fill="none" stroke="white" stroke-width="1.1"/></g>
+<g id="map"><path d="M-8 0L-3 -3 2 0 7 -2V7L2 9 -3 6 -8 8Z" fill="none" stroke="white"/><path d="M0 -7C-5 -7 -5 -3 0 2C5 -3 5 -7 0 -7Z" fill="none" stroke="white"/><circle cy="-4" r="1" fill="white"/></g>
+<g id="phone"><path d="M-6 -7L-3 -8 0 -3 -2 -1 2 3 4 1 8 4 6 7C1 10 -10 -2 -6 -7Z" fill="none" stroke="white" stroke-width="1.2"/></g>
+<g id="vending"><rect x="-6" y="-8" width="12" height="16" fill="none" stroke="white"/><path d="M-4 -5H2V2H-4Z M4 -4V0 M-3 5H3 M-1 -5V2 M-4 -2H2" fill="none" stroke="white"/></g>
+<g id="video"><rect x="-8" y="-3" width="16" height="9" rx="1" fill="none" stroke="white"/><circle cx="-3" cy="1" r="2" fill="none" stroke="white"/><circle cx="3" cy="1" r="2" fill="none" stroke="white"/><path d="M-4 -5H4" stroke="white"/></g>
+<g id="exhibition"><path d="M-7 7H7 M-6 -6H6V7H-6Z M-8 -6L0 -9 8 -6 M-3 -3H3V2H-3Z M-3 4H3" fill="none" stroke="white" stroke-width="1.2"/><path d="M-2 1L0 -1 2 1" fill="none" stroke="white"/></g></defs>
+<rect width="1034" height="680" fill="white"/>
+<g id="header"><text x="95" y="64" font-size="29" font-weight="bold">NM STATE</text><text x="95" y="92" font-size="13">NEW MEXICO STATE UNIVERSITY</text><text x="95" y="119" font-size="13">LIBRARY FLOOR PLAN</text><text x="400" y="63" font-size="32" font-weight="bold">BRANSON LIBRARY</text><text x="400" y="91" font-size="20">Floor 4</text></g>
+<g id="legend"><rect x="812" y="96" width="137" height="140" rx="5" fill="#fafafa" stroke="#555" stroke-width="2.5"/>
+<g transform="translate(833 118)"><title>Elevators</title><circle r="10.5" fill="#565656"/><use xlink:href="#elevator"/></g>
+<text x="847" y="122" font-size="12.5">Elevators</text>
+<g transform="translate(833 150)"><title>Exhibition Area</title><circle r="10.5" fill="#565656"/><use xlink:href="#exhibition"/></g>
+<text x="847" y="154" font-size="12.5">Exhibition Area</text>
+<g transform="translate(833 182)"><title>Restrooms</title><circle r="10.5" fill="#565656"/><use xlink:href="#restroom"/></g>
+<text x="847" y="186" font-size="12.5">Restrooms</text>
+<g transform="translate(833 215)"><title>Stairs</title><circle r="10.5" fill="#565656"/><use xlink:href="#stairs"/></g>
+<text x="847" y="219" font-size="12.5">Stairs</text>
+</g>
+<g id="floor"><path d="M222 205H577V139H644V205H788V377H811V316H949V374H880V601H809V569H787V605H679V624H621V605H575V570H222V374H145V341H222Z" fill="#d4d4d4"/>
+<g id="room-fills" fill="#e6e6e6"><path id="open-stacks" d="M222 205H577V208H644V205H788V355H649V402H636V429H575V570H222V374H145V341H222Z"/><path id="upper-study-area" d="M649 355H788V377H811V374H840V364H863V374H880V601H809V569H787V605H649V540H677V431H678V402H649Z"/><path id="central-room" d="M678 431H785V540H678Z"/><path id="archives-special-collections" d="M811 316H949V374H863V364H840V374H811Z"/><path id="stairs-elevator-lobby" d="M595 429H636V402H678V540H595V500H649V476H595Z"/><path id="restrooms" d="M595 540H649V605H575V570H595Z"/></g>
+<g id="service-fills" fill="#bcbcbc"><path id="north-service" d="M577 139H644V208H577Z"/><path id="west-service" d="M575 429H595V570H575Z"/><path id="east-service" d="M785 431H815V546H785Z"/><path id="elevator-bank" d="M595 476H649V500H595Z"/><path id="south-service" d="M629 562H649V582H629Z"/><path id="south-annex" d="M621 605H679V624H621Z"/></g>
+<g id="shelving">
+<rect id="shelf-216-1" x="241" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-2" x="261" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-3" x="277" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-4" x="297" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-5" x="313" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-6" x="333" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-7" x="349" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-8" x="369" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-9" x="384" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-10" x="404" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-11" x="419" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-12" x="435" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-13" x="455" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-14" x="471" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-15" x="491" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-16" x="507" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-17" x="527" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-18" x="543" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-19" x="563" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-20" x="579" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-21" x="594" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-22" x="614" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-23" x="630" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-24" x="650" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-25" x="666" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-26" x="686" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-27" x="701" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-28" x="721" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-29" x="737" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-216-30" x="751" y="216" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-1" x="241" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-2" x="261" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-3" x="282" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-4" x="297" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-5" x="317" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-6" x="333" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-7" x="353" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-8" x="369" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-9" x="389" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-10" x="404" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-11" x="424" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-12" x="440" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-13" x="460" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-14" x="480" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-15" x="496" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-16" x="516" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-17" x="537" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-18" x="553" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-19" x="573" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-20" x="589" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-21" x="609" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-22" x="624" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-23" x="644" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-24" x="664" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-25" x="680" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-26" x="700" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-27" x="720" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-28" x="736" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-285-29" x="751" y="285" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-1" x="241" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-2" x="258" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-3" x="276" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-4" x="295" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-5" x="312" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-6" x="328" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-7" x="345" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-8" x="363" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-9" x="381" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-10" x="395" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-11" x="413" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-12" x="431" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-13" x="448" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-14" x="465" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-15" x="482" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-16" x="500" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-17" x="517" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-18" x="533" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-19" x="550" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-20" x="568" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-21" x="586" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-356-22" x="601" y="356" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-1" x="240" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-2" x="259" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-3" x="277" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-4" x="294" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-5" x="311" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-6" x="329" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-7" x="346" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-8" x="363" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-9" x="379" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-10" x="397" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-11" x="414" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-12" x="433" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-13" x="450" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-14" x="468" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-15" x="485" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-16" x="502" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-17" x="520" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-18" x="538" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-429-19" x="554" y="429" width="8" height="56" class="shelf"/>
+<rect id="shelf-501-1" x="240" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-2" x="259" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-3" x="277" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-4" x="294" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-5" x="311" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-6" x="329" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-7" x="346" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-8" x="363" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-9" x="379" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-10" x="397" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-11" x="414" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-12" x="433" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-13" x="450" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-14" x="468" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-15" x="485" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-16" x="502" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-17" x="520" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-18" x="538" y="501" width="8" height="55" class="shelf"/>
+<rect id="shelf-501-19" x="554" y="501" width="8" height="55" class="shelf"/>
+<rect x="222" y="216" width="5" height="56" class="shelf"/>
+<rect x="222" y="285" width="5" height="56" class="shelf"/>
+<rect x="782" y="285" width="5" height="56" class="shelf"/>
+<rect x="222" y="429" width="5" height="56" class="shelf"/>
+<rect x="222" y="501" width="5" height="55" class="shelf"/>
+</g><g id="walls">
+<path class="wall" d="M222 205H577V139H644V205H788V377H811V316H949V374H880V601H809V569H787V605H679V624H621V605H575V570H222V374H145V341H222Z"/>
+<path class="wall" d="M649 355H788 M649 355V402H678V540H785"/>
+<path class="wall" d="M636 429V402H678"/>
+<path class="wall" d="M575 570V429H647 M669 429H678"/>
+<path class="wall" d="M595 429V570 M595 476H649V500H595 M622 476V500"/>
+<path class="wall" d="M678 431H815V546H785V431"/>
+<path class="wall" d="M595 540H649 M649 535V605 M575 570H629V562H649 M629 562V589 M629 582H649"/>
+<path class="wall" d="M621 605H679"/>
+<path class="wall" d="M811 377V374H840V364H863V374H880"/>
+</g><g id="labels" font-size="9.5" font-weight="bold" text-anchor="middle"><text x="729" y="398">Study Area</text><text x="729" y="579">Study Area</text><text x="868" y="343"><tspan x="868">Archives and Special</tspan><tspan x="868" dy="11">Collections</tspan></text></g><g id="amenities">
+<g transform="translate(628 454)"><title>Stairs</title><circle r="10.5" fill="#565656"/><use xlink:href="#stairs"/></g>
+<g transform="translate(610 488)"><title>West elevator</title><circle r="10.5" fill="#565656"/><use xlink:href="#elevator"/></g>
+<g transform="translate(635 488)"><title>East elevator</title><circle r="10.5" fill="#565656"/><use xlink:href="#elevator"/></g>
+<g transform="translate(614 555)"><title>North restroom</title><circle r="10.5" fill="#565656"/><use xlink:href="#restroom"/></g>
+<g transform="translate(603 587)"><title>South restroom</title><circle r="10.5" fill="#565656"/><use xlink:href="#restroom"/></g>
+<g transform="translate(859 464)"><title>Exhibition Area</title><circle r="10.5" fill="#565656"/><use xlink:href="#exhibition"/></g>
+</g></g><text x="95" y="660" font-size="10" fill="#777">Branson Library · New Mexico State University</text><text x="949" y="660" text-anchor="end" font-size="10" fill="#777">Floor 4 · Visual trace — not to scale</text></svg>
