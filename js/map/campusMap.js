@@ -1,5 +1,5 @@
 /**
- * This file & what it does: makes the campus map and handles taps on it.
+ * This file & what it does: makes the campus map, grays out everything outside campus, draws the outline, and handles taps on it.
  * Why we have it: a badge tap should pick that building and fly the map to it.
  * The info box waits until the flight ends so you see where the building is before the box covers the map.
  * A tap on empty space clears the pick.
@@ -19,6 +19,61 @@ function easeOut(progress) {
   return 1 - Math.pow(1 - progress, 3);
 }
 
+/**
+ * Signed area of a ring. Positive means counterclockwise.
+ * @param {number[][]} ring
+ * @returns {number}
+ */
+function ringArea(ring) {
+  let sum = 0;
+  for (let i = 0; i < ring.length - 1; i += 1) {
+    sum += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1];
+  }
+  return sum;
+}
+
+/**
+ * A rectangle over the fence, with the campus shapes cut out.
+ * The gray layer uses this so color shows only inside campus.
+ * @param {number[][]} fence
+ * @param {object} campuses
+ * @returns {object}
+ */
+function outsideMask(fence, campuses) {
+  const west = fence[0][0];
+  const south = fence[0][1];
+  const east = fence[1][0];
+  const north = fence[1][1];
+  const outer = [
+    [west, south],
+    [east, south],
+    [east, north],
+    [west, north],
+    [west, south],
+  ];
+  const holes = [];
+  for (const feature of campuses.features) {
+    const geometry = feature.geometry;
+    if (!geometry || (geometry.type !== 'Polygon' && geometry.type !== 'MultiPolygon')) {
+      continue;
+    }
+    const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+    for (const polygon of polygons) {
+      const shell = polygon[0].slice();
+      /* a hole winds the opposite way from the outer rectangle */
+      if (ringArea(shell) > 0) {
+        shell.reverse();
+      }
+      holes.push(shell);
+    }
+  }
+  return {
+    type: 'Feature',
+    properties: {},
+    geometry: { type: 'Polygon', coordinates: [outer].concat(holes) },
+  };
+}
+
 /** Fold the map credits into the little (i) button. */
 function foldCredits() {
   const credits = document.querySelector('.maplibregl-ctrl-attrib');
@@ -34,13 +89,15 @@ export class CampusMap {
    * Create the map.
    * @param {Object.<string, object>} buildingsById
    * @param {number[][]} fence
+   * @param {object} campuses
    * @param {object} style
    */
-  constructor(buildingsById, fence, style) {
+  constructor(buildingsById, fence, campuses, style) {
     const settings = CONFIG.map;
     this.buildingsById = buildingsById;
     this.selectedId = null; /* the picked building */
     this.fence = fence;
+    this.campuses = campuses;
 
     this.map = new maplibregl.Map({
       container: 'map',
@@ -62,9 +119,36 @@ export class CampusMap {
     this.followSelection();
   }
 
-  /** Map is loaded, so draw badges and listen for taps. */
+  /** Wash everything outside campus with a light gray, then draw the outline. */
+  drawOutline() {
+    const settings = CONFIG.map;
+    this.map.addSource('campus-outside', { type: 'geojson', data: outsideMask(this.fence, this.campuses) });
+    this.map.addLayer({
+      id: 'campus-outside',
+      type: 'fill',
+      source: 'campus-outside',
+      paint: {
+        'fill-color': settings.outsideColor,
+        'fill-opacity': settings.outsideOpacity,
+      },
+    });
+    this.map.addSource('campus-outline', { type: 'geojson', data: this.campuses });
+    this.map.addLayer({
+      id: 'campus-outline',
+      type: 'line',
+      source: 'campus-outline',
+      paint: {
+        'line-color': settings.campusOutlineColor,
+        'line-width': settings.campusOutlineWidth,
+        'line-opacity': settings.campusOutlineOpacity,
+      },
+    });
+  }
+
+  /** Map is loaded, so draw the outline, badges, and listen for taps. */
   drawEverything() {
     foldCredits();
+    this.drawOutline();
     addBadges(this.map, this.buildingsById);
     this.markSelected(store.get().selectedId);
     this.applyNames(store.get().showNames);

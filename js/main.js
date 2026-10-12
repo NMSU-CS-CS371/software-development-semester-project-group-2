@@ -46,6 +46,31 @@ async function loadData(fileName) {
 }
 
 /**
+ * Every corner of the campus outline.
+ * @param {object} file
+ * @returns {number[][]}
+ */
+function outlinePoints(file) {
+  const points = [];
+  for (const feature of file.features) {
+    const geometry = feature.geometry;
+    if (geometry.type !== 'Polygon' && geometry.type !== 'MultiPolygon') {
+      continue;
+    }
+    /* a Polygon is one shape; a MultiPolygon is several */
+    const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+    for (const polygon of polygons) {
+      for (const ring of polygon) {
+        for (const point of ring) {
+          points.push(point);
+        }
+      }
+    }
+  }
+  return points;
+}
+
+/**
  * Turn each Building in the data file into an object the app can use.
  * @param {object} file
  * @returns {object[]}
@@ -133,21 +158,25 @@ async function startApp() {
   await loadConfig();
   document.querySelector('#navbar-title').textContent = CONFIG.navbar.title;
 
-  /* download both files at the same time */
+  /* download the files at the same time */
   const files = await Promise.all([
     loadData('buildings.geojson'), /* building data */
+    loadData('campuses.geojson'), /* campus outline */
     loadMapStyle(), /* map background */
   ]);
 
   const buildings = recordsFrom(files[0]);
+  const campuses = files[1];
   const buildingsById = {};
-  const centers = [];
   for (const building of buildings) {
     buildingsById[building.id] = building;
-    centers.push(building.center);
   }
-  /* create bounds around the buildings so you can't drag off campus */
-  const fence = boundsAround(centers, CONFIG.map.fencePadding);
+  /* fence around the campus outline so you can't drag off campus */
+  const corners = outlinePoints(campuses);
+  if (corners.length === 0) {
+    throw new Error('data/campuses.geojson has no outline');
+  }
+  const fence = boundsAround(corners, CONFIG.map.fencePadding);
 
   /* drop a saved pick if that building is gone */
   if (store.get().selectedId && !buildingsById[store.get().selectedId]) {
@@ -156,7 +185,7 @@ async function startApp() {
   watchUrl(buildingsById);
 
   /* make the map first, then the info box */
-  const campusMap = new CampusMap(buildingsById, fence, files[1]);
+  const campusMap = new CampusMap(buildingsById, fence, campuses, files[2]);
   new CampusMapSettings(campusMap);
   const sheet = new InfoSheet(buildingsById);
   new ActionPill(buildingsById);
