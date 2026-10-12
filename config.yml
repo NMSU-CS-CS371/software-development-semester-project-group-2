@@ -37,7 +37,12 @@ map:
   maxZoom: 18
   styleUrl: "https://tiles.openfreemap.org/styles/liberty"
   hiddenBasemapLayer: "poi" # hide the map's extra business labels
-  fencePadding: 0.01 # extra space around the buildings so you can't drag too far
+  fencePadding: 0.01 # extra space around the campus outline so you can't drag too far
+  campusOutlineColor: "#8C0B42" # same crimson as theme.crimson
+  campusOutlineWidth: 2.5
+  campusOutlineOpacity: 0.85
+  outsideColor: "#b4b4b4" # light gray veil over everything outside campus
+  outsideOpacity: 0.55
   selectZoom: 16.8
   flyDuration: 320 # how long the fly takes, in milliseconds
   flyCurve: 1.2 # how much the map zooms out during the fly

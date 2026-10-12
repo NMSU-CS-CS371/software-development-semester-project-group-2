@@ -5,10 +5,10 @@
  */
 
 import { CONFIG } from '../core/config.js';
-import { store } from '../core/store.js';
+import { photoSrc, store } from '../core/store.js';
 import { escapeHtml, safeUrl } from '../core/html.js';
 import { waitOneFrame } from '../core/waitOneFrame.js';
-import { openPlanFullView } from './infoSheetFullView.js';
+import { openPhotoView } from './infoSheetFullView.js';
 import { wireFloorPlan } from './infoSheetFloorPlan.js';
 
 export class InfoSheet {
@@ -138,13 +138,13 @@ export class InfoSheet {
     }
     this.photoFor = building.id;
     this.photoRow.replaceChildren();
-    for (const photo of photos) {
+    photos.forEach((photo, index) => {
       const image = document.createElement('img');
-      image.src = photo.thumbUrl || photo.url;
+      image.src = photoSrc(photo);
       image.alt = photo.title || building.name;
-      image.addEventListener('click', () => openPlanFullView(image));
+      image.addEventListener('click', () => openPhotoView(photos, index));
       this.photoRow.append(image);
-    }
+    });
     this.photoSection.hidden = photos.length === 0;
   }
 
@@ -254,7 +254,7 @@ export class InfoSheet {
    */
   showActiveFloor(state) {
     const building = this.buildingsById[state.selectedId];
-    const floor = state.activeFloor != null ? state.activeFloor : (building && building.floors && building.floors[0]);
+    const floor = state.activeFloor != null ? state.activeFloor : (building && building.floors && (building.floors.includes(1) ? 1 : building.floors[0]));
     const key = String(floor);
     for (const button of this.planSlot.querySelectorAll('.bs-floor-swap button')) {
       const on = button.dataset.floor === key;

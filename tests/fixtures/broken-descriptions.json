@@ -1,0 +1,505 @@
+{
+  "//": [
+    "One entry per building, by property number.",
+    "paragraphs is the about text. links is optional and shows under that text.",
+    "Loaded just after the map, because the map does not need it and it is the longest text we have.",
+    "Where each description came from is named in that building entry in buildings.geojson."
+  ],
+  "descriptions": {
+    "323": {
+      "paragraphs": [
+        "This building was built in 2015 and was named for Carl F. Jacobs (who started the NMSU music department) and Marion Hardmen (retired English Professor and Dean of Women).",
+        "Hardman and Jacobs Undergraduate Learning Center houses classrooms of various sizes that are centrally scheduled and used for many of the university's core curriculum classes and larger classes. Most undergraduates will take at least some courses in the undergraduate learning center during their student careers. The center also houses the Student Success Center, which includes TRiO Student Support Services and TRiO Upward Bound, and Information & Communications Technology, which includes a Help Desk, computer labs, a drop-in computer center, computer rentals and computer offices and workshops.",
+        "This building is a LEED Gold certified building. LEED, or Leadership in Energy and Environmental Design, is a program that strives to create a more sustainable world. This building has been specifically designed to use fewer resources and decrease waste. You can find more information about this program here."
+      ],
+      "links": [
+        {
+          "label": "www.usgbc.org",
+          "url": "https://www.usgbc.org/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Hardman And Jacobs Undergraduate Learning Center",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525521"
+        },
+        {
+          "title": "Hardman And Jacobs Undergraduate Learning Center",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hardman_and_Jacobs_Undergrad_Learning_Center_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525521"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "189": {
+      "paragraphs": [
+        "The bidding for the construction of the Chemistry Building, Gardiner Hell, and Jett Hall all opened the same day in 1955. Jett Hall occupies the southern side of the Horseshoe. This building was constructed with Jett Annex in 1957, and in 1965 the northeast, east, and West wings were added along with improvements to the entrance. After more than 60 years, Jett Hall is still home to the chemical, mechanical, and aerospace engineering departments. The hall was named after Daniel Boone Jett, a beloved former dean of the College of Engineering and a professor of civil engineering for 30 years."
+      ],
+      "links": [
+        {
+          "label": "College of Engineering",
+          "url": "https://engr.nmsu.edu/"
+        },
+        {
+          "label": "Chemical & Materials Engineering",
+          "url": "https://chme.nmsu.edu/"
+        },
+        {
+          "label": "Mechanical Engineering",
+          "url": "https://mae.nmsu.edu/"
+        }
+      ]
+    },
+    "285": {
+      "paragraphs": [
+        "This building was constructed in 1968 and named after Roger B. Corbett, the President of NMSU from 1955-1970. The original plan for the building was much different from what you see today. The original location for the building was to be approximately where Educational Services building is today behind Garcia Hall. Also the original plan was only two stories but featured a planetarium, bowling lanes, billiard and table tennis, a bookstore, administrative offices, and room for games, hobbies, a dark room, etc.",
+        "Corbett Center, the university's student union, is a bustling center of activity on campus. It is home to the several dining establishments and many student organizations and programs. Corbett Center also offers attractive conference facilities."
+      ],
+      "links": [
+        {
+          "label": "Dining",
+          "url": "https://dining.nmsu.edu/"
+        },
+        {
+          "label": "ASNMSU",
+          "url": "https://asnmsu.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Corbett Center",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Corbett_Center.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Corbett_Center.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/526646"
+        },
+        {
+          "title": "285",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F285.JPG&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F285.JPG&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/526646"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "391": {
+      "paragraphs": [
+        "Science Hall was built in 1987. There is a dedication plaque on this building from the Board of Regents. The Science Hall is home to the departments of Computer Science, Mathematical Sciences, Women's Studies, Sociology, and Psychology. Science Hall contains 119,295 square feet of laboratories, classroom space, and faculty offices."
+      ],
+      "links": [
+        {
+          "label": "Psychology",
+          "url": "https://psychology.nmsu.edu/"
+        },
+        {
+          "label": "Computer Science",
+          "url": "https://www.cs.nmsu.edu/"
+        },
+        {
+          "label": "Mathematical Sciences",
+          "url": "https://math.nmsu.edu/"
+        },
+        {
+          "label": "Gender and Sexuality Studies",
+          "url": "https://genders.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Science Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525545"
+        },
+        {
+          "title": "Science Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Science_Hall_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525545"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "82": {
+      "paragraphs": [
+        "The Biology Annex was first introduced as the Air Mechanics Building. The building is now used to teach biology and science."
+      ],
+      "links": [
+        {
+          "label": "Department of Biology",
+          "url": "https://bio.nmsu.edu/"
+    "172": {
+      "paragraphs": [
+        "Hadley Hall is home to several administrative units including the President's Office and Human Resources. It was built in 1953 and named after Hiram Hadley, the university's first President."
+      ],
+      "links": [
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Hadley Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hadley_Hall_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hadley_Hall_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525519"
+        },
+        {
+          "title": "Hadley Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hadley_Hall_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hadley_Hall_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525519"
+        },
+        {
+          "title": "Hadley Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hadley_Hall_3.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Hadley_Hall_3.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525519"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "211": {
+      "paragraphs": [
+        "In 1959, a new women's physical education gymnasium was built. It was named Rentfrow Gym after Era Rentfrow, a woman who spent most of her life at NMSU. She enrolled in preparatory school in 1911, graduated in 1919, and was the university registrar from 1922 to 1959. This gymnasium is currently home to the College of Education's Department of Kinesiology and Dance."
+      ],
+      "links": [
+        {
+          "label": "Kinesiology & Dance",
+          "url": "https://kind.nmsu.edu/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Rentfrow Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Rentfrow_Gymnasium_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Rentfrow_Gymnasium_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525543"
+        },
+        {
+          "title": "Rentfrow Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Rentfrow_Gymnasium_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Rentfrow_Gymnasium_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525543"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "188": {
+      "paragraphs": [
+        "Gardiner Hall is home to the Department of Physics and contains faculty offices, classrooms, and laboratory space. It was built in 1957 and named after George Gardiner, a physics professor and founder of the Physical Science Laboratory.",
+        "This building is a LEED Silver certified building. LEED, or Leadership in Energy and Environmental Design, is a program that strives to create a more sustainable world. This building has been specifically designed to use fewer resources and decrease waste. You can find more information about this program here."
+      ],
+      "links": [
+        {
+          "label": "www.usgbc.org",
+          "url": "https://www.usgbc.org/"
+        },
+        {
+          "label": "Physics",
+          "url": "https://www.physics.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Gardiner Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Gardiner_Hall.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Gardiner_Hall.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525511"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "278": {
+      "paragraphs": [
+        "Branson Library got its name from John W Branson, who served as acting president from October 1938 to September 1949. Since its construction in 1951, the Library has undergone numerous renovations. It has a variety of academic texts, as well as a general collection of literature. There are study spaces within Branson Library, making it a great place to work on coursework.",
+        "Drop Box Location: In front of the Branson Library next to the entrance doors."
+      ],
+      "links": [
+        {
+          "label": "Library",
+          "url": "https://library.nmsu.edu"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Branson Library",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Branson_Library.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Branson_Library.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/526015"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "363": {
+      "paragraphs": [
+        "Engineering Complex I houses the Engineering New Mexico Resource Network, the Alliance for Minority Participation, as well as surveying engineering offices, classrooms and laboratories. The building was constructed in 1980."
+      ],
+      "links": [
+        {
+          "label": "NM Alliance for Minority Participation",
+          "url": "https://nmamp.nmsu.edu/"
+        },
+        {
+          "label": "Civil Engineering",
+          "url": "https://ce.nmsu.edu/"
+        },
+        {
+          "label": "Engineering NM Resource Network",
+          "url": "https://engrnm.nmsu.edu/"
+        },
+        {
+          "label": "Engineering Technology",
+          "url": "https://et.nmsu.edu/"
+        },
+        {
+          "label": "Engineering College",
+          "url": "https://engr.nmsu.edu/"
+        },
+        {
+          "label": "AIS Aggie Innovation Space",
+          "url": "https://innovate.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Engineering Complex I",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Engineering_Complex_I.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Engineering_Complex_I.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525507"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "551": {
+      "paragraphs": [
+        "Skeen Hall was originally known as the Center for the Sustainable Development of Arid Lands, or CSDAL. It was built in 2000 and now houses extraneous agricultural based departments. In 2001, it was recognized as one of the \"Best Buildings\" for exteriors. The architect of this building was Van H. Gilbert, P.C. Skeen Hall was named after two local New Mexicans, Joe and Mary Skeen. Mr. Skeen advocated for federal funding for agricultural research during his twenty years as a U.S. Congressman. Mrs. Skeen identified the needs of the Land-Grant program in the National Council on Agricultural Research, Extension and Teaching."
+      ],
+      "links": [
+        {
+          "label": "Plant & Environmental Sciences",
+          "url": "https://aces.nmsu.edu/academics/pes/"
+        },
+        {
+          "label": "Entomology, Plant Pathology, and Weed Science",
+          "url": "https://eppws.nmsu.edu/"
+        },
+        {
+          "label": "College of Agricultural, Consumer, and Environmental Sciences",
+          "url": "https://aces.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Biology Annex",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
+        },
+        {
+          "title": "Biology Annex",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
+          "title": "Skeen Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525547"
+        },
+        {
+          "title": "Skeen Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525547"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "386": {
+      "paragraphs": [
+        "The Business Complex houses the College of Business, faculty offices, and classrooms. It was built in 1983. The bronze statue in the courtyard, created by NMSU alumnus Duke Sundt, is titled \"The Traders.\" It depicts the birth of trade among the cultures of this region."
+      ],
+      "links": [
+        {
+          "label": "University Student Records",
+          "url": "https://records.nmsu.edu/"
+        },
+        {
+          "label": "College of Business",
+          "url": "https://business.nmsu.edu/"
+        },
+        {
+          "label": "Finance",
+          "url": "https://business.nmsu.edu/departments/finance/"
+        },
+        {
+          "label": "Management",
+          "url": "https://business.nmsu.edu/departments/mgt/"
+        },
+        {
+          "label": "Marketing",
+          "url": "https://business.nmsu.edu/departments/marketing/"
+        },
+        {
+          "label": "Accounting & Information Systems",
+          "url": "https://business.nmsu.edu/departments/accounting/"
+        },
+        {
+          "label": "Economics",
+          "url": "https://business.nmsu.edu/departments/economics/"
+    "632": {
+      "paragraphs": [
+        "The NMSU Bookstore is a great place to study. This space is stocked with textbooks for purchase or rental, tables, and has a charming caf&eacute;-like atmosphere.",
+        "Additionally, NMSU merchandise can also be found for sale at this location. Also at this location, on the second floor, are ID Card Services and Parking Services.",
+        "This building is a LEED Gold certified building. LEED, or Leadership in Energy and Environmental Design, is a program that strives to create a more sustainable world. This building has been specifically designed to use fewer resources and decrease waste. You can find more information about this program here."
+      ],
+      "links": [
+        {
+          "label": "www.usgbc.org",
+          "url": "https://www.usgbc.org/"
+        },
+        {
+          "label": "NMSU Bookstore",
+          "url": "https://www.bkstr.com/nmsustore/home"
+        },
+        {
+          "label": "ID Services",
+          "url": "https://idcard.nmsu.edu/"
+        },
+        {
+          "label": "Parking Services",
+          "url": "https://park.nmsu.edu/"
+        },
+        {
+          "label": "Starbucks",
+          "url": "https://nmsu.sodexomyway.com/dining/starbucks-bookstore"
+        }
+      ],
+      "photos": [
+        {
+          "title": "632",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F632.JPG&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F632.JPG&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/526637"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "657": {
+      "paragraphs": [
+        "Devasthali Hall provides specialized studios and multi-purpose areas for NMSU's diverse art and culture curriculum. Studios include both indoor and outdoor space for woodworking, drawing and painting, printmaking, sculpture, photography, ceramics, and jewelry-making. This building acts as both studio space for class and a showcase for art.",
+        "This building is a LEED certified building. LEED, or Leadership in Energy and Environmental Design, is a program that strives to create a more sustainable world. This building has been specifically designed to use fewer resources and decrease waste. You can find more information about this program here."
+      ],
+      "links": [
+        {
+          "label": "www.usgbc.org",
+          "url": "https://www.usgbc.org/"
+        },
+        {
+          "label": "Art Department",
+          "url": "https://artdepartment.nmsu.edu/"
+        },
+        {
+          "label": "Art Gallery",
+          "url": "https://uam.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Devasthali Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Devasthali_Hall_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Devasthali_Hall_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525386"
+        },
+        {
+          "title": "Devasthali Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Devasthali_Hall_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Devasthali_Hall_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525386"
+        },
+        {
+          "title": "Devasthali Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Devasthali_Hall_3.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Devasthali_Hall_3.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525386"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "389": {
+      "paragraphs": [
+        "Located on the north side of the Horseshoe, the Music Building on campus today used to only be the Military Science Building that was built in 1911. While it used to have a gun range on the third floor and was called \"The Armory\" from 1938 to 1981, once the Music Building portion was added in 1983 the rest of the building became offices for faculty or practice rooms for students. This building is also referred to as the Atkinson Recital Hall."
+      ],
+      "links": [
+        {
+          "label": "Music Department",
+          "url": "https://music.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
+        },
+        {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
+          "title": "Music Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525535"
+        },
+        {
+          "title": "Music Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525535"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    }
+  }
+}

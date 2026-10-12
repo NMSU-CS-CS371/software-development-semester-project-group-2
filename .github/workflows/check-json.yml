@@ -1,0 +1,16 @@
+name: Check JSON
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: JSON errors name the file, line, and reason
+        run: node tests/jsonErrorLocator.test.js
