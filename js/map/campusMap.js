@@ -160,6 +160,10 @@ export class CampusMap {
    * @returns {boolean}
    */
   hasBadges() {
+    /* getLayer throws if the style is not on the map yet */
+    if (!this.map.style) {
+      return false;
+    }
     return Boolean(this.map.getLayer('building-pins'));
   }
 
@@ -181,7 +185,8 @@ export class CampusMap {
    * @param {boolean} on
    */
   applyNames(on) {
-    if (!this.map.getLayer('building-names')) {
+    /* the store calls this as soon as we subscribe, which is before the style exists */
+    if (!this.map.style || !this.map.getLayer('building-names')) {
       return;
     }
     this.map.setLayoutProperty('building-names', 'visibility', on ? 'visible' : 'none');
