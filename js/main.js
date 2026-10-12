@@ -6,6 +6,7 @@
  */
 
 import { CONFIG, loadConfig } from './core/config.js';
+import { loadJson, parseJsonText } from './core/jsonErrorLocator.js';
 import { photoSrc, store } from './core/store.js';
 import { watchUrl } from './core/urlPaths.js';
 import { boundsAround } from './logic/mapBounds.js';
@@ -21,7 +22,10 @@ import { MapSettingPill } from './actionButtons/mapSettingPill.js';
  */
 async function loadMapStyle() {
   const response = await fetch(CONFIG.map.styleUrl);
-  const style = await response.json();
+  if (!response.ok) {
+    throw new Error('Could not load the map style at ' + CONFIG.map.styleUrl + '. The server answered ' + response.status + '.');
+  }
+  const style = parseJsonText(CONFIG.map.styleUrl, await response.text());
   const layers = [];
   for (const layer of style.layers) {
     if (layer['source-layer'] !== CONFIG.map.hiddenBasemapLayer) {
@@ -30,19 +34,6 @@ async function loadMapStyle() {
   }
   style.layers = layers;
   return style;
-}
-
-/**
- * Download a file from the data folder.
- * @param {string} fileName
- * @returns {Promise<object>}
- */
-async function loadData(fileName) {
-  const response = await fetch('data/' + fileName);
-  if (!response.ok) {
-    throw new Error('Could not load data/' + fileName);
-  }
-  return response.json();
 }
 
 /**
@@ -114,7 +105,7 @@ function uniquePhotos(photos) {
  * @returns {Promise<void>}
  */
 async function loadDescriptions(buildings, sheet) {
-  const file = await loadData('descriptions.json');
+  const file = await loadJson('descriptions.json');
   for (const building of buildings) {
     const entry = file.descriptions[building.id];
     building.description = (entry && entry.paragraphs) || [];
@@ -134,19 +125,27 @@ function showStartupError(error) {
   console.error(error);
   const box = document.createElement('div');
   box.className = 'startup-error';
+  const message = document.createElement('p');
   if (error.name === 'YAMLException') {
     /* yaml tells us the line it noticed, which can be a little after the typo */
-    box.textContent = 'config.yml has a mistake near line ' + (error.mark.line + 1) + ': ' + error.reason + '.';
-  } else if (error.name === 'TypeError' && /fetch/i.test(error.message)) {
+    message.textContent = 'YAML syntax error in config.yml.\n'
+      + 'Look near line ' + (error.mark.line + 1) + '.\n'
+      + error.reason + '.\n'
+      + 'Fix that line, save, and refresh.';
+  } else if (error.name === 'JsonSyntaxError') {
+    /* jsonErrorLocator.js already names the file, the line, and the usual fix */
+    message.textContent = error.message;
+  } else if (error.name === 'TypeError' && /fetch|network|load failed/i.test(error.message)) {
     /* couldn't reach the server */
     if (CONFIG.app) {
-      box.textContent = CONFIG.app.startupErrorText;
+      message.textContent = CONFIG.app.startupErrorText;
     } else {
-      box.textContent = 'Could not start the app. Check your internet connection and refresh.';
+      message.textContent = 'Network error.\nCould not start the app. Check your internet connection and refresh.';
     }
   } else {
-    box.textContent = 'Could not start the app: ' + error.message;
+    message.textContent = (error.name || 'Error') + '.\n' + error.message;
   }
+  box.appendChild(message);
   document.body.appendChild(box);
 }
 
@@ -160,8 +159,8 @@ async function startApp() {
 
   /* download the files at the same time */
   const files = await Promise.all([
-    loadData('buildings.geojson'), /* building data */
-    loadData('campuses.geojson'), /* campus outline */
+    loadJson('buildings.geojson'), /* building data */
+    loadJson('campuses.geojson'), /* campus outline */
     loadMapStyle(), /* map background */
   ]);
 
@@ -195,7 +194,7 @@ async function startApp() {
   window.store = store;
   window.CONFIG = CONFIG;
 
-  loadDescriptions(buildings, sheet); /* this can finish later */
+  loadDescriptions(buildings, sheet).catch(showStartupError); /* this can finish later */
 }
 
 startApp().catch(showStartupError);

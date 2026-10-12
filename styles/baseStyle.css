@@ -67,9 +67,16 @@ html:not(.config-ready) body { visibility: hidden; }
   align-items: center;
   justify-content: center;
   padding: 24px;
-  text-align: center;
   font-family: sans-serif;
   color: #8c0b42;
   background: #fff;
   visibility: visible;
+}
+.startup-error p {
+  max-width: 36rem;
+  margin: 0;
+  white-space: pre-line;
+  text-align: left;
+  line-height: 1.45;
+  font-size: 16px;
 }
