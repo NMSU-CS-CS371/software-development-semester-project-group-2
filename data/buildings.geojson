@@ -322,7 +322,7 @@
         "built": "1983",
         "builtSource": "NMSU Space Planning",
         "floors": [
-          1
+          1, 2, 3, 4
         ],
         "floorsSource": "Not published by NMSU (ground floor assumed)",
         "category": "study",

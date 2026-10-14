@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-27 98 1734 1080" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif">
+  <!--
+    Business Complex Building (bldg 386) - FLOOR 2
+    Traced from the posted "Emergency Evacuation Plan" photo. Coordinates use the
+    photo's own pixel positions, so any shape can be checked against the photo.
+    One wall weight for outside walls, one for inside walls; nothing in between.
+  -->
+  <style>
+    .floor { fill: #ffffff; stroke: #3a3d42; stroke-width: 6; stroke-linejoin: round; }
+    .room  { fill: #eef1f4; stroke: #8f959c; stroke-width: 2; }
+    .ours  { fill: #f5e3ea; stroke: #8f959c; stroke-width: 2; }
+    .core  { fill: #dfe3e8; stroke: #8f959c; stroke-width: 2; }
+    .void  { fill: #f7f7f8; stroke: #b5bac0; stroke-width: 2; stroke-dasharray: 10 8; }
+    .dim   { fill: #8a8f96; text-anchor: middle; dominant-baseline: middle; }
+    .stair { stroke: #8f959c; stroke-width: 2; }
+    .hall  { fill: #d7dbe0; stroke: none; }
+    .hall-lbl { fill: #6b7280; font-size: 18px; text-anchor: middle; dominant-baseline: middle; }
+    .authwall { stroke: #7c3aed; stroke-width: 6; stroke-dasharray: 10 8; }
+    .door  { stroke: #ffffff; stroke-width: 10; }
+    .lbl   { fill: #2b2e33; font-size: 24px; text-anchor: middle; dominant-baseline: middle; }
+    .lblS  { fill: #2b2e33; font-size: 19px; text-anchor: middle; dominant-baseline: middle; }
+    .name  { fill: #1d1f23; font-size: 30px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .exit  { fill: #1a7f37; font-size: 20px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    .compass-letter { font-size: 22px; font-weight: 600; fill: #8a8690; text-anchor: middle; }
+    .compass-north  { fill: #8C0B42; }
+    .floor-edge { fill:none; stroke:#3a3d42; stroke-width:6; stroke-linejoin:round; }
+  </style>
+
+  <!-- OUTSIDE WALLS -->
+  <polygon class="floor" points="120,150 1535,150 1535,365 1655,365 1655,465 1535,465 1535,620 1540,620 1540,755 1515,755 1515,780 1430,880 1425,890 1240,890 1240,910 1015,910 1015,825 960,825 960,900 870,900 870,1090 785,1090 785,760 180,760 155,790 125,790 120,475 25,475 25,365 117,365"/>
+
+  <!-- HALLWAYS -->
+  <rect class="hall" x="1275" y="460" width="35" height="5"/>
+  <rect class="hall" x="121" y="390" width="1414" height="105"/>
+  <rect class="hall" x="767" y="495" width="103" height="420"/>
+  <rect class="hall" x="860" y="710" width="450" height="45"/>
+  <rect class="hall" x="1270" y="495" width="40" height="215"/>
+  <rect class="hall" x="1095" y="585" width="175" height="125"/>
+  <rect class="hall" x="870" y="755" width="43" height="140"/>
+  <rect class="hall" x="910" y="755" width="50" height="45"/>
+  <text class="hall-lbl" x="829" y="443">Hallway</text>
+  <text class="hall-lbl" x="419" y="443">Hallway</text>
+  <text class="hall-lbl" x="1239" y="443">Hallway</text>
+
+  <!-- ROOMS -->
+  <polygon class="room" points="648,285 715,285 715,415 567,415 567,328 648,328"/><text class="lbl" x="648" y="360">224</text>
+  <polygon class="room" points="170,285 170,330 272,330 272,415 120,415 120,285"/><text class="lbl" x="188" y="363">217</text>
+  <polygon class="room" points="715,352 784,352 819,391 795,415 715,415"/><text class="lblS" x="760" y="385">235</text>
+  <polygon class="room" points="920,470 920,590 877,590 877,623 920,623 920,711 850,711 850,495 857,480 870,470"/><text class="lbl" x="884" y="590">252</text>
+  <polygon class="room" points="1272,585 1273,641 1245,673 1211,711 1095,711 1095,585"/><text class="lbl" x="1177" y="644">248</text>
+  <polygon class="room" points="1427,755 1513,755 1515,782 1427,880"/><text class="lbl" x="1461" y="798">246A</text>
+  <rect class="room" x="122" y="150" width="98" height="135"/><text class="lbl" x="171" y="218">218</text>
+  <rect class="room" x="220" y="150" width="125" height="135"/><text class="lbl" x="283" y="218">219</text>
+  <rect class="room" x="345" y="150" width="75" height="135"/><text class="lbl" x="383" y="218">220</text>
+  <rect class="room" x="420" y="150" width="70" height="135"/><text class="lbl" x="455" y="218">221</text>
+  <rect class="room" x="490" y="150" width="126" height="135"/><text class="lbl" x="553" y="218">222</text>
+  <rect class="room" x="616" y="150" width="99" height="135"/><text class="lbl" x="666" y="218">223</text>
+  <polygon class="room" points="715,150 865,150 865,390 820,390 785,350 715,350"/><text class="lbl" x="793" y="259">227</text>
+  <rect class="room" x="865" y="150" width="149" height="105"/><text class="lbl" x="940" y="203">231</text>
+  <rect class="room" x="1014" y="150" width="111" height="105"/><text class="lbl" x="1070" y="203">232</text>
+  <rect class="room" x="1125" y="150" width="111" height="105"/><text class="lbl" x="1181" y="203">233</text>
+  <rect class="room" x="1236" y="150" width="149" height="105"/><text class="lbl" x="1311" y="203">234</text>
+  <rect class="room" x="1385" y="150" width="150" height="105"/><text class="lbl" x="1460" y="203">236</text>
+  <rect class="room" x="1420" y="255" width="115" height="160"/><text class="lbl" x="1478" y="335">237</text>
+  <rect class="room" x="865" y="300" width="180" height="120"/><text class="lbl" x="955" y="360">230</text>
+  <rect class="room" x="121" y="470" width="89" height="135"/><text class="lbl" x="166" y="538">211</text>
+  <polygon class="room" points="210,470 305,470 325,495 370,495 370,470 490,470 490,640 245,640 245,605 210,605"/><text class="lbl" x="354" y="555">212</text>
+  <rect class="room" x="490" y="470" width="100" height="135"/><text class="lbl" x="540" y="538">205</text>
+  <polygon class="room" points="635,495 660,470 765,470 780,480 790,500 790,695 765,720 765,760 590,760 590,495"/><text class="lbl" x="689" y="616">204</text>
+  <polygon class="room" points="1010,485 1032,485 1032,470 1249,470 1265,480 1273,500 1273,585 1010,585"/><text class="lbl" x="1142" y="528">250</text>
+  <rect class="room" x="1311" y="470" width="74" height="150"/><text class="lbl" x="1348" y="545">243</text>
+  <rect class="room" x="1385" y="470" width="75" height="150"/><text class="lbl" x="1423" y="545">242</text>
+  <rect class="room" x="1460" y="470" width="75" height="150"/><text class="lbl" x="1498" y="545">241</text>
+  <polygon class="room" points="125,605 245,605 245,760 175,760 150,790 125,790"/><text class="lbl" x="183" y="688">210</text>
+  <rect class="room" x="245" y="642" width="100" height="118"/><text class="lbl" x="295" y="701">209</text>
+  <rect class="room" x="345" y="642" width="75" height="118"/><text class="lbl" x="383" y="701">208</text>
+  <rect class="room" x="420" y="642" width="70" height="118"/><text class="lbl" x="455" y="701">207</text>
+  <rect class="room" x="490" y="605" width="100" height="155"/><text class="lbl" x="540" y="683">206</text>
+  <rect class="room" x="1010" y="585" width="85" height="127"/><text class="lbl" x="1053" y="649">249</text>
+  <rect class="room" x="1311" y="620" width="229" height="135"/><text class="lbl" x="1426" y="688">245</text>
+  <polygon class="room" points="1014,756 1247,756 1247,890 1239,890 1240,910 1014,910"/><text class="lbl" x="1130" y="833">247</text>
+  <rect class="room" x="1247" y="755" width="178" height="135"/><text class="lbl" x="1336" y="823">246</text>
+  <rect class="room" x="179" y="760" width="606" height="155"/><text class="lbl" x="482" y="838">Balcony</text>
+  <rect class="room" x="960" y="756" width="55" height="69"/><text class="lblS" x="988" y="791">255</text>
+  <polygon class="room" points="917,770 925,762 938,756 960,756 960,800 913,800 913,785"/><text class="lblS" x="938" y="780">254</text>
+  <polygon class="room" points="272,330 188,330 188,285 648,285 648,328 567,328 567,415 492,415 490,388 425,388 403,415 272,415"/><text class="lbl" x="417" y="340">215</text>
+  <polygon class="room" points="865,300 865,255 1420,255 1420,415 1225,415 1203,390 1117,390 1117,417 1045,417 1045,300"/><text class="lbl" x="1200" y="326">228</text>
+  <rect class="core" x="913" y="818" width="47" height="77"/>
+  <g class="icon" transform="translate(922,842) scale(1.175)"><path d="m16 18c0 1.608-2.065 4-5 4-.774 0-1.446.44-1.778 1.084-.277.536-.779.916-1.381.916h-3.34c-.828 0-1.5-.672-1.5-1.5v-13c0-.829.672-1.5 1.5-1.5s1.5.671 1.5 1.5v7.5h8.999c1 0 1 1 1 1zm.5-13c1.381 0 2.5-1.119 2.5-2.5s-1.119-2.5-2.5-2.5-2.5 1.119-2.5 2.5 1.119 2.5 2.5 2.5zm3.162 8.514c-.514-.357-1.143-.514-1.769-.514h-3.727s1.256-3.232 1.256-3.232l2.567 2.34c.611.557 1.559.516 2.119-.098.559-.612.515-1.561-.098-2.119l-4.641-4.231s-.011-.005-.016-.009c-.512-.475-1.23-.742-2.044-.623-.884.129-1.608.779-1.932 1.611l-2.122 5.457c-.453.976-.303 2.12.417 2.959.546.636 1.385.945 2.223.945.137-.001 6.102 0 6.102 0l-1.281 6.121c-.235.937.497 1.912 1.455 1.879.693 0 1.317-.485 1.466-1.191l1.296-6.148c.25-1.185-.218-2.416-1.273-3.148z" fill="#5f6368"/></g>
+  <polygon class="room" points="940,470 975,470 1010,470 1009,711 980,711 980,680 940,680 940,627 980,627 980,625 940,625"/><text class="lbl" x="976" y="582">251</text>
+  <rect class="core" x="930" y="680" width="50" height="31"/>
+  <rect class="core" x="878" y="591" width="52" height="32"/>
+  <rect class="core" x="785" y="891" width="85" height="199"/>
+  <rect class="core" x="25" y="365" width="96" height="110"/>
+  <rect class="core" x="1535" y="365" width="120" height="100"/>
+  <rect class="void" x="920" y="470" width="20" height="240"/>
+  <rect class="void" x="913" y="800" width="47" height="18"/>
+  <rect class="void" x="170" y="285" width="18" height="45"/>
+
+  <rect class="core" x="785" y="945" width="85" height="105"/>
+  <g class="stair"><line x1="785" y1="954" x2="870" y2="954"/><line x1="785" y1="972" x2="870" y2="972"/><line x1="785" y1="990" x2="870" y2="990"/><line x1="785" y1="1008" x2="870" y2="1008"/><line x1="785" y1="1026" x2="870" y2="1026"/><line x1="785" y1="1044" x2="870" y2="1044"/></g>
+  <rect class="core" x="25" y="365" width="51" height="110"/>
+  <g class="stair"><line x1="34" y1="365" x2="34" y2="475"/><line x1="52" y1="365" x2="52" y2="475"/><line x1="70" y1="365" x2="70" y2="475"/></g>
+  <rect class="core" x="1580" y="415" width="75" height="50"/>
+  <g class="stair"><line x1="1589" y1="415" x2="1589" y2="465"/><line x1="1607" y1="415" x2="1607" y2="465"/><line x1="1625" y1="415" x2="1625" y2="465"/><line x1="1643" y1="415" x2="1643" y2="465"/></g>
+  <rect class="core" x="1580" y="365" width="75" height="45"/>
+  <g class="stair"><line x1="1589" y1="365" x2="1589" y2="410"/><line x1="1607" y1="365" x2="1607" y2="410"/><line x1="1625" y1="365" x2="1625" y2="410"/><line x1="1643" y1="365" x2="1643" y2="410"/></g>
+  <polygon class="floor-edge" points="120,150 1535,150 1535,365 1655,365 1655,465 1535,465 1535,620 1540,620 1540,755 1515,755 1515,780 1430,880 1425,890 1240,890 1240,910 1015,910 1015,825 960,825 960,900 870,900 870,1090 785,1090 785,760 180,760 155,790 125,790 120,475 25,475 25,365 117,365"/>
+  <!-- Which way the building really faces; matches the compass on the posted evacuation map. -->
+  <g class="compass" transform="translate(139,1047) rotate(15)">
+    <circle r="80" fill="#ffffff" stroke="#1d1f23" stroke-width="3"/>
+    <circle r="49" fill="none" stroke="#f0f0f3" stroke-width="2"/>
+    <path d="M0,-38 L11,0 L-11,0 Z" fill="#8C0B42"/>
+    <path d="M0,38 L11,0 L-11,0 Z" fill="#c7c7cc"/>
+    <circle r="4.5" fill="#ffffff" stroke="#8a8690" stroke-width="2"/>
+    <text class="compass-letter compass-north" x="0" y="-52">N</text>
+    <text class="compass-letter" x="0" y="62">S</text>
+    <text class="compass-letter" x="57" y="6">E</text>
+    <text class="compass-letter" x="-57" y="6">W</text>
+  </g>
+</svg>
