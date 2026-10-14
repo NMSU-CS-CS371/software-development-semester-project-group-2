@@ -3,8 +3,9 @@
   "//": [
     "The buildings on the map: Hardman and Jacobs, Jett Hall, and Corbett Center.",
     "Facts come from the NMSU Office of Space Planning. Building codes come from the NMSU Registrar.",
-    "To add a building, run tools/NmsuScraper.java with its name, or copy the example below into",
-    "the buildings list and fill in real info. Also add a matching description in",
+    "To add a building, run tools/NMSUMapScraper.java with its name, or copy the example below into",
+    "the buildings list AFTER the previous building's closing brace. Pasting it inside another",
+    "building makes the file invalid JSON and the app will not start. Also add a matching description in",
     "data/descriptions.json using the same id.",
     "dateAdded is the day it first went in. dateUpdated is the day it last changed.",
     "lastInputSource says who wrote it last: \"scraper\" (copied from NMSU) or \"human\" (one of us).",
@@ -192,6 +193,25 @@
         "address": "3080 Williams Ave., Las Cruces, NM 88001",
         "propertyNumber": "82",
         "built": "1941",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1
+        ],
+        "floorsSource": "Not published by NMSU (ground floor assumed)",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525543",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 82)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75132256,
+          32.28037777
+        ]
+      }
+    },
+    {
       "dateAdded": "2026-10-06",
       "dateUpdated": "2026-10-06",
       "lastInputSource": "scraper",
@@ -243,10 +263,6 @@
         "floorsSource": "NMSU Space Planning",
         "category": "study",
         "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525487",
-        "source": "NMSU Office of Space Planning, Buildings layer (property 82)",
-        "floorsSource": "Not published by NMSU (ground floor assumed)",
-        "category": "study",
-        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525543",
         "source": "NMSU Office of Space Planning, Buildings layer (property 211)",
         "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
       },
@@ -286,8 +302,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.75132256,
-          32.28037777
           -106.75307937,
           32.28343252
         ]
@@ -306,6 +320,28 @@
         "address": "1320 University Ave., Las Cruces, NM 88003",
         "propertyNumber": "386",
         "built": "1983",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1
+        ],
+        "floorsSource": "Not published by NMSU (ground floor assumed)",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525491",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 386)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75214014,
+          32.28358167
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
       "scraperStamp": "359d2f7b",
       "type": "Building",
       "properties": {
@@ -324,8 +360,6 @@
         ],
         "floorsSource": "NMSU Space Planning",
         "category": "study",
-        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525491",
-        "source": "NMSU Office of Space Planning, Buildings layer (property 386)",
         "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/526015",
         "source": "NMSU Office of Space Planning, Buildings layer (property 278)",
         "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
@@ -492,10 +526,105 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.75214014,
-          32.28358167
           -106.75499877,
           32.28315226
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-09",
+      "dateUpdated": "2026-10-09",
+      "lastInputSource": "scraper",
+      "scraperStamp": "72db1eff",
+      "type": "Building",
+      "properties": {
+        "id": "10",
+        "code": "GO",
+        "name": "Goddard Hall",
+        "address": "1100 S. Horseshoe, Las Cruces, NM 88001",
+        "propertyNumber": "10",
+        "built": "1913",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2,
+          3
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525515",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 10)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75389344,
+          32.28146599
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-12",
+      "dateUpdated": "2026-10-12",
+      "lastInputSource": "scraper",
+      "scraperStamp": "63d96556",
+      "type": "Building",
+      "properties": {
+        "id": "225",
+        "code": "AY",
+        "name": "Astronomy Building",
+        "address": "1320 Frenger Mall, Las Cruces, NM 88001",
+        "propertyNumber": "225",
+        "built": "1959",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525366",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 225)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75144452,
+          32.28103337
+        ]
+      }
+    },
+    {
+      "dateAdded": "2026-10-13",
+      "dateUpdated": "2026-10-13",
+      "lastInputSource": "scraper",
+      "scraperStamp": "f45bdaa6",
+      "type": "Building",
+      "properties": {
+        "id": "34",
+        "code": "FH",
+        "name": "Foster Hall",
+        "address": "1200 S. Horseshoe, Las Cruces, NM 88003",
+        "propertyNumber": "34",
+        "built": "1930",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          1,
+          2
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525509",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 34)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.75301603,
+          32.28133233
         ]
       }
     }

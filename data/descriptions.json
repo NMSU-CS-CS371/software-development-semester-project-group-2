@@ -1,6 +1,7 @@
 {
   "//": [
-    "One entry per building, by property number.",
+    "One entry per building, by property number. Finish an entry with } before the next id starts.",
+    "Pasting a new entry inside the previous one makes this file invalid JSON and the app will not start.",
     "paragraphs is the about text. links is optional and shows under that text.",
     "Loaded just after the map, because the map does not need it and it is the longest text we have.",
     "Where each description came from is named in that building entry in buildings.geojson."
@@ -142,6 +143,24 @@
         {
           "label": "Department of Biology",
           "url": "https://bio.nmsu.edu/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Biology Annex",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
+        },
+        {
+          "title": "Biology Annex",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
     "172": {
       "paragraphs": [
         "Hadley Hall is home to several administrative units including the President's Office and Human Resources. It was built in 1953 and named after Hiram Hadley, the university's first President."
@@ -322,16 +341,6 @@
       ],
       "photos": [
         {
-          "title": "Biology Annex",
-          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=800&h=533&r=1",
-          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Biology_Annex.jpg&w=320&h=213&r=1",
-          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
-        },
-        {
-          "title": "Biology Annex",
-          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=800&h=533&r=1",
-          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2F82-Biology_Annex.JPG&w=320&h=213&r=1",
-          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525487"
           "title": "Skeen Hall",
           "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_1.jpg&w=800&h=533&r=1",
           "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Skeen_Hall_1.jpg&w=320&h=213&r=1",
@@ -378,6 +387,24 @@
         {
           "label": "Economics",
           "url": "https://business.nmsu.edu/departments/economics/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
+        },
+        {
+          "title": "Business Complex Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
     "632": {
       "paragraphs": [
         "The NMSU Bookstore is a great place to study. This space is stocked with textbooks for purchase or rental, tables, and has a charming caf&eacute;-like atmosphere.",
@@ -477,16 +504,6 @@
       ],
       "photos": [
         {
-          "title": "Business Complex Building",
-          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=800&h=533&r=1",
-          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_1.jpg&w=320&h=213&r=1",
-          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
-        },
-        {
-          "title": "Business Complex Building",
-          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=800&h=533&r=1",
-          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Business_Complex_2.jpg&w=320&h=213&r=1",
-          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525491"
           "title": "Music Building",
           "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_1.jpg&w=800&h=533&r=1",
           "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_1.jpg&w=320&h=213&r=1",
@@ -497,6 +514,96 @@
           "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_2.jpg&w=800&h=533&r=1",
           "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Music_Building_2.jpg&w=320&h=213&r=1",
           "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525535"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "10": {
+      "paragraphs": [
+        "Goddard Hall, with its distinctive bell tower and Spanish Renaissance style, was completed in 1913. The building was dedicated in 1934 to the late dean of engineering, Ralph Willis Goddard. Goddard Hall is home to the College of Engineering. The oldest engineering college in New Mexico, NMSU's College of Engineering emphasizes hands-on learning through internships, cooperative education opportunities, research and teams that compete in national engineering competitions such as the Mini Baja and the Concrete Canoe Competition."
+      ],
+      "links": [
+        {
+          "label": "Engineering",
+          "url": "https://engr.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Goddard Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525515"
+        },
+        {
+          "title": "Goddard Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Goddard_Hall.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525515"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "225": {
+      "paragraphs": [
+        "The Astronomy Building was built in 1959 and is home to the Department of Astronomy. This department owns several telescopes, which they've distributed amongst the observatories throughout campus. NASA also uses this building as a Planetary Node, which collects atmospheric data. The node also provides academic research materials for both staff and students."
+      ],
+      "links": [
+        {
+          "label": "Astronomy",
+          "url": "https://astronomy.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Astronomy Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Astronomy_Building.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Astronomy_Building.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525366"
+        },
+        {
+          "title": "Astronomy Building",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Astronomy_Building.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Astronomy_Building.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525366"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "34": {
+      "paragraphs": [
+        "Foster Hall is home of the Department of Biology. The original building, constructed in 1930, is on the National Register of Historic Places and is named after former NMSU President Luther Foster. Six years after construction, a fresco was added by Santa Fe artist Olive Rush as part of the Public Arts Project. The fresco was restored in 1983. A recent renovation added 17,000 square feet of space for faculty offices, laboratories and classrooms to that expansion."
+      ],
+      "links": [
+        {
+          "label": "Biology",
+          "url": "https://bio.nmsu.edu/"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Foster Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Foster_Hall_Detail_.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Foster_Hall_Detail_.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525509"
+        },
+        {
+          "title": "Foster Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Foster_Hall.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Foster_Hall.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525509"
         }
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
