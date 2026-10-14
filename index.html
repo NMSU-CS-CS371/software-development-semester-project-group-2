@@ -31,6 +31,9 @@
   <link rel="stylesheet" href="styles/sheetStyle.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/framework7-icons@5.0.5/css/framework7-icons.min.css" />
   <link rel="stylesheet" href="styles/actionPill.css" />
+  <link rel="stylesheet" href="styles/menuStyle.css" />
+  <link rel="stylesheet" href="styles/locationsStyle.css" />
+  <link rel="stylesheet" href="styles/searchStyle.css" />
 
   <!-- libraries. defer lets the page show before these run -->
   <script defer src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
@@ -40,7 +43,46 @@
 
   <!-- top bar. the title text comes from config.yml -->
   <div class="navbar">
+    <button id="menu-btn" class="nav-side" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-popup">
+      <i class="icon f7-icons" aria-hidden="true">menu</i>
+    </button>
     <span class="navbar-title" id="navbar-title"></span>
+    <button id="search-btn" class="nav-side" type="button" aria-label="Search" aria-expanded="false" aria-controls="search-drop">
+      <i class="icon f7-icons" aria-hidden="true">search</i>
+    </button>
+  </div>
+
+  <!-- drops down under the bar. search.js fills the results once you type -->
+  <div id="search-drop" class="search-drop" aria-hidden="true">
+    <label class="search-field">
+      <i class="icon f7-icons" aria-hidden="true">search</i>
+      <input id="search-input" type="search" autocomplete="off" enterkeyhint="search" />
+      <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>
+        <i class="icon f7-icons" aria-hidden="true">xmark_circle_fill</i>
+      </button>
+    </label>
+    <div id="search-results" class="search-results" hidden><ul></ul></div>
+  </div>
+
+  <!-- full-screen menu. menu.js fills in the words and opens it -->
+  <div id="menu-popup" class="menu-popup" aria-hidden="true">
+    <button id="menu-close" class="menu-close" type="button" aria-label="Close">&times;</button>
+    <div class="menu-inner">
+      <a href="#" id="menu-map" class="menu-link" style="--i: 0"></a>
+      <a href="#" id="menu-locations" class="menu-link" style="--i: 1"></a>
+    </div>
+  </div>
+
+  <!-- locations page. locations.js fills the list the first time it opens -->
+  <div id="locations-popup" class="locations-popup" aria-hidden="true">
+    <div class="locations-bar">
+      <span class="nav-side" aria-hidden="true"></span>
+      <span class="navbar-title" id="locations-title"></span>
+      <button id="locations-close" class="nav-side" type="button" aria-label="Close">
+        <i class="icon f7-icons" aria-hidden="true">xmark</i>
+      </button>
+    </div>
+    <div id="places-list" class="locations-body"></div>
   </div>
 
   <!-- the map goes in this div -->
@@ -49,8 +91,10 @@
   <!-- building info box. infoSheet.js fills in the text -->
   <div id="building-sheet" role="dialog" aria-label="Building information" aria-hidden="true">
     <div class="bs-head">
-      <!-- empty space so the name stays in the middle -->
-      <span class="bs-side"></span>
+      <!-- shown only when this building was opened from Locations -->
+      <button id="bs-back" class="bs-side" type="button" aria-label="Back">
+        <i class="icon f7-icons" aria-hidden="true">chevron_left</i>
+      </button>
       <span id="bs-name" class="bs-name"></span>
       <button id="bs-close" class="bs-side bs-x" type="button" aria-label="Close">&times;</button>
     </div>

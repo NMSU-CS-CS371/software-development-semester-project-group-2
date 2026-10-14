@@ -56,6 +56,21 @@
   cursor: pointer;
   justify-content: flex-end;
 }
+#bs-back {
+  border: none;
+  background: none;
+  color: var(--theme-white);
+  font-size: var(--sheet-back-icon-size);
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  justify-content: flex-start;
+}
+/* keeps its width so the title stays centred when Back is not showing */
+#bs-back:not(.is-on) {
+  visibility: hidden;
+  pointer-events: none;
+}
 
 /* space for a floor-plan SVG. hidden until a file in data/floors loads */
 #bs-plan {

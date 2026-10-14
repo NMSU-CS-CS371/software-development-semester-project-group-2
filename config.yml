@@ -22,6 +22,7 @@ theme:
   font: '-apple-system, "SF Pro Text", system-ui, sans-serif'
   spacingUnit: "4px"
   smooth: "cubic-bezier(0.32, 0.72, 0, 1)" # starts fast, slows down at the end
+  spring: "cubic-bezier(0.34, 1.4, 0.5, 1)" # bouncy: slight overshoot, used by the menu words
   focusRingWidth: "3px"
   focusRingOffset: "2px"
 
@@ -29,6 +30,8 @@ navbar:
   title: "Campus"
   height: "48px"
   titleSize: "17px"
+  sideWidth: "44px" # menu button and the matching empty side, so the title stays centred
+  iconSize: "22px"
 
 map:
   center: [-106.74770949, 32.2828941] # Corbett Center; the start view rests here
@@ -93,6 +96,7 @@ sheet:
   titleSize: "16px"
   sideWidth: "40px" # equal space each side of the title, so it stays centred
   closeSize: "28px"
+  backIconSize: "22px" # the chevron that returns to Locations
   bottomSpace: "88px"
   headingSize: "15px"
   bodySize: "14px"
@@ -104,6 +108,30 @@ sheet:
   sourceSize: "12px"
   dividerWidth: "1px"
   bodyMaxWidthDesktop: "720px"
+
+search: # the drop-down under the top bar
+  placeholder: "Search buildings or rooms"
+  maxResults: 8
+  focusDelay: 60 # ms before the field is focused, so the slide can start first
+  noMatchText: "No buildings or rooms match"
+  roomText: "Room"
+  storageKey: "bnm_search_text" # remembered on this device until it is cleared
+  clearIconSize: "18px"
+  panelShadowY: "8px"
+  panelShadowBlur: "16px"
+  slideTime: "0.24s"
+  fadeTime: "0.18s"
+  fieldHeight: "40px"
+  fieldRadius: "12px"
+  iconSize: "18px"
+  inputSize: "16px" # 16px or more stops iPhone Safari zooming in
+  focusRing: "rgba(255, 255, 255, 0.45)"
+  resultsMaxHeight: "50vh"
+  subtitleSize: "13px"
+  nameSize: "17px"
+  highlight: "rgba(140, 11, 66, 0.14)"
+  emptySize: "15px"
+  layer: 9 # under the top bar, so the panel slides out from behind it
 
 pill:
   idleText: "Tap a building"
@@ -139,7 +167,39 @@ mapSettings: # the round button left of the pill
   iconSize: "20px"
   labelSize: "15px"
 
+menu: # the full-screen menu (Map, Locations)
+  mapText: "Map"
+  locationsText: "Locations"
+  background: "rgba(255, 255, 255, 0.97)"
+  blur: "8px"
+  fadeTime: "0.3s" # the white screen fades in and out
+  closeSize: "32px"
+  linkSize: "34px"
+  linkSizeDesktop: "44px"
+  linkWeight: 700
+  linkRise: "12px" # each word starts this far below where it lands
+  gap: "24px"
+  gapDesktop: "32px"
+  underlineOffset: "12px"
+  underlineThickness: "3px"
+  linkTime: "0.5s" # how long one word takes to fade and rise
+  firstDelay: "0.05s"
+  delayStep: "0.2s" # each word waits this much longer than the one above it
+  layer: 220
+
+locations: # the Locations page
+  title: "Locations"
+  pageBackground: "#f2f2f7" # iOS grouped-list grey; the rows sit on white
+  iconSize: "20px"
+  arrowSize: "15px"
+  nameSize: "17px"
+  subtitleSize: "13px"
+  slideTime: "0.4s" # the page slides up over the map, then back down
+  layer: 180
+  rowHeight: "64px" # used only to size the scroll bar before a row is drawn
+
 categories: # kinds of places on the map; the colours mean the same thing everywhere
   # Sprint 1 has only one kind. Housing, parks, food and parking come back in Sprint 2,
   # and each one only needs a line here plus buildings with that category.
-  study: { label: "Study", color: "#8C0B42" } # NMSU crimson: classes and learning
+  # icon is a Framework7 icon name, shown on the Locations page.
+  study: { label: "Study", color: "#8C0B42", icon: "book_fill" } # NMSU crimson: classes and learning

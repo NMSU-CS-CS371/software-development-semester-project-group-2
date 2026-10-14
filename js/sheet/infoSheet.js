@@ -9,7 +9,7 @@ import { photoSrc, store } from '../core/store.js';
 import { escapeHtml, safeUrl } from '../core/html.js';
 import { waitOneFrame } from '../core/waitOneFrame.js';
 import { openPhotoView } from './infoSheetFullView.js';
-import { wireFloorPlan } from './infoSheetFloorPlan.js';
+import { markRoom, shapeForNumber, wireFloorPlan } from './infoSheetFloorPlan.js';
 
 export class InfoSheet {
   /**
@@ -42,6 +42,11 @@ export class InfoSheet {
     this.sheetIsOpen = false;
 
     document.querySelector('#bs-close').addEventListener('click', () => store.closeSheet());
+    this.back = document.querySelector('#bs-back');
+    this.back.addEventListener('click', () => {
+      store.closeSheet();
+      document.dispatchEvent(new CustomEvent('show-locations'));
+    });
     store.subscribe((state) => this.update(state));
   }
 
@@ -270,6 +275,10 @@ export class InfoSheet {
         plan.classList.remove('is-in');
       }
       const drawn = on ? plan.querySelector('svg') : null;
+      if (drawn && state.selectedRoom && drawn.dataset.markedRoom !== state.selectedRoom) {
+        markRoom(drawn, shapeForNumber(drawn, state.selectedRoom));
+        drawn.dataset.markedRoom = state.selectedRoom;
+      }
       if (drawn && !drawn.dataset.fit) {
         const box = drawn.getBBox();
         const view = drawn.viewBox.baseVal;
@@ -325,6 +334,12 @@ export class InfoSheet {
         this.showContentSoon(); /* box is still closed, so wait one frame */
       }
     }
+
+    /* Back only when this building was opened from the Locations page */
+    const fromLocations = state.selectedVia === 'locations';
+    this.back.classList.toggle('is-on', fromLocations);
+    this.back.setAttribute('aria-hidden', String(!fromLocations));
+    this.back.tabIndex = fromLocations ? 0 : -1;
 
     /* only open or close when it actually changes, so the slide doesn't replay */
     this.showActiveFloor(state);

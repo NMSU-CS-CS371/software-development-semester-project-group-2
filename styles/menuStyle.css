@@ -1,0 +1,75 @@
+/*
+  This file & what it does: the full-screen menu that fades in over the map.
+  Why we have it: the words rise in one after another, the same way as the reference menu.
+  Sizes and times come from the menu section of config.yml.
+*/
+
+.menu-popup {
+  position: fixed;
+  inset: 0;
+  z-index: var(--menu-layer);
+  background: var(--menu-background);
+  -webkit-backdrop-filter: blur(var(--menu-blur));
+  backdrop-filter: blur(var(--menu-blur));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* stay visible until the fade-out finishes, then hide */
+  transition: opacity var(--menu-fade-time) ease, visibility 0s linear var(--menu-fade-time);
+}
+.menu-popup.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity var(--menu-fade-time) ease, visibility 0s linear 0s;
+}
+
+.menu-close {
+  position: absolute;
+  top: calc(var(--s4) + env(safe-area-inset-top, 0px));
+  right: var(--s5);
+  z-index: 2;
+  border: 0;
+  padding: 0;
+  background: none;
+  font-size: var(--menu-close-size);
+  line-height: 1;
+  color: var(--theme-crimson);
+  cursor: pointer;
+}
+
+.menu-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--menu-gap);
+}
+.menu-link {
+  font-size: var(--menu-link-size);
+  font-weight: var(--menu-link-weight);
+  color: var(--theme-crimson);
+  text-decoration: none;
+  text-underline-offset: var(--menu-underline-offset);
+  text-decoration-thickness: var(--menu-underline-thickness);
+  opacity: 0;
+  transform: translateY(var(--menu-link-rise));
+}
+.menu-link.is-current { text-decoration: underline; }
+/* --i is set on each word in index.html, so Map rises, then Locations */
+.menu-popup.is-open .menu-link {
+  animation: menu-in var(--menu-link-time) var(--theme-spring) forwards;
+  animation-delay: calc(var(--menu-first-delay) + var(--i) * var(--menu-delay-step));
+}
+@keyframes menu-in { to { opacity: 1; transform: none; } }
+
+@media (min-width: 768px) {
+  .menu-link { font-size: var(--menu-link-size-desktop); }
+  .menu-inner { gap: var(--menu-gap-desktop); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-popup, .menu-link { transition: none; animation: none; }
+  .menu-popup.is-open .menu-link { opacity: 1; transform: none; }
+}

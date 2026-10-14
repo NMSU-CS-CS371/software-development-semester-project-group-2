@@ -47,13 +47,33 @@ html:not(.config-ready) body { visibility: hidden; }
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center;
   height: calc(var(--navbar-height) + env(safe-area-inset-top, 0px));
-  padding-top: env(safe-area-inset-top, 0px); /* extra space for the iPhone notch */
+  padding: env(safe-area-inset-top, 0px) var(--s2) 0; /* extra space for the iPhone notch */
   background: var(--theme-crimson);
   color: var(--theme-white);
 }
-.navbar-title { font-size: var(--navbar-title-size); font-weight: 600; }
+.navbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: var(--navbar-title-size);
+  font-weight: 600;
+}
+/* menu button, and the empty side that balances it */
+.nav-side {
+  width: var(--navbar-side-width);
+  height: var(--navbar-side-width);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+button.nav-side { cursor: pointer; }
+.nav-side .icon { font-size: var(--navbar-icon-size); }
 
 /*
   error message if the app can't start.

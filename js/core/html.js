@@ -30,3 +30,14 @@ export function safeUrl(url) {
   }
   return '#';
 }
+
+/**
+ * One Framework7 icon, safe to drop into HTML.
+ * @param {string} name - an icon name, like "book_fill"
+ * @param {string} [className] - extra class, like "places-arrow"
+ * @returns {string}
+ */
+export function iconHtml(name, className) {
+  const extra = className ? ' ' + escapeHtml(className) : '';
+  return '<i class="icon f7-icons' + extra + '" aria-hidden="true">' + escapeHtml(name) + '</i>';
+}

@@ -15,6 +15,9 @@ import { CampusMapSettings } from './map/campusMapSettings.js';
 import { InfoSheet } from './sheet/infoSheet.js';
 import { ActionPill } from './actionButtons/actionPill.js';
 import { MapSettingPill } from './actionButtons/mapSettingPill.js';
+import { Menu } from './pages/menu.js';
+import { Search } from './pages/search.js';
+import { roomsOnFloors } from './logic/floorRooms.js';
 
 /**
  * Get the map style and take out the extra label layer we don't want.
@@ -189,6 +192,10 @@ async function startApp() {
   const sheet = new InfoSheet(buildingsById);
   new ActionPill(buildingsById);
   new MapSettingPill(campusMap);
+  new Menu(() => buildings);
+  const search = new Search(buildings, [], buildingsById);
+  /* room numbers are read off the floor plans, so search can find them once those files arrive */
+  roomsOnFloors(buildings).then((rooms) => search.addRooms(rooms)).catch(showStartupError);
 
   /* so we can type store.get() in the console */
   window.store = store;

@@ -36,9 +36,41 @@ export function wireFloorPlan(picture, svg) {
 }
 
 /**
+ * The drawn room with this number, or null.
+ * @param {SVGElement} svg
+ * @param {string} number
+ * @returns {Element|null}
+ */
+export function shapeForNumber(svg, number) {
+  const want = String(number).toLowerCase();
+  for (const shape of svg.querySelectorAll('[data-room-number]')) {
+    if (String(shape.getAttribute('data-room-number')).toLowerCase() !== want) {
+      continue;
+    }
+    if (shape.classList.contains('room')) {
+      return shape;
+    }
+    const inner = shape.querySelector('.room');
+    if (inner) {
+      return inner;
+    }
+  }
+  for (const label of svg.querySelectorAll('text')) {
+    if (label.textContent.trim().toLowerCase() !== want) {
+      continue;
+    }
+    const beside = label.previousElementSibling;
+    if (beside && beside.classList.contains('room')) {
+      return beside;
+    }
+  }
+  return null;
+}
+
+/**
  * Mark one room and clear the previous mark on this plan.
  * @param {SVGElement} svg
- * @param {Element|undefined} room
+ * @param {Element|null|undefined} room
  */
 export function markRoom(svg, room) {
   const picked = svg.querySelector('.is-picked');

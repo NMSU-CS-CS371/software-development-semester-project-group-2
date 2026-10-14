@@ -39,6 +39,8 @@ class Store {
       activeFloor: null, /* which floor the sheet is showing */
       showNames: true, /* building labels on the map */
       showTools: true, /* compass, Home, and zoom start on */
+      searching: false, /* is the search drop-down open */
+      selectedRoom: null, /* room number chosen from search, or null */
     };
     this.listeners = []; /* functions to call after a change */
     this.photos = {}; /* building id -> photo list, so the sheet does not rebuild them */
@@ -104,20 +106,40 @@ class Store {
    * Pick a building. The map flies there, then the box opens.
    * @param {object} building
    * @param {string} via
+   * @param {number} [floor] - the room's floor, when a room was chosen
+   * @param {string} [roomNumber]
    */
-  selectBuilding(building, via) {
-    if (building.id === this.state.selectedId) {
-      /* already picked, so just open the box */
-      this.update({ sheetOpen: true, sheetWaiting: false });
+  selectBuilding(building, via, floor, roomNumber) {
+    const same = building.id === this.state.selectedId;
+    let activeFloor = floor;
+    if (activeFloor == null) {
+      if (same && this.state.activeFloor != null) {
+        activeFloor = this.state.activeFloor;
+      } else {
+        activeFloor = building.floors && building.floors.includes(1) ? 1 : (building.floors && building.floors.length ? building.floors[0] : null);
+      }
+    }
+    const selectedRoom = roomNumber || null;
+    if (same) {
+      /* already picked, so just open the box. via still changes, so Back can appear. */
+      this.update({
+        selectedVia: via,
+        sheetOpen: true,
+        sheetWaiting: false,
+        searching: false,
+        activeFloor: activeFloor,
+        selectedRoom: selectedRoom,
+      });
       return;
     }
-    const floor = building.floors && building.floors.includes(1) ? 1 : (building.floors && building.floors.length ? building.floors[0] : null);
     this.update({
       selectedId: building.id,
       selectedVia: via,
       sheetOpen: false,
       sheetWaiting: true,
-      activeFloor: floor,
+      activeFloor: activeFloor,
+      searching: false,
+      selectedRoom: selectedRoom,
     });
   }
 
@@ -146,7 +168,35 @@ class Store {
 
   /** Unpick the building and close the box. */
   clearSelection() {
-    this.update({ selectedId: null, selectedVia: null, sheetOpen: false, sheetWaiting: false, activeFloor: null });
+    this.update({
+      selectedId: null,
+      selectedVia: null,
+      sheetOpen: false,
+      sheetWaiting: false,
+      activeFloor: null,
+      searching: false,
+      selectedRoom: null,
+    });
+  }
+
+  /** Let go of the picked building and open search. */
+  startSearch() {
+    this.update({
+      selectedId: null,
+      selectedVia: null,
+      sheetOpen: false,
+      sheetWaiting: false,
+      activeFloor: null,
+      searching: true,
+      selectedRoom: null,
+    });
+  }
+
+  /** Close search. Does nothing if it is already closed. */
+  endSearch() {
+    if (this.state.searching) {
+      this.update({ searching: false });
+    }
   }
 
   /**

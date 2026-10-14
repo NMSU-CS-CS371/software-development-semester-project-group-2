@@ -1,0 +1,110 @@
+/*
+  This file & what it does: the search panel that drops down under the top bar.
+  Why we have it: the field and the results need to slide in together and sit above the map.
+  Sizes and times come from the search section of config.yml.
+*/
+
+.search-drop {
+  position: fixed;
+  top: calc(var(--navbar-height) + env(safe-area-inset-top, 0px));
+  right: 0;
+  left: 0;
+  z-index: var(--search-layer);
+  padding: var(--s1) var(--s3) var(--s3);
+  background: var(--theme-crimson);
+  box-shadow: 0 var(--search-panel-shadow-y) var(--search-panel-shadow-blur) var(--theme-shadow-soft);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform var(--search-slide-time) ease-out, opacity var(--search-fade-time) ease-out,
+    visibility 0s linear var(--search-slide-time);
+}
+.search-drop.is-open {
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  transition: transform var(--search-slide-time) ease-out, opacity var(--search-fade-time) ease-out,
+    visibility 0s linear 0s;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  height: var(--search-field-height);
+  padding: 0 var(--s3);
+  background: var(--theme-white);
+  border-radius: var(--search-field-radius);
+}
+.search-field .icon { font-size: var(--search-icon-size); color: var(--theme-text-muted); }
+.search-field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+  background: none;
+  color: var(--theme-text-strong);
+  font-family: inherit;
+  font-size: var(--search-input-size);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-field:focus-within { box-shadow: 0 0 0 var(--theme-focus-ring-width) var(--search-focus-ring); }
+
+.search-clear {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--theme-text-muted);
+  cursor: pointer;
+}
+.search-clear .icon { font-size: var(--search-clear-icon-size); }
+#search-input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+
+.search-results {
+  margin-top: var(--s2);
+  max-height: var(--search-results-max-height);
+  overflow-y: auto;
+  background: var(--theme-white);
+  border-radius: var(--search-field-radius);
+}
+.search-results ul { list-style: none; margin: 0; padding: 0; }
+.search-row {
+  display: block;
+  padding: var(--s3) var(--s4);
+  border-top: 1px solid var(--theme-line-soft);
+  color: inherit;
+  text-decoration: none;
+}
+.search-results li:first-child .search-row { border-top: 0; }
+.search-name { font-size: var(--search-name-size); font-weight: 600; }
+.search-sub {
+  margin-top: var(--s1);
+  color: var(--theme-text-caption);
+  font-size: var(--search-subtitle-size);
+}
+.search-hit {
+  background: var(--search-highlight);
+  color: var(--theme-crimson);
+  font-weight: 700;
+  border-radius: var(--s1);
+}
+.search-empty {
+  padding: var(--s3) var(--s4);
+  color: var(--theme-text-muted);
+  font-size: var(--search-empty-size);
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-drop { transition: none; }
+}
