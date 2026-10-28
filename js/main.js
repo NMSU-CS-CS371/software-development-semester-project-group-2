@@ -11,9 +11,13 @@ import { photoSrc, store } from './core/store.js';
 import { watchUrl } from './core/urlPaths.js';
 import { boundsAround } from './logic/mapBounds.js';
 import { CampusMap } from './map/campusMap.js';
+import { MyLocation } from './map/myLocation.js';
+import { Directions } from './directions/directions.js';
+import { RouteCard } from './directions/routeCard.js';
 import { CampusMapSettings } from './map/campusMapSettings.js';
 import { InfoSheet } from './sheet/infoSheet.js';
 import { ActionPill } from './actionButtons/actionPill.js';
+import { DirectionsButton } from './actionButtons/directionsButton.js';
 import { MapSettingPill } from './actionButtons/mapSettingPill.js';
 import { Menu } from './pages/menu.js';
 import { Search } from './pages/search.js';
@@ -77,6 +81,7 @@ function recordsFrom(file) {
     record.description = []; /* filled in later */
     record.links = [];
     record.photos = [];
+    record.doors = record.doors || [];
     records.push(record);
   }
   return records;
@@ -192,6 +197,11 @@ async function startApp() {
   const sheet = new InfoSheet(buildingsById);
   new ActionPill(buildingsById);
   new MapSettingPill(campusMap);
+  new DirectionsButton(buildingsById);
+  const myLocation = new MyLocation(campusMap.map);
+  const routeCard = new RouteCard(buildingsById, campusMap);
+  campusMap.foldOnTap = () => routeCard.foldIfOpen();
+  new Directions(campusMap, myLocation, routeCard, buildingsById);
   new Menu(() => buildings);
   const search = new Search(buildings, [], buildingsById);
   /* room numbers are read off the floor plans, so search can find them once those files arrive */

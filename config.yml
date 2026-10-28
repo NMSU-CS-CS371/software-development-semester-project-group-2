@@ -92,6 +92,14 @@ sheet:
   plansNoteText: "Floor plans are coming in a later sprint."
   photosTitle: "Photos"
   noPlanText: "If you don't see it here, we haven't drawn this floor plan yet."
+  planFullText: "Full screen"
+  planEnlargedText: "Enlarged so room numbers stay readable."
+  reportText: "Report a problem"
+  elevatorSwitchText: "Use the elevator instead"
+  stairsSwitchText: "Use the stairs instead"
+  reportUrl: "https://github.com/NMSU-CS-CS371/software-development-semester-project-group-2/issues/new"
+  planAcrossLead: "About"
+  planAcrossTail: "across"
   slideTime: "0.3s"
   titleSize: "16px"
   sideWidth: "40px" # equal space each side of the title, so it stays centred
@@ -108,6 +116,128 @@ sheet:
   sourceSize: "12px"
   dividerWidth: "1px"
   bodyMaxWidthDesktop: "720px"
+
+locate:
+  zoom: 17
+  noLocationTitle: "Location"
+  noLocationText: "Directions need your location. Allow location access for this site, then try again."
+  outsideText: "Your location is outside the campus map."
+
+directions:
+  title: "Directions"
+  speeds:
+    walk: 1.4
+    bike: 4.2
+    drive: 8.9
+  modes:
+    walk: { label: "Walk", icon: "directions_walk" }
+    bike: { label: "Bike", icon: "directions_bike" }
+    drive: { label: "Drive", icon: "directions_car" }
+  modeStorageKey: "bnm_travel_mode"
+  units: "imperial"
+  arrivedCardText: "Arrived"
+  turnLeftText: "Turn left"
+  turnRightText: "Turn right"
+  slightLeftText: "Slight left"
+  slightRightText: "Slight right"
+  continueText: "Continue"
+  headText: "Head"
+  onText: "on"
+  compass: ["north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest"]
+  arriveText: "Arrive at"
+  ontoText: "onto"
+  minText: "min"
+  arrivalTimeText: "arrive"
+  slightTurnDegrees: 30
+  turnDegrees: 60
+  unnamedWays:
+    footway: "the path"
+    path: "the path"
+    pedestrian: "the walkway"
+    steps: "the steps"
+    corridor: "the corridor"
+    cycleway: "the path"
+    service: "the service road"
+    default: "the street"
+  cardMaxWidth: "420px"
+  cardLayer: 10000
+  cardRadius: "20px"
+  turnSize: "44px"
+  turnRadius: "12px"
+  turnIconSize: "24px"
+  instructionSize: "16px"
+  summarySize: "13px"
+  walkIconSize: "18px"
+  endIconSize: "14px"
+  expandTime: "0.4s"
+  stepsMaxHeight: "50vh"
+  stepSize: "15px"
+  stepIconSize: "20px"
+  endTripTitle: "End trip?"
+  endTripText: "Are you sure you want to end your trip?"
+  endTripYes: "End trip"
+  endTripNo: "Keep going"
+  findingText: "Finding your location…"
+  locationWaitMs: 5000
+  locationTitle: "Location"
+  locationAskText: "Can't find your location."
+  locationOk: "OK"
+  myLocationText: "My Location"
+  changeStartLabel: "Change start"
+  changeEndLabel: "Change destination"
+  swapLabel: "Swap start and end"
+  startDotColor: "#34c759"
+  endDotColor: "#ffffff"
+  askTitle: "Directions"
+  askText: "Get directions to"
+  askYes: "Go"
+  askNo: "Not now"
+  switchTitle: "Change destination?"
+  switchFromText: "You're on your way to"
+  switchToText: "Get directions to"
+  switchYes: "Switch"
+  switchNo: "Keep current"
+  toText: "To"
+  arrivedBackground: "rgba(52, 199, 89, 0.14)"
+  arrivedColor: "#1d7a3a"
+  indoorLineWidth: 10
+  indoorArrowSize: 16
+  indoorArrowSpacing: 44
+  indoorStartRadius: 11
+  startBuildingText: "Tap a building to start."
+  endBuildingText: "Tap a building to go to."
+  pickStartBanner: "Select a start"
+  pickEndBanner: "Select a destination"
+  pickCancel: "Cancel"
+  startConfirmTitle: "Start"
+  startFromText: "Start from"
+  startConfirmYes: "Start"
+  startConfirmNo: "Not now"
+  endConfirmTitle: "Destination"
+  endGoText: "Go to"
+  endConfirmYes: "Go"
+  endConfirmNo: "Not now"
+  noLocationText: "Directions need your location. Allow location access for this site in your browser settings, then try again."
+  tooFarText: "Directions work on the NMSU Las Cruces campus. Get closer to campus and try again."
+  noRouteText: "No walking route was found to this building."
+  loadFailedText: "Could not load the walking paths. Check your internet connection and try again."
+  lineColor: "#0a84ff"
+  lineOpacity: 0.35
+  lineWidth: 10
+  hopWidth: 4
+  arrowColor: "#0a84ff"
+  arrowSize: 18
+  arrowSpacing: 24
+  rerouteMetres: 8
+  arrivalMetres: 5
+  startCandidates: 6
+  startSearchMetres: 40
+  startSpacingMetres: 5
+  maxDistanceToNetwork: 400
+  searchRadius: 250
+  roomColor: "rgba(10, 132, 255, 0.28)"
+  roomEdge: "#0a84ff"
+  roomEdgeWidth: 6
 
 search: # the drop-down under the top bar
   placeholder: "Search buildings or rooms"
@@ -137,11 +267,11 @@ pill:
   idleText: "Tap a building"
   infoText: "Info"
   floorText: "Floor"
-  height: "36px"
+  height: "39px"
   radius: "999px"
   fontSize: "14px"
   fontWeight: 700
-  minWidth: "96px"
+  minWidth: "134px"
   bottomOffset: "48px"
   layer: 120
   floorGap: "8px"

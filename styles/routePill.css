@@ -1,0 +1,271 @@
+/*
+  styles/routePill.css — the turn-by-turn pill shown during directions.
+
+  CONTROLS     : #route-card: the next turn, the Walk / Bike / Drive switch and the step list.
+  DEPENDS ON   : Framework7, and the CSS variables js/core/config.js makes from
+                 config.yml (pill.height -> --pill-height, and so on).
+  USED BY      : index.html
+
+  RULES : • Values come from config.yml. Change them there, not here.
+          • Spacing uses --s1 … --s16: multiples of theme.spacingUnit (4px), set in styles/base.css.
+*/
+
+/* Turn-by-turn card: takes the pill's spot while directions are on.
+   A grid: [next turn (tap to expand) | X], then the step list across both columns.
+   Expanding animates the list's row from 0fr to 1fr, so it grows smoothly. */
+.route-card {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--pill-bottom-offset) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--directions-card-layer);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto 0fr;
+  align-items: center;
+  column-gap: var(--s2);
+  width: calc(100% - 2 * var(--s4));
+  max-width: var(--directions-card-max-width);
+  padding: var(--s4) var(--s3) var(--s3);
+  border-radius: var(--directions-card-radius);
+  background: var(--theme-crimson);
+  color: var(--theme-white);
+  box-shadow: 0 var(--pill-shadow-y) var(--pill-shadow-blur) var(--theme-shadow-strong);
+  transform: translateX(-50%);
+  transition: grid-template-rows var(--directions-expand-time) var(--theme-smooth);
+  animation: card-in var(--pill-floor-move-time) var(--theme-smooth);
+}
+.route-card[hidden] { display: none; }
+/* The menu covers the map. This card is drawn above that cover, so it has to step aside. */
+.menu-popup.is-open ~ #route-card,
+.menu-popup.is-open ~ #route-pick,
+.locations-popup.is-open ~ #route-card,
+.locations-popup.is-open ~ #route-pick { display: none; }
+.route-card.is-expanded { grid-template-rows: auto auto auto 1fr; }
+@keyframes card-in { from { opacity: 0; transform: translate(-50%, var(--s4)) scale(0.96); } }
+
+/* The little bar at the top says "this can be pulled open". */
+.route-grabber {
+  position: absolute;
+  top: var(--s2);
+  left: 50%;
+  width: var(--s8);
+  height: var(--s1);
+  border-radius: var(--s1);
+  background: var(--sheet-round-button-background);
+  transform: translateX(-50%);
+}
+.route-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.route-head:focus-visible, .route-end:focus-visible, .route-place:focus-visible, .route-swap:focus-visible { outline: var(--theme-focus-ring-width) solid var(--theme-white); outline-offset: var(--theme-focus-ring-offset); }
+
+/* Start and end: two short rows under the turn, above Walk / Bike / Drive.
+   The whole row is the button. A chevron says it can be changed. */
+.route-places {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-top: var(--s2);
+}
+.route-place-col { flex: 1; min-width: 0; }
+.route-place {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  width: 100%;
+  min-height: 32px;
+  padding: 2px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.route-place:last-child { border-bottom: 0; }
+.route-place:active { opacity: 0.55; }
+.route-place-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.route-place-chevron { flex: none; font-size: 14px; opacity: 0.9; }
+.route-place-mark {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--theme-white);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+.route-place-mark--start { background: var(--directions-start-dot-color); }
+.route-swap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--sheet-round-button-background);
+  color: inherit;
+  cursor: pointer;
+}
+.route-swap:active { opacity: 0.55; }
+.route-swap[hidden] { display: none; }
+.route-swap .icon { font-size: 18px; }
+.route-turn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--directions-turn-size);
+  height: var(--directions-turn-size);
+  border-radius: var(--directions-turn-radius);
+  background: var(--sheet-round-button-background);
+}
+.route-turn .icon { font-size: var(--directions-turn-icon-size); }
+.route-text { flex: 1; min-width: 0; }
+.route-instruction { display: block; font-size: var(--directions-instruction-size); font-weight: 700; line-height: 1.25; }
+.route-summary { display: flex; align-items: center; gap: var(--s1); margin-top: var(--s1); font-size: var(--directions-summary-size); opacity: 0.9; }
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+.route-mode-icon { font-size: var(--directions-walk-icon-size); }
+
+/* Walk / Bike / Drive, directly under the start and end rows. */
+.route-modes {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 4px;
+  margin: var(--s2) 0 0;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--sheet-round-button-background);
+}
+.route-modes .button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--theme-white);
+  font-family: var(--font-sans);
+  font-size: var(--directions-summary-size);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+.route-modes .button.button-active {
+  background: var(--theme-white);
+  color: var(--theme-crimson);
+}
+.route-modes .material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+.route-end {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--sheet-round-button-background);
+  color: var(--theme-white);
+  cursor: pointer;
+}
+.route-end .icon { font-size: 18px; }
+
+/* The step list: hidden in a 0-height row until expanded. */
+.route-steps-wrap { grid-column: 1 / -1; align-self: stretch; min-height: 0; overflow: hidden; } /* stretched to its row, so a 0fr row hides it */
+.route-steps {
+  max-height: var(--directions-steps-max-height);
+  margin: var(--s3) 0 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  border-top: var(--sheet-divider-width) solid var(--sheet-round-button-background);
+}
+.route-step {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) 0;
+  border-bottom: var(--sheet-divider-width) solid var(--sheet-round-button-background);
+}
+.route-step:last-child { border-bottom: none; }
+.route-step .icon { flex: none; width: var(--directions-turn-size); text-align: center; font-size: var(--directions-step-icon-size); }
+.route-step-text { display: block; font-size: var(--directions-step-size); font-weight: 600; line-height: 1.3; }
+.route-step-distance { display: block; margin-top: var(--s1); font-size: var(--directions-summary-size); opacity: 0.8; }
+
+/* Slim bar while a new start or end is being chosen. The big card is hidden so the pins are free. */
+.route-pick {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--pill-bottom-offset) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--directions-card-layer);
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: calc(100% - 2 * var(--s4));
+  max-width: var(--directions-card-max-width);
+  padding: var(--s3) var(--s4);
+  border: 0;
+  border-radius: 14px;
+  background: var(--theme-white);
+  color: var(--theme-text-strong);
+  font-weight: 600;
+  box-shadow: 0 var(--pill-shadow-y) var(--pill-shadow-blur) var(--theme-shadow-strong);
+  transform: translateX(-50%);
+}
+.route-pick[hidden] { display: none; }
+.route-pick span { flex: 1; min-width: 0; }
+#route-pick-cancel {
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--theme-crimson);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+#route-pick-cancel:focus-visible { outline: var(--theme-focus-ring-width) solid var(--theme-crimson); outline-offset: var(--theme-focus-ring-offset); }
+
+/* ---------- "Reduce motion" setting ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .route-card { transition: none !important; animation: none !important; }
+}

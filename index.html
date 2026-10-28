@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="styles/menuStyle.css" />
   <link rel="stylesheet" href="styles/locationsStyle.css" />
   <link rel="stylesheet" href="styles/searchStyle.css" />
+  <link rel="stylesheet" href="styles/routePill.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0&icon_names=directions_walk,directions_bike,directions_car" />
 
   <!-- libraries. defer lets the page show before these run -->
   <script defer src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
@@ -102,6 +104,7 @@
       <!-- floor plan slot. drop data/floors/hjlc-1.svg in and it shows up here -->
       <section id="bs-plan" class="bs-plan" hidden>
         <h3 class="bs-h3">Floor plan</h3>
+        <p id="bs-walk-hint" class="bs-walk-hint" hidden></p>
         <div id="bs-plan-slot"></div>
       </section>
       <section id="bs-photos" hidden>
@@ -117,11 +120,57 @@
     </div>
   </div>
 
+  <div id="route-card" class="route-card" role="region" aria-label="Directions" hidden>
+    <span class="route-grabber" aria-hidden="true"></span>
+    <button id="route-toggle" class="route-head" type="button" aria-expanded="false" aria-controls="route-steps">
+      <span class="route-turn"><i id="route-turn-icon" class="icon f7-icons" aria-hidden="true">arrow_up</i></span>
+      <span class="route-text">
+        <span id="route-instruction" class="route-instruction" aria-live="polite"></span>
+        <span class="route-summary">
+          <span id="route-mode-icon" class="material-symbols-rounded route-mode-icon" aria-hidden="true">directions_walk</span>
+          <span id="route-summary"></span>
+        </span>
+      </span>
+    </button>
+    <button id="route-end" class="route-end" type="button" aria-label="End trip">
+      <i class="icon f7-icons" aria-hidden="true">xmark</i>
+    </button>
+    <div id="route-places" class="route-places">
+      <div class="route-place-col">
+        <button id="route-start" class="route-place" type="button">
+          <span class="route-place-mark route-place-mark--start" aria-hidden="true"></span>
+          <span id="route-start-name" class="route-place-name"></span>
+          <i class="icon f7-icons route-place-chevron" aria-hidden="true">chevron_right</i>
+        </button>
+        <button id="route-finish" class="route-place" type="button">
+          <span class="route-place-mark route-place-mark--end" aria-hidden="true"></span>
+          <span id="route-finish-name" class="route-place-name"></span>
+          <i class="icon f7-icons route-place-chevron" aria-hidden="true">chevron_right</i>
+        </button>
+      </div>
+      <button id="route-swap" class="route-swap" type="button" hidden>
+        <i class="icon f7-icons" aria-hidden="true">arrow_up_arrow_down</i>
+      </button>
+    </div>
+    <div id="route-modes" class="segmented segmented-strong route-modes" role="radiogroup" aria-label="Travel mode"></div>
+    <div class="route-steps-wrap">
+      <ol id="route-steps" class="route-steps"></ol>
+    </div>
+  </div>
+
+  <div id="route-pick" class="route-pick" hidden>
+    <span id="route-pick-text"></span>
+    <button id="route-pick-cancel" type="button">Cancel</button>
+  </div>
+
   <div id="pill-bar">
     <div id="map-settings">
       <div id="map-options"></div>
       <button id="map-settings-btn" class="pill pill--side f7-icons" type="button" aria-label="Map settings" aria-expanded="false">map</button>
     </div>
+    <button id="directions-btn" class="pill pill--side is-hidden" type="button" aria-label="Get directions">
+      <i class="icon f7-icons pill-side-icon" aria-hidden="true">arrow_up_right_diamond_fill</i>
+    </button>
     <div id="pill-stack"></div>
     <button id="pill" class="pill pill--main" type="button">
       <span id="pill-label"></span>

@@ -88,6 +88,7 @@ export class Search {
     this.showing = false;
     this.wordsOf = {};
     this.picks = [];
+    this.directs = [];
 
     this.input.placeholder = this.words.placeholder;
     this.input.setAttribute('aria-label', this.words.placeholder);
@@ -109,6 +110,13 @@ export class Search {
   /** Wire the icon, the field, the clear button, and Escape and Enter. */
   listen() {
     this.list.addEventListener('click', (event) => {
+      const direct = event.target.closest('[data-direct]');
+      if (direct) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.directs[Number(direct.dataset.direct)]();
+        return;
+      }
       const row = event.target.closest('[data-pick]');
       if (!row) {
         return;
@@ -156,9 +164,10 @@ export class Search {
    * @returns {string}
    */
   resultRow(title, subtitle, typed, index) {
-    return '<li><a href="#" class="search-row" data-pick="' + index + '">' +
+    return '<li class="search-item"><a href="#" class="search-row" data-pick="' + index + '">' +
       '<div class="search-name">' + highlight(title, typed) + '</div>' +
-      '<div class="search-sub">' + highlight(subtitle, typed) + '</div></a></li>';
+      '<div class="search-sub">' + highlight(subtitle, typed) + '</div></a>' +
+      '<button type="button" class="search-direct f7-icons" data-direct="' + index + '" aria-label="Directions">arrow_up_right_diamond_fill</button></li>';
   }
 
   /**
@@ -171,8 +180,13 @@ export class Search {
     const building = this.buildingsById[room.building];
     const floor = room.floor == null ? '' : CONFIG.pill.floorText + ' ' + room.floor;
     const subtitle = joinWithDots([floor, room.name, building.code, building.name]);
+    const index = this.picks.length;
     this.picks.push(() => store.selectBuilding(building, 'search', room.floor, room.number));
-    return this.resultRow(this.words.roomText + ' ' + room.number, subtitle, typed, this.picks.length - 1);
+    this.directs.push(() => {
+      store.selectBuilding(building, 'search', room.floor, room.number);
+      document.dispatchEvent(new CustomEvent('ask-directions'));
+    });
+    return this.resultRow(this.words.roomText + ' ' + room.number, subtitle, typed, index);
   }
 
   /**
@@ -183,8 +197,13 @@ export class Search {
    */
   buildingRow(building, typed) {
     const subtitle = joinWithDots([building.code, building.address]);
+    const index = this.picks.length;
     this.picks.push(() => store.selectBuilding(building, 'search'));
-    return this.resultRow(building.name, subtitle, typed, this.picks.length - 1);
+    this.directs.push(() => {
+      store.selectBuilding(building, 'search');
+      document.dispatchEvent(new CustomEvent('ask-directions'));
+    });
+    return this.resultRow(building.name, subtitle, typed, index);
   }
 
   /** Work out searchable words for any building that does not have them yet. */
@@ -205,6 +224,7 @@ export class Search {
     startNewSearch();
     const typed = typedWords(text);
     this.picks = [];
+    this.directs = [];
     this.results.hidden = typed.length === 0;
     if (typed.length === 0) {
       this.list.innerHTML = '';

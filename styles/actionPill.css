@@ -4,11 +4,15 @@
   Sizes come from config.yml (pill.height becomes --pill-height).
 */
 
+#pill-bar.is-hidden { visibility: hidden; }
 #pill-bar {
   position: fixed;
   left: 50%;
   bottom: calc(var(--pill-bottom-offset) + env(safe-area-inset-bottom, 0px));
   z-index: var(--pill-layer);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--pill-floor-gap);
   transform: translateX(-50%);
 }
 
@@ -21,7 +25,7 @@
   height: var(--pill-height);
   padding: 0 var(--s4);
   border: none;
-  border-radius: var(--pill-radius);
+  border-radius: 12px;
   background: var(--theme-crimson);
   color: var(--theme-white);
   font: var(--pill-font-weight) var(--pill-font-size)/1 var(--theme-font);
@@ -43,14 +47,13 @@
 /* closed floors sit behind the main pill, then glide up. --i is the slot, 0 closest to the pill */
 #pill-stack {
   position: absolute;
-  left: 50%;
+  right: 0;
   bottom: calc(100% + var(--pill-floor-gap));
   display: flex;
   flex-direction: column-reverse;
   align-items: stretch;
   gap: var(--pill-floor-gap);
-  min-width: var(--pill-min-width);
-  transform: translateX(-50%);
+  width: var(--pill-min-width);
   pointer-events: none;
 }
 #pill-stack.is-open { pointer-events: auto; }
@@ -71,20 +74,26 @@
 
 /* the settings button and its rows, just left of the pill */
 #map-settings {
-  position: absolute;
-  right: calc(100% + var(--pill-floor-gap));
-  bottom: 0;
+  position: relative;
+  flex: none;
   width: var(--pill-height);
   height: var(--pill-height);
 }
-#map-settings.is-hidden { opacity: 0; pointer-events: none; }
+#map-settings.is-hidden { display: none; }
+#directions-btn {
+  position: relative;
+  flex: none;
+}
+#directions-btn.is-hidden { display: none; }
+#directions-btn.is-on { background: var(--theme-white); color: var(--theme-crimson); }
 .pill--side {
   width: var(--pill-height);
   padding: 0;
   font-family: "Framework7 Icons";
   font-weight: normal;
-  font-size: var(--map-settings-icon-size);
+  font-size: 22px;
 }
+.pill--side .icon { font-size: 22px; }
 .pill--side.is-open { background: var(--theme-white); color: var(--theme-crimson); }
 
 #map-options {

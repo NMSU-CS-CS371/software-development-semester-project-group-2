@@ -35,9 +35,11 @@ export class MapSettingPill {
    * @param {object} state
    */
   followSheet(state) {
-    this.anchor.classList.toggle('is-hidden', state.sheetOpen);
-    this.button.inert = state.sheetOpen;
-    if (state.sheetOpen) {
+    /* Directions takes this spot once a building is chosen. */
+    const hide = Boolean(state.selectedId);
+    this.anchor.classList.toggle('is-hidden', hide);
+    this.button.inert = hide;
+    if (hide) {
       this.setOpen(false);
     }
   }

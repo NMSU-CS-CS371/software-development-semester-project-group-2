@@ -4,10 +4,11 @@
  * Two fingers pinch to zoom. Two fingers sliding together pan when it is bigger, and so does a press-and-drag.
  * Control and the scroll wheel zoom too.
  * The view is thrown away when it closes, so the next one starts fresh.
+ * A tap on a room marks it and leaves this view open.
  */
 
-import { photoSrc } from '../core/store.js';
-import { markRoom, roomFrom } from './infoSheetFloorPlan.js';
+import { photoSrc, store } from '../core/store.js';
+import { markRoom, numberOf, placeFrom } from './infoSheetFloorPlan.js';
 const MIN_SCALE = 1;
 const MAX_SCALE = 4;
 const TAP_ZOOM = 2;
@@ -124,6 +125,10 @@ export function openPlanFullView(picture) {
   const stage = document.createElement('div');
   stage.className = 'plan-full-stage';
   const copy = picture.cloneNode(true);
+  const plan = picture.closest('[data-floor]');
+  if (plan) {
+    copy.dataset.floor = plan.dataset.floor; /* the sheet redraws the walk on this copy when a place is picked */
+  }
   stage.append(copy);
   dialog.append(close, stage);
   close.addEventListener('click', () => dialog.close());
@@ -280,10 +285,10 @@ function watchPlan(dialog, stage, svg, picture) {
       svg.dataset.moved = '';
       return;
     }
-    let room = svg instanceof SVGElement ? roomFrom(event.target) : null;
+    let room = svg instanceof SVGElement ? placeFrom(event.target) : null;
     if (!room && svg instanceof SVGElement) {
       for (const hit of document.elementsFromPoint(event.clientX, event.clientY)) {
-        room = roomFrom(hit);
+        room = placeFrom(hit);
         if (room && svg.contains(room)) {
           break;
         }
@@ -297,6 +302,11 @@ function watchPlan(dialog, stage, svg, picture) {
         if (index >= 0) {
           markRoom(picture, picture.querySelectorAll('path, rect, .room')[index]);
         }
+      }
+      const number = numberOf(room);
+      const plan = picture.closest('[data-floor]');
+      if (number && plan) {
+        store.pickRoom(number, Number(plan.dataset.floor));
       }
       return;
     }

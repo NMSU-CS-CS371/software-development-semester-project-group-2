@@ -2,6 +2,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/jsonErrorLocator.test.js"
+    "test": "node --test tests/jsonErrorLocator.test.js tests/planScale.test.js tests/indoorRoute.test.js"
   }
 }

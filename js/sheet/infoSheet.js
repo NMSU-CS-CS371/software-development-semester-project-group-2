@@ -8,8 +8,9 @@ import { CONFIG } from '../core/config.js';
 import { photoSrc, store } from '../core/store.js';
 import { escapeHtml, safeUrl } from '../core/html.js';
 import { waitOneFrame } from '../core/waitOneFrame.js';
+import { routeLegs, walkWords } from '../directions/route.js';
 import { openPhotoView } from './infoSheetFullView.js';
-import { markRoom, shapeForNumber, wireFloorPlan } from './infoSheetFloorPlan.js';
+import { clearRoute, drawRoute, fillWalkNote, markRoom, shapeForNumber, wireFloorPlan } from './infoSheetFloorPlan.js';
 
 export class InfoSheet {
   /**
@@ -27,6 +28,7 @@ export class InfoSheet {
     this.links = document.querySelector('#bs-links');
     this.planSection = document.querySelector('#bs-plan');
     this.planSlot = document.querySelector('#bs-plan-slot');
+    this.walkHint = document.querySelector('#bs-walk-hint');
     this.photoSection = document.querySelector('#bs-photos');
     this.photoTitle = document.querySelector('#bs-photos-title');
     this.photoRow = document.querySelector('#bs-photo-row');
@@ -40,6 +42,12 @@ export class InfoSheet {
 
     this.shownId = ''; /* which building is showing right now */
     this.sheetIsOpen = false;
+    this.floorMarkup = {}; /* floor number -> the SVG text, for the walk */
+    this.routeKey = ''; /* building and room the current walk is for */
+    this.routeResult = null; /* { legs, main, blocked, via, canSwitch } */
+    this.way = 'stairs'; /* the way up to try first when a room is on another floor */
+
+    window.addEventListener('resize', () => this.resizePlan());
 
     document.querySelector('#bs-close').addEventListener('click', () => store.closeSheet());
     this.back = document.querySelector('#bs-back');
@@ -164,6 +172,9 @@ export class InfoSheet {
     const pass = (this.planPass = (this.planPass || 0) + 1);
     this.planSlot.replaceChildren();
     this.planSection.hidden = true;
+    this.floorMarkup = {};
+    this.routeKey = '';
+    this.routeResult = null;
     const code = String(building.code || '').toLowerCase();
     if (!code) {
       return;
@@ -191,6 +202,8 @@ export class InfoSheet {
       plan.className = 'bs-plan';
       plan.dataset.floor = String(floor);
       if (text) {
+        this.floorMarkup[floor] = text;
+        plan.markup = text; /* the full-screen copy reads this to draw the walk */
         const picture = document.createElement('div');
         picture.className = 'bs-plan-svg';
         picture.innerHTML = text;
@@ -201,9 +214,17 @@ export class InfoSheet {
         }
         const drawn = picture.querySelector('svg');
         if (drawn) {
+          const frame = document.createElement('div');
+          frame.className = 'bs-plan-frame';
+          drawn.replaceWith(frame);
+          frame.append(drawn);
+          drawn.setAttribute('preserveAspectRatio', 'xMidYMid meet');
           wireFloorPlan(picture, drawn);
         }
         plan.append(picture);
+        if (drawn) {
+          plan.append(this.scaleRow(), this.enlargedNote());
+        }
       } else {
         const note = document.createElement('p');
         note.className = 'bs-plan-empty';
@@ -279,6 +300,9 @@ export class InfoSheet {
         markRoom(drawn, shapeForNumber(drawn, state.selectedRoom));
         drawn.dataset.markedRoom = state.selectedRoom;
       }
+      if (drawn) {
+        this.paintWalk(drawn, floor, state);
+      }
       if (drawn && !drawn.dataset.fit) {
         const box = drawn.getBBox();
         const view = drawn.viewBox.baseVal;
@@ -291,8 +315,161 @@ export class InfoSheet {
           drawn.dataset.fit = '1';
         }
       }
+      if (drawn) {
+        this.applyPlanSize(drawn);
+      }
     }
     this.shownFloor = key;
+    this.paintFullView(state);
+    this.setWalkHint();
+  }
+
+  /**
+   * Keep the full-screen copy of a plan in step with the sheet: the same picked place and the same walk.
+   * @param {object} state
+   */
+  paintFullView(state) {
+    const copy = document.querySelector('dialog.plan-full svg');
+    if (!copy || !copy.dataset.floor) {
+      return;
+    }
+    const number = pickedRoomNumber(state);
+    markRoom(copy, number ? shapeForNumber(copy, number) : null);
+    this.paintWalk(copy, Number(copy.dataset.floor), state);
+  }
+
+  /**
+   * One sentence for the blue line, and a way to report a route that looks wrong.
+   */
+  setWalkHint() {
+    const state = store.get();
+    const floor = state.activeFloor;
+    const number = pickedRoomNumber(state);
+    if (!number) {
+      this.walkHint.hidden = true;
+      return;
+    }
+    fillWalkNote(this.walkHint, walkWords(this.routeResult, floor, number), this.words, this.otherWay());
+  }
+
+  /**
+   * The button for the other way up, when both stairs and an elevator reach the room.
+   * @returns {{ text: string, onClick: function(): void }|null}
+   */
+  otherWay() {
+    const result = this.routeResult;
+    if (!result || !result.canSwitch) {
+      return null;
+    }
+    const toElevator = result.via === 'stairs';
+    return {
+      text: toElevator ? this.words.elevatorSwitchText : this.words.stairsSwitchText,
+      onClick: () => {
+        this.way = toElevator ? 'elevator' : 'stairs';
+        this.routeKey = '';
+        this.showActiveFloor(store.get());
+      },
+    };
+  }
+
+  /**
+   * The walk for the picked room, worked out once, then drawn on the floor that is showing.
+   * A room above the entry floor has one line on each floor: entrance to stairs (or the elevator), then on to the room.
+   * @param {SVGElement} svg
+   * @param {number} floor
+   * @param {object} state
+   */
+  paintWalk(svg, floor, state) {
+    const number = pickedRoomNumber(state);
+    if (!number) {
+      clearRoute(svg);
+      return;
+    }
+    const building = this.buildingsById[state.selectedId];
+    const roomFloor = pickedRoomFloor(state, floor);
+    const key = state.selectedId + '|' + number + '|' + roomFloor + '|' + this.way;
+    if (key !== this.routeKey) {
+      this.routeKey = key;
+      const entryFloor = building && building.floors && building.floors.includes(1) ? 1 : (building && building.floors && building.floors[0]);
+      const entry = this.floorMarkup[entryFloor];
+      const destination = this.floorMarkup[roomFloor];
+      this.routeResult = entry && destination ? routeLegs(entry, destination, number, entryFloor, roomFloor, this.way) : null;
+    }
+    let points = null;
+    const drawnLegs = this.routeResult && this.routeResult.legs;
+    for (const leg of drawnLegs || []) {
+      if (leg.floor === floor) {
+        points = leg.points;
+      }
+    }
+    drawRoute(svg, points);
+  }
+
+  /**
+   * The line under the plan: a scale bar, and how wide the building is.
+   * @returns {HTMLElement}
+   */
+  scaleRow() {
+    const row = document.createElement('div');
+    row.className = 'bs-plan-scale';
+    row.hidden = true;
+    const wrap = document.createElement('span');
+    wrap.className = 'bs-plan-bar-wrap';
+    const bar = document.createElement('span');
+    bar.className = 'bs-plan-bar';
+    bar.setAttribute('aria-hidden', 'true');
+    const label = document.createElement('span');
+    label.className = 'bs-plan-scale-label';
+    wrap.append(bar, label);
+    const across = document.createElement('span');
+    across.className = 'bs-plan-across';
+    row.append(wrap, across);
+    return row;
+  }
+
+  /**
+   * Shown when a small building is drawn larger than its real share, so the rooms stay tappable.
+   * @returns {HTMLElement}
+   */
+  enlargedNote() {
+    const note = document.createElement('div');
+    note.className = 'bs-plan-enlarged';
+    note.hidden = true;
+    note.textContent = this.words.planEnlargedText;
+    return note;
+  }
+
+  /**
+   * Size the visible plan again after the sheet width changes.
+   */
+  resizePlan() {
+    const drawn = this.planSlot.querySelector('.bs-plan:not([hidden]) svg');
+    if (drawn) {
+      this.applyPlanSize(drawn);
+    }
+  }
+
+  /**
+   * Draw the plan across the sheet. Floor plans fill the stage.
+   * @param {SVGElement} svg
+   */
+  applyPlanSize(svg) {
+    const frame = svg.parentElement;
+    const plan = svg.closest('.bs-plan');
+    if (!frame || !plan || !frame.classList.contains('bs-plan-frame')) {
+      return;
+    }
+    frame.style.width = '100%';
+    frame.style.height = 'auto';
+    frame.classList.add('is-fallback');
+    const row = plan.querySelector('.bs-plan-scale');
+    const note = plan.querySelector('.bs-plan-enlarged');
+    if (row) {
+      row.hidden = true;
+    }
+    if (note) {
+      note.hidden = true;
+    }
   }
 
   /** Fill the box after the next frame, and only once. */
@@ -350,4 +527,27 @@ export class InfoSheet {
       this.sheetElement.setAttribute('aria-hidden', String(!this.sheetIsOpen));
     }
   }
+}
+
+/**
+ * The room picked from search or a floor plan, or ''.
+ * @param {object} state
+ * @returns {string}
+ */
+function pickedRoomNumber(state) {
+  const room = state.selectedRoom;
+  if (!room) {
+    return '';
+  }
+  return typeof room === 'string' ? room : room.number || '';
+}
+
+/**
+ * The floor the picked room is on.
+ * @param {object} state
+ * @param {number} floor - the floor showing now, used when the room's floor is unknown
+ * @returns {number}
+ */
+function pickedRoomFloor(state, floor) {
+  return state.selectedRoomFloor != null ? state.selectedRoomFloor : floor;
 }

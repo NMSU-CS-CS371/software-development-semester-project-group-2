@@ -111,6 +111,8 @@ export class ActionPill {
       this.setStackOpen(false); /* the sheet picked a floor, so the list above the pill closes */
     }
     this.label.textContent = text;
+    const tripOnMap = Boolean(state.directionsTo) && !state.sheetOpen && !state.searching;
+    document.querySelector('#pill-bar').classList.toggle('is-hidden', tripOnMap);
     this.pill.classList.toggle('has-chev', showArrow);
     this.pill.disabled = !building;
     if (!state.sheetOpen) {

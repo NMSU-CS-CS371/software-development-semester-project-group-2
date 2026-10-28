@@ -96,6 +96,7 @@ export class CampusMap {
     const settings = CONFIG.map;
     this.buildingsById = buildingsById;
     this.selectedId = null; /* the picked building */
+    this.foldOnTap = null; /* when the directions card is open, a map tap folds it and does nothing else */
     this.fence = fence;
     this.campuses = campuses;
 
@@ -114,6 +115,9 @@ export class CampusMap {
       refreshExpiredTiles: false, /* don't re-download tiles we already have */
     });
 
+    this.ready = new Promise((resolve) => {
+      this.map.on('load', () => resolve());
+    });
     this.map.on('load', () => this.drawEverything());
     this.map.on('error', (event) => console.error('Map:', event.error));
     this.followSelection();
@@ -173,6 +177,14 @@ export class CampusMap {
    */
   markSelected(buildingId) {
     this.selectedId = buildingId;
+    this.paintBadge(buildingId);
+  }
+
+  /**
+   * Blue ring on this building. Does not change which building the sheet remembers.
+   * @param {string|null} buildingId
+   */
+  paintBadge(buildingId) {
     if (!this.hasBadges()) {
       return; /* still loading */
     }
@@ -209,6 +221,29 @@ export class CampusMap {
   listenForTaps() {
     this.map.on('click', (event) => {
       const hits = this.map.queryRenderedFeatures(event.point, { layers: ['building-pins', 'building-names'] });
+      const pickingPlace = store.get().pickingStart || store.get().pickingEnd;
+      /* The step list is open. This tap only folds it, so the trip stays put. */
+      if (!pickingPlace && this.foldOnTap && this.foldOnTap()) {
+        return;
+      }
+      /* A trip is waiting for a start or a new destination: the tap asks first, and does not open a sheet.
+         A tap on empty map leaves the picker. With no route yet, that ends the trip. */
+      if (store.get().pickingStart || store.get().pickingEnd) {
+        if (hits.length === 0) {
+          store.cancelPicking();
+          return;
+        }
+        const building = this.buildingsById[hits[0].properties.id];
+        if (!building) {
+          return;
+        }
+        if (store.get().pickingStart) {
+          store.proposeStart(building.id);
+        } else {
+          store.proposeEnd(building.id);
+        }
+        return;
+      }
       if (hits.length > 0) {
         store.selectBuilding(this.buildingsById[hits[0].properties.id], 'map');
       } else {
@@ -241,8 +276,15 @@ export class CampusMap {
     });
 
     let lastSelectedId = null;
+    let ringId = null;
     store.subscribe((state) => {
       this.applyNames(state.showNames);
+      const pending = state.pendingStartId || state.pendingEndId;
+      const ring = pending || state.selectedId;
+      if (ring !== ringId && this.hasBadges()) {
+        ringId = ring;
+        this.paintBadge(ring); /* the tapped building gets the blue ring before the popup */
+      }
       if (state.selectedId === lastSelectedId) {
         return;
       }
@@ -260,8 +302,8 @@ export class CampusMap {
     }
     this.markSelected(state.selectedId);
     const building = this.buildingsById[state.selectedId];
-    if (!building) {
-      return; /* nothing is picked */
+    if (!building || state.directionsOn) {
+      return; /* nothing is picked, or the trip frames you and the building */
     }
     /* short flight that starts fast and slows down */
     this.map.flyTo({

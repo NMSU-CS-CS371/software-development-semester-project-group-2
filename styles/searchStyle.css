@@ -78,8 +78,29 @@
   border-radius: var(--search-field-radius);
 }
 .search-results ul { list-style: none; margin: 0; padding: 0; }
+.search-item { display: flex; align-items: center; }
+.search-direct {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--pill-height);
+  height: var(--pill-height);
+  margin-right: var(--s3);
+  border: none;
+  border-radius: 12px;
+  background: var(--theme-crimson);
+  color: var(--theme-white);
+  box-shadow: 0 var(--pill-shadow-y) var(--pill-shadow-blur) var(--theme-shadow-strong);
+  font-family: "Framework7 Icons";
+  font-weight: normal;
+  font-size: 22px;
+  cursor: pointer;
+}
 .search-row {
   display: block;
+  flex: 1;
+  min-width: 0;
   padding: var(--s3) var(--s4);
   border-top: 1px solid var(--theme-line-soft);
   color: inherit;
