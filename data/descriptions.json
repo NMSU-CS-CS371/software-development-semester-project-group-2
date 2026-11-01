@@ -607,6 +607,60 @@
         }
       ],
       "source": "NMSU's official campus map (map.nmsu.edu)"
+    },
+    "83": {
+      "paragraphs": [
+        "Originally designed as a new Student Union building, Milton Hall was built in 1947. The Board of Regents decided to dedicate the new building to the veterans of the previous wars, and the name Milton Hall was agreed upon. Milton Hall was the Student Union up until Corbett Center was built in 1968. It is now home to KRWG-TV, KRWG-FM, the Journalism Department, Center for Educational Development, Printing and Duplicating, and other departments."
+      ],
+      "links": [
+        {
+          "label": "KRWG Radio",
+          "url": "https://www.krwg.org/"
+        },
+        {
+          "label": "Instructional Media Services",
+          "url": "https://ims.nmsu.edu/"
+        },
+        {
+          "label": "Digital Learning Initiatives",
+          "url": "https://dli.nmsu.edu/"
+        },
+        {
+          "label": "Journalism & Mass Communications",
+          "url": "https://newscenter.nmsu.edu/Experts/dept/188/Journalism-and-Mass-Communications"
+        },
+        {
+          "label": "Building Monitors",
+          "url": "https://inside.nmsu.edu/facilities/building-monitors/"
+        }
+      ],
+      "photos": [
+        {
+          "title": "Milton Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_1.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_1.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525533"
+        },
+        {
+          "title": "Milton Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_2.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_2.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525533"
+        },
+        {
+          "title": "Milton Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_3.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_3.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525533"
+        },
+        {
+          "title": "Milton Hall",
+          "url": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_3.jpg&w=800&h=533&r=1",
+          "thumbUrl": "https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=1888&image=1888%2FNMSU_Main_Campus_Builidings-Milton_Hall_3.jpg&w=320&h=213&r=1",
+          "sourceUrl": "https://map.nmsu.edu/?id=1888#!m/525533"
+        }
+      ],
+      "source": "NMSU's official campus map (map.nmsu.edu)"
     }
   }
 }

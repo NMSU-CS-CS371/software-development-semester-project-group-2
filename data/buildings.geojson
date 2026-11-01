@@ -627,6 +627,38 @@
           32.28133233
         ]
       }
+    },
+    {
+      "dateAdded": "2026-10-18",
+      "dateUpdated": "2026-10-18",
+      "lastInputSource": "scraper",
+      "scraperStamp": "5c448351",
+      "type": "Building",
+      "properties": {
+        "id": "83",
+        "code": "MH",
+        "name": "Milton Hall",
+        "address": "2915 McFie Cir., Las Cruces, NM 88003",
+        "propertyNumber": "83",
+        "built": "1941",
+        "builtSource": "NMSU Space Planning",
+        "floors": [
+          0,
+          1
+        ],
+        "floorsSource": "NMSU Space Planning",
+        "category": "study",
+        "nmsuUrl": "https://map.nmsu.edu/?id=1888#!m/525533",
+        "source": "NMSU Office of Space Planning, Buildings layer (property 83)",
+        "codeSource": "NMSU Registrar building abbreviations (records.nmsu.edu)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.749942,
+          32.28249453
+        ]
+      }
     }
   ]
 }
