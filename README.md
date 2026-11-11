@@ -33,8 +33,8 @@
 - Floorplan data lives in `data/floors`
 - Buildings data lives in `data/buildings.geojson`
 - Descriptions live inside `data/descriptions.json`
-- Pathfinding from your location to buildings and rooms`
-- Pathfinding with time estimates for walking,biking, and driving`
+- Pathfinding from your location to buildings and rooms
+- Pathfinding with time estimates for walking,biking, and driving
   
   
 ## Buildings on the map
