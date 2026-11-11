@@ -84,6 +84,10 @@ sheet:
   numberText: "No."
   builtLabel: "Built"
   floorsLabel: "Floors"
+  permitLabel: "Permit"
+  whoLabel: "Who can park"
+  campusLabel: "Campus"
+  noPlaceDescriptionText: "No description for this place yet."
   linkText: "See it on NMSU's official map"
   codeSourceText: "Building code"
   factsSourceText: "Other facts: NMSU Office of Space Planning"
@@ -297,6 +301,34 @@ mapSettings: # the round button left of the pill
   iconSize: "20px"
   labelSize: "15px"
 
+mapFilters: # the round button right of the pill: which kinds of places show on the map
+  icon: "slider_horizontal_3"
+  closeIcon: "xmark"
+  label: "Map filters"
+  storageKey: "nmsu-hidden-categories" # remembers the choice on this device
+  # the rows come from categories above (the ones with inFilters: true). The last row sits closest to the button.
+
+parking: # parking lots drawn on the map while the Parking filter is on
+  permitColors: # NMSU's permit colour name -> the colour the lot is drawn in
+    Orange: "#ff9500"
+    Purple: "#af52de"
+    Green: "#34c759"
+    Crimson: "#8C0B42"
+    Brown: "#a2845e"
+    Yellow: "#ffcc00"
+    Pink: "#ff2d55"
+    Turquoise: "#30b0c7"
+    Blue: "#007aff"
+  otherColor: "#8e8e93" # a lot with no permit colour, or one we have no colour for
+  nameColor: "#1b1b1d"
+  nameHalo: "#ffffff"
+  nameHaloWidth: 1.5
+  fillOpacity: 0.28
+  edgeWidth: 1.5
+  nameSize: 12
+  nameMinZoom: 17
+  dataFile: "parking-lots.geojson" # downloaded the first time Parking is switched on
+
 menu: # the full-screen menu (Map, Locations)
   mapText: "Map"
   locationsText: "Locations"
@@ -332,4 +364,8 @@ categories: # kinds of places on the map; the colours mean the same thing everyw
   # Sprint 1 has only one kind. Housing, parks, food and parking come back in Sprint 2,
   # and each one only needs a line here plus buildings with that category.
   # icon is a Framework7 icon name, shown on the Locations page.
-  study: { label: "Study", color: "#8C0B42", icon: "book_fill" } # NMSU crimson: classes and learning
+  # inFilters: true puts the kind in the Map filters button. startHidden: true means it starts switched off
+  # (hidden kinds are still found by search and Locations).
+  study: { label: "Study", color: "#8C0B42", icon: "book_fill", inFilters: true } # NMSU crimson: classes and learning
+  park: { label: "Parks", color: "#34c759", icon: "tree", letter: "P", inFilters: true } # outdoor green spaces, no floor plan
+  parking: { label: "Parking", color: "#5856d6", icon: "car_fill", letter: "L", inFilters: true, startHidden: true } # lots, no floor plan

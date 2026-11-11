@@ -19,6 +19,7 @@ import { InfoSheet } from './sheet/infoSheet.js';
 import { ActionPill } from './actionButtons/actionPill.js';
 import { DirectionsButton } from './actionButtons/directionsButton.js';
 import { MapSettingPill } from './actionButtons/mapSettingPill.js';
+import { MapFiltersButton, startingHidden } from './actionButtons/mapFiltersButton.js';
 import { Menu } from './pages/menu.js';
 import { Search } from './pages/search.js';
 import { roomsOnFloors } from './logic/floorRooms.js';
@@ -169,10 +170,11 @@ async function startApp() {
   const files = await Promise.all([
     loadJson('buildings.geojson'), /* building data */
     loadJson('campuses.geojson'), /* campus outline */
+    loadJson('places.geojson'), /* parks and parking lots */
     loadMapStyle(), /* map background */
   ]);
 
-  const buildings = recordsFrom(files[0]);
+  const buildings = recordsFrom(files[0]).concat(recordsFrom(files[2])); /* places are records like buildings */
   const campuses = files[1];
   const buildingsById = {};
   for (const building of buildings) {
@@ -191,12 +193,15 @@ async function startApp() {
   }
   watchUrl(buildingsById);
 
+  store.setHiddenCategories(startingHidden()); /* before the map draws, so Parking does not flash on */
+
   /* make the map first, then the info box */
-  const campusMap = new CampusMap(buildingsById, fence, campuses, files[2]);
+  const campusMap = new CampusMap(buildingsById, fence, campuses, files[3]);
   new CampusMapSettings(campusMap);
   const sheet = new InfoSheet(buildingsById);
   new ActionPill(buildingsById);
   new MapSettingPill(campusMap);
+  new MapFiltersButton(buildings);
   new DirectionsButton(buildingsById);
   const myLocation = new MyLocation(campusMap.map);
   const routeCard = new RouteCard(buildingsById, campusMap);

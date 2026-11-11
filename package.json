@@ -2,6 +2,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/jsonErrorLocator.test.js tests/planScale.test.js tests/indoorRoute.test.js"
+    "test": "node --test tests/jsonErrorLocator.test.js tests/planScale.test.js tests/indoorRoute.test.js tests/searchMatch.test.js tests/directions.test.js tests/routeCheck.test.js tests/places.test.js",
+    "test:python": "python3 -m unittest tests/test_build_places.py",
+    "coverage": "node --test --experimental-test-coverage tests/jsonErrorLocator.test.js tests/planScale.test.js tests/indoorRoute.test.js tests/searchMatch.test.js tests/directions.test.js tests/routeCheck.test.js tests/places.test.js"
   }
 }

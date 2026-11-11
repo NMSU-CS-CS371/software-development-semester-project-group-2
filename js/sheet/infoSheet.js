@@ -71,12 +71,19 @@ export class InfoSheet {
    */
   factsFor(building) {
     const code = building.code || this.words.unknownText;
-    return [
-      [this.words.addressLabel, building.address],
-      [this.words.buildingLabel, code + ' · ' + this.words.numberText + ' ' + building.propertyNumber],
-      [this.words.builtLabel, building.built],
-      [this.words.floorsLabel, String(building.floors.length)],
-    ];
+    const facts = [[this.words.addressLabel, building.address || building.campus]]; /* a lot may have no street address */
+    if (building.permitColor !== undefined) {
+      facts.push([this.words.permitLabel, building.permitColor]);
+      facts.push([this.words.whoLabel, building.permitRule]);
+    }
+    if (building.code || building.propertyNumber) {
+      facts.push([this.words.buildingLabel, code + ' · ' + this.words.numberText + ' ' + building.propertyNumber]); /* a lot may have neither */
+    }
+    facts.push([this.words.builtLabel, building.built]);
+    if (building.floors && building.floors.length > 0) {
+      facts.push([this.words.floorsLabel, String(building.floors.length)]); /* a park or a lot has no floors */
+    }
+    return facts.filter((fact) => fact[1]);
   }
 
   /**
@@ -85,16 +92,20 @@ export class InfoSheet {
    * @returns {string}
    */
   sourceTextFor(building) {
+    if (building.kind) {
+      return building.source; /* a park or a lot says where its own facts came from */
+    }
     /* add extra notes if the floors or year didn't come from NMSU */
     let notes = '';
-    if (building.floorsSource !== 'NMSU Space Planning') {
+    const hasFloors = building.floors && building.floors.length > 0;
+    if (hasFloors && building.floorsSource !== 'NMSU Space Planning') {
       notes += ' (' + this.words.floorCountText + ': ' + building.floorsSource + ')';
     }
     if (building.builtSource && building.builtSource !== 'NMSU Space Planning') {
       notes += ' (' + this.words.builtYearText + ': ' + building.builtSource + ')';
     }
     return this.words.codeSourceText + ': ' + building.codeSource + '. ' +
-      this.words.factsSourceText + notes + '. ' + this.words.plansNoteText;
+      this.words.factsSourceText + notes + '.' + (hasFloors ? ' ' + this.words.plansNoteText : '');
   }
 
   /**
@@ -106,7 +117,7 @@ export class InfoSheet {
 
     let paragraphs = building.description;
     if (!hasDescription) {
-      paragraphs = [this.words.noDescriptionText];
+      paragraphs = [building.kind ? this.words.noPlaceDescriptionText : this.words.noDescriptionText];
     }
     let descriptionHtml = '';
     for (const text of paragraphs) {
@@ -181,11 +192,14 @@ export class InfoSheet {
     }
     const floors = [];
     const seen = new Set();
-    for (const floor of building.floors) {
+    for (const floor of building.floors || []) {
       if (!seen.has(floor)) {
         seen.add(floor);
         floors.push(floor);
       }
+    }
+    if (floors.length === 0) {
+      return; /* a park or a lot has no floor plan, so the plan section stays hidden */
     }
     const responses = await Promise.all(floors.map((floor) => fetch('data/floors/' + code + '-' + floor + '.svg', { cache: 'reload' })));
     const texts = await Promise.all(responses.map((response) => response.ok ? response.text() : ''));

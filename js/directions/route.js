@@ -11,6 +11,7 @@ import { placeLabel } from '../logic/elevators.js';
 import { planFromMarkup } from './planRead.js';
 import { lineLength, pathToRoom, roomByNumber, roundPoint, startPointOf, startsFor } from './walkEnds.js';
 import { centreOf, makeGrid } from './walkGrid.js';
+import { routeProblems } from './routeCheck.js';
 import { centreSquare, nearestHall, nearestHallBox, pathPoints, searchFrom, tidyLine } from './walkSearch.js';
 
 const DOOR_REACH = 4.5; /* hallway squares within this many steps of a door make it an entrance */
@@ -207,7 +208,7 @@ function walkFromEntrances(grid, plan, arrive) {
       continue;
     }
     const points = arrive(from);
-    if (points) {
+    if (points && routeProblems(plan, points).length === 0) {
       return { points: points, main: group.main };
     }
   }
@@ -254,12 +255,13 @@ function nearestStair(upstairs, stairs) {
 /**
  * Walk from these doors to the hallway beside a stair, then onto the stair.
  * @param {object} grid
+ * @param {object} plan
  * @param {number[][]} doors
  * @param {{ point: number[], box: object }} stair
  * @param {boolean} halls
- * @returns {number[][]|null}
+ * @returns {number[][]|null} null when no walk reaches it, or the walk would leave the hallway
  */
-function pathToStair(grid, doors, stair, halls) {
+function pathToStair(grid, plan, doors, stair, halls) {
   const from = hallStarts(grid, doors, halls);
   const landing = nearestHallBox(grid, stair.box, grid.step * STAIR_REACH + STAIR_PAD);
   if (from.starts.length === 0 || landing < 0) {
@@ -276,7 +278,8 @@ function pathToStair(grid, doors, stair, halls) {
   }
   const points = pathPoints(grid, found.cameFrom, goal, startPoint);
   points.push(roundPoint(stair.point));
-  return tidyLine(grid, points);
+  const line = tidyLine(grid, points);
+  return routeProblems(plan, line).length === 0 ? line : null;
 }
 
 /**
@@ -324,11 +327,14 @@ function upstairsLegs(entry, entryGrid, upstairs, room, entryFloor, roomFloor, w
       }
       const toRoom = pathToRoom(upstairsGrid, searchFrom(upstairsGrid, from.starts), room.points, from.startAt);
       const paired = nearestStair(stair.point, entryStairs);
-      const toStair = pathToStair(entryGrid, group.doors, paired, entry.halls.length > 0);
+      const toStair = pathToStair(entryGrid, entry, group.doors, paired, entry.halls.length > 0);
       if (!toRoom || !toStair) {
         continue;
       }
       toRoom[0] = roundPoint(stair.point);
+      if (routeProblems(upstairs, toRoom).length > 0) {
+        continue;
+      }
       const total = lineLength(toStair) + lineLength(toRoom);
       if (!best || total < best.total) {
         best = {

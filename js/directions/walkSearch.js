@@ -319,31 +319,6 @@ function roomAround(grid, point) {
 }
 
 /**
- * The corner where a slanted stretch between two points turns, or null to keep it slanted.
- * Halls meet at right angles, so the turn is one of the two right-angle corners, when that corner is still
- * well inside the hallway. A hallway that really runs on a diagonal has no such corner and stays diagonal.
- * @param {object} grid
- * @param {number[]} a
- * @param {number[]} b
- * @returns {number[]|null}
- */
-function rightAngleBetween(grid, a, b) {
-  const slack = grid.step * AXIS_SLACK;
-  if (Math.min(Math.abs(a[0] - b[0]), Math.abs(a[1] - b[1])) < slack) {
-    return null;
-  }
-  const needed = 0.75 * Math.min(roomAround(grid, a), roomAround(grid, b));
-  let best = null;
-  for (const turn of [[a[0], b[1]], [b[0], a[1]]]) {
-    const fits = roomAround(grid, turn) >= needed && openSegment(grid, a, turn) && openSegment(grid, turn, b);
-    if (fits && (!best || roomAround(grid, turn) > roomAround(grid, best))) {
-      best = turn;
-    }
-  }
-  return best;
-}
-
-/**
  * Draw every nearly straight segment exactly straight.
  * Points joined by a near-vertical segment share one x, and by a near-horizontal one share one y.
  * The first and last points are real places (a door, a wall, a stair): their value wins, and a group
@@ -404,36 +379,71 @@ function onLine(a, b, c) {
 }
 
 /**
- * The finished walk: straight segments drawn straight, slanted cuts at junctions turned into right-angle
- * corners, and no point in the middle of a straight run. The first and last points are real places.
+ * Does the line stay on open floor? The first and last stretch are skipped, because they start at a
+ * door or a wall, which is a real place but not an open square.
+ * @param {object} grid
+ * @param {number[][]} points
+ * @returns {boolean}
+ */
+function staysOpen(grid, points) {
+  const reach = grid.step * AXIS_SLACK * 2;
+  const first = points[0];
+  const end = points[points.length - 1];
+  for (let i = 1; i < points.length; i += 1) {
+    const length = Math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]);
+    const steps = Math.max(1, Math.ceil(length / (grid.step * 0.5)));
+    for (let s = 0; s <= steps; s += 1) {
+      const t = s / steps;
+      const x = points[i - 1][0] + (points[i][0] - points[i - 1][0]) * t;
+      const y = points[i - 1][1] + (points[i][1] - points[i - 1][1]) * t;
+      if (Math.hypot(x - first[0], y - first[1]) < reach || Math.hypot(x - end[0], y - end[1]) < reach) {
+        continue;
+      }
+      const index = squareAt(grid, x, y);
+      if (index < 0 || !grid.walkable[index]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+/**
+ * Drop repeated points and points in the middle of a straight run, and round to a tenth.
+ * @param {number[][]} points
+ * @returns {number[][]}
+ */
+function dropExtras(points) {
+  const tidy = [points[0]];
+  for (let i = 1; i < points.length; i += 1) {
+    const last = tidy[tidy.length - 1];
+    if (Math.hypot(points[i][0] - last[0], points[i][1] - last[1]) < 0.5) {
+      continue;
+    }
+    if (tidy.length > 1 && onLine(tidy[tidy.length - 2], last, points[i])) {
+      tidy[tidy.length - 1] = points[i];
+    } else {
+      tidy.push(points[i]);
+    }
+  }
+  return tidy.map((point) => [Math.round(point[0] * 10) / 10, Math.round(point[1] * 10) / 10]);
+}
+
+/**
+ * The finished walk. Nearly straight segments are drawn exactly straight. Slanted segments stay
+ * slanted, so a 45 degree turn is a 45 degree turn. If straightening would put any part of the line
+ * on a wall or empty space, the unstraightened line is used, which was checked square by square.
+ * The first and last points are real places (a door, a wall, a stair).
  * @param {object} grid
  * @param {number[][]} points
  * @returns {number[][]}
  */
 export function tidyLine(grid, points) {
-  const squared = squareUp(grid, points);
-  const turned = [squared[0]];
-  for (let i = 1; i < squared.length; i += 1) {
-    const interior = i > 1 && i < squared.length - 1;
-    const turn = interior ? rightAngleBetween(grid, turned[turned.length - 1], squared[i]) : null;
-    if (turn) {
-      turned.push(turn);
-    }
-    turned.push(squared[i]);
+  const straightened = dropExtras(squareUp(grid, points));
+  if (staysOpen(grid, straightened)) {
+    return straightened;
   }
-  const tidy = [turned[0]];
-  for (let i = 1; i < turned.length; i += 1) {
-    const last = tidy[tidy.length - 1];
-    if (Math.hypot(turned[i][0] - last[0], turned[i][1] - last[1]) < 0.5) {
-      continue;
-    }
-    if (tidy.length > 1 && onLine(tidy[tidy.length - 2], last, turned[i])) {
-      tidy[tidy.length - 1] = turned[i];
-    } else {
-      tidy.push(turned[i]);
-    }
-  }
-  return tidy.map((point) => [Math.round(point[0] * 10) / 10, Math.round(point[1] * 10) / 10]);
+  return dropExtras(points);
 }
 
 /**

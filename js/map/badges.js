@@ -83,6 +83,26 @@ export function nameColorRule(selectedId) {
   return ['case', isSelected, CONFIG.badge.selectedRing, CONFIG.map.nameColor];
 }
 
+/** The kind of place whose name is drawn by the parking layers, not by the building names. */
+export const PARKING_CATEGORY = 'parking';
+
+/**
+ * Which badges to draw: every kind that is not switched off, plus the picked place even if its kind is off.
+ * @param {string[]} hiddenCategories
+ * @param {string|null} selectedId
+ * @param {boolean} skipParking - true for the names layer, because lots get their names from the parking layers
+ * @returns {Array}
+ */
+export function categoryFilter(hiddenCategories, selectedId, skipParking) {
+  const isShown = ['!', ['in', ['get', 'category'], ['literal', hiddenCategories]]];
+  const isSelected = ['==', ['get', 'id'], selectedId || ''];
+  const filter = ['any', isShown, isSelected];
+  if (!skipParking) {
+    return filter;
+  }
+  return ['all', filter, ['!=', ['get', 'category'], PARKING_CATEGORY]];
+}
+
 /**
  * One map point for a building.
  * @param {object} building

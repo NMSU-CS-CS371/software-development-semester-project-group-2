@@ -13,8 +13,9 @@
  *                   distance on the card at the bottom (./turns.js, ./routeCard.js),
  *                4. when you reach the building pin, a door, or the end of the path,
  *                   ends directions and opens the building's sheet on the room's floor.
- *                Inside buildings there are no arrows: NMSU publishes no hallway
- *                data, so the highlighted room on the floor plan takes over.
+ *                Inside a building the blue line on the floor plan takes over
+ *                (js/directions/route.js): from the main entrance, or from a stair or
+ *                elevator, to the room, along hallways and rooms marked passable.
  * DEPENDS ON   : ../core/config.js, ../core/dialogs.js, ../core/store.js, ../logic/geo.js,
  *                ./routeMath.js, ./turns.js, ./routeData.js, ./routeDrawing.js,
  *                and (handed in) the map, your location and the route card.

@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","//":["Made by tools/build_places.py from NMSU Facilities GIS (Parking layer). Do not edit by hand.","Format: GeoJSON. One Feature per parking lot: properties {\"id\", \"category\", \"name\", \"permitColor\"} and its outline.","Drawn on the map while the Parking filter is on."],"features":[]}

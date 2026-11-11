@@ -80,6 +80,14 @@
   height: var(--pill-height);
 }
 #map-settings.is-hidden { display: none; }
+/* the filters button and its rows, just right of the pill */
+#map-filters {
+  position: relative;
+  flex: none;
+  width: var(--pill-height);
+  height: var(--pill-height);
+}
+#map-filters.is-hidden { display: none; }
 #directions-btn {
   position: relative;
   flex: none;
@@ -107,6 +115,18 @@
   pointer-events: none;
 }
 #map-options.is-open { pointer-events: auto; }
+#filter-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + var(--pill-floor-gap));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--pill-floor-gap);
+  pointer-events: none;
+}
+#filter-options.is-open { pointer-events: auto; }
+#filter-options .map-option { transform-origin: right bottom; }
 .map-option {
   display: inline-flex;
   align-items: center;
@@ -126,7 +146,8 @@
   transform: translateY(calc((var(--i) + 1) * (var(--map-settings-row-height) + var(--pill-floor-gap)))) scale(var(--pill-floor-start-scale));
   transition: opacity var(--pill-floor-fade-time) ease-in, transform var(--pill-floor-move-time) var(--theme-smooth);
 }
-#map-options.is-open .map-option {
+#map-options.is-open .map-option,
+#filter-options.is-open .map-option {
   opacity: 1;
   transform: none;
   transition: opacity var(--pill-floor-fade-time) ease-out calc(var(--i) * var(--pill-floor-stagger)),
@@ -144,6 +165,9 @@
 }
 .map-option-icon .f7-icons { font-size: var(--map-settings-icon-size); }
 .map-option.is-on .map-option-icon { background: var(--theme-crimson); color: var(--theme-white); }
+/* a filter row wears its kind's badge colour */
+.map-option[data-color] .map-option-icon { color: var(--row-color); box-shadow: inset 0 0 0 1.5px var(--row-color); }
+.map-option[data-color].is-on .map-option-icon { background: var(--row-color); color: var(--theme-white); }
 
 @media (prefers-reduced-motion: reduce) {
   .pill, .pill-chev, .pill--floor, .map-option { transition: none; }

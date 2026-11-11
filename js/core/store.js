@@ -39,6 +39,7 @@ class Store {
       activeFloor: null, /* which floor the sheet is showing */
       showNames: true, /* building labels on the map */
       showTools: true, /* compass, Home, and zoom start on */
+      hiddenCategories: [], /* kinds of places switched off in Map filters, like ['parking'] */
       searching: false, /* is the search drop-down open */
       selectedRoom: null, /* room number chosen from search or a floor plan, or null */
       selectedRoomFloor: null, /* the floor that room is on */
@@ -558,6 +559,27 @@ class Store {
    */
   setShowTools(on) {
     this.update({ showTools: on });
+  }
+
+  /**
+   * Replace the list of switched-off kinds.
+   * @param {string[]} categories
+   */
+  setHiddenCategories(categories) {
+    this.update({ hiddenCategories: categories.slice() });
+  }
+
+  /**
+   * Switch one kind of place on or off.
+   * @param {string} category
+   */
+  toggleCategory(category) {
+    const hidden = this.state.hiddenCategories;
+    if (hidden.includes(category)) {
+      this.setHiddenCategories(hidden.filter((name) => name !== category));
+    } else {
+      this.setHiddenCategories(hidden.concat(category));
+    }
   }
 
   /** Close the box but keep the building picked. */

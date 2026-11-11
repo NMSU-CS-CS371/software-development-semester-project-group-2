@@ -8,7 +8,8 @@
 import { waitOneFrame } from '../core/waitOneFrame.js';
 import { CONFIG } from '../core/config.js';
 import { store } from '../core/store.js';
-import { addBadges, badgePictureRule, nameColorRule } from './badges.js';
+import { addBadges, badgePictureRule, categoryFilter, nameColorRule, PARKING_CATEGORY } from './badges.js';
+import { ParkingLayers } from './parkingLayers.js';
 
 /**
  * Starts fast and slows down at the end.
@@ -154,8 +155,10 @@ export class CampusMap {
     foldCredits();
     this.drawOutline();
     addBadges(this.map, this.buildingsById);
+    this.parking = new ParkingLayers(this.map, 'building-names');
     this.markSelected(store.get().selectedId);
     this.applyNames(store.get().showNames);
+    this.applyFilters(store.get());
     this.listenForTaps();
   }
 
@@ -204,6 +207,48 @@ export class CampusMap {
     this.map.setLayoutProperty('building-names', 'visibility', on ? 'visible' : 'none');
   }
 
+  /**
+   * Show only the kinds of places that are switched on in Map filters. The picked place always shows.
+   * @param {object} state
+   */
+  applyFilters(state) {
+    if (!this.hasBadges()) {
+      return; /* the layers are not there yet; drawEverything calls this again */
+    }
+    const key = state.hiddenCategories.join(',') + '|' + state.selectedId;
+    if (key === this.filterKey) {
+      return;
+    }
+    this.filterKey = key;
+    this.map.setFilter('building-pins', categoryFilter(state.hiddenCategories, state.selectedId, false));
+    this.map.setFilter('building-names', categoryFilter(state.hiddenCategories, state.selectedId, true));
+    this.parking.setVisible(!state.hiddenCategories.includes(PARKING_CATEGORY)).catch((error) => {
+      console.error('Could not draw the parking lots', error); /* the badges still work */
+    });
+  }
+
+  /**
+   * The layers a tap can land on: badges, names, and lots once they are drawn.
+   * @returns {string[]}
+   */
+  tapLayers() {
+    return ['building-pins', 'building-names'].concat(this.parking ? this.parking.tapLayers() : []);
+  }
+
+  /**
+   * The first building under a tap. A lot's shape counts, so tapping a lot picks it.
+   * @param {object[]} hits
+   * @returns {object|null}
+   */
+  firstBuilding(hits) {
+    for (const hit of hits) {
+      if (this.buildingsById[hit.properties.id]) {
+        return this.buildingsById[hit.properties.id];
+      }
+    }
+    return null;
+  }
+
   /** Fly back over Corbett Center, facing north. */
   goHome() {
     const settings = CONFIG.map;
@@ -220,7 +265,8 @@ export class CampusMap {
   /** Tap a badge to pick it. Tap somewhere else to unpick it. */
   listenForTaps() {
     this.map.on('click', (event) => {
-      const hits = this.map.queryRenderedFeatures(event.point, { layers: ['building-pins', 'building-names'] });
+      const hits = this.map.queryRenderedFeatures(event.point, { layers: this.tapLayers() });
+      const tapped = this.firstBuilding(hits);
       const pickingPlace = store.get().pickingStart || store.get().pickingEnd;
       /* The step list is open. This tap only folds it, so the trip stays put. */
       if (!pickingPlace && this.foldOnTap && this.foldOnTap()) {
@@ -229,14 +275,11 @@ export class CampusMap {
       /* A trip is waiting for a start or a new destination: the tap asks first, and does not open a sheet.
          A tap on empty map leaves the picker. With no route yet, that ends the trip. */
       if (store.get().pickingStart || store.get().pickingEnd) {
-        if (hits.length === 0) {
+        if (!tapped) {
           store.cancelPicking();
           return;
         }
-        const building = this.buildingsById[hits[0].properties.id];
-        if (!building) {
-          return;
-        }
+        const building = tapped;
         if (store.get().pickingStart) {
           store.proposeStart(building.id);
         } else {
@@ -244,8 +287,8 @@ export class CampusMap {
         }
         return;
       }
-      if (hits.length > 0) {
-        store.selectBuilding(this.buildingsById[hits[0].properties.id], 'map');
+      if (tapped) {
+        store.selectBuilding(tapped, 'map');
       } else {
         store.clearSelection();
       }
@@ -279,6 +322,7 @@ export class CampusMap {
     let ringId = null;
     store.subscribe((state) => {
       this.applyNames(state.showNames);
+      this.applyFilters(state);
       const pending = state.pendingStartId || state.pendingEndId;
       const ring = pending || state.selectedId;
       if (ring !== ringId && this.hasBadges()) {

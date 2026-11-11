@@ -81,6 +81,7 @@ public class NMSUMapScraper {
     }
 
     loadCache();
+    if (args[0].equals("-park-info")) { parkInfo(force); return; }
     JsonArray places = mapPlaces();                 // every place on NMSU's map (one request, then cached)
 
     List<JsonObject> wanted = new ArrayList<>();
@@ -172,6 +173,42 @@ public class NMSUMapScraper {
     if (added > 0 || markedHuman > 0) {
       System.out.println("Check `git diff data/` before you commit, so you can see exactly what changed.");
     }
+  }
+
+  /**
+   * Copy the description, links and photos of every park in tools/parks.json into data/descriptions.json,
+   * under the park's own id ("park-527603"). The parks themselves stay in data/places.geojson, which
+   * tools/build_places.py writes, so nothing is added to data/buildings.geojson.
+   * @param force true = ask NMSU again instead of using the saved copy
+   */
+  static void parkInfo(boolean force) throws Exception {
+    JsonObject parksFile = JsonParser.parseString(
+        Files.readString(Paths.get("tools", "parks.json"), StandardCharsets.UTF_8)).getAsJsonObject();
+    JsonObject descriptionsFile = readOrStart(DESCRIPTIONS_FILE, "descriptions");
+    JsonObject descriptions = descriptionsFile.getAsJsonObject("descriptions");
+    int written = 0;
+    for (JsonElement element : parksFile.getAsJsonArray("parks")) {
+      JsonObject park = element.getAsJsonObject();
+      String mapId = park.get("concept3dId").getAsString();
+      step("  " + str(park, "name"));
+      JsonObject about = describe(mapId, force);
+      if (about == null && park.has("moreMapIds")) { // some parks have their text on a second pin
+        for (JsonElement more : park.getAsJsonArray("moreMapIds")) {
+          about = describe(more.getAsString(), force);
+          if (about != null) break;
+        }
+      }
+      if (about == null) {
+        done("park-" + mapId + "  (nothing on NMSU's map)");
+        continue;
+      }
+      descriptions.add("park-" + mapId, about);
+      written++;
+      done("park-" + mapId + "  " + about.getAsJsonArray("paragraphs").size() + " paragraph(s), "
+          + (about.has("photos") ? about.getAsJsonArray("photos").size() : 0) + " photo(s)");
+    }
+    if (written > 0) write(DESCRIPTIONS_FILE, descriptionsFile);
+    System.out.println(written + " park(s) written to " + DESCRIPTIONS_FILE);
   }
 
   /**
@@ -555,8 +592,10 @@ public class NMSUMapScraper {
     // When it isn't there, say so instead of pretending NMSU told us it has one floor.
     String propertyClass = record == null ? "" : str(record, "Property_C");
     boolean storiesKnown = Pattern.compile("(\\d+)\\s*STORY").matcher(propertyClass).find();
-    p.add("floors", GSON.toJsonTree(floors(propertyClass)));
-    p.addProperty("floorsSource", storiesKnown ? SPACE_PLANNING : "Not published by NMSU (ground floor assumed)");
+    boolean outdoors = category.equals("park") || category.equals("parking");
+    p.add("floors", GSON.toJsonTree(outdoors ? new ArrayList<Integer>() : floors(propertyClass)));
+    p.addProperty("floorsSource", outdoors ? "Outdoor place: no floor plan"
+        : storiesKnown ? SPACE_PLANNING : "Not published by NMSU (ground floor assumed)");
     p.addProperty("category", category);
     p.addProperty("nmsuUrl", String.format(PAGE, mapId));
     p.addProperty("source", record != null

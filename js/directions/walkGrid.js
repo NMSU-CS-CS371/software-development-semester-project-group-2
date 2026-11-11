@@ -49,7 +49,7 @@ function pointIn(shapes, x, y) {
 }
 
 /**
- * Can this plan point be walked? Only a hallway, and never a core, a void, or the room being walked to.
+ * Can this plan point be walked? Only a hallway, and never a room, a core, a void, or the room being walked to.
  * Old plans have no hallway shapes, so the open floor is the building minus every room and core.
  * @param {object} plan
  * @param {number} x
@@ -61,10 +61,10 @@ function walkableAt(plan, x, y, blockedRoom) {
   if (plan.halls.length === 0) {
     return pointIn(plan.outlines, x, y) && !pointIn(plan.blockers, x, y);
   }
-  if (pointIn(plan.solids, x, y) || (blockedRoom && inside(blockedRoom, x, y))) {
+  if (pointIn(plan.solids, x, y) || pointIn(plan.passages, x, y) || (blockedRoom && inside(blockedRoom, x, y))) {
     return false;
   }
-  return pointIn(plan.halls, x, y);
+  return pointIn(plan.halls, x, y) || pointIn(plan.openRooms, x, y);
 }
 
 /**
@@ -218,7 +218,7 @@ function stampHalls(grid, plan, blockedRoom) {
         }
         const index = row * grid.columns + column;
         const centre = centreOf(grid, index);
-        if (pointIn(plan.solids, centre[0], centre[1]) || (blockedRoom && inside(blockedRoom, centre[0], centre[1]))) {
+        if (pointIn(plan.solids, centre[0], centre[1]) || pointIn(plan.passages, centre[0], centre[1]) || (blockedRoom && inside(blockedRoom, centre[0], centre[1]))) {
           continue;
         }
         grid.walkable[index] = 1;

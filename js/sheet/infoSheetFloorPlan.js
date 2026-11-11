@@ -329,6 +329,18 @@ function numberLine(label) {
 }
 
 /**
+ * A point in the plan's drawing space, moved into the shape's own space so a rotated shape is tested where it is drawn.
+ * @param {Element} shape
+ * @param {DOMPoint} spot
+ * @returns {DOMPoint}
+ */
+function localPoint(shape, spot) {
+  const list = shape.transform ? shape.transform.baseVal : null;
+  const joined = list && list.numberOfItems > 0 ? list.consolidate() : null;
+  return joined ? spot.matrixTransform(joined.matrix.inverse()) : spot;
+}
+
+/**
  * The smallest filled room that this label sits inside.
  * @param {Element} label
  * @returns {Element|null}
@@ -346,7 +358,11 @@ function shapeUnder(label) {
     if (tag !== 'path' && tag !== 'rect') {
       continue;
     }
-    if (shape.getAttribute('fill') === 'none' || !shape.isPointInFill(spot)) {
+    /* A hallway, the building floor and an open-to-below void are never rooms, so tapping them marks nothing. */
+    if (shape.classList.contains('hall') || shape.classList.contains('floor') || shape.classList.contains('void')) {
+      continue;
+    }
+    if (shape.getAttribute('fill') === 'none' || !shape.isPointInFill(localPoint(shape, spot))) {
       continue;
     }
     const box = shape.getBBox();

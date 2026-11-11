@@ -1,0 +1,157 @@
+{
+ "//": [
+  "HOW TO FORMAT THIS FILE (read by tools/build_places.py; run it after editing)",
+  "\"parks\" is a list of outdoor spaces on NMSU's official campus map (map.nmsu.edu). Each park:",
+  "  \"concept3dId\": 527603                     its id on NMSU's campus map (the number after #!m/ in its link)",
+  "  \"name\": \"Preciado Park\", \"kind\": \"Outdoor Spaces\"   copied from NMSU's campus map",
+  "  \"lat\": 32.27, \"lng\": -106.75               where NMSU's map puts it",
+  "  \"osmOutline\": {\"type\": \"way\", \"id\": 51543909}   its matching OpenStreetMap outline, or null. Kept for reference; the app only needs the point.",
+  "  \"photos\": []                               photos for the park, same format as a building's photos",
+  "  \"notes\": \"...\"                             how it was checked",
+  "  \"moreMapIds\": [894812]                  optional: its other pins on NMSU's campus map",
+  "Copied from the Better NMSU Maps style repo (github.com/Cloxeer/BMEPMNDYTest, data/source/parks.json)."
+ ],
+ "parks": [
+  {
+   "concept3dId": 527603,
+   "name": "Preciado Park",
+   "kind": "Outdoor Spaces",
+   "lat": 32.278271,
+   "lng": -106.751343,
+   "osmOutline": {
+    "type": "way",
+    "id": 51543909
+   },
+   "photos": [],
+   "notes": "NMSU's official map describes it as a park with a full playground, basketball court, picnic tables, and outdoor wifi. Matched exactly to an OSM way (id 51543909) tagged leisure=park, name=Preciado Park (also a listed GNIS feature), confirming it as a real, named public park. Duplicate concept3d entries 612986 (catId 60394 'Completed First Draft Revisions') and 662007 (catId 65794 'Building Labels') are internal map-editing artifacts, not separate public locations, so they were ignored. No freely licensed photo clearly depicting this specific park was found on Wikimedia Commons after multiple targeted searches (name search, geosearch within 150m, category browse of Commons' 'New Mexico State University' category); none returned an on-topic, identifiably-titled image, so photos is empty rather than guessed."
+  },
+  {
+   "concept3dId": 527602,
+   "name": "Pride Field",
+   "kind": "Outdoor Spaces",
+   "lat": 32.282249,
+   "lng": -106.754425,
+   "osmOutline": null,
+   "photos": [],
+   "notes": "NMSU's official map lists this as an outdoor field location; the map entry itself has no description text. An Overpass search (100m radius) around its coordinates found no OSM park/garden/water way or relation, so outline is null (OSM has not mapped a polygon for this space). Duplicate entry 894812 (catId 65794 'Building Labels') is an internal map-editing label, not a separate real place, so it was ignored. No qualifying freely licensed photo of Pride Field itself was found on Commons; a nearby Commons geosearch (33 m away) turned up only an unrelated plant photo, which does not depict the field, so it was not used.",
+   "moreMapIds": [
+    894812
+   ]
+  },
+  {
+   "concept3dId": 527604,
+   "name": "Alumni Pond",
+   "kind": "Outdoor Spaces",
+   "lat": 32.283398,
+   "lng": -106.745255,
+   "osmOutline": {
+    "type": "way",
+    "id": 82002944
+   },
+   "photos": [],
+   "notes": "NMSU's official map describes it as a shaded, relaxing pond stocked for permitted fishing. This matches an OSM water way (id 82002944, operator=NMSU) at the same spot, which OSM calls 'Duck Pond' with 'Alumni Pond' recorded as an alternate name (name_1) -- consistent with concept3d's separate 'DUCK POND' internal label (id 924731, catId 65794 'Building Labels'), confirming both names refer to the same real pond. That duplicate entry was ignored as an internal map note. No freely licensed photo specifically identified as this pond was found on Wikimedia Commons after name and geosearch queries."
+  },
+  {
+   "concept3dId": 528759,
+   "name": "Turtle Pond",
+   "kind": "Outdoor Spaces",
+   "lat": 32.28112,
+   "lng": -106.75602,
+   "osmOutline": {
+    "type": "way",
+    "id": 81814497
+   },
+   "photos": [],
+   "notes": "NMSU's official map describes it as a small pond on the east side of Gerald Thomas Hall containing turtles and small fish, with a small seating area. This matches an OSM water way (id 81814497) tagged name=Turtle Pond at the same location. Duplicate concept3d entry 924730 (catId 65794 'Building Labels') is an internal map-editing label, not a separate real place, so it was ignored. No freely licensed, clearly-identified photo of this pond was found on Wikimedia Commons after multiple searches."
+  },
+  {
+   "concept3dId": 568698,
+   "name": "Desert Sculpture Garden",
+   "kind": "Green Spaces",
+   "lat": 32.283325,
+   "lng": -106.749786,
+   "osmOutline": {
+    "type": "way",
+    "id": 1005468391
+   },
+   "photos": [],
+   "notes": "NMSU's official map entry has no description text; the name identifies it as a garden of desert-themed sculpture. An Overpass search found an unnamed leisure=garden way (id 1005468391) at the exact coordinates, with an editor note that the area was xeriscaped -- consistent with a desert garden, though OSM does not tag it by name, so this match is a location-based inference rather than a confirmed name match. No freely licensed, clearly-identified photo of this garden was found on Wikimedia Commons."
+  },
+  {
+   "concept3dId": 531879,
+   "name": "Community Garden",
+   "kind": "Green Spaces",
+   "lat": 32.273735,
+   "lng": -106.750656,
+   "osmOutline": null,
+   "photos": [],
+   "notes": "Listed under Concept3D category 'Green Spaces' (catId 52732). Confirmed within the Las Cruces main-campus boundary polygon in data/campuses.geojson (read-only check). No matching named way found via OpenStreetMap Overpass search (bbox query for 'Community Garden' near campus returned no result), so osmOutline is null rather than guessed."
+  },
+  {
+   "concept3dId": 635851,
+   "name": "Jose Fernandez Memorial Garden",
+   "kind": "Green Spaces",
+   "lat": 32.280872,
+   "lng": -106.764687,
+   "osmOutline": null,
+   "photos": [],
+   "notes": "Listed under Concept3D category 'Green Spaces' (catId 52732). Also known simply as 'Jose Fernandez Garden' in NMSU news coverage; it hosts the NMSU Cooperative Extension Service vegetable-variety-trial garden, located south of University Ave. behind the Courtyard by Marriott Las Cruces at NMSU. Point falls inside the Las Cruces main-campus boundary polygon (read-only check against data/campuses.geojson), unlike Fabian Garcia Botanical Gardens which sits on NMSU's separate Fabian Garcia Science Center site. No matching OSM way found via Overpass search, so osmOutline is null."
+  },
+  {
+   "concept3dId": 527598,
+   "name": "Pat & Lou Sisbarro Field",
+   "kind": "Outdoor Spaces",
+   "lat": 32.280739,
+   "lng": -106.73864,
+   "osmOutline": {
+    "type": "way",
+    "id": 436921420
+   },
+   "photos": [],
+   "notes": "Listed under Concept3D category 'Outdoor Spaces' (catId 52253), on the eastern edge of main campus near Arrowhead Drive; within the main-campus boundary polygon. OSM way 436921420 'Pat and Lou Sisbarro Community Park' (leisure=park, addr 3401 Arrowhead Drive) sits ~30 m from the Concept3D point and clearly matches by name and location."
+  },
+  {
+   "concept3dId": 527605,
+   "name": "Pete's Hideout",
+   "kind": "Outdoor Spaces",
+   "lat": 32.276936,
+   "lng": -106.752365,
+   "osmOutline": null,
+   "photos": [],
+   "notes": "Small outdoor gathering space near Corbett Center/Zuhl area, listed under Concept3D category 'Outdoor Spaces'. No matching OSM way found."
+  },
+  {
+   "concept3dId": 535106,
+   "name": "Upper Intramural Field",
+   "kind": "Outdoor Spaces",
+   "lat": 32.27845,
+   "lng": -106.746643,
+   "osmOutline": null,
+   "photos": [],
+   "notes": "Turf field used for student intramural sports, listed under Concept3D category 'Outdoor Spaces'. No matching OSM way found."
+  },
+  {
+   "concept3dId": 535107,
+   "name": "Lower Intramural Field",
+   "kind": "Outdoor Spaces",
+   "lat": 32.276543,
+   "lng": -106.748756,
+   "osmOutline": null,
+   "photos": [],
+   "notes": "Turf field used for student intramural sports, adjacent to Upper Intramural Field, listed under Concept3D category 'Outdoor Spaces'. No matching OSM way found."
+  },
+  {
+   "concept3dId": 567653,
+   "name": "Outdoor Basketball",
+   "kind": "Outdoor Spaces",
+   "lat": 32.278748,
+   "lng": -106.751289,
+   "osmOutline": null,
+   "photos": [],
+   "notes": "Outdoor basketball court near the core of campus, listed under Concept3D category 'Outdoor Spaces'. Included for completeness since the task scope explicitly covers 'outdoor space' entries in that Concept3D category, though it is a hardscape court rather than a green space -- flag for a judgment call on whether to actually plot it as a park-type marker.",
+   "moreMapIds": [
+    567654
+   ]
+  }
+ ]
+}

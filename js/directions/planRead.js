@@ -36,12 +36,62 @@ function isRoomNumber(words) {
 }
 
 /**
- * A rectangle or polygon a person cannot walk through.
+ * Move points the way a tag's transform="..." draws them. Handles rotate(a [cx cy]), translate(x [y]) and
+ * scale(x [y]), applied right to left as SVG does. A tag without a transform is returned as it is.
+ * @param {number[][]} points
+ * @param {string} transform
+ * @returns {number[][]}
+ */
+function applyTransform(points, transform) {
+  if (!transform) {
+    return points;
+  }
+  const steps = [];
+  const found = /(rotate|translate|scale)\(([^)]*)\)/gi;
+  let step = found.exec(transform);
+  while (step) {
+    steps.push({ name: step[1].toLowerCase(), args: step[2].trim().split(/[\s,]+/).map(Number) });
+    step = found.exec(transform);
+  }
+  let moved = points;
+  for (let i = steps.length - 1; i >= 0; i -= 1) {
+    const { name, args } = steps[i];
+    moved = moved.map((point) => {
+      if (name === 'translate') {
+        return [point[0] + args[0], point[1] + (Number.isFinite(args[1]) ? args[1] : 0)];
+      }
+      if (name === 'scale') {
+        return [point[0] * args[0], point[1] * (Number.isFinite(args[1]) ? args[1] : args[0])];
+      }
+      const angle = (args[0] * Math.PI) / 180;
+      const cx = Number.isFinite(args[1]) ? args[1] : 0;
+      const cy = Number.isFinite(args[2]) ? args[2] : 0;
+      const dx = point[0] - cx;
+      const dy = point[1] - cy;
+      return [cx + dx * Math.cos(angle) - dy * Math.sin(angle), cy + dx * Math.sin(angle) + dy * Math.cos(angle)];
+    });
+  }
+  return moved;
+}
+
+/**
+ * A rectangle or polygon a person cannot walk through, in plan coordinates (its own transform applied).
  * @param {string} tag
  * @param {string} kind
  * @returns {number[][]|null}
  */
 function blockerPoints(tag, kind) {
+  const points = rawPoints(tag, kind);
+  return points ? applyTransform(points, attr(tag, 'transform')) : null;
+}
+
+/**
+ * The corners of a rectangle or polygon as written, before any transform.
+ * @param {string} tag
+ * @param {string} kind
+ * @returns {number[][]|null}
+ */
+function rawPoints(tag, kind) {
   if (kind === 'rect') {
     const x = Number(attr(tag, 'x'));
     const y = Number(attr(tag, 'y'));
@@ -123,7 +173,7 @@ function addDoorOrFloor(plan, kind, tag, names) {
     return true;
   }
   if (kind === 'polygon' && names.indexOf('floor') !== -1) {
-    const points = pairNumbers(attr(tag, 'points'));
+    const points = applyTransform(pairNumbers(attr(tag, 'points')), attr(tag, 'transform'));
     if (points.length >= 3) {
       plan.outlines.push(points);
     }
@@ -153,7 +203,7 @@ function addHall(plan, kind, tag, names) {
 
 /**
  * A wall. A room shape is returned so the next number can be attached to it.
- * Rooms can be walked through. Stair cores and open-to-below voids cannot.
+ * A room is a wall unless its class is "room passable". Stair cores and open-to-below voids never can be crossed.
  * @param {object} plan
  * @param {string} kind
  * @param {string} tag
@@ -165,6 +215,10 @@ function addWall(plan, kind, tag, names) {
     return undefined;
   }
   const points = blockerPoints(tag, kind);
+  if (points && names.indexOf('passable') !== -1 && names.indexOf('room') !== -1) {
+    plan.openRooms.push(points); /* a room marked class="room passable" is floor a person may cross */
+    return points;
+  }
   if (points) {
     plan.blockers.push(points);
     if (names.some((name) => SOLID[name])) {
@@ -261,7 +315,7 @@ function addTag(plan, markup, match, pending, core) {
     const written = markup.slice(match.index + match[0].length).match(/^([^<]*)/);
     const words = written ? written[1].trim() : '';
     if (isRoomNumber(words)) {
-      plan.rooms.push({ number: words, points: pending });
+      plan.rooms.push({ number: words, points: pending, passable: plan.openRooms.indexOf(pending) !== -1 });
     }
     return null;
   }
@@ -280,6 +334,7 @@ export function planFromMarkup(markup) {
     halls: [],
     passages: [],
     solids: [],
+    openRooms: [],
     doors: [],
     stairs: [],
     elevators: [],
