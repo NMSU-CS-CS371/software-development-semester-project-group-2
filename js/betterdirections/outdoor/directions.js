@@ -1,8 +1,8 @@
 /**
- * @file js/directions/directions.js
+ * @file js/betterdirections/outdoor/directions.js
  * @summary Directions: blue arrows from where you are to the building, redrawn as you move.
  *
- * WHAT IT DOES : When directions start (the Directions button, js/bottomBar/directionsButton.js):
+ * WHAT IT DOES : When directions start (the Directions button, js/actionButtons/directionsButton.js):
  *                1. follows your GPS position,
  *                2. finds the shortest way along campus paths and streets to the
  *                   building's nearest door (or its nearest walkway if no door is
@@ -14,8 +14,8 @@
  *                4. when you reach the building pin, a door, or the end of the path,
  *                   ends directions and opens the building's sheet on the room's floor.
  *                Inside a building the blue line on the floor plan takes over
- *                (js/directions/route.js): from the main entrance, or from a stair or
- *                elevator, to the room, along hallways and rooms marked passable.
+ *                (js/betterdirections/indoor/indoorRoute.js): hallway center lines
+ *                from the doors to the room. Another floor uses the stairs.
  * DEPENDS ON   : ../core/config.js, ../core/dialogs.js, ../core/store.js, ../logic/geo.js,
  *                ./routeMath.js, ./turns.js, ./routeData.js, ./routeDrawing.js,
  *                and (handed in) the map, your location and the route card.
@@ -23,11 +23,11 @@
  * USED BY      : js/main.js
  */
 
-import { CONFIG } from '../core/config.js';
-import { askDestination, askLocationFailed, askStart, tell } from '../core/dialogs.js';
-import { store } from '../core/store.js';
-import { placeLabel } from '../logic/elevators.js';
-import { metresBetween } from '../logic/geo.js';
+import { CONFIG } from '../../core/config.js';
+import { askDestination, askLocationFailed, askStart, tell } from '../../core/dialogs.js';
+import { store } from '../../core/store.js';
+import { placeLabel } from '../../logic/elevators.js';
+import { metresBetween } from '../../logic/geo.js';
 import { nearestPoint, routeEnd, bestRoute } from './routeMath.js';
 import { planTrip } from './turns.js';
 import { RouteData } from './routeData.js';

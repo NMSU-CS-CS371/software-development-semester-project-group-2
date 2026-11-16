@@ -5,7 +5,7 @@
  * WHAT IT DOES : Works on [lng, lat] points. Distances use a flat-earth
  *                shortcut that is accurate to well under a metre across a
  *                campus, and is much simpler than full globe maths.
- * USED BY      : js/directions/directions.js, js/directions/routeMath.js, js/directions/turns.js
+ * USED BY      : js/betterdirections/outdoor/directions.js, js/betterdirections/outdoor/routeMath.js, js/betterdirections/outdoor/turns.js
  */
 
 const METRES_PER_DEGREE = 111320; // north-south length of one degree of latitude

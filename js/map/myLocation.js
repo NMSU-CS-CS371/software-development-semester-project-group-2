@@ -6,8 +6,8 @@
  *                tells listeners when that changes (so the Map settings toggle is
  *                always right), and explains when location is blocked or you're
  *                off the campus map.
- *                There's no button in here: Map settings (js/bottomBar/mapSettingsButton.js)
- *                and directions (js/directions/directions.js) use it.
+ *                There's no button in here: Map settings (js/actionButtons/mapSettingPill.js)
+ *                and directions (js/betterdirections/outdoor/directions.js) use it.
  * DEPENDS ON   : maplibre-gl's GeolocateControl (does the GPS work and draws the dot),
  *                ../core/config.js, ./compass.js.
  *                Browsers only share your location on https or localhost.

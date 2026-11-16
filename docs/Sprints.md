@@ -47,7 +47,7 @@ Scrum master: Brock Patten Technical lead: Sebastian Salgado
 Goals
 
 1. Directions from where you are to a building: walking, biking or driving. ✅ (shortest path over walk, bike and drive networks; `tests/directions.test.js`)
-2. Turn-by-turn steps and a message when you arrive. ✅ (`js/directions/turns.js`, ends with "Arrive at …")
+2. Turn-by-turn steps and a message when you arrive. ✅ (`js/betterdirections/outdoor/turns.js`, ends with "Arrive at …")
 3. Search: type a building name or code and go to that building. ✅
 4. Software Design wiki page with the UML class diagram of our real classes. ✅
 5. Non-functional Requirements wiki page, and a review of all user stories. ✅ (`docs/Non-functional-Requirements.md`, to paste into the wiki)
@@ -55,7 +55,7 @@ Goals
 
 What we will demo: pick a building, follow the directions, arrive.
 
-Also done this sprint: indoor walks may turn at 45°, never cross empty space, a wall, a stair core or a closed room, and may cross a room marked `room passable`. 72 tests, 91% line coverage.
+Also done this sprint, and later replaced: the first indoor walk was an 8×8 grid that could turn at 45°. Indoor routing is now hallway center lines in `js/betterdirections/indoor/`. The line stays on the hall, enters at the door, and a different floor uses the stairs.
 
 ## Sprint 4 — Nov 11 to Nov 28, 2026
 

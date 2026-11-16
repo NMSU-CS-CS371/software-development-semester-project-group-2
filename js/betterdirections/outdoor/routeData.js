@@ -1,5 +1,5 @@
 /**
- * @file js/directions/routeData.js
+ * @file js/betterdirections/outdoor/routeData.js
  * @summary Loads what directions need, only once and only when it's first needed.
  *
  * WHAT IT DOES : The first time directions start it loads geojson-path-finder
@@ -8,7 +8,7 @@
  *                paths from data/routes/ the first time it's used, and keeps it.
  * DEPENDS ON   : geojson-path-finder, ./routeMath.js,
  *                data/routes/{walk,bike,drive}.geojson.
- * USED BY      : js/directions/directions.js
+ * USED BY      : js/betterdirections/outdoor/directions.js
  */
 
 import { segmentCost, waysBySegment, allNetworkPoints } from './routeMath.js';

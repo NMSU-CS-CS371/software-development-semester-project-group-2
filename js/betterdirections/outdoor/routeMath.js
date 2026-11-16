@@ -1,5 +1,5 @@
 /**
- * @file js/directions/routeMath.js
+ * @file js/betterdirections/outdoor/routeMath.js
  * @summary The maths of finding a route on a network of paths. No page or map code here.
  *
  * WHAT IT DOES : A "network" is every path, street or road of one travel mode
@@ -12,10 +12,10 @@
  *                The shortest route itself is found by geojson-path-finder
  *                (Dijkstra's algorithm), which directions.js loads.
  * DEPENDS ON   : ../logic/geo.js
- * USED BY      : js/directions/routeData.js, js/directions/directions.js
+ * USED BY      : js/betterdirections/outdoor/routeData.js, js/betterdirections/outdoor/directions.js
  */
 
-import { metresBetween } from '../logic/geo.js';
+import { metresBetween } from '../../logic/geo.js';
 
 /**
  * How costly a segment is to travel: its length in metres.
@@ -119,7 +119,7 @@ function asFeature(coordinates) {
  * The best route from where you are. The nearest path isn't always the best
  * start (it can be a loop, like a running track), so this tries a few of the
  * closest starting points and keeps the shortest whole trip (straight hop + route).
- * @param {object} network - { finder, points } from js/directions/routeData.js
+ * @param {object} network - { finder, points } from js/betterdirections/outdoor/routeData.js
  * @param {number[]} here - your position
  * @param {number[]} endPoint - where the route ends on the network
  * @param {object} settings - CONFIG.directions

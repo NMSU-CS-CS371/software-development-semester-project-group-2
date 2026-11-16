@@ -1,5 +1,5 @@
 /**
- * @file js/directions/routeCard.js
+ * @file js/betterdirections/outdoor/routeCard.js
  * @summary The turn-by-turn card at the bottom of the map while directions are on.
  *
  * WHAT IT DOES : Shows the next turn ("590 ft · Turn right onto the path") with its
@@ -11,18 +11,18 @@
  *                    Swap exchanges them when the start is a building.
  *                  - X asks "Are you sure you want to end your trip?" first.
  *                It only shows while you're looking at the map (not over the sheet
- *                or search); the pill hides while it's up (js/bottomBar/bottomPill.js).
+ *                or search); the pill hides while it's up (js/actionButtons/actionPill.js).
  * DEPENDS ON   : ../core/config.js, ../core/dialogs.js, ../core/store.js, ../core/html.js,
  *                #route-card in index.html.
  * CONTROLS     : #route-card.
- * USED BY      : js/main.js (makes it and hands it to js/directions/directions.js)
+ * USED BY      : js/main.js (makes it and hands it to js/betterdirections/outdoor/directions.js)
  */
 
-import { CONFIG } from '../core/config.js';
-import { askEndTrip } from '../core/dialogs.js';
-import { store } from '../core/store.js';
-import { escapeHtml } from '../core/html.js';
-import { placeLabel } from '../logic/elevators.js';
+import { CONFIG } from '../../core/config.js';
+import { askEndTrip } from '../../core/dialogs.js';
+import { store } from '../../core/store.js';
+import { escapeHtml } from '../../core/html.js';
+import { placeLabel } from '../../logic/elevators.js';
 
 export class RouteCard {
   /**
@@ -207,7 +207,7 @@ export class RouteCard {
 
   /**
    * Put a trip on the card.
-   * @param {{ instruction: string, icon: string, summary: string, steps: object[] }} trip - from planTrip() in js/directions/turns.js
+   * @param {{ instruction: string, icon: string, summary: string, steps: object[] }} trip - from planTrip() in js/betterdirections/outdoor/turns.js
    */
   show(trip) {
     this.turnIcon.textContent = trip.icon;

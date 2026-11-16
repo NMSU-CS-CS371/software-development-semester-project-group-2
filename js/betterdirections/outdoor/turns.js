@@ -1,8 +1,8 @@
 /**
- * @file js/directions/turns.js
+ * @file js/betterdirections/outdoor/turns.js
  * @summary Turns a route into spoken-style steps: "Turn left onto Williams Avenue".
  *
- * WHAT IT DOES : Takes the route's points (from js/directions/directions.js) and:
+ * WHAT IT DOES : Takes the route's points (from js/betterdirections/outdoor/directions.js) and:
  *                1. groups them into legs: a new leg starts where the way's name
  *                   changes or the route bends sharply,
  *                2. names each turn by its angle (slight or full, left or right),
@@ -10,11 +10,11 @@
  *                4. lists every step for the expanded directions card.
  *                All the words come from config.yml (the directions section).
  * DEPENDS ON   : ../core/config.js, ../logic/geo.js
- * USED BY      : js/directions/directions.js
+ * USED BY      : js/betterdirections/outdoor/directions.js
  */
 
-import { CONFIG } from '../core/config.js';
-import { metresBetween } from '../logic/geo.js';
+import { CONFIG } from '../../core/config.js';
+import { metresBetween } from '../../logic/geo.js';
 
 const MIN_LEG_METRES = 10; // bends on legs shorter than this are too small to announce
 const FEET_PER_METRE = 3.28084;

@@ -8,8 +8,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { CONFIG } from '../js/core/config.js';
 import { metresBetween } from '../js/logic/geo.js';
-import { allNetworkPoints, nearestPoint, routeEnd, segmentCost, waysBySegment } from '../js/directions/routeMath.js';
-import { formatDistance, planTrip } from '../js/directions/turns.js';
+import { allNetworkPoints, nearestPoint, routeEnd, segmentCost, waysBySegment } from '../js/betterdirections/outdoor/routeMath.js';
+import { formatDistance, planTrip } from '../js/betterdirections/outdoor/turns.js';
 
 /* the same words and numbers as the directions section of config.yml */
 CONFIG.directions = {

@@ -1,5 +1,5 @@
 /**
- * @file js/bottomBar/directionsButton.js
+ * @file js/actionButtons/directionsButton.js
  * @summary The Directions button, and the "Get directions?" question before a trip starts.
  *
  * WHAT IT DOES : When a building is chosen, a round Directions button takes the
@@ -7,7 +7,7 @@
  *                  - no trip yet:             "Get directions to Room 228, Hardman and Jacobs…?"
  *                  - a trip somewhere else:   "You're on your way to X. Get directions to Y?"
  *                  - already going there:     no question, it just shows the route.
- *                Answering yes starts directions (js/directions/directions.js takes over).
+ *                Answering yes starts directions (js/betterdirections/outdoor/directions.js takes over).
  * DEPENDS ON   : ../core/config.js, ../core/dialogs.js, ../core/store.js,
  *                #directions-btn in index.html.
  * CONTROLS     : #directions-btn.

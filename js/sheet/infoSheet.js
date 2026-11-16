@@ -8,7 +8,7 @@ import { CONFIG } from '../core/config.js';
 import { photoSrc, store } from '../core/store.js';
 import { escapeHtml, safeUrl } from '../core/html.js';
 import { waitOneFrame } from '../core/waitOneFrame.js';
-import { routeLegs, walkWords } from '../directions/route.js';
+import { indoorWalk, walkWords } from '../betterdirections/indoor/indoorRoute.js';
 import { openPhotoView } from './infoSheetFullView.js';
 import { clearRoute, drawRoute, fillWalkNote, markRoom, shapeForNumber, wireFloorPlan } from './infoSheetFloorPlan.js';
 
@@ -407,7 +407,7 @@ export class InfoSheet {
       const entryFloor = building && building.floors && building.floors.includes(1) ? 1 : (building && building.floors && building.floors[0]);
       const entry = this.floorMarkup[entryFloor];
       const destination = this.floorMarkup[roomFloor];
-      this.routeResult = entry && destination ? routeLegs(entry, destination, number, entryFloor, roomFloor, this.way) : null;
+      this.routeResult = entry && destination ? indoorWalk(entry, destination, number, entryFloor, roomFloor, this.way) : null;
     }
     let points = null;
     const drawnLegs = this.routeResult && this.routeResult.legs;

@@ -1,5 +1,5 @@
 /**
- * @file js/directions/routeDrawing.js
+ * @file js/betterdirections/outdoor/routeDrawing.js
  * @summary Draws the route on the map: a see-through blue line with > > > arrows.
  *
  * WHAT IT DOES : - The route along paths and streets: a solid line with arrows.
@@ -9,10 +9,10 @@
  *                badges so the badges stay tappable.
  * DEPENDS ON   : a MapLibre map, ../core/config.js
  * CONTROLS     : the 'route' map source and its 'route-hops', 'route-line' and 'route-arrows' layers.
- * USED BY      : js/directions/directions.js
+ * USED BY      : js/betterdirections/outdoor/directions.js
  */
 
-import { CONFIG } from '../core/config.js';
+import { CONFIG } from '../../core/config.js';
 
 /**
  * Draw one arrow ">" as a picture the map repeats along the route.

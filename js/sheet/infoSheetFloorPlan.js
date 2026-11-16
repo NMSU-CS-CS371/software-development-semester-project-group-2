@@ -117,7 +117,53 @@ export function markRoom(svg, room) {
 }
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const ARROW_GAP = 28; /* plan units between one chevron and the next */
+
+// How thick the walk is on this plan. 1000 is the middle: Milton is ~2000, Hardman ~500.
+function lineSize(svg) {
+  const box = svg.viewBox && svg.viewBox.baseVal;
+  let span = box ? Math.min(box.width, box.height) : 0;
+  if (!span) {
+    const bounds = svg.getBBox();
+    span = Math.min(bounds.width, bounds.height);
+  }
+  return (span || 1000) / 1000;
+}
+
+// Round a sharp corner. The line leaves the corner early and curves back on.
+function smoothCorners(points, radius) {
+  if (points.length < 3 || radius <= 0) {
+    return points;
+  }
+  const curved = [points[0]];
+  for (let i = 1; i < points.length - 1; i++) {
+    const before = points[i - 1];
+    const corner = points[i];
+    const after = points[i + 1];
+    const inLen = Math.hypot(corner[0] - before[0], corner[1] - before[1]) || 1;
+    const outLen = Math.hypot(after[0] - corner[0], after[1] - corner[1]) || 1;
+    const cut = Math.min(radius, inLen / 2, outLen / 2);
+    const start = [
+      corner[0] + (before[0] - corner[0]) * (cut / inLen),
+      corner[1] + (before[1] - corner[1]) * (cut / inLen),
+    ];
+    const end = [
+      corner[0] + (after[0] - corner[0]) * (cut / outLen),
+      corner[1] + (after[1] - corner[1]) * (cut / outLen),
+    ];
+    curved.push(start);
+    for (let step = 1; step <= 3; step++) {
+      const t = step / 4;
+      const stay = 1 - t;
+      curved.push([
+        stay * stay * start[0] + 2 * stay * t * corner[0] + t * t * end[0],
+        stay * stay * start[1] + 2 * stay * t * corner[1] + t * t * end[1],
+      ]);
+    }
+    curved.push(end);
+  }
+  curved.push(points[points.length - 1]);
+  return curved;
+}
 
 /**
  * Draw the walk on this plan. A later call replaces the previous line.
@@ -130,13 +176,15 @@ export function drawRoute(svg, points) {
   if (!points || points.length < 2) {
     return;
   }
+  const size = lineSize(svg);
+  const curved = smoothCorners(points, 16 * size);
   const layer = document.createElementNS(SVG_NS, 'g');
   layer.setAttribute('class', 'indoor-route');
-  layer.append(routeLine(points));
-  for (const spot of arrowSpots(points)) {
-    layer.append(arrowAt(spot));
+  layer.append(routeLine(curved, size));
+  for (const spot of arrowSpots(curved, 28 * size)) {
+    layer.append(arrowAt(spot, size));
   }
-  layer.append(startMark(points[0]));
+  layer.append(startMark(curved[0], size));
   svg.append(layer);
 }
 
@@ -156,9 +204,10 @@ export function clearRoute(svg) {
  * @param {number[][]} points
  * @returns {SVGPolylineElement}
  */
-function routeLine(points) {
+function routeLine(points, size) {
   const line = document.createElementNS(SVG_NS, 'polyline');
   line.setAttribute('class', 'indoor-route-line');
+  line.style.strokeWidth = String(5 * size);
   const pairs = [];
   for (const point of points) {
     pairs.push(point[0] + ',' + point[1]);
@@ -172,7 +221,7 @@ function routeLine(points) {
  * @param {number[][]} points
  * @returns {{ x: number, y: number, angle: number }[]}
  */
-function arrowSpots(points) {
+function arrowSpots(points, gap) {
   const spans = [];
   let total = 0;
   for (let i = 1; i < points.length; i += 1) {
@@ -181,7 +230,7 @@ function arrowSpots(points) {
     total += length;
   }
   const spots = [];
-  for (let distance = ARROW_GAP * 0.7; distance < total - 10; distance += ARROW_GAP) {
+  for (let distance = gap * 0.7; distance < total - gap * 0.35; distance += gap) {
     const spot = spotAt(points, spans, distance);
     if (spot) {
       spots.push(spot);
@@ -227,10 +276,14 @@ function spotAt(points, spans, distance) {
  * @param {{ x: number, y: number, angle: number }} spot
  * @returns {SVGPathElement}
  */
-function arrowAt(spot) {
+function arrowAt(spot, size) {
   const arrow = document.createElementNS(SVG_NS, 'path');
   arrow.setAttribute('class', 'indoor-arrow');
-  arrow.setAttribute('d', 'M -7 -9 L 8 0 L -7 9');
+  arrow.style.strokeWidth = String(3.25 * size);
+  const back = 7 * size;
+  const side = 9 * size;
+  const tip = 8 * size;
+  arrow.setAttribute('d', 'M ' + (-back) + ' ' + (-side) + ' L ' + tip + ' 0 L ' + (-back) + ' ' + side);
   arrow.setAttribute('transform', 'translate(' + spot.x + ' ' + spot.y + ') rotate(' + spot.angle + ')');
   return arrow;
 }
@@ -240,16 +293,17 @@ function arrowAt(spot) {
  * @param {number[]} point
  * @returns {SVGGElement}
  */
-function startMark(point) {
+function startMark(point, size) {
   const mark = document.createElementNS(SVG_NS, 'g');
   mark.setAttribute('class', 'indoor-start');
   mark.setAttribute('transform', 'translate(' + point[0] + ' ' + point[1] + ')');
   const ring = document.createElementNS(SVG_NS, 'circle');
   ring.setAttribute('class', 'indoor-start-ring');
-  ring.setAttribute('r', '13');
+  ring.setAttribute('r', String(13 * size));
+  ring.style.strokeWidth = String(2.5 * size);
   const dot = document.createElementNS(SVG_NS, 'circle');
   dot.setAttribute('class', 'indoor-start-dot');
-  dot.setAttribute('r', '6');
+  dot.setAttribute('r', String(6 * size));
   mark.append(ring, dot);
   return mark;
 }
@@ -295,6 +349,11 @@ export function fillWalkNote(note, sentence, words, swap) {
 export function numberOf(room) {
   if (isElevatorShape(room)) {
     return elevatorName(elevatorShapes(room.ownerSVGElement).indexOf(room));
+  }
+  const marked = room.getAttribute('data-room-number');
+  const onGroup = room.parentElement && room.parentElement.getAttribute('data-room-number');
+  if (marked || onGroup) {
+    return marked || onGroup;
   }
   const label = room.nextElementSibling;
   if (label && label.tagName === 'text' && isRoomNumber(label.textContent)) {
@@ -358,8 +417,8 @@ function shapeUnder(label) {
     if (tag !== 'path' && tag !== 'rect') {
       continue;
     }
-    /* A hallway, the building floor and an open-to-below void are never rooms, so tapping them marks nothing. */
-    if (shape.classList.contains('hall') || shape.classList.contains('floor') || shape.classList.contains('void')) {
+    /* Only a room. The building outline and the gray floor are not rooms. */
+    if (!shape.classList.contains('room') || shape.classList.contains('hall') || shape.classList.contains('floor') || shape.classList.contains('void')) {
       continue;
     }
     if (shape.getAttribute('fill') === 'none' || !shape.isPointInFill(localPoint(shape, spot))) {
@@ -394,13 +453,6 @@ export function roomFrom(target) {
   const label = target.closest('text');
   if (label) {
     return shapeUnder(label);
-  }
-  if ((target.tagName === 'path' || target.tagName === 'rect') && target.getAttribute('fill') !== 'none') {
-    for (const child of target.parentElement.children) {
-      if (child.tagName === 'text' && shapeUnder(child) === target) {
-        return target;
-      }
-    }
   }
   return null;
 }
