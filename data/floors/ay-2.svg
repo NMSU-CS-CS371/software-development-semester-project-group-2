@@ -46,9 +46,9 @@
   <rect class="room" x="65" y="100" width="150" height="89"/><text class="lbl" x="140" y="145">R214</text>
   <rect class="room" x="65" y="205" width="155" height="70"/><text class="lbl" x="143" y="240">R216</text>
   <rect class="room" x="65" y="280" width="220" height="195"/><text class="lbl" x="175" y="378">201</text>
-  <rect class="room" x="65" y="480" width="100" height="190"/><text class="lbl" x="115" y="575">202B</text>
+  <rect class="room" x="65" y="475" width="100" height="190"/><text class="lbl" x="115" y="570">202B</text>
   <rect class="room" x="165" y="475" width="120" height="70"/><text class="lbl" x="225" y="510">202</text>
-  <rect class="room" x="165" y="545" width="115" height="125"/><text class="lbl" x="223" y="608">202A</text>
+  <rect class="room" x="170" y="545" width="115" height="125"/><text class="lbl" x="228" y="608">202A</text>
   <rect class="room" x="290" y="545" width="105" height="135"/><text class="lbl" x="343" y="613">203</text>
   <rect class="room" x="400" y="545" width="115" height="155"/><text class="lbl" x="458" y="623">204</text>
   <rect class="room" x="725" y="545" width="110" height="160"/><text class="lbl" x="780" y="625">205</text>
@@ -60,16 +60,15 @@
   <rect class="room" x="565" y="105" width="95" height="120"/><text class="lbl" x="613" y="165">211B</text>
   <rect class="room" x="660" y="105" width="100" height="120"/><text class="lbl" x="710" y="165">211A</text>
   <rect class="room" x="765" y="105" width="105" height="120"/><text class="lbl" x="818" y="165">210</text>
-  <rect class="room" x="355" y="335" width="190" height="135"/><text class="lbl" x="450" y="403">217</text>
-  <rect class="room" x="440" y="280" width="105" height="50"/><text class="lblS" x="493" y="305">218A</text>
-  <rect class="room" x="550" y="280" width="160" height="190"/><text class="lbl" x="630" y="375">218</text>
-  <rect class="room" x="715" y="280" width="150" height="90"/><text class="lbl" x="790" y="325">220</text>
-  <rect class="room" x="715" y="380" width="150" height="95"/><text class="lbl" x="790" y="428">219</text>
+  <rect class="room" x="355" y="340" width="190" height="135"/><text class="lbl" x="450" y="408">217</text>
+  <rect class="room" x="435" y="275" width="105" height="50"/><text class="lblS" x="488" y="300">218A</text>
+  <rect class="room" x="545" y="275" width="160" height="190"/><text class="lbl" x="625" y="370">218</text>
+  <rect class="room" x="705" y="275" width="150" height="90"/><text class="lbl" x="780" y="320">220</text>
+  <rect class="room" x="720" y="380" width="150" height="95"/><text class="lbl" x="795" y="428">219</text>
   <rect class="room" x="940" y="185" width="205" height="155"/><text class="lbl" x="1043" y="263">209</text>
-  <polygon class="room" points="945,345 1050,345 1155,345 1155,495 1030,495 1030,420 945,420"/><text class="lbl" x="1066" y="410">208</text>
-  <rect class="room" x="940" y="425" width="85" height="70"/><text class="lbl" x="983" y="460">208A</text>
+  <polygon class="room" points="940,340 1045,340 1150,340 1150,490 1025,490 1025,415 940,415"/><text class="lbl" x="1061" y="405">208</text>
+  <rect class="room" x="940" y="417" width="85" height="70"/><text class="lbl" x="983" y="452">208A</text>
   <rect class="room" x="940" y="500" width="215" height="170"/><text class="lbl" x="1048" y="585">207</text>
-  <rect class="room" x="1080" y="100" width="70" height="85"/><text class="lbl" x="1115" y="143">209B</text>
 
   <rect class="core" x="940" y="105" width="125" height="70"/>
   <g class="stair"><line x1="940" y1="114" x2="1065" y2="114"/><line x1="940" y1="132" x2="1065" y2="132"/><line x1="940" y1="150" x2="1065" y2="150"/><line x1="940" y1="168" x2="1065" y2="168"/></g>

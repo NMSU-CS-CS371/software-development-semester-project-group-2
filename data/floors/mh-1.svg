@@ -72,7 +72,7 @@
   <rect class="hall" x="1975" y="700" width="175" height="45"/>
   <text class="hall-lbl" x="2313" y="167">Hallway</text>
   <text class="hall-lbl" x="543" y="1097">Hallway</text>
-  <text class="hall-lbl" x="1173" y="1292">Hallway</text>
+  <text class="hall-lbl" x="1173" y="1297">Hallway</text>
   <text class="hall-lbl" x="1263" y="201">Hallway</text>
   <text class="hall-lbl" x="1548" y="156">Hallway</text>
   <text class="hall-lbl" x="993" y="201">Hallway</text>
@@ -100,10 +100,10 @@
   <rect class="room" x="95" y="1155" width="125" height="80"/><text class="lbl" x="158" y="1195">185G</text>
   <rect class="room" x="95" y="1005" width="85" height="150"/><text class="lbl" x="138" y="1080">185H</text>
   <rect class="room" x="575" y="440" width="350" height="280"/><text class="lbl" x="750" y="580">171</text>
-  <rect class="room" x="980" y="505" width="190" height="175"/><text class="lbl" x="1075" y="593">151</text>
-  <rect class="room" x="1175" y="570" width="60" height="45"/><text class="lblS" x="1205" y="593">152</text>
-  <rect class="room" x="1285" y="505" width="165" height="160"/><text class="lbl" x="1368" y="585">153</text>
-  <rect class="room" x="1450" y="505" width="105" height="195"/><text class="lbl" x="1503" y="603">154</text>
+  <rect class="room" x="980" y="500" width="190" height="180"/><text class="lbl" x="1075" y="590">151</text>
+  <rect class="room" x="1175" y="500" width="60" height="115"/><text class="lblS" x="1205" y="558">152</text>
+  <rect class="room" x="1285" y="500" width="165" height="165"/><text class="lbl" x="1368" y="583">153</text>
+  <rect class="room" x="1450" y="500" width="105" height="200"/><text class="lbl" x="1503" y="600">154</text>
   <rect class="room" x="1605" y="610" width="65" height="85"/><text class="lblS" x="1638" y="653">187</text>
   <rect class="room" x="1605" y="500" width="230" height="110"/><text class="lbl" x="1720" y="555">186</text>
   <rect class="room" x="1670" y="610" width="165" height="85"/><text class="lbl" x="1753" y="653">188</text>
@@ -137,7 +137,7 @@
   <rect class="room" x="980" y="860" width="60" height="80"/><text class="lblS" x="1010" y="900">137</text>
   <rect class="room" x="980" y="755" width="135" height="55"/><text class="lblS" x="1048" y="783">146</text>
   <rect class="room" x="1115" y="685" width="50" height="120"/><text class="lblS" x="1140" y="745">148</text>
-  <rect class="room" x="1245" y="710" width="85" height="90"/><text class="lbl" x="1288" y="755">136</text>
+  <rect class="room" x="1230" y="715" width="85" height="90"/><text class="lbl" x="1273" y="760">136</text>
   <rect class="room" x="1265" y="955" width="105" height="170"/><text class="lbl" x="1318" y="1040">133</text>
   <rect class="room" x="1265" y="815" width="110" height="135"/><text class="lbl" x="1320" y="883">134</text>
   <rect class="room" x="1455" y="245" width="210" height="195"/><text class="lbl" x="1560" y="343">189</text>
@@ -148,15 +148,15 @@
   <polygon class="room" points="2315,710 2350,745 2274,819 2235,770"/><text class="lbl" x="2292" y="763">109C</text>
   <rect class="room" x="2155" y="790" width="47" height="75"/><text class="lblS" x="2179" y="828">100C</text>
   <polygon class="room" points="2155,905 2217,860 2260,909 2160,990"/><text class="lbl" x="2198" y="919">100B</text>
-  <polygon class="room" points="2200,965 2275,1050 2165,1140 2160,990"/><text class="lbl" x="2203" y="1046">100A</text>
+  <polygon class="room" points="2205,955 2275,1045 2165,1140 2160,990"/><text class="lbl" x="2204" y="1041">100A</text>
   <polygon class="room" points="2208,958 2266,911 2351,1017 2293,1064"/><text class="lbl" x="2280" y="988">100</text>
   <rect class="room" x="1325" y="240" width="115" height="100"/><text class="lbl" x="1383" y="290">116</text>
   <rect class="room" x="1230" y="240" width="90" height="100"/><text class="lbl" x="1275" y="290">117</text>
   <rect class="room" x="1135" y="240" width="90" height="100"/><text class="lbl" x="1180" y="290">118</text>
   <rect class="room" x="1035" y="240" width="95" height="100"/><text class="lbl" x="1083" y="290">119</text>
   <rect class="room" x="880" y="245" width="100" height="100"/><text class="lbl" x="930" y="295">120</text>
-  <rect class="room" x="695" y="250" width="135" height="90"/><text class="lbl" x="763" y="295">121A</text>
-  <rect class="room" x="690" y="170" width="145" height="80"/><text class="lbl" x="763" y="210">121</text>
+  <rect class="room" x="695" y="250" width="140" height="90"/><text class="lbl" x="765" y="295">121A</text>
+  <rect class="room" x="690" y="165" width="145" height="85"/><text class="lbl" x="763" y="208">121</text>
   <polygon class="room" points="2695,533 2765,463 2857,555 2787,625"/><text class="lbl" x="2776" y="544">105A</text>
   <polygon class="room" points="2560,635 2680,540 2738,596 2620,700"/><text class="lbl" x="2649" y="619">105</text>
   <polygon class="room" points="2475,545 2530,500 2610,585 2555,625"/><text class="lbl" x="2542" y="563">106C</text>
@@ -164,7 +164,7 @@
   <polygon class="room" points="2565,295 2735,470 2615,570 2435,400"/><text class="lbl" x="2586" y="433">106D</text>
   <polygon class="room" points="2450,640 2515,590 2550,630 2490,685"/><text class="lbl" x="2501" y="637">105B</text>
   <polygon class="room" points="2502,784 2550,847 2499,887 2451,824"/><text class="lbl" x="2501" y="836">102</text>
-  <polygon class="room" points="2437,835 2480,890 2445,917 2402,862"/><text class="lbl" x="2441" y="876">101</text>
+  <polygon class="room" points="2430,826 2475,886 2440,913 2390,856"/><text class="lbl" x="2433" y="870">101</text>
   <polygon class="room" points="2385,865 2438,925 2403,955 2350,895"/><text class="lbl" x="2394" y="910">101A</text>
   <polygon class="room" points="2320,705 2350,683 2385,725 2358,747"/><text class="lblS" x="2353" y="715">107C</text>
   <polygon class="room" points="2485,737 2368,835 2322,783 2442,690"/><text class="lbl" x="2403" y="762">107</text>
@@ -176,7 +176,7 @@
   <polygon class="room" points="2595,265 2765,440 2735,460 2570,290"/><text class="lbl" x="2666" y="364">105C</text>
   <rect class="room" x="1665" y="245" width="87" height="65"/><text class="lblS" x="1709" y="278">190</text>
   <rect class="room" x="1665" y="310" width="87" height="60"/><text class="lblS" x="1709" y="340">191</text>
-  <polygon class="room" points="1752,325 1813,277 1847,320 1762,380"/><text class="lbl" x="1795" y="326">192</text>
+  <polygon class="room" points="1752,325 1810,260 1860,320 1780,385"/><text class="lbl" x="1802" y="322">192</text>
   <rect class="room" x="1690" y="380" width="80" height="60"/><text class="lblS" x="1730" y="410">189A</text>
   <rect class="room" x="1600" y="890" width="286" height="185"/><text class="lbl" x="1743" y="983">157</text>
 
@@ -184,8 +184,8 @@
   <g class="stair"><line x1="0" y1="719" x2="125" y2="719"/><line x1="0" y1="737" x2="125" y2="737"/><line x1="0" y1="755" x2="125" y2="755"/><line x1="0" y1="773" x2="125" y2="773"/><line x1="0" y1="791" x2="125" y2="791"/></g>
   <rect class="core" x="835" y="-15" width="90" height="180"/>
   <g class="stair"><line x1="835" y1="-6" x2="925" y2="-6"/><line x1="835" y1="12" x2="925" y2="12"/><line x1="835" y1="30" x2="925" y2="30"/><line x1="835" y1="48" x2="925" y2="48"/><line x1="835" y1="66" x2="925" y2="66"/><line x1="835" y1="84" x2="925" y2="84"/><line x1="835" y1="102" x2="925" y2="102"/><line x1="835" y1="120" x2="925" y2="120"/><line x1="835" y1="138" x2="925" y2="138"/><line x1="835" y1="156" x2="925" y2="156"/></g>
-  <rect class="core" x="1060" y="1180" width="135" height="55"/>
-  <g class="stair"><line x1="1060" y1="1189" x2="1195" y2="1189"/><line x1="1060" y1="1207" x2="1195" y2="1207"/><line x1="1060" y1="1225" x2="1195" y2="1225"/></g>
+  <rect class="core" x="1060" y="1180" width="135" height="70"/>
+  <g class="stair"><line x1="1060" y1="1189" x2="1195" y2="1189"/><line x1="1060" y1="1207" x2="1195" y2="1207"/><line x1="1060" y1="1225" x2="1195" y2="1225"/><line x1="1060" y1="1243" x2="1195" y2="1243"/></g>
   <rect class="core" x="1640" y="-84" width="83" height="228" transform="rotate(232 1682 30)"/>
   <g class="stair" transform="rotate(232 1682 30)"><line x1="1649" y1="-84" x2="1649" y2="144"/><line x1="1667" y1="-84" x2="1667" y2="144"/><line x1="1685" y1="-84" x2="1685" y2="144"/><line x1="1703" y1="-84" x2="1703" y2="144"/><line x1="1721" y1="-84" x2="1721" y2="144"/></g>
   <rect class="core" x="2546" y="84" width="75" height="135" transform="rotate(315 2584 152)"/>
