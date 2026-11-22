@@ -47,32 +47,31 @@
   <rect class="room" x="110" y="140" width="160" height="105"/><text class="lbl" x="190" y="193">R113</text>
   <rect class="room" x="110" y="255" width="145" height="75"/><text class="lbl" x="183" y="293">R115</text>
   <rect class="room" x="110" y="340" width="230" height="160"/><text class="lbl" x="225" y="420">100</text>
-  <rect class="room" x="105" y="500" width="115" height="130"/><text class="lbl" x="163" y="565">100A</text>
+  <rect class="room" x="110" y="500" width="115" height="130"/><text class="lbl" x="168" y="565">100A</text>
   <rect class="room" x="265" y="500" width="70" height="80"/><text class="lbl" x="300" y="540">101A</text>
   <rect class="room" x="275" y="185" width="65" height="105"/><text class="lblS" x="308" y="238">J114</text>
   <polygon class="room" points="225,500 265,500 265,580 340,580 340,635 225,635 225,568"/><text class="lbl" x="270" y="585">101</text>
-  <rect class="room" x="105" y="635" width="230" height="140"/><text class="lbl" x="220" y="705">102</text>
+  <rect class="room" x="110" y="635" width="230" height="140"/><text class="lbl" x="225" y="705">102</text>
   <rect class="room" x="340" y="640" width="115" height="135"/><text class="lbl" x="398" y="708">103</text>
   <rect class="room" x="460" y="640" width="110" height="175"/><text class="lbl" x="515" y="728">104</text>
   <rect class="room" x="575" y="740" width="65" height="80"/><text class="lblS" x="608" y="780">104A</text>
   <rect class="room" x="735" y="740" width="60" height="75"/><text class="lblS" x="765" y="778">105A</text>
   <rect class="room" x="805" y="640" width="115" height="175"/><text class="lbl" x="863" y="728">105</text>
   <rect class="room" x="405" y="285" width="115" height="75"/><text class="lbl" x="463" y="323">116</text>
-  <rect class="room" x="405" y="405" width="214" height="160"/><text class="lbl" x="512" y="485">118</text>
+  <rect class="room" x="405" y="395" width="214" height="160"/><text class="lbl" x="512" y="475">118</text>
   <rect class="room" x="405" y="140" width="145" height="145"/><text class="lbl" x="478" y="213">112</text>
   <rect class="room" x="550" y="145" width="65" height="140"/><text class="lblS" x="583" y="215">111A</text>
-  <rect class="room" x="620" y="145" width="140" height="140"/><text class="lbl" x="690" y="215">111</text>
-  <rect class="room" x="765" y="150" width="200" height="130"/><text class="lbl" x="865" y="215">110</text>
-  <rect class="room" x="525" y="290" width="155" height="110"/><text class="lbl" x="603" y="345">T116A</text>
-  <rect class="room" x="690" y="285" width="165" height="115"/><text class="lbl" x="773" y="343">121A</text>
-  <rect class="room" x="860" y="290" width="105" height="110"/><text class="lbl" x="913" y="345">121</text>
-  <rect class="room" x="690" y="415" width="280" height="150"/><text class="lbl" x="830" y="490">119</text>
+  <rect class="room" x="630" y="140" width="140" height="140"/><text class="lbl" x="700" y="210">111</text>
+  <rect class="room" x="770" y="140" width="200" height="130"/><text class="lbl" x="870" y="205">110</text>
+  <rect class="room" x="520" y="285" width="155" height="110"/><text class="lbl" x="598" y="340">T116A</text>
+  <rect class="room" x="700" y="280" width="165" height="115"/><text class="lbl" x="783" y="338">121A</text>
+  <rect class="room" x="865" y="285" width="105" height="110"/><text class="lbl" x="918" y="340">121</text>
+  <rect class="room" x="690" y="395" width="280" height="150"/><text class="lbl" x="830" y="470">119</text>
   <rect class="room" x="925" y="640" width="110" height="140"/><text class="lbl" x="980" y="710">106</text>
   <rect class="room" x="1040" y="600" width="225" height="180"/><text class="lbl" x="1153" y="690">107</text>
   <rect class="room" x="1040" y="510" width="225" height="85"/><text class="lbl" x="1153" y="553">107A</text>
   <rect class="room" x="1040" y="380" width="225" height="125"/><text class="lbl" x="1153" y="443">108</text>
   <rect class="room" x="1040" y="240" width="225" height="140"/><text class="lbl" x="1153" y="310">109</text>
-  <rect class="room" x="1190" y="150" width="75" height="90"/><text class="lbl" x="1228" y="195">109A</text>
 
   <rect class="core" x="960" y="25" width="95" height="115"/>
   <g class="stair"><line x1="960" y1="34" x2="1055" y2="34"/><line x1="960" y1="52" x2="1055" y2="52"/><line x1="960" y1="70" x2="1055" y2="70"/><line x1="960" y1="88" x2="1055" y2="88"/><line x1="960" y1="106" x2="1055" y2="106"/><line x1="960" y1="124" x2="1055" y2="124"/></g>
